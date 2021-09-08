@@ -7,4 +7,4 @@ Este diretório mantém os artefatos do projeto.
 - `/CasoPrevisto`
   - **README.md**: Documento contendo caso previsto na Resolução de TCC 1 para este projeto
 - `/DocumentoDeVisão`
-  - **DocVisão.pdf**: Documento contendo caso previsto na Resolução de TCC 1 para este projeto
+  - **DocumentoDeVisão.pdf**: Documento contendo caso previsto na Resolução de TCC 1 para este projeto
