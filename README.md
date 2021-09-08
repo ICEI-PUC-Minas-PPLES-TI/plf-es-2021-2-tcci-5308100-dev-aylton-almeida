@@ -1,18 +1,15 @@
-# Nome do projeto
+# Sistema de Gerência de Entregas por Oferta
 
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+Este repositório tem como objetivo descrever o projeto de TCC do desenvolvimento de um sistema de gerência de entregas por ofertas. Este sistema tem como objetivo servir de plataforma de gerência de entregas para compras coletivas realizadas pela empresa Zapt.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+- Aylton Bernardino de Almeida Junior
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+- José Laerte Pires Xavier Junior
+- Lesandro Ponciano dos Santos
 
 ## Instruções de utilização
 
