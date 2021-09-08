@@ -8,3 +8,5 @@ Este diretório mantém os artefatos do projeto.
   - **README.md**: Documento contendo caso previsto na Resolução de TCC 1 para este projeto
 - `/DocumentoDeVisão`
   - **DocumentoDeVisão.pdf**: Documento contendo caso previsto na Resolução de TCC 1 para este projeto
+- `/DocumentaçãoDoProjeto`
+  - **DocumentacaoDoProjeto.pdf**: Documentação completado do projeto contendo diagramas e especificações desse.
