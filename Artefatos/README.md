@@ -12,6 +12,10 @@ Este diretório mantém os artefatos do projeto.
   - **DocumentacaoDoProjeto.pdf**: Documentação completa do projeto contendo diagramas e especificações.
 - `/Diagramas`
   - **Diagrams.asta**: Arquivo Astah contendo os diagramas desenvolvidos para o projeto.
-  - **CasoDeUso.png**: PDF contendo o diagrama de caso de uso referente ao projeto.
+  - **UseCase.png**: Imagem contendo o diagrama de caso de uso referente ao projeto.
+  - `/Classe`:
+    - **ModelsClassDiagram.png**: Imagem contendo diagrama de classes dos modelos de objetos da aplicação
+  - `/Sequência`
+    - **AuthenticateSupplier**: Imagem contendo diagram de sequência descrevendo o fluxo de autenticação do fornecedor
 - `/Mockup`
   - **\*.png**: Todos arquivos terminados em `.png` contidos nesta pasta representam telas referentes ao mockup do projeto.
