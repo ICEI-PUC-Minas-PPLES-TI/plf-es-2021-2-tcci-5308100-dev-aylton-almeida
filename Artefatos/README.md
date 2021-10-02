@@ -16,6 +16,13 @@ Este diretório mantém os artefatos do projeto.
   - `/Classe`:
     - **ModelsClassDiagram.png**: Imagem contendo diagrama de classes dos modelos de objetos da aplicação
   - `/Sequência`
-    - **AuthenticateSupplier**: Imagem contendo diagram de sequência descrevendo o fluxo de autenticação do fornecedor
+    - **AuthenticateSupplier.png**: Imagem contendo diagrama de sequência descrevendo o fluxo de autenticação do fornecedor
+  - `/Sequência do Sistema`
+    - **Autenticar Entregador.png**: Imagem contendo diagrama do fluxo de autenticação de um entregador
+    - **Autenticar Fornecedor.png**: Imagem contendo diagrama do fluxo de autenticação de um fornecedor
+    - **Compartilhar Entrega.png**: Imagem contendo diagrama do fluxo de compartilhamento da entrega de um fornecedor com um entregador
+    - **Entrega dos Pedidos.png**: Imagem contendo diagrama do fluxo de entrega dos pedidos de uma entrega
+    - **Fornecedor Sair da Aplicação.png**: Imagem contendo diagrama do fluxo da saida do fornecedor da aplicação
+    - **Gerar rota de Entrega Otimizada.png**: Imagem contendo diagrama do fluxo em que a rota de entrega otimizada é gerada
 - `/Mockup`
   - **\*.png**: Todos arquivos terminados em `.png` contidos nesta pasta representam telas referentes ao mockup do projeto.
