@@ -14,15 +14,12 @@ Este diretório mantém os artefatos do projeto.
   - **Diagrams.asta**: Arquivo Astah contendo os diagramas desenvolvidos para o projeto.
   - **UseCase.png**: Imagem contendo o diagrama de caso de uso referente ao projeto.
   - `/Classe`:
-    - **ModelsClassDiagram.png**: Imagem contendo diagrama de classes dos modelos de objetos da aplicação
+    - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de classes, representando os diversos pacotes e classes do sistema.
+  - `/Comunicação`:
+    - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de comunicação, essas que representam as interações entre os objetos do sistema por meio de grafos.
   - `/Sequência`
-    - **AuthenticateSupplier.png**: Imagem contendo diagrama de sequência descrevendo o fluxo de autenticação do fornecedor
+    - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de sequência, modelando a interação dos usuários com os pacotes dos sistemas, assim como os pacotes e eles mesmos.
   - `/Sequência do Sistema`
-    - **Autenticar Entregador.png**: Imagem contendo diagrama do fluxo de autenticação de um entregador
-    - **Autenticar Fornecedor.png**: Imagem contendo diagrama do fluxo de autenticação de um fornecedor
-    - **Compartilhar Entrega.png**: Imagem contendo diagrama do fluxo de compartilhamento da entrega de um fornecedor com um entregador
-    - **Entrega dos Pedidos.png**: Imagem contendo diagrama do fluxo de entrega dos pedidos de uma entrega
-    - **Fornecedor Sair da Aplicação.png**: Imagem contendo diagrama do fluxo da saida do fornecedor da aplicação
-    - **Gerar rota de Entrega Otimizada.png**: Imagem contendo diagrama do fluxo em que a rota de entrega otimizada é gerada
+    - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de sequência do sistema, modelando os fluxo de interação do sistema com os usuários.
 - `/Mockup`
   - **\*.png**: Todos arquivos terminados em `.png` contidos nesta pasta representam telas referentes ao mockup do projeto.
