@@ -13,8 +13,13 @@ Este diretório mantém os artefatos do projeto.
 - `/Diagramas`
   - **Diagrams.asta**: Arquivo Astah contendo os diagramas desenvolvidos para o projeto.
   - **UseCase.png**: Imagem contendo o diagrama de caso de uso referente ao projeto.
+  - **Component.png**: Imagem contendo o diagrama de componentes referente ao projeto.
+  - **Deployment.png**: Imagem contendo o diagrama de implantação referente ao projeto.
+  - **Package.png**: Imagem contendo o diagrama de pacotes referente ao projeto.
   - `/Classe`:
     - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de classes, representando os diversos pacotes e classes do sistema.
+  - `/Estado`:
+    - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de estados, representando os fluxos de mudança de estado presentes na aplicação.
   - `/Comunicação`:
     - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de comunicação, essas que representam as interações entre os objetos do sistema por meio de grafos.
   - `/Sequência`
