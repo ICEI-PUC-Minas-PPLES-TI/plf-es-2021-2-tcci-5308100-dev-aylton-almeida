@@ -15,6 +15,7 @@ Este diretório mantém os artefatos do projeto.
   - **UseCase.png**: Imagem contendo o diagrama de caso de uso referente ao projeto.
   - **Component.png**: Imagem contendo o diagrama de componentes referente ao projeto.
   - **Deployment.png**: Imagem contendo o diagrama de implantação referente ao projeto.
+  - **DER.png**: Image contendo o diagrama de entidades e relações do banco de dados da aplicação
   - **Package.png**: Imagem contendo o diagrama de pacotes referente ao projeto.
   - `/Classe`:
     - **\*.png**: Toda imagem terminada em `*.png` desta pasta representa um diagrama de classes, representando os diversos pacotes e classes do sistema.
