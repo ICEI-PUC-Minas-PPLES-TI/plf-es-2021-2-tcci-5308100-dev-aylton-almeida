@@ -1,5 +1,3 @@
-import 'package:delivery_manager/app/controllers/app_controller.dart';
-import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -18,10 +16,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => Get.find<AppController>().showAlert(
-            const Text('This is a success alert'),
-            type: AlertType.success,
-          ),
+          onPressed: controller.handleButtonPressed,
           child: const Text('Show an alert'),
         ),
       ),

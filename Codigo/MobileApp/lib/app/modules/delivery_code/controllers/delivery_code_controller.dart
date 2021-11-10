@@ -1,3 +1,5 @@
+import 'package:delivery_manager/app/controllers/app_controller.dart';
+import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:get/get.dart';
 
 class DeliveryCodeController extends GetxController {
@@ -16,5 +18,9 @@ class DeliveryCodeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  void handleButtonPressed() => Get.find<AppController>().showAlert(
+        text: 'This is a success alert',
+        type: AlertType.success,
+      );
 }
