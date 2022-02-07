@@ -1,4 +1,4 @@
-# delivery_manager
+# Delivery Manager
 
 A new Flutter project.
 
