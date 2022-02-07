@@ -15,7 +15,6 @@ class AppController extends GetxController {
                         : Colors.white,
                   ),
                 ),
-                behavior: SnackBarBehavior.floating,
                 backgroundColor: type.color,
               ),
             )
