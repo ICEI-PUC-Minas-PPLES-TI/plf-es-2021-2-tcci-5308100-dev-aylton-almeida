@@ -1,6 +1,7 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:get/get.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DeliveryCodeController extends GetxController {
   //TODO: Implement DeliveryCodeController
@@ -20,7 +21,7 @@ class DeliveryCodeController extends GetxController {
   void onClose() {}
 
   void handleButtonPressed() => Get.find<AppController>().showAlert(
-        text: 'This is a success alert',
+        text: 'This is an env ${dotenv.env["API_URL"]}',
         type: AlertType.success,
       );
 }
