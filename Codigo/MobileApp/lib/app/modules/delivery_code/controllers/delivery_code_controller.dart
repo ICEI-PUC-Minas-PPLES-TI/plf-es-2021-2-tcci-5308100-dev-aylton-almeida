@@ -5,15 +5,17 @@ import 'package:get/get.dart';
 
 class DeliveryCodeController extends GetxController {
   final codeFormKey = GlobalKey<FormState>();
-  final codeController = TextEditingController();
 
-  var enableButton = false.obs;
+  late TextEditingController codeController;
+
+  final isLoading = false.obs;
+  final isValid = false.obs;
 
   @override
   void onInit() {
     super.onInit();
 
-    codeController.addListener(updateButtonState);
+    codeController = TextEditingController();
   }
 
   @override
@@ -21,11 +23,6 @@ class DeliveryCodeController extends GetxController {
     codeController.dispose();
 
     super.onClose();
-  }
-
-  void updateButtonState() {
-    enableButton.value = codeFormKey.currentState != null &&
-        codeFormKey.currentState!.validate();
   }
 
   String? validator(String? value) {
@@ -42,9 +39,14 @@ class DeliveryCodeController extends GetxController {
         codeFormKey.currentState!.validate();
   }
 
+  void handleFormChange(String _) {
+    isValid.value = isFormValid();
+  }
+
   Future<void> submitForm() async {
-    if (codeFormKey.currentState != null &&
-        codeFormKey.currentState!.validate()) {
+    isLoading.value = true;
+
+    if (isFormValid()) {
       await Future.delayed(const Duration(seconds: 3));
 
       Get.find<AppController>()
@@ -53,5 +55,7 @@ class DeliveryCodeController extends GetxController {
       Get.find<AppController>()
           .showAlert(text: 'Código de entrega inválido', type: AlertType.error);
     }
+
+    isLoading.value = false;
   }
 }

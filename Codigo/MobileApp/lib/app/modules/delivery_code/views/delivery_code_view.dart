@@ -18,6 +18,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
         ),
         body: Form(
           key: controller.codeFormKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: CustomScrollView(
             slivers: [
               SliverFillRemaining(
@@ -50,12 +51,11 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                           ),
                           TextFormField(
                             controller: controller.codeController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
                             decoration: InputDecoration(
                               hintText: 'código'.tr.capitalize!,
                             ),
                             validator: controller.validator,
+                            onChanged: controller.handleFormChange,
                           ),
                         ],
                       ),
@@ -63,20 +63,23 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
+                          Obx(() => ElevatedButton(
+                                onPressed: controller.isValid.value
+                                    ? controller.submitForm
+                                    : null,
+                                child: Text(
+                                  "verificar código de entrega"
+                                      .tr
+                                      .capitalizeFirst!,
+                                ),
+                              )),
                           ElevatedButton(
-                            onPressed: controller.enableButton.value
-                                ? controller.submitForm
-                                : null,
-                            child: Text(
-                              "verificar código de entrega".tr.capitalizeFirst!,
-                            ),
-                          ),
-                          ElevatedButton(
-                            onPressed: () => {},
-                            child: Text(
-                              "sou um parceiro trela".tr.capitalizeFirst!,
-                            ),
-                          ),
+                              onPressed: () => {},
+                              child: Obx(
+                                () => Text(
+                                  "sou um parceiro trela ${controller.isLoading}",
+                                ),
+                              )),
                         ],
                       )
                     ],
