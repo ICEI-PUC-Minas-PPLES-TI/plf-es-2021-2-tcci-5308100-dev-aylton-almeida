@@ -30,9 +30,9 @@ class DeliveryCodeController extends GetxController {
 
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Digite o código de entrega';
+      return 'digite o código de entrega'.tr.capitalizeFirst!;
     } else if ((value.length != 6) || int.tryParse(value) == null) {
-      return 'Código de entrega inválido';
+      return 'código de entrega inválido'.tr.capitalizeFirst!;
     }
     return null;
   }

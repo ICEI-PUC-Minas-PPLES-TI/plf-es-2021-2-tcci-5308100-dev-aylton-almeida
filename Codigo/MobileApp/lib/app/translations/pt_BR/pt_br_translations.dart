@@ -1,4 +1,6 @@
 final Map<String, String> ptBR = {
+  'digite o código de entrega': 'digite o código de entrega',
+  'código de entrega invalido': 'código de entrega invalido',
   'você possui um código?': 'você possui um código para realizar uma entrega?',
   'caso não, mas deseje ver suas entregas':
       'caso não, mas deseje ver suas entregas pendentes, acesse sua conta de parceiro Trela',

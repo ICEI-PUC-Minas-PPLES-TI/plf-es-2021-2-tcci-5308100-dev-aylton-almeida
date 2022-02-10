@@ -67,6 +67,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                         children: [
                           Obx(
                             () => ElevatedButton(
+                              key: const Key('code_submit_button'),
                               onPressed: !controller.isLoading.value &&
                                       controller.isValid.value
                                   ? controller.submitForm
