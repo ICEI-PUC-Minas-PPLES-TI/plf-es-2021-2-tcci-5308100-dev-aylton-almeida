@@ -35,16 +35,17 @@ void main() {
       expect(controller.isValid.value, isFalse);
     });
 
-    test('Controller destruction', () {
+    test('Controller destruction', () async {
       // when
       final controller = DeliveryCodeController();
-      Get.put(controller);
+      const tag = 'controller destruction test';
+      Get.put(controller, tag: tag);
 
       // mock
       controller.codeController = mockTextEditingController;
 
       // then
-      Get.delete<DeliveryCodeController>();
+      final response = await Get.delete<DeliveryCodeController>(tag: tag);
 
       // assert
       verify(mockTextEditingController.dispose()).called(1);
