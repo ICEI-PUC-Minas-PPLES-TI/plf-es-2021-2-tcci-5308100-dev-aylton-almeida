@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
 import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
+import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -25,7 +26,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                 hasScrollBody: false,
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 48, horizontal: 16),
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -49,37 +50,49 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                             textAlign: TextAlign.start,
                             style: Theme.of(context).textTheme.bodyText1,
                           ),
-                          TextFormField(
+                          const SizedBox(height: 16),
+                          OutlinedTextField(
                             controller: controller.codeController,
-                            decoration: InputDecoration(
-                              hintText: 'código'.tr.capitalize!,
-                            ),
+                            keyboardType: TextInputType.number,
+                            hintText: 'código'.tr.capitalize!,
                             validator: controller.validator,
-                            onChanged: controller.handleFormChange,
+                            onChanged: (_) => controller.handleFormChange(),
+                            maxLength: 6,
                           ),
                         ],
                       ),
-                      const Expanded(child: SizedBox(height: 8)),
+                      const Expanded(child: SizedBox(height: 16)),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Obx(() => ElevatedButton(
-                                onPressed: controller.isValid.value
-                                    ? controller.submitForm
-                                    : null,
-                                child: Text(
-                                  "verificar código de entrega"
-                                      .tr
-                                      .capitalizeFirst!,
-                                ),
-                              )),
+                          Obx(
+                            () => ElevatedButton(
+                              onPressed: !controller.isLoading.value &&
+                                      controller.isValid.value
+                                  ? controller.submitForm
+                                  : null,
+                              child: controller.isLoading.value
+                                  ? const SizedBox(
+                                      height: 20,
+                                      width: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                      ),
+                                    )
+                                  : Text(
+                                      "verificar código de entrega"
+                                          .tr
+                                          .capitalizeFirst!,
+                                    ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
                           ElevatedButton(
-                              onPressed: () => {},
-                              child: Obx(
-                                () => Text(
-                                  "sou um parceiro trela ${controller.isLoading}",
-                                ),
-                              )),
+                            onPressed: () => {},
+                            child: Text(
+                              "sou um parceiro trela".tr.capitalizeFirst!,
+                            ),
+                          ),
                         ],
                       )
                     ],

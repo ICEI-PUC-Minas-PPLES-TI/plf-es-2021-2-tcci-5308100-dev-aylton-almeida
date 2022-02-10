@@ -1,6 +1,5 @@
+import 'package:delivery_manager/app/utils/dismiss_keyboard.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../../utils/dismiss_keyboard.dart';
 
 class KeyboardDismissContainer extends StatelessWidget {
   final Widget child;

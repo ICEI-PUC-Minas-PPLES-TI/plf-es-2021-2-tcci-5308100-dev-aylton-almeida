@@ -2,7 +2,7 @@ import 'package:delivery_manager/app/theme/app_bar_theme.dart';
 import 'package:delivery_manager/app/theme/elevated_button_theme.dart';
 import 'package:delivery_manager/app/theme/snackbar_theme.dart';
 import 'package:delivery_manager/app/theme/text_theme.dart';
-import 'package:delivery_manager/utils/create_material_color.dart';
+import 'package:delivery_manager/app/utils/create_material_color.dart';
 import 'package:flutter/material.dart';
 
 final appThemeData = ThemeData(

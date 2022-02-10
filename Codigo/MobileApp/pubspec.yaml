@@ -21,6 +21,8 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
+  mockito: 5.0.17
+  build_runner: 2.1.7
 
 flutter:
   uses-material-design: true
