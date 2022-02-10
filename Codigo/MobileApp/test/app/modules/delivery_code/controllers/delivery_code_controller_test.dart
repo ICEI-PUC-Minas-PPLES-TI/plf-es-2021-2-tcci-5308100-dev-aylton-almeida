@@ -45,7 +45,7 @@ void main() {
       controller.codeController = mockTextEditingController;
 
       // then
-      final response = await Get.delete<DeliveryCodeController>(tag: tag);
+      await Get.delete<DeliveryCodeController>(tag: tag);
 
       // assert
       verify(mockTextEditingController.dispose()).called(1);
