@@ -1,0 +1,263 @@
+{
+  "emoji": null,
+  "expiresAt": "2021-05-15T11:29:09.192000",
+  "minimalQuantity": 15,
+  "totalSoldPaid": 136.0,
+  "groupsIds": [],
+  "supplier": {
+    "commission": 12.0,
+    "legalId": "10915978636",
+    "name": "Insider Store",
+    "paymentDeadline": null,
+    "phone": "+5531999385992",
+    "supplierId": 1
+  },
+  "commissionPerc": 0.0,
+  "name": "Oferta Insider Store de Pedro",
+  "delay": false,
+  "orders": [
+    {
+      "updateAt": "2021-05-07T15:09:24.476485",
+      "buyer": {
+        "cpf": "44689252807",
+        "email": "pedro.azambuja@zapt.com.br",
+        "firstName": "Pedro",
+        "imageLink": null,
+        "name": "Pedro Azambuja",
+        "phone": "+5511956557991",
+        "role": "admin",
+        "shippingAddress": {
+          "addressId": 3,
+          "cityName": "São Paulo",
+          "countryState": "SP",
+          "neighborhoodName": "Paraíso",
+          "postalCode": "04006001",
+          "streetName": "Rua Doutor Tomás Carvalhal",
+          "streetNumber": 555,
+          "unitNumber": "apt 122"
+        },
+        "shippingAddressId": 3,
+        "surname": "Azambuja",
+        "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc"
+      },
+      "orderId": "9490a13d-e5b6-4c06-bb4f-8943c8f7c0ae",
+      "createdAt": "2021-05-07T15:16:58.010262",
+      "totalPaid": 40.0,
+      "offerId": "f93e5951-63fd-45b0-aeab-65f83069ca6e",
+      "transaction": {
+        "boletoBarcode": null,
+        "boletoUrl": null,
+        "createdAt": "2021-05-07T15:16:59.447171",
+        "gateway": "pagarme",
+        "gatewayTransactionId": "12191856",
+        "orderId": "9490a13d-e5b6-4c06-bb4f-8943c8f7c0ae",
+        "paymentMethod": "credit_card",
+        "pixQrcode": null,
+        "status": "paid",
+        "totalAmount": 40.0,
+        "transactionId": 2,
+        "updateAt": "2021-05-07T15:16:59.447178",
+        "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc",
+        "userName": "Pedro Azambuja"
+      },
+      "shippingAddressId": 5,
+      "isPickup": false,
+      "completed": true,
+      "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc",
+      "totalShippingPrice": 20.0,
+      "orderProducts": [
+        {
+          "productId": 9,
+          "description": null,
+          "productName": "Máscara Antiviral",
+          "imageLinks": [
+            "https://zapt-app-compressed.s3.sa-east-1.amazonaws.com/dev/products/310a179c-db57-4c72-bde7-945455a6bd4d-mascara.png"
+          ],
+          "orderId": "9490a13d-e5b6-4c06-bb4f-8943c8f7c0ae",
+          "quantity": 1,
+          "sku": 13,
+          "totalPrice": 20.0,
+          "variant": {
+            "price": 20.0,
+            "retailPrice": 25.0,
+            "sku": 13,
+            "values": [],
+            "weightUnit": null
+          }
+        }
+      ],
+      "shippingMethod": "Entrega para todo o Brasil",
+      "shippingAddress": {
+        "streetName": "Rua Doutor Tomás Carvalhal",
+        "addressId": 5,
+        "postalCode": "04006001",
+        "streetNumber": 555,
+        "unitNumber": "apt 122",
+        "neighborhoodName": "Paraíso",
+        "countryState": "SP",
+        "cityName": "São Paulo"
+      },
+      "shippingStatus": "unshipped"
+    },
+    {
+      "updateAt": "2021-05-07T15:09:24.476485",
+      "buyer": {
+        "cpf": "44689252807",
+        "email": "pedro.azambuja@zapt.com.br",
+        "firstName": "Pedro",
+        "imageLink": null,
+        "name": "Pedro Azambuja",
+        "phone": "+5511956557991",
+        "role": "admin",
+        "shippingAddress": {
+          "addressId": 3,
+          "cityName": "São Paulo",
+          "countryState": "SP",
+          "neighborhoodName": "Paraíso",
+          "postalCode": "04006001",
+          "streetName": "Rua Doutor Tomás Carvalhal",
+          "streetNumber": 555,
+          "unitNumber": "apt 122"
+        },
+        "shippingAddressId": 3,
+        "surname": "Azambuja",
+        "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc"
+      },
+      "orderId": "57d14fed-f293-4aaa-aa47-affd24a3b715",
+      "createdAt": "2021-05-07T16:52:42.966280",
+      "totalPaid": 96.0,
+      "offerId": "f93e5951-63fd-45b0-aeab-65f83069ca6e",
+      "transaction": {
+        "boletoBarcode": null,
+        "boletoUrl": null,
+        "createdAt": "2021-05-07T16:52:44.193402",
+        "gateway": "pagarme",
+        "gatewayTransactionId": "12192771",
+        "orderId": "57d14fed-f293-4aaa-aa47-affd24a3b715",
+        "paymentMethod": "credit_card",
+        "pixQrcode": null,
+        "status": "paid",
+        "totalAmount": 96.0,
+        "transactionId": 8,
+        "updateAt": "2021-05-07T16:52:44.193408",
+        "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc",
+        "userName": "Pedro Azambuja"
+      },
+      "shippingAddressId": 12,
+      "isPickup": false,
+      "completed": true,
+      "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc",
+      "totalShippingPrice": 20.0,
+      "orderProducts": [
+        {
+          "productId": 8,
+          "description": null,
+          "productName": "Tech T-Shirt Feminina",
+          "imageLinks": [
+            "https://zapt-app-compressed.s3.sa-east-1.amazonaws.com/dev/products/c75f395d-e0e2-4c19-82af-1a2da51ce911-fcamisa.png"
+          ],
+          "orderId": "57d14fed-f293-4aaa-aa47-affd24a3b715",
+          "quantity": 1,
+          "sku": 7,
+          "totalPrice": 76.0,
+          "variant": {
+            "price": 76.0,
+            "retailPrice": 95.0,
+            "sku": 7,
+            "values": [
+              {
+                "option": {
+                  "name": "cor",
+                  "productId": 8,
+                  "productOptionId": 4,
+                  "tags": []
+                },
+                "productId": 8,
+                "productOptionsId": 4,
+                "productVariantValueId": 13,
+                "sku": 7,
+                "value": "preta"
+              },
+              {
+                "option": {
+                  "name": "tamanho",
+                  "productId": 8,
+                  "productOptionId": 3,
+                  "tags": []
+                },
+                "productId": 8,
+                "productOptionsId": 3,
+                "productVariantValueId": 14,
+                "sku": 7,
+                "value": "P"
+              }
+            ],
+            "weightUnit": null
+          }
+        }
+      ],
+      "shippingMethod": "Entrega para todo o Brasil",
+      "shippingAddress": {
+        "streetName": "Rua Doutor Tomás Carvalhal",
+        "addressId": 12,
+        "postalCode": "04006001",
+        "streetNumber": 555,
+        "unitNumber": "apt 122",
+        "neighborhoodName": "Paraíso",
+        "countryState": "SP",
+        "cityName": "São Paulo"
+      },
+      "shippingStatus": "unshipped"
+    }
+  ],
+  "description": null,
+  "leader": {
+    "cpf": "44689252807",
+    "email": "pedro.azambuja@zapt.com.br",
+    "firstName": "Pedro",
+    "imageLink": null,
+    "name": "Pedro Azambuja",
+    "phone": "+5511956557991",
+    "role": "admin",
+    "shippingAddress": {
+      "addressId": 3,
+      "cityName": "São Paulo",
+      "countryState": "SP",
+      "neighborhoodName": "Paraíso",
+      "postalCode": "04006001",
+      "streetName": "Rua Doutor Tomás Carvalhal",
+      "streetNumber": 555,
+      "unitNumber": "apt 122"
+    },
+    "shippingAddressId": 3,
+    "surname": "Azambuja",
+    "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc"
+  },
+  "internalControl": [],
+  "deliveryDate": "2021-05-23T11:29:09.192000",
+  "totalSoldPaidQtt": 2,
+  "leaderComment": null,
+  "createdAt": "2021-05-07T14:29:13.539108",
+  "referralCommission": null,
+  "bundleId": 3,
+  "shippingMethods": [
+    {
+      "addressId": null,
+      "description": "Entrega para todo o Brasil",
+      "isPickup": false,
+      "shippingMethodId": 3,
+      "price": 20.0,
+      "pickupAddress": null,
+      "offerId": "f93e5951-63fd-45b0-aeab-65f83069ca6e"
+    }
+  ],
+  "finalDeliveryDate": null,
+  "offerId": "f93e5951-63fd-45b0-aeab-65f83069ca6e",
+  "tags": null,
+  "userId": "42bd4ded-4bd1-4e71-9371-38039f06d7dc",
+  "offerStatus": "active",
+  "totalSaved": 136.0,
+  "totalSoldQtt": 0,
+  "calculatedStatus": "expired",
+  "hasCommission": false
+}
