@@ -1,0 +1,90 @@
+version: "3"
+
+services:
+  app:
+    container_name: trela_delivery_api_container
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    environment:
+      - FLASK_ENV=${FLASK_ENV}
+      - FLASK_APP=${FLASK_APP}
+      - DB_SERVER_URL=${DB_SERVER_URL}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+      - S3_BUCKET_PATH=${S3_BUCKET_PATH}
+      - COGNITO_POOL_ID=${COGNITO_POOL_ID}
+      - COGNITO_CLIENT_ID=${COGNITO_CLIENT_ID}
+      - COGNITO_CLIENT_SECRET=${COGNITO_CLIENT_SECRET}
+      - COGNITO_TOKEN_ENDPOINT=${COGNITO_TOKEN_ENDPOINT}
+      - COGNITO_TOKEN_SCOPE=${COGNITO_TOKEN_SCOPE}
+      - MQ_EXCHANGE=${MQ_EXCHANGE}
+      - MQ_URL=${MQ_URL}
+      - SERVICES_BASE_API=${SERVICES_BASE_API}
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+      - "5678:5678"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    networks:
+      - delivery-api-network
+
+  db:
+    container_name: trela_delivery_postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: zapt
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - delivery-api-network
+
+  pgadmin:
+    container_name: trela_delivery_pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    logging:
+      driver: "none"
+    ports:
+      - "16543:80"
+    depends_on:
+      - db
+    networks:
+      - delivery-api-network
+
+  rabbit: # user and password are guest
+    container_name: trela_delivery_rabbit
+    image: rabbitmq:3-management-alpine
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "8080:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=mqadmin
+      - RABBITMQ_DEFAULT_PASS=mqadmin
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - delivery-api-network
+
+networks:
+  delivery-api-network:
+    driver: bridge
+
+volumes:
+  db:
+  pgadmin:
+  app:
