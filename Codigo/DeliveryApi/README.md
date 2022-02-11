@@ -1,12 +1,6 @@
-# Python API Template
+# Delivery API
 
-Use this as a template for your python API
-
-## Setting up
-
-- Create a `.env` following the `.env.example` attributes
-- Update `gitlab-ci.yml`, `docker-compose.yml` and `migrations/env.py`, adding your service name in `[SERVICE_NAME]`, or just do a global search for `[SERVICE_DATA]` and change all places where it appears.
-- Update `src/docs.py` with the api settings
+Api used to manage deliveries for the mobile app
 
 ## Structure
 
@@ -58,6 +52,3 @@ Use this as a template for your python API
 ## Authors
 
 - Aylton Almeida
-- Eli Ghosn
-- Guilherme Alvarenga
-- Pedro Azambuja
