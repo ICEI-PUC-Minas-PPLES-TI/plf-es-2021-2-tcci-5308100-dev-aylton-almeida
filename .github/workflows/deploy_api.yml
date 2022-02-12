@@ -52,3 +52,7 @@ jobs:
       - name: Release
         if: contains(github.ref, 'master')
         run: heroku container:release -a trela-delivery-api web
+
+      - name: Run migrations
+        if: contains(github.ref, 'master')
+        run: python manage.py db upgrade
