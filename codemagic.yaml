@@ -14,15 +14,15 @@ workflows:
     triggering:
       events:
         - push
-      when:
-        changeset:
-          includes:
-            - "Codigo/MobileApp"
       branch_patterns:
         - pattern: "*"
           include: true
           source: true
       cancel_previous_builds: true
+    when:
+      changeset:
+        includes:
+          - "Codigo/MobileApp"
 
     scripts:
       - |
