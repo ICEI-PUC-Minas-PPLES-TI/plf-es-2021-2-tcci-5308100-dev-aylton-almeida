@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from sqlalchemy.sql.elements import BinaryExpression
+
 from . import db
 
 
@@ -47,3 +49,11 @@ class BaseModel:
         """Commits current transaction"""
 
         BaseModel.session.commit()
+
+    @classmethod
+    def get_one_filtered(cls, filters: list[BinaryExpression]):
+        """Gets one of given model given filters"""
+
+        # TODO; test
+
+        return cls.query.filter(*filters).first()
