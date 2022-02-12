@@ -1,6 +1,6 @@
 import unittest
 
-from tests import app, db
+from tests import app
 
 
 class BaseTest(unittest.TestCase):
@@ -9,6 +9,3 @@ class BaseTest(unittest.TestCase):
         self.app = app.test_client()
         self.app_context = app.app_context
         self.app_context().push()
-
-        db.drop_all()
-        db.create_all()
