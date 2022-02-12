@@ -1,4 +1,4 @@
-name: New Students Api Pipeline
+name: Delivery API Deployment
 
 on: [push]
 
@@ -27,8 +27,6 @@ jobs:
         with:
           path: venv/
           key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements*.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
 
       - name: Setup virtual environment
         if: steps.cache-venv.outputs.cache-hit != 'true'
