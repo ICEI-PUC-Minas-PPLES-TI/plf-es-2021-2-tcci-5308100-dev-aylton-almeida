@@ -1,0 +1,65 @@
+# Automatically generated on 2022-02-12 UTC from https://codemagic.io/app/618fc4586295185d21184098/settings
+# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
+
+workflows:
+  default-workflow:
+    name: Default Workflow
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths: []
+    triggering:
+      events:
+        - push
+      when:
+        changeset:
+          includes:
+            - "Codigo/MobileApp"
+      branch_patterns:
+        - pattern: "*"
+          include: true
+          source: true
+      cancel_previous_builds: true
+
+    scripts:
+      - |
+        # set up debug keystore
+        rm -f ~/.android/debug.keystore
+        keytool -genkeypair \
+          -alias androiddebugkey \
+          -keypass android \
+          -keystore ~/.android/debug.keystore \
+          -storepass android \
+          -dname 'CN=Android Debug,O=Android,C=US' \
+          -keyalg 'RSA' \
+          -keysize 2048 \
+          -validity 10000
+      - |
+        # set up local properties
+        echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/Codigo/MobileApp/android/local.properties"
+      - cd Codigo/MobileApp && flutter packages pub get
+      - |
+        #!/bin/sh
+        touch Codigo/MobileApp/assets/.env
+      - cd Codigo/MobileApp && flutter analyze
+      - cd Codigo/MobileApp && flutter test
+      - cd Codigo/MobileApp && flutter build appbundle --release
+      - find . -name "Podfile" -execdir pod install \;
+      - cd Codigo/MobileApp && flutter build ios --release --no-codesign
+
+    artifacts:
+      - Codigo/MobileApp/build/**/outputs/apk/**/*.apk
+      - Codigo/MobileApp/build/**/outputs/bundle/**/*.aab
+      - Codigo/MobileApp/build/**/outputs/**/mapping.txt
+      - Codigo/MobileApp/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - Codigo/MobileApp/*.snap
+      - Codigo/MobileApp/build/windows/**/*.msix
+      - Codigo/MobileApp/flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - ayltonalmeida2@gmail.com
