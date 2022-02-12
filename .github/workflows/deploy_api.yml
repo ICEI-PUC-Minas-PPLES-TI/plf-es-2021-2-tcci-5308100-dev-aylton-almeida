@@ -1,0 +1,46 @@
+name: New Students Api Pipeline
+
+on: [push]
+
+jobs:
+  deploy_api:
+    defaults:
+      run:
+        working-directory: Codigo/DeliveryApi
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.0"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run linter
+        run: pylint src
+
+      - name: Run tests
+        run: |
+          coverage run
+          coverage report
+
+      - name: Login to heroku
+        if: contains(github.ref, 'master')
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: heroku container:login
+
+      - name: Build and Push
+        if: contains(github.ref, 'master')
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: heroku container:push -a trela-delivery-api web
+
+      - name: Release
+        if: contains(github.ref, 'master')
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+        run: heroku container:release -a trela-delivery-api web
