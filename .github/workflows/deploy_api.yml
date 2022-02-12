@@ -1,0 +1,58 @@
+name: Delivery API Deployment
+
+on: [push]
+
+jobs:
+  deploy_api:
+    defaults:
+      run:
+        working-directory: Codigo/DeliveryApi
+    env:
+      HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+      DB_SERVER_URL: ${{secrets.DB_SERVER_URL}}
+      MQ_EXCHANGE: ${{secrets.MQ_EXCHANGE}}
+      MQ_URL: ${{secrets.MQ_URL}}
+      FLASK_ENV: production
+      FLASK_APP: main.py
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - uses: syphar/restore-virtualenv@v1
+        id: cache-venv
+
+      - name: Install dependencies
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+        run: pip install -r requirements.txt
+
+      - name: Run linter
+        env:
+          FLASK_ENV: testing
+        run: pylint src
+
+      - name: Run tests
+        env:
+          FLASK_ENV: testing
+        run: |
+          coverage run
+          coverage report
+
+      - name: Login to heroku
+        if: contains(github.ref, 'master')
+        run: heroku container:login
+
+      - name: Build and Push
+        if: contains(github.ref, 'master')
+        run: heroku container:push -a trela-delivery-api web
+
+      - name: Release
+        if: contains(github.ref, 'master')
+        run: heroku container:release -a trela-delivery-api web
+
+      - name: Run migrations
+        if: contains(github.ref, 'master')
+        run: python manage.py db upgrade

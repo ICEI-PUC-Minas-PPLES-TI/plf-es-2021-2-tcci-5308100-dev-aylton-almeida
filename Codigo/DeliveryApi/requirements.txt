@@ -14,6 +14,7 @@ chardet==4.0.0
 click==7.1.2
 cognitojwt==1.2.2
 colorama==0.4.4
+coverage==6.3.1
 decorator==5.0.9
 ecdsa==0.14.1
 Flask==1.1.1
