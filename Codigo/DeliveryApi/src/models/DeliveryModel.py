@@ -13,7 +13,6 @@ from .BaseModel import BaseModel
 
 def _generate_delivery_access_code(_) -> str:
     """Generates a random access code for a delivery."""
-    # TODO: test
 
     # Generate code with 6 digits and check if available in db
     is_valid = False

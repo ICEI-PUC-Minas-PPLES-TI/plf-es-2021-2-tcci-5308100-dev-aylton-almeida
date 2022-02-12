@@ -54,6 +54,4 @@ class BaseModel:
     def get_one_filtered(cls, filters: list[BinaryExpression]):
         """Gets one of given model given filters"""
 
-        # TODO; test
-
         return cls.query.filter(*filters).first()

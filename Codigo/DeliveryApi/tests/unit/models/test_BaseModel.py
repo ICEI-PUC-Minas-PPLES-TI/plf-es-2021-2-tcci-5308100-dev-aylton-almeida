@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock
+from uuid import uuid4
 
 from src.models.BaseModel import BaseModel
+from src.models.DeliveryModel import DeliveryModel
 from tests.utils.models.BaseTest import BaseTest
 
 
@@ -140,3 +142,27 @@ class BaseModelTests(BaseTest):
 
         # assert
         BaseModel.session.commit.assert_called_once_with()
+
+    def test_GetOneFiltered_when_Default(self):
+        """Test get_one_filtered when default behavior"""
+
+        # when
+        filters = [
+            DeliveryModel.delivery_id == uuid4(),
+            DeliveryModel.offer_id == uuid4()
+        ]
+
+        # mock
+        mock_filter = MagicMock()
+        mock_first = MagicMock(return_value='found-model')
+        mock_filter.return_value.first = mock_first
+        BaseModel.query = MagicMock()
+        BaseModel.query.filter = mock_filter
+
+        # then
+        response = BaseModel.get_one_filtered(filters)
+
+        # assert
+        self.assertEqual(response, 'found-model')
+        mock_filter.assert_called_once_with(*filters)
+        mock_first.assert_called_once_with()
