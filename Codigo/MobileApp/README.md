@@ -6,4 +6,6 @@ The delivery manager client app
 
 - flutter test: Runs tests for the current project.
 - flutter analyse: Analyzes the current project using flutters linter.
-- flutter pub run build_runner build: Generates mock classes for mockito.
+- flutter pub run build_runner build: Auto generates code such as:
+  - Mockito mocks
+  - Freezed classes
