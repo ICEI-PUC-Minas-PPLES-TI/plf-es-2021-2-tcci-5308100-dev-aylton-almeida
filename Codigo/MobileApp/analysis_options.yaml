@@ -12,6 +12,8 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - "**.mocks.dart" # Ignore all mock files
+    - "**.freezed.dart" # Ignore all freezed generated files
+    - "**.g.dart" # Ignore all generated files
     - "lib/app/routes/**.dart" # ignore generated route files
 
 linter:
