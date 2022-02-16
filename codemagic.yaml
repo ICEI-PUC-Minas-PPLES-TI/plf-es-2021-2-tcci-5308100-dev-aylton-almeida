@@ -4,9 +4,6 @@ definitions:
       - $FLUTTER_ROOT/.pub-cache
       - $HOME/Library/Caches/CocoaPods
       - $HOME/.gradle/caches
-  - &changeset
-    includes:
-      - Codigo/MobileApp
   - &environment
     flutter: stable
     xcode: latest
@@ -16,6 +13,7 @@ workflows:
   feature-branch-workflow:
     name: Feature Branch Workflow
     max_build_duration: 60
+    working_directory: Codigo/MobileApp
     triggering:
       events:
         - push
@@ -25,23 +23,20 @@ workflows:
           include: false
           source: false
       cancel_previous_builds: false
-    when:
-      changeset: *changeset
     environment: *environment
     cache: *cache
     scripts:
-      - cd Codigo/MobileApp && flutter packages pub get
+      - flutter packages pub get
       - |
         #!/bin/sh
-        cd Codigo/MobileApp
         touch assets/.env
         flutter pub run build_runner build
-      - cd Codigo/MobileApp && flutter analyze
-      - cd Codigo/MobileApp && flutter test
+      - flutter analyze
+      - flutter test
     artifacts:
-      - Codigo/MobileApp/*.snap
-      - Codigo/MobileApp/build/windows/**/*.msix
-      - Codigo/MobileApp/flutter_drive.log
+      - *.snap
+      - build/windows/**/*.msix
+      - flutter_drive.log
     publishing:
       email:
         recipients:
@@ -49,6 +44,7 @@ workflows:
   master-workflow:
     name: Master Workflow
     max_build_duration: 60
+    working_directory: Codigo/MobileApp
     triggering:
       events:
         - push
@@ -57,8 +53,6 @@ workflows:
           include: true
           source: true
       cancel_previous_builds: false
-    when:
-      changeset: *changeset
     environment: *environment
     cache: *cache
     scripts:
@@ -76,27 +70,26 @@ workflows:
           -validity 10000
       - |
         # set up local properties
-        echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/Codigo/MobileApp/android/local.properties"
-      - cd Codigo/MobileApp && flutter packages pub get
+        echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
+      - flutter packages pub get
       - |
         #!/bin/sh
-        cd Codigo/MobileApp
         touch assets/.env
         flutter pub run build_runner build
-      - cd Codigo/MobileApp && flutter analyze
-      - cd Codigo/MobileApp && flutter test
-      - cd Codigo/MobileApp && flutter build appbundle --release
+      - flutter analyze
+      - flutter test
+      - flutter build appbundle --release
       - find . -name "Podfile" -execdir pod install \;
-      - cd Codigo/MobileApp && flutter build ios --release --no-codesign
+      - flutter build ios --release --no-codesign
     artifacts:
-      - Codigo/MobileApp/build/**/outputs/apk/**/*.apk
-      - Codigo/MobileApp/build/**/outputs/bundle/**/*.aab
-      - Codigo/MobileApp/build/**/outputs/**/mapping.txt
-      - Codigo/MobileApp/build/ios/ipa/*.ipa
+      - build/**/outputs/apk/**/*.apk
+      - build/**/outputs/bundle/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
-      - Codigo/MobileApp/*.snap
-      - Codigo/MobileApp/build/windows/**/*.msix
-      - Codigo/MobileApp/flutter_drive.log
+      - *.snap
+      - build/windows/**/*.msix
+      - flutter_drive.log
     publishing:
       email:
         recipients:
