@@ -34,7 +34,7 @@ workflows:
       - flutter analyze
       - flutter test
     artifacts:
-      - *.snap
+      - ./*.snap
       - build/windows/**/*.msix
       - flutter_drive.log
     publishing:
@@ -87,7 +87,7 @@ workflows:
       - build/**/outputs/**/mapping.txt
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
-      - *.snap
+      - ./*.snap
       - build/windows/**/*.msix
       - flutter_drive.log
     publishing:
