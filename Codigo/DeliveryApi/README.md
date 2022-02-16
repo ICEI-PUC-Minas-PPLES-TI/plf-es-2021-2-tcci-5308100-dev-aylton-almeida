@@ -15,6 +15,7 @@ Api used to manage deliveries for the mobile app
 - _models:_ All your models go here
 - _services:_ All your models business logics should go here
 - _utils:_ All your utils files go here
+- Test
 
 ## Running
 
