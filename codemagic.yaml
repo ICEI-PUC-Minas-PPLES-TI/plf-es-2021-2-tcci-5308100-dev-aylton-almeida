@@ -14,7 +14,7 @@ workflows:
     when:
       changeset:
         includes:
-          - "Codigo/MobileApp/**/*"
+          - Codigo/MobileApp
     environment:
       flutter: stable
       xcode: latest
@@ -52,7 +52,7 @@ workflows:
     when:
       changeset:
         includes:
-          - "Codigo/MobileApp/**/*"
+          - Codigo/MobileApp
     environment:
       flutter: stable
       xcode: latest
