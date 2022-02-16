@@ -1,6 +1,9 @@
 name: Delivery API Deployment
 
-on: [push]
+on:
+  push:
+    paths:
+      - Codigo/DeliveryApi
 
 jobs:
   deploy_api:
