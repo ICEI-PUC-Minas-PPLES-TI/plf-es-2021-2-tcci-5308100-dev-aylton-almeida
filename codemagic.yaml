@@ -26,7 +26,7 @@ workflows:
     when:
       changeset:
         includes:
-          - Codigo/MobileApp/**/*
+          - Codigo/MobileApp
     environment: *environment
     cache: *cache
     scripts:
@@ -61,8 +61,6 @@ workflows:
       changeset:
         includes:
           - Codigo/MobileApp
-        excludes:
-          - "!(Codigo/MobileApp)"
     environment: *environment
     cache: *cache
     scripts:
@@ -80,7 +78,7 @@ workflows:
           -validity 10000
       - |
         # set up local properties
-        echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
+        echo "flutter.sdk=$HOME/programs/flutter" > "android/local.properties"
       - flutter packages pub get
       - |
         #!/bin/sh
