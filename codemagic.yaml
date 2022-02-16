@@ -1,3 +1,17 @@
+definitions:
+  - &cache
+    cache_paths:
+      - $FLUTTER_ROOT/.pub-cache
+      - $HOME/Library/Caches/CocoaPods
+      - $HOME/.gradle/caches
+  - &changeset
+    includes:
+      - Codigo/MobileApp
+  - &environment
+    flutter: stable
+    xcode: latest
+    cocoapods: default
+
 workflows:
   feature-branch-workflow:
     name: Feature Branch Workflow
@@ -12,15 +26,9 @@ workflows:
           source: false
       cancel_previous_builds: false
     when:
-      changeset:
-        includes:
-          - Codigo/MobileApp
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    cache:
-      cache_paths: []
+      changeset: *changeset
+    environment: *environment
+    cache: *cache
     scripts:
       - cd Codigo/MobileApp && flutter packages pub get
       - |
@@ -50,15 +58,9 @@ workflows:
           source: true
       cancel_previous_builds: false
     when:
-      changeset:
-        includes:
-          - Codigo/MobileApp
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    cache:
-      cache_paths: []
+      changeset: *changeset
+    environment: *environment
+    cache: *cache
     scripts:
       - |
         # set up debug keystore
