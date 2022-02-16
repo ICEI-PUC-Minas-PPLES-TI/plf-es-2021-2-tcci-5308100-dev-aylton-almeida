@@ -1,6 +1,3 @@
-# Automatically generated on 2022-02-16 UTC from https://codemagic.io/app/618fc4586295185d21184098/settings
-# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
-
 workflows:
   feature-branch-workflow:
     name: Feature Branch Workflow
