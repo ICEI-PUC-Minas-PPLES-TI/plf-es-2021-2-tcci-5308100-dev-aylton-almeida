@@ -60,7 +60,9 @@ workflows:
     when:
       changeset:
         includes:
-          - Codigo/MobileApp/**/*
+          - Codigo/MobileApp
+        excludes:
+          - "!(Codigo/MobileApp)"
     environment: *environment
     cache: *cache
     scripts:
