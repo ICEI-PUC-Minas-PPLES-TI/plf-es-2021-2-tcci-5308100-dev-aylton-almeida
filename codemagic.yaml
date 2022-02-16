@@ -1,0 +1,101 @@
+workflows:
+  feature-branch-workflow:
+    name: Feature Branch Workflow
+    max_build_duration: 60
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: "master"
+          include: false
+          source: false
+      cancel_previous_builds: false
+    when:
+      changeset:
+        includes:
+          - "Codigo/MobileApp"
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths: []
+    scripts:
+      - cd Codigo/MobileApp && flutter packages pub get
+      - |
+        #!/bin/sh
+        cd Codigo/MobileApp
+        touch assets/.env
+        flutter pub run build_runner build
+      - cd Codigo/MobileApp && flutter analyze
+      - cd Codigo/MobileApp && flutter test
+    artifacts:
+      - Codigo/MobileApp/*.snap
+      - Codigo/MobileApp/build/windows/**/*.msix
+      - Codigo/MobileApp/flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - ayltonalmeida2@gmail.com
+  master-workflow:
+    name: Master Workflow
+    max_build_duration: 60
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: "master"
+          include: true
+          source: true
+      cancel_previous_builds: false
+    when:
+      changeset:
+        includes:
+          - "Codigo/MobileApp"
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths: []
+    scripts:
+      - |
+        # set up debug keystore
+        rm -f ~/.android/debug.keystore
+        keytool -genkeypair \
+          -alias androiddebugkey \
+          -keypass android \
+          -keystore ~/.android/debug.keystore \
+          -storepass android \
+          -dname 'CN=Android Debug,O=Android,C=US' \
+          -keyalg 'RSA' \
+          -keysize 2048 \
+          -validity 10000
+      - |
+        # set up local properties
+        echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/Codigo/MobileApp/android/local.properties"
+      - cd Codigo/MobileApp && flutter packages pub get
+      - |
+        #!/bin/sh
+        cd Codigo/MobileApp
+        touch assets/.env
+        flutter pub run build_runner build
+      - cd Codigo/MobileApp && flutter analyze
+      - cd Codigo/MobileApp && flutter test
+      - cd Codigo/MobileApp && flutter build appbundle --release
+      - find . -name "Podfile" -execdir pod install \;
+      - cd Codigo/MobileApp && flutter build ios --release --no-codesign
+    artifacts:
+      - Codigo/MobileApp/build/**/outputs/apk/**/*.apk
+      - Codigo/MobileApp/build/**/outputs/bundle/**/*.aab
+      - Codigo/MobileApp/build/**/outputs/**/mapping.txt
+      - Codigo/MobileApp/build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - Codigo/MobileApp/*.snap
+      - Codigo/MobileApp/build/windows/**/*.msix
+      - Codigo/MobileApp/flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - ayltonalmeida2@gmail.com
