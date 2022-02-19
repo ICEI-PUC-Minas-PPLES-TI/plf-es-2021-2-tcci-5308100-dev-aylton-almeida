@@ -1,0 +1,265 @@
+{
+  "name": "Compra em grupo Kevin Dyer",
+  "offerId": "d4b6507c-bc03-4bfc-9e4a-650a3ec7425c",
+  "orders": [
+    {
+      "buyer": {
+        "name": "Stephen Culotta"
+      },
+      "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69",
+      "orderProducts": [
+        {
+          "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
+          "quantity": 4,
+          "sku": 1763
+        },
+        {
+          "productName": "Carpaccio de Angus Bovino (200g)",
+          "quantity": 5,
+          "sku": 2585
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31339,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Bandeirantes (Pampulha)",
+        "postalCode": "31340560",
+        "streetName": "Rua Palermo",
+        "streetNumber": "1670",
+        "unitNumber": null
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Amy Mais"
+      },
+      "orderId": "afa356ca-ea9e-4fa7-9882-bcd4a6ed5c14",
+      "orderProducts": [
+        {
+          "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
+          "quantity": 3,
+          "sku": 1763
+        },
+        {
+          "productName": "Steak de Chorizo Carapreta (350g)",
+          "quantity": 3,
+          "sku": 2607
+        },
+        {
+          "productName": "Medalhão de Picanha ARG (2Kg)",
+          "quantity": 1,
+          "sku": 3830
+        },
+        {
+          "productName": "Cupim ARG (1,150Kg)",
+          "quantity": 1,
+          "sku": 3835
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31384,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Ouro Preto",
+        "postalCode": "31310340",
+        "streetName": "Rua Desembargador Paulo Mota",
+        "streetNumber": "945",
+        "unitNumber": "1301 bloco 1"
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Vernon Shipman"
+      },
+      "orderId": "2eb9ea45-315f-4b46-b4ac-f00dffade503",
+      "orderProducts": [
+        {
+          "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
+          "quantity": 4,
+          "sku": 1763
+        },
+        {
+          "productName": "Medalhão de Picanha ARG (2Kg)",
+          "quantity": 1,
+          "sku": 3830
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31374,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "São Luiz",
+        "postalCode": "31270720",
+        "streetName": "Rua Mascarenhas de Morais",
+        "streetNumber": "68",
+        "unitNumber": null
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Melissia Johnson"
+      },
+      "orderId": "6916008d-f200-40e7-b0d0-000d17807aff",
+      "orderProducts": [
+        {
+          "productName": "Bananinha Carapreta (1,250Kg)",
+          "quantity": 1,
+          "sku": 2593
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31434,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Castelo",
+        "postalCode": "31330290",
+        "streetName": "Avenida Miguel Perrela",
+        "streetNumber": "801 ",
+        "unitNumber": "Casa 62 "
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Richard Meacham"
+      },
+      "orderId": "3aba85cf-f1cc-4718-87c7-f792e084eefe",
+      "orderProducts": [
+        {
+          "productName": "Carpaccio de Angus Bovino (200g)",
+          "quantity": 1,
+          "sku": 2585
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31560,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Jardim Atlântico",
+        "postalCode": "31555100",
+        "streetName": "Rua Augusto Moreira",
+        "streetNumber": "137",
+        "unitNumber": null
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Teresa Shelton"
+      },
+      "orderId": "e83336ee-6409-4e19-a3d0-cb5b1050bc69",
+      "orderProducts": [
+        {
+          "productName": "Bananinha Carapreta (1,250Kg)",
+          "quantity": 1,
+          "sku": 2593
+        },
+        {
+          "productName": "Iscas de Alcatra (550g)",
+          "quantity": 1,
+          "sku": 3859
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31475,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Paquetá",
+        "postalCode": "31330400",
+        "streetName": "Rua Afonso Ferreira Gomes",
+        "streetNumber": "110",
+        "unitNumber": "Apto 401 bloco 2"
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Colleen Darr"
+      },
+      "orderId": "0dd2d022-2d18-4a35-ba20-4710f6cf7562",
+      "orderProducts": [
+        {
+          "productName": "Steak de Chorizo Carapreta (350g)",
+          "quantity": 2,
+          "sku": 2607
+        },
+        {
+          "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
+          "quantity": 3,
+          "sku": 1763
+        },
+        {
+          "productName": "Medalhão de Picanha ARG (2Kg)",
+          "quantity": 1,
+          "sku": 3830
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31622,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Santa Mônica",
+        "postalCode": "31525160",
+        "streetName": "Rua José do Patrocínio",
+        "streetNumber": "137",
+        "unitNumber": "AP 301"
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    },
+    {
+      "buyer": {
+        "name": "Muriel Bickel"
+      },
+      "orderId": "49ff19aa-7d91-4d32-a5ca-26c4cc99d8f6",
+      "orderProducts": [
+        {
+          "productName": "Medalhão de Picanha ARG (2Kg)",
+          "quantity": 1,
+          "sku": 3830
+        },
+        {
+          "productName": "Cupim ARG (1,150Kg)",
+          "quantity": 1,
+          "sku": 3835
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31761,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Castelo",
+        "postalCode": "30840500",
+        "streetName": "Rua Cecília Fonseca Coutinho",
+        "streetNumber": "311",
+        "unitNumber": "104"
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    }
+  ],
+  "supplier": {
+    "legalId": "99615328000180",
+    "name": "Kevin Dyer",
+    "phone": "+5511925966591",
+    "supplierId": 1033
+  }
+}
