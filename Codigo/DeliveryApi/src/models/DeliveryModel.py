@@ -5,6 +5,8 @@ from uuid import uuid4
 from sqlalchemy.dialects.postgresql import UUID
 
 from src.classes.DeliveryStatus import DeliveryStatus
+from src.models.OrderModel import OrderModel
+from src.models.SupplierModel import SupplierModel
 from src.utils.GenerateSecretCode import generate_secret_code
 
 from . import db
@@ -32,7 +34,7 @@ class DeliveryModel(BaseModel, db.Model):
 
     delivery_id = db.Column(
         UUID(as_uuid=True), primary_key=True, default=uuid4)
-    offer_id = db.Column(UUID(as_uuid=True), nullable=True)
+    offer_id = db.Column(UUID(as_uuid=True), nullable=True, unique=True)
     status = db.Column(
         db.String(30), default=str(DeliveryStatus.created), nullable=False)
     access_code = db.Column(
@@ -44,8 +46,13 @@ class DeliveryModel(BaseModel, db.Model):
     supplier_id = db.Column(db.Integer, db.ForeignKey(
         'delivery_suppliers.supplier_id'))
 
+    supplier: SupplierModel = db.relationship('SupplierModel')
+    orders: list[OrderModel] = db.relationship('OrderModel')
+
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)
+
+        # TODO: test
 
         self.delivery_id = data.get('delivery_id')
         self.offer_id = data.get('offer_id')
@@ -54,3 +61,9 @@ class DeliveryModel(BaseModel, db.Model):
         self.report_sent = data.get('report_sent')
         self.start_time = data.get('start_time')
         self.end_time = data.get('end_time')
+
+        if supplier := data.get('supplier'):
+            self.supplier = SupplierModel(supplier)
+
+        if orders := data.get('orders'):
+            self.orders = [OrderModel(order) for order in orders]

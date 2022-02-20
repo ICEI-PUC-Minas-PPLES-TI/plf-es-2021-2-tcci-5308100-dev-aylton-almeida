@@ -1,22 +1,24 @@
 {
-  "name": "Compra em grupo Kevin Dyer",
+  "name": "Compra em grupo Armando Russell",
   "offerId": "d4b6507c-bc03-4bfc-9e4a-650a3ec7425c",
   "orders": [
     {
       "buyer": {
-        "name": "Stephen Culotta"
+        "name": "Ada Pacifico"
       },
       "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69",
       "orderProducts": [
         {
           "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
           "quantity": 4,
-          "sku": 1763
+          "sku": 1763,
+          "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69"
         },
         {
           "productName": "Carpaccio de Angus Bovino (200g)",
           "quantity": 5,
-          "sku": 2585
+          "sku": 2585,
+          "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69"
         }
       ],
       "shippingAddress": {
@@ -35,29 +37,33 @@
     },
     {
       "buyer": {
-        "name": "Amy Mais"
+        "name": "David Mcdonough"
       },
       "orderId": "afa356ca-ea9e-4fa7-9882-bcd4a6ed5c14",
       "orderProducts": [
         {
           "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
           "quantity": 3,
-          "sku": 1763
+          "sku": 1763,
+          "orderId": "afa356ca-ea9e-4fa7-9882-bcd4a6ed5c14"
         },
         {
           "productName": "Steak de Chorizo Carapreta (350g)",
           "quantity": 3,
-          "sku": 2607
+          "sku": 2607,
+          "orderId": "afa356ca-ea9e-4fa7-9882-bcd4a6ed5c14"
         },
         {
           "productName": "Medalhão de Picanha ARG (2Kg)",
           "quantity": 1,
-          "sku": 3830
+          "sku": 3830,
+          "orderId": "afa356ca-ea9e-4fa7-9882-bcd4a6ed5c14"
         },
         {
           "productName": "Cupim ARG (1,150Kg)",
           "quantity": 1,
-          "sku": 3835
+          "sku": 3835,
+          "orderId": "afa356ca-ea9e-4fa7-9882-bcd4a6ed5c14"
         }
       ],
       "shippingAddress": {
@@ -76,19 +82,21 @@
     },
     {
       "buyer": {
-        "name": "Vernon Shipman"
+        "name": "Fred Lemanski"
       },
       "orderId": "2eb9ea45-315f-4b46-b4ac-f00dffade503",
       "orderProducts": [
         {
           "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
           "quantity": 4,
-          "sku": 1763
+          "sku": 1763,
+          "orderId": "2eb9ea45-315f-4b46-b4ac-f00dffade503"
         },
         {
           "productName": "Medalhão de Picanha ARG (2Kg)",
           "quantity": 1,
-          "sku": 3830
+          "sku": 3830,
+          "orderId": "2eb9ea45-315f-4b46-b4ac-f00dffade503"
         }
       ],
       "shippingAddress": {
@@ -107,14 +115,15 @@
     },
     {
       "buyer": {
-        "name": "Melissia Johnson"
+        "name": "Robert Rinaldi"
       },
       "orderId": "6916008d-f200-40e7-b0d0-000d17807aff",
       "orderProducts": [
         {
           "productName": "Bananinha Carapreta (1,250Kg)",
           "quantity": 1,
-          "sku": 2593
+          "sku": 2593,
+          "orderId": "6916008d-f200-40e7-b0d0-000d17807aff"
         }
       ],
       "shippingAddress": {
@@ -133,14 +142,15 @@
     },
     {
       "buyer": {
-        "name": "Richard Meacham"
+        "name": "Elizabeth Maybury"
       },
       "orderId": "3aba85cf-f1cc-4718-87c7-f792e084eefe",
       "orderProducts": [
         {
           "productName": "Carpaccio de Angus Bovino (200g)",
           "quantity": 1,
-          "sku": 2585
+          "sku": 2585,
+          "orderId": "3aba85cf-f1cc-4718-87c7-f792e084eefe"
         }
       ],
       "shippingAddress": {
@@ -159,19 +169,21 @@
     },
     {
       "buyer": {
-        "name": "Teresa Shelton"
+        "name": "Irene Baker"
       },
       "orderId": "e83336ee-6409-4e19-a3d0-cb5b1050bc69",
       "orderProducts": [
         {
           "productName": "Bananinha Carapreta (1,250Kg)",
           "quantity": 1,
-          "sku": 2593
+          "sku": 2593,
+          "orderId": "e83336ee-6409-4e19-a3d0-cb5b1050bc69"
         },
         {
           "productName": "Iscas de Alcatra (550g)",
           "quantity": 1,
-          "sku": 3859
+          "sku": 3859,
+          "orderId": "e83336ee-6409-4e19-a3d0-cb5b1050bc69"
         }
       ],
       "shippingAddress": {
@@ -190,24 +202,27 @@
     },
     {
       "buyer": {
-        "name": "Colleen Darr"
+        "name": "Edward Smithson"
       },
       "orderId": "0dd2d022-2d18-4a35-ba20-4710f6cf7562",
       "orderProducts": [
         {
           "productName": "Steak de Chorizo Carapreta (350g)",
           "quantity": 2,
-          "sku": 2607
+          "sku": 2607,
+          "orderId": "0dd2d022-2d18-4a35-ba20-4710f6cf7562"
         },
         {
           "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
           "quantity": 3,
-          "sku": 1763
+          "sku": 1763,
+          "orderId": "0dd2d022-2d18-4a35-ba20-4710f6cf7562"
         },
         {
           "productName": "Medalhão de Picanha ARG (2Kg)",
           "quantity": 1,
-          "sku": 3830
+          "sku": 3830,
+          "orderId": "0dd2d022-2d18-4a35-ba20-4710f6cf7562"
         }
       ],
       "shippingAddress": {
@@ -226,19 +241,21 @@
     },
     {
       "buyer": {
-        "name": "Muriel Bickel"
+        "name": "Ronnie Pankratz"
       },
       "orderId": "49ff19aa-7d91-4d32-a5ca-26c4cc99d8f6",
       "orderProducts": [
         {
           "productName": "Medalhão de Picanha ARG (2Kg)",
           "quantity": 1,
-          "sku": 3830
+          "sku": 3830,
+          "orderId": "49ff19aa-7d91-4d32-a5ca-26c4cc99d8f6"
         },
         {
           "productName": "Cupim ARG (1,150Kg)",
           "quantity": 1,
-          "sku": 3835
+          "sku": 3835,
+          "orderId": "49ff19aa-7d91-4d32-a5ca-26c4cc99d8f6"
         }
       ],
       "shippingAddress": {
@@ -257,9 +274,9 @@
     }
   ],
   "supplier": {
-    "legalId": "99615328000180",
-    "name": "Kevin Dyer",
-    "phone": "+5511925966591",
+    "legalId": "29614991000184",
+    "name": "Armando Russell",
+    "phone": "+5511956939047",
     "supplierId": 1033
   }
 }

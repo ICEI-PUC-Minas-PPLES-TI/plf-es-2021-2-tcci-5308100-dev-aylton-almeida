@@ -8,7 +8,7 @@ class SupplierModel(BaseModel, db.Model):
 
     __tablename__ = 'delivery_suppliers'
 
-    supplier_id = db.Column(db.Integer, primary_key=True)
+    supplier_id = db.Column(db.Integer, primary_key=True, autoincrement=False)
     phone = db.Column(db.String(20), nullable=True)
     name = db.Column(db.String(100),  nullable=False)
     legal_id = db.Column(db.String(30), nullable=True)
