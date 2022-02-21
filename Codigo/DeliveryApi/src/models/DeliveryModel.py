@@ -5,6 +5,7 @@ from uuid import uuid4
 from sqlalchemy.dialects.postgresql import UUID
 
 from src.classes.DeliveryStatus import DeliveryStatus
+from src.models.DeliveryRouteModel import DeliveryRouteModel
 from src.models.OrderModel import OrderModel
 from src.models.SupplierModel import SupplierModel
 from src.utils.GenerateSecretCode import generate_secret_code
@@ -47,12 +48,14 @@ class DeliveryModel(BaseModel, db.Model):
         'delivery_suppliers.supplier_id'))
 
     supplier: SupplierModel = db.relationship('SupplierModel')
+    route: DeliveryRouteModel = db.relationship(
+        'DeliveryRouteModel',
+        uselist=False
+    )
     orders: list[OrderModel] = db.relationship('OrderModel')
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)
-
-        # TODO: test
 
         self.delivery_id = data.get('delivery_id')
         self.offer_id = data.get('offer_id')

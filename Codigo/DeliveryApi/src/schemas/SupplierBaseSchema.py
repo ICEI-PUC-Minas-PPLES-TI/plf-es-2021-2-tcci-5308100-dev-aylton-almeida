@@ -13,7 +13,6 @@ class SupplierBaseSchema(Schema):
         """Create a supplier based on an offer supplier
         """
 
-        # TODO: test
 
         schema = SupplierBaseSchema(unknown='EXCLUDE')
 

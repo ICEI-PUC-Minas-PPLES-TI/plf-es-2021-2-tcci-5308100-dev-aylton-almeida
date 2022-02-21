@@ -23,8 +23,6 @@ class DeliveryBaseSchema(Schema):
     def from_offer(offer: dict):
         """Create a delivery based on an offer"""
 
-        # TODO: test
-
         schema = DeliveryBaseSchema(unknown='EXCLUDE')
 
         return schema.load({

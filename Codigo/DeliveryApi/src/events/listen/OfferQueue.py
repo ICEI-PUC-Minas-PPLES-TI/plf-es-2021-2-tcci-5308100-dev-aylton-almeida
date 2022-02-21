@@ -8,9 +8,10 @@ from src.services.OfferService import OfferService
 def offer_completed_queue(routing_key: str, body: dict, message_id: str):
     """Offer order paid queues"""
 
-    # TODO: test
-
     current_app.logger.info(
         f"OFFER COMPLETED EVENT RECEIVED: {body.get('offer_id')}")
 
     OfferService.handle_offer_complete_event(body)
+
+    current_app.logger.info(
+        f"OFFER COMPLETED EVENT PROCESSED: {body.get('offer_id')}")

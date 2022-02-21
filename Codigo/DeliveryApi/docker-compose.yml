@@ -12,6 +12,7 @@ services:
       - DB_SERVER_URL=${DB_SERVER_URL}
       - MQ_EXCHANGE=${MQ_EXCHANGE}
       - MQ_URL=${MQ_URL}
+      - G_CLOUD_API_KEY=${G_CLOUD_API_KEY}
     depends_on:
       - db
     ports:

@@ -14,8 +14,6 @@ class OrderProductBaseSchema(Schema):
         """Create an order product based on an offer order
         """
 
-        # TODO: test
-
         schema = OrderProductBaseSchema(unknown='EXCLUDE')
 
         # Remove old order_product_id if any

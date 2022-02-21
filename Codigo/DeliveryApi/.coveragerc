@@ -5,7 +5,7 @@ concurrency = gevent
 include = src/**/*.py
 
 [report]
-fail_under = 80
+fail_under = 90
 
 [html]
 directory = coverage

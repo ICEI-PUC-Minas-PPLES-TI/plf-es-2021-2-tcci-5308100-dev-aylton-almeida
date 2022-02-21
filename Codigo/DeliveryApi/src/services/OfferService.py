@@ -8,8 +8,9 @@ class OfferService(ABC):
 
     @staticmethod
     def handle_offer_complete_event(offer: dict):
-        """Creates new delivery based on received offer"""
+        """Creates new delivery based on received offer if it's not already created"""
 
         parsed_delivery = DeliveryBaseSchema.from_offer(offer)
 
-        DeliveryService.create_delivery(parsed_delivery)
+        if not DeliveryService.get_one_by_offer_id(parsed_delivery.get('offer_id')):
+            DeliveryService.create_optimized_delivery(parsed_delivery)

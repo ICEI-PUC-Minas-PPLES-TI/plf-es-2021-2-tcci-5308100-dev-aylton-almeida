@@ -29,8 +29,6 @@ class OrderModel(BaseModel, db.Model):
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)
 
-        # TODO: test
-
         self.order_id = data.get('order_id')
         self.buyer_name = data.get('buyer_name')
         self.delivered = data.get('delivered')

@@ -10,17 +10,21 @@ class DeliveryService(ABC):
     def get_one_by_offer_id(offer_id: UUID):
         """Gets one delivery given its offer id"""
 
-        # TODO: test
-
         return DeliveryModel.get_one_filtered([
             DeliveryModel.offer_id == offer_id,
         ])
 
     @staticmethod
-    def create_delivery(delivery: dict, commit=True):
-        """Creates delivery"""
+    def create_optimized_delivery(delivery_data: dict):
+        """Creates a new delivery and also an optimized route for its orders"""
 
-        # TODO: test
+        # Create delivery
+        delivery = DeliveryModel(delivery_data)
+        delivery.save(commit=False)
 
-        delivery = DeliveryModel(delivery)
-        delivery.save(commit)
+        # calculate delivery route
+        # ! Will uncomment when route optimization is implemented
+        # delivery.route = DeliveryRouteService.create_from_delivery(delivery)
+
+        # Commit transaction
+        delivery.save()

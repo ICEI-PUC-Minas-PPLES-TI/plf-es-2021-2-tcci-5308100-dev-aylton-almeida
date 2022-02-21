@@ -8,7 +8,7 @@ class AddressBaseSchema(Schema):
     country_state = fields.Str()
     street_name = fields.Str()
     street_number = fields.Str()
-    unit_number = fields.Str()
+    unit_number = fields.Str(allow_none=True)
     postal_code = fields.Str()
     neighborhood_name = fields.Str()
     lat = fields.Number()
@@ -17,8 +17,6 @@ class AddressBaseSchema(Schema):
     @staticmethod
     def from_offer_order_address(offer_order_address: dict):
         """Create an address based on an offer order shipping address data"""
-
-        # TODO: test
 
         schema = AddressBaseSchema(unknown='EXCLUDE')
 

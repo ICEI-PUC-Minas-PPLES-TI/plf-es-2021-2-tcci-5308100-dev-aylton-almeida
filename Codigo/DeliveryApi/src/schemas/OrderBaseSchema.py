@@ -19,7 +19,6 @@ class OrderBaseSchema(Schema):
     def from_offer_order(offer_order: dict):
         """Create an order based on an offer order
         """
-        # TODO: test
 
         schema = OrderBaseSchema(unknown='EXCLUDE')
 
