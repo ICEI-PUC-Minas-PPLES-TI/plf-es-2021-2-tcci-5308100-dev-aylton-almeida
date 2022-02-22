@@ -1,0 +1,1 @@
+enum PhoneInputState { deliverer, supplier }

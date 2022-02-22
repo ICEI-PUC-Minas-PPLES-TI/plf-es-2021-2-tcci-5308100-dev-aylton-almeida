@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class OutlinedTextField extends TextFormField {
   OutlinedTextField({
@@ -9,6 +10,7 @@ class OutlinedTextField extends TextFormField {
     void Function(String)? onChanged,
     String? hintText,
     int? maxLength,
+    List<TextInputFormatter>? inputFormatters,
   }) : super(
           key: key,
           controller: controller,
@@ -23,5 +25,6 @@ class OutlinedTextField extends TextFormField {
           keyboardType: TextInputType.number,
           validator: validator,
           onChanged: onChanged,
+          inputFormatters: inputFormatters,
         );
 }

@@ -6,48 +6,50 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/delivery_code_controller.dart';
+import '../controllers/phone_input_controller.dart';
 
-class DeliveryCodeView extends GetView<DeliveryCodeController> {
-  const DeliveryCodeView({Key? key}) : super(key: key);
-
+class PhoneInputView extends GetView<PhoneInputController> {
   @override
   Widget build(BuildContext context) {
     return KeyboardDismissContainer(
       child: Scaffold(
         appBar: FlatAppBar(
+          leading: IconButton(
+            onPressed: controller.goBack,
+            icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
+          ),
           title: Image.asset('assets/images/small_logo.png', height: 30),
         ),
         body: ScrollableForm(
-          key: controller.codeFormKey,
+          key: controller.phoneFormKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'você possui um código?'.tr.capitalizeFirst!,
+                  controller.currentAssets['title'],
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'caso não, mas deseje ver suas entregas'.tr.capitalizeFirst!,
+                  'digite seu whatsapp'.tr,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'código de 6 dígitos'.tr.capitalizeFirst!,
+                  'telefone completo'.tr.capitalizeFirst!,
                   textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 const SizedBox(height: 16),
                 OutlinedTextField(
-                  controller: controller.codeController,
+                  controller: controller.phoneController,
                   keyboardType: TextInputType.number,
-                  hintText: 'código'.tr.capitalize!,
+                  hintText: 'telefone'.tr.capitalizeFirst!,
                   validator: controller.validator,
                   onChanged: (_) => controller.handleFormChange(),
-                  maxLength: 6,
+                  inputFormatters: [controller.phoneMask],
                 ),
               ],
             ),
@@ -57,7 +59,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
               children: [
                 Obx(
                   () => ElevatedButton(
-                    key: const Key('code_submit_button'),
+                    key: const Key('phone_submit_button'),
                     onPressed:
                         !controller.isLoading.value && controller.isValid.value
                             ? controller.submitForm
@@ -70,16 +72,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                               strokeWidth: 2,
                             ),
                           )
-                        : Text(
-                            "verificar código de entrega".tr.capitalizeFirst!,
-                          ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () => {},
-                  child: Text(
-                    "sou um parceiro trela".tr.capitalizeFirst!,
+                        : Text(controller.currentAssets['btn']),
                   ),
                 ),
               ],
