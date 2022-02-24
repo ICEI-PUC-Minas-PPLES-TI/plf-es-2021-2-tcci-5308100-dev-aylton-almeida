@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 from werkzeug.exceptions import NotFound
 
-from src.libs.gcloud.maps import get_lat_lng_from_address
+from src.libs.gcloud.maps import get_directions, get_lat_lng_from_address
 from tests.utils.models.BaseTest import BaseTest
 
 
@@ -51,3 +51,33 @@ class MapsTests(BaseTest):
         self.assertEqual(str(err.exception),
                          f'404 Not Found: Address not found: {address}')
         mock_client.return_value.geocode.assert_called_once_with(address)
+
+    @patch('src.libs.gcloud.maps.Client')
+    def test_GetDirections_when_Default(self, mock_client: MagicMock):
+        """Test get_directions when default behavior"""
+
+        # when
+        origin = 'rua xyz 123'
+        destination = 'rua xyz 456'
+        waypoints = [
+            'rua xyz 789',
+            'rua xyz 101112',
+        ]
+        expected_response = 'valid response'
+
+        # mock
+        mock_client.return_value.directions.return_value = expected_response
+
+        # then
+        response = get_directions(origin, destination, waypoints)
+
+        # assert
+        self.assertEqual(response, expected_response)
+        mock_client.return_value.directions.assert_called_once_with(
+            origin,
+            destination,
+            waypoints=waypoints,
+            mode='driving',
+            alternatives=False,
+            optimize_waypoints=True
+        )

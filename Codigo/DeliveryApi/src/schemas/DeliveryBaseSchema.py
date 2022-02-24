@@ -2,7 +2,6 @@ from marshmallow import Schema, fields, validate
 
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.schemas.OrderBaseSchema import OrderBaseSchema
-from src.schemas.SupplierBaseSchema import SupplierBaseSchema
 
 
 class DeliveryBaseSchema(Schema):
@@ -16,7 +15,6 @@ class DeliveryBaseSchema(Schema):
     start_time = fields.DateTime()
     end_time = fields.DateTime()
 
-    supplier = fields.Nested(SupplierBaseSchema)
     orders = fields.Nested(OrderBaseSchema, many=True)
 
     @staticmethod
@@ -27,7 +25,6 @@ class DeliveryBaseSchema(Schema):
 
         return schema.load({
             **offer,
-            'supplier': SupplierBaseSchema.from_offer(offer.get('supplier')),
             'orders': [
                 OrderBaseSchema.from_offer_order(order)
                 for order in offer.get('orders', [])

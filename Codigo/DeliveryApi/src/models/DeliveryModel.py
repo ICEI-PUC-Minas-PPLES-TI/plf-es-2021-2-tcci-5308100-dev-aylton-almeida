@@ -7,7 +7,6 @@ from sqlalchemy.dialects.postgresql import UUID
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.models.DeliveryRouteModel import DeliveryRouteModel
 from src.models.OrderModel import OrderModel
-from src.models.SupplierModel import SupplierModel
 from src.utils.GenerateSecretCode import generate_secret_code
 
 from . import db
@@ -47,7 +46,6 @@ class DeliveryModel(BaseModel, db.Model):
     supplier_id = db.Column(db.Integer, db.ForeignKey(
         'delivery_suppliers.supplier_id'))
 
-    supplier: SupplierModel = db.relationship('SupplierModel')
     route: DeliveryRouteModel = db.relationship(
         'DeliveryRouteModel',
         uselist=False
@@ -64,9 +62,6 @@ class DeliveryModel(BaseModel, db.Model):
         self.report_sent = data.get('report_sent')
         self.start_time = data.get('start_time')
         self.end_time = data.get('end_time')
-
-        if supplier := data.get('supplier'):
-            self.supplier = SupplierModel(supplier)
 
         if orders := data.get('orders'):
             self.orders = [OrderModel(order) for order in orders]

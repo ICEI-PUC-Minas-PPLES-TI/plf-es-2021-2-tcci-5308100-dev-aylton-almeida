@@ -2,6 +2,8 @@ from unittest.mock import MagicMock, call, patch
 from uuid import uuid4
 
 from src.models.DeliveryModel import DeliveryModel
+from src.models.DeliveryRouteModel import DeliveryRouteModel
+from src.services.DeliveryRouteService import DeliveryRouteService
 from src.services.DeliveryService import DeliveryService
 from tests.utils.models.BaseTest import BaseTest
 
@@ -31,14 +33,19 @@ class DeliveryServiceTests(BaseTest):
             'assert filter has offer_id == offer_id'
         )
 
+    @patch.object(DeliveryRouteService, 'create_from_delivery')
     @patch.object(DeliveryModel, 'save')
-    def test_CreateOptimizedDelivery_when_Default(self, mocK_save: MagicMock):
+    def test_CreateOptimizedDelivery_when_Default(self, mocK_save: MagicMock, mock_create_from_delivery: MagicMock):
         """Test create_optimized_delivery when default behavior"""
 
         # when
         delivery_data = {
             'offer_id': uuid4()
         }
+        route = DeliveryRouteModel({})
+
+        # mock
+        mock_create_from_delivery.return_value = route
 
         # then
         DeliveryService.create_optimized_delivery(delivery_data)
@@ -48,3 +55,4 @@ class DeliveryServiceTests(BaseTest):
             call(commit=False),
             call()
         ])
+        mock_create_from_delivery.assert_called_once()
