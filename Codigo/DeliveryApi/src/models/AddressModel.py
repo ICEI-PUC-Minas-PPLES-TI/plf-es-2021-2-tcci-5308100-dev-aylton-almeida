@@ -18,8 +18,8 @@ class AddressModel(BaseModel, db.Model):
     unit_number = db.Column(db.String)
     postal_code = db.Column(db.String(50))
     neighborhood_name = db.Column(db.String(100))
-    lat = db.Column(db.Float(10, 8))
-    lng = db.Column(db.Float(11, 8))
+    lat = db.Column(db.Numeric)
+    lng = db.Column(db.Numeric)
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)
@@ -49,3 +49,8 @@ class AddressModel(BaseModel, db.Model):
         lat_lng = get_lat_lng_from_address(str(self))
         self.lat = lat_lng.get('lat')
         self.lng = lat_lng.get('lng')
+
+    def get_lat_lng(self):
+        """Returns tuple containing latitude and longitude"""
+
+        return self.lat, self.lng

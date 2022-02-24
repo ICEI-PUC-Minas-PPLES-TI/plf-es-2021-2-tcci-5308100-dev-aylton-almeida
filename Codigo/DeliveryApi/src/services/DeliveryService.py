@@ -2,6 +2,7 @@ from abc import ABC
 from uuid import UUID
 
 from src.models.DeliveryModel import DeliveryModel
+from src.services.DeliveryRouteService import DeliveryRouteService
 
 
 class DeliveryService(ABC):
@@ -23,8 +24,7 @@ class DeliveryService(ABC):
         delivery.save(commit=False)
 
         # calculate delivery route
-        # ! Will uncomment when route optimization is implemented
-        # delivery.route = DeliveryRouteService.create_from_delivery(delivery)
+        delivery.route = DeliveryRouteService.create_from_delivery(delivery)
 
         # Commit transaction
         delivery.save()
