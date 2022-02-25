@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/delivery_code/bindings/delivery_code_binding.dart';
 import '../modules/delivery_code/views/delivery_code_view.dart';
+import '../modules/delivery_details/bindings/delivery_details_binding.dart';
+import '../modules/delivery_details/views/delivery_details_view.dart';
 import '../modules/phone_input/bindings/phone_input_binding.dart';
 import '../modules/phone_input/views/phone_input_view.dart';
 
@@ -20,6 +22,11 @@ class AppPages {
       name: _Paths.PHONE_INPUT,
       page: () => PhoneInputView(),
       binding: PhoneInputBinding(),
+    ),
+    GetPage(
+      name: _Paths.DELIVERY_DETAILS,
+      page: () => DeliveryDetailsView(),
+      binding: DeliveryDetailsBinding(),
     ),
   ];
 }

@@ -46,10 +46,8 @@ class DeliveryCodeController extends GetxController {
   }
 
   Future<void> submitForm() async {
-    // TODO: test
-
     isLoading.value = true;
-    dismissKeyboard(Get.overlayContext!);
+    DismissKeyboard.dismiss(Get.overlayContext!);
 
     if (codeFormKey.currentState!.validate()) {
       await Future.delayed(const Duration(seconds: 1));

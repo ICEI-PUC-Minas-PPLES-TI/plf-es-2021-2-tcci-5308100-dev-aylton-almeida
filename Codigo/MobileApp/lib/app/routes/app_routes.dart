@@ -6,9 +6,11 @@ abstract class Routes {
 
   static const DELIVERY_CODE = _Paths.DELIVERY_CODE;
   static const PHONE_INPUT = _Paths.PHONE_INPUT;
+  static const DELIVERY_DETAILS = _Paths.DELIVERY_DETAILS;
 }
 
 abstract class _Paths {
   static const DELIVERY_CODE = '/delivery-code';
   static const PHONE_INPUT = '/phone-input';
+  static const DELIVERY_DETAILS = '/delivery-details';
 }
