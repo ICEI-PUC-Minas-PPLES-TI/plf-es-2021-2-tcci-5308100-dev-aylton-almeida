@@ -1,3 +1,5 @@
+final _appBarTitles = {'supplier_account_title': 'Sua Conta'};
+
 final _headers = {
   'delivery_code_form_header':
       'Você possui um código para realizar uma entrega?',
@@ -5,6 +7,7 @@ final _headers = {
       'Antes de acessar a rota de entrega, insira seu número de WhatsApp',
   'phone_form_supplier_header':
       'Parceiro, acesse sua conta com seu número de WhatsApp',
+  'confirmation_code_form_header': 'Digite o código de confirmação'
 };
 
 final _subHeaders = {
@@ -12,11 +15,18 @@ final _subHeaders = {
       'Caso não, mas deseje ver suas entregas pendentes, acesse sua conta de parceiro Trela',
   'phone_form_sub_header':
       'Digite seu WhatsApp para entrar. Seus dados estão seguros e você não precisa de senha.',
+  'confirmation_code_form_sub_header':
+      'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone'
+};
+
+final _bodyTexts = {
+  'supplier_data': 'Dados da Empresa',
 };
 
 final _inputLabels = {
-  'code_input_label': 'Código de 6 dígitos',
+  'delivery_code_input_label': 'Código de 6 dígitos',
   'phone_input_label': 'Telefone',
+  'confirmation_code_input_label': 'Código de 5 dígitos'
 };
 
 final _inputHints = {
@@ -28,6 +38,8 @@ final _formValidation = {
   'empty_delivery_code_input_error': 'Digite o código de entrega',
   'invalid_delivery_code_input_error': 'Código de entrega invalido',
   'invalid_phone_input_error': 'Insira um telefone válido',
+  'empty_confirmation_code_input_error': 'Digite o código de confirmação',
+  'invalid_confirmation_code_input_error': 'Código de confirmação invalido',
 };
 
 final _buttonLabels = {
@@ -35,6 +47,10 @@ final _buttonLabels = {
   'trela_partner_button': 'Sou um parceiro trela',
   'phone_form_deliverer_button': 'Ver detalhes da entrega',
   'phone_form_supplier_button': 'Receber código por WhatsApp',
+  'confirmation_code_button': 'Verificar',
+  'resend_code_button': 'Reenviar código',
+  'change_number_button': 'Trocar número de celular',
+  'exit_button': 'Sair',
 };
 
 final _alerts = {
@@ -44,8 +60,10 @@ final _alerts = {
 };
 
 final Map<String, String> ptBR = {
+  ..._appBarTitles,
   ..._headers,
   ..._subHeaders,
+  ..._bodyTexts,
   ..._inputLabels,
   ..._inputHints,
   ..._formValidation,

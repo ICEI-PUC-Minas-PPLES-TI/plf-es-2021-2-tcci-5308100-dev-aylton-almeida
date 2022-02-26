@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/modules/delivery_code_form/controllers/delivery_code_form_controller.dart';
 import 'package:delivery_manager/app/modules/delivery_code_form/views/delivery_code_form_view.dart';
+import 'package:delivery_manager/app/widgets/loading_button.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -16,6 +17,9 @@ void main() {
     testWidgets('Testing initial state', (WidgetTester tester) async {
       // when
       const submitButtonKey = Key('code_submit_button');
+      const supplierButtonKey = Key('supplier_flow_button');
+
+      // pump
       await tester.pumpWidget(createTestView(const DeliveryCodeFormView()));
       await tester.pump();
 
@@ -28,7 +32,7 @@ void main() {
         find.text('delivery_code_form_sub_header'.tr),
         findsOneWidget,
       );
-      expect(find.text('code_input_label'.tr), findsOneWidget);
+      expect(find.text('delivery_code_input_label'.tr), findsOneWidget);
       expect(find.text('code_input_hint'.tr), findsOneWidget);
       expect(
         find.text("verify_code_button".tr),
@@ -43,13 +47,13 @@ void main() {
         findsNothing,
       );
       expect(
-        tester.widget<ElevatedButton>(find.byKey(submitButtonKey)).onPressed,
+        tester.widget<LoadingButton>(find.byKey(submitButtonKey)).onPressed,
         isNull,
         reason: 'Expect initial submit button to be disabled',
       );
       expect(
-        find.text("trela_partner_button".tr),
-        findsOneWidget,
+        tester.widget<OutlinedButton>(find.byKey(supplierButtonKey)).onPressed,
+        Get.find<DeliveryCodeFormController>().onSupplierPressed,
       );
     });
 
