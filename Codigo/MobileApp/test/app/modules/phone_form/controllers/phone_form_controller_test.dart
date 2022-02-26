@@ -144,7 +144,7 @@ void main() {
       // assert
       expect(
           controller.currentAssets['title'], 'phone_form_deliverer_header'.tr);
-      expect(controller.currentAssets['btn'], 'phone_form_supplier_header'.tr);
+      expect(controller.currentAssets['btn'], 'phone_form_deliverer_button'.tr);
     });
 
     test('setCurrentAssets when current user is supplier', () {
@@ -157,9 +157,9 @@ void main() {
       controller.setCurrentAssets();
 
       // assert
-      expect(controller.currentAssets['title'],
-          'phone_form_supplier_sub_header'.tr);
-      expect(controller.currentAssets['btn'], 'receive_code_button'.tr);
+      expect(
+          controller.currentAssets['title'], 'phone_form_supplier_header'.tr);
+      expect(controller.currentAssets['btn'], 'phone_form_supplier_button'.tr);
     });
   });
 }

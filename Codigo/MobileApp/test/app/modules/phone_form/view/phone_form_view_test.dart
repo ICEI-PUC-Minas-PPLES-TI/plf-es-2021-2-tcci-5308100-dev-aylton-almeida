@@ -120,7 +120,7 @@ void main() {
 
     testWidgets('Testing when valid code', (WidgetTester tester) async {
       // when
-      const phone = '+5531999999999';
+      const phone = '+55 (31) 99999 9999';
 
       // pump
       await tester.pumpWidget(createTestView(PhoneFormView()));
