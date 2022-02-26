@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/create_test_widget.dart';
+import '../../../../utils/create_test_view.dart';
 
 void main() {
   group('Phone Form View Widget Tests', () {

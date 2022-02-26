@@ -11,9 +11,15 @@ import 'delivery_code_form_controller_test.mocks.dart';
 void main() {
   group('Testing Delivery Code Form Controller', () {
     // Mock
-    final mockGlobalKey = MockGlobalKey<FormState>();
-    final mockFormState = MockFormState();
-    final mockTextEditingController = MockTextEditingController();
+    late MockGlobalKey<FormState> mockGlobalKey;
+    late MockFormState mockFormState;
+    late MockTextEditingController mockTextEditingController;
+
+    setUp(() {
+      mockGlobalKey = MockGlobalKey<FormState>();
+      mockFormState = MockFormState();
+      mockTextEditingController = MockTextEditingController();
+    });
 
     tearDown(() {
       reset(mockGlobalKey);
@@ -82,7 +88,7 @@ void main() {
       // then
       final response = controller.validator(value);
 
-      expect(response, 'código de entrega inválido'.tr);
+      expect(response, 'invalid_delivery_code_input_error'.tr);
     });
 
     test('Code Field Validator when smaller not int', () {
@@ -93,7 +99,7 @@ void main() {
       // then
       final response = controller.validator(value);
 
-      expect(response, 'código de entrega inválido'.tr);
+      expect(response, 'invalid_delivery_code_input_error'.tr);
     });
 
     test('handleFormChange when form is valid', () {

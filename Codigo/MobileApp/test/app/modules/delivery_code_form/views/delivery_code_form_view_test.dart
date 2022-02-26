@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/create_test_widget.dart';
+import '../../../../utils/create_test_view.dart';
 
 void main() {
   group('Delivery Code View Form Widget Tests', () {
@@ -66,7 +66,7 @@ void main() {
 
       // assert
       expect(
-        find.text('código de entrega inválido'.tr),
+        find.text('invalid_delivery_code_input_error'.tr),
         findsOneWidget,
       );
       expect(

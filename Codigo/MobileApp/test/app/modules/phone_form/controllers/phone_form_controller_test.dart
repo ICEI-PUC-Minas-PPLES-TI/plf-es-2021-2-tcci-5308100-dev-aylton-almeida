@@ -19,10 +19,19 @@ import 'phone_form_controller_test.mocks.dart';
 void main() {
   group('Testing Phone Form Controller', () {
     // Mock
-    final mockGlobalKey = MockGlobalKey<FormState>();
-    final mockFormState = MockFormState();
-    final mockTextEditingController = MockTextEditingController();
-    final mockMaskTextInputFormatter = MockMaskTextInputFormatter();
+    late MockGlobalKey<FormState> mockGlobalKey = MockGlobalKey<FormState>();
+    late MockFormState mockFormState = MockFormState();
+    late MockTextEditingController mockTextEditingController =
+        MockTextEditingController();
+    late MockMaskTextInputFormatter mockMaskTextInputFormatter =
+        MockMaskTextInputFormatter();
+
+    setUp(() {
+      mockGlobalKey = MockGlobalKey<FormState>();
+      mockFormState = MockFormState();
+      mockTextEditingController = MockTextEditingController();
+      mockMaskTextInputFormatter = MockMaskTextInputFormatter();
+    });
 
     tearDown(() {
       reset(mockGlobalKey);

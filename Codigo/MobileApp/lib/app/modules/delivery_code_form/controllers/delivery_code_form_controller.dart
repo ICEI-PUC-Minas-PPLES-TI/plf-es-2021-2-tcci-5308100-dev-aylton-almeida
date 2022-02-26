@@ -36,7 +36,7 @@ class DeliveryCodeFormController extends GetxController {
     if (value == null || value.isEmpty) {
       return 'empty_delivery_code_input_error'.tr;
     } else if ((value.length != 6) || int.tryParse(value) == null) {
-      return 'código de entrega inválido'.tr;
+      return 'invalid_delivery_code_input_error'.tr;
     }
     return null;
   }
@@ -57,8 +57,8 @@ class DeliveryCodeFormController extends GetxController {
         arguments: PhoneFormArgs(user: PhoneFormUser.deliverer),
       );
     } else {
-      Get.find<AppController>()
-          .showAlert(text: 'Código de entrega inválido', type: AlertType.error);
+      Get.find<AppController>().showAlert(
+          text: 'invalid_delivery_code_error', type: AlertType.error);
     }
 
     isLoading.value = false;

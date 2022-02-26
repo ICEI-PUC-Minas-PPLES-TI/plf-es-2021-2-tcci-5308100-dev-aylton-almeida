@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/modules/phone_form/controllers/phone_form_controller.dart';
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
+import 'package:delivery_manager/app/widgets/loading_button.dart';
 import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/app/widgets/scrollable_form.dart';
@@ -57,21 +58,12 @@ class PhoneFormView extends GetView<PhoneFormController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Obx(
-                  () => ElevatedButton(
+                  () => LoadingButton(
                     key: const Key('phone_submit_button'),
-                    onPressed:
-                        !controller.isLoading.value && controller.isValid.value
-                            ? controller.submitForm
-                            : null,
-                    child: controller.isLoading.value
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                            ),
-                          )
-                        : Text(controller.currentAssets['btn']),
+                    onPressed: controller.submitForm,
+                    child: Text(controller.currentAssets['btn']),
+                    isLoading: controller.isLoading.value,
+                    isDisabled: !controller.isValid.value,
                   ),
                 ),
               ],

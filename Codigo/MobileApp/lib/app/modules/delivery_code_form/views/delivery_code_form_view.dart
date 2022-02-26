@@ -1,4 +1,5 @@
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
+import 'package:delivery_manager/app/widgets/loading_button.dart';
 import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/app/widgets/scrollable_form.dart';
@@ -56,27 +57,16 @@ class DeliveryCodeFormView extends GetView<DeliveryCodeFormController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Obx(
-                  () => ElevatedButton(
+                  () => LoadingButton(
                     key: const Key('code_submit_button'),
-                    onPressed:
-                        !controller.isLoading.value && controller.isValid.value
-                            ? controller.submitForm
-                            : null,
-                    child: controller.isLoading.value
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                            ),
-                          )
-                        : Text(
-                            "verify_code_button".tr,
-                          ),
+                    onPressed: controller.submitForm,
+                    child: Text("verify_code_button".tr),
+                    isLoading: controller.isLoading.value,
+                    isDisabled: !controller.isValid.value,
                   ),
                 ),
                 const SizedBox(height: 16),
-                ElevatedButton(
+                OutlinedButton(
                   onPressed: () => {},
                   child: Text(
                     "trela_partner_button".tr,

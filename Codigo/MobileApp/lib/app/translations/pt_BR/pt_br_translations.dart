@@ -5,12 +5,13 @@ final _formValidation = {
 };
 
 final _alerts = {
+  'invalid_delivery_code_error': 'Código de entrega inválido',
   'phone_not_registered_error':
       'este telefone não possuí uma conta de Parceiro Trela.',
 };
 
 final _buttonLabels = {
-  'receive_code_button': 'receber código por WhatsApp',
+  'receive_code_button': 'Receber código por WhatsApp',
   'verify_code_button': 'Verificar código de entrega',
   'trela_partner_button': 'Sou um parceiro trela',
 };
