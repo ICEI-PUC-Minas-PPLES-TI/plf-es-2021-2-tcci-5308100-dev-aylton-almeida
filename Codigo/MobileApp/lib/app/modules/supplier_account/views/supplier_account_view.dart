@@ -9,10 +9,10 @@ class SupplierAccountView extends GetView<SupplierAccountController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SupplierAccountView'),
+        title: const Text('SupplierAccountView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'SupplierAccountView is working',
           style: TextStyle(fontSize: 20),
