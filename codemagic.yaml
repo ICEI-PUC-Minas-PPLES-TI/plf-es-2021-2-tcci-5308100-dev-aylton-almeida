@@ -16,17 +16,16 @@ workflows:
     working_directory: Codigo/MobileApp
     triggering:
       events:
-        - push
         - pull_request
       branch_patterns:
+        - pattern: "*"
         - pattern: "master"
           include: false
-          source: false
       cancel_previous_builds: false
     when:
       changeset:
         includes:
-          - Codigo/MobileApp
+          - "Codigo/MobileApp"
     environment: *environment
     cache: *cache
     scripts:
@@ -60,7 +59,7 @@ workflows:
     when:
       changeset:
         includes:
-          - Codigo/MobileApp
+          - "Codigo/MobileApp"
     environment: *environment
     cache: *cache
     scripts:

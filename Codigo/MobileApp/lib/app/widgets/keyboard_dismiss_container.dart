@@ -10,7 +10,7 @@ class KeyboardDismissContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => dismissKeyboard(context),
+      onTap: () => DismissKeyboard.dismiss(context),
       child: child,
     );
   }

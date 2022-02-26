@@ -1,0 +1,1 @@
+enum PhoneFormUser { deliverer, supplier }

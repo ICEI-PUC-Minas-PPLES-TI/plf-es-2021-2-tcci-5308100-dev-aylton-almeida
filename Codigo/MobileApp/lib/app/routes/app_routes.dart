@@ -4,9 +4,13 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
 
-  static const DELIVERY_CODE = _Paths.DELIVERY_CODE;
+  static const DELIVERY_DETAILS = _Paths.DELIVERY_DETAILS;
+  static const PHONE_FORM = _Paths.PHONE_FORM;
+  static const DELIVERY_CODE_FORM = _Paths.DELIVERY_CODE_FORM;
 }
 
 abstract class _Paths {
-  static const DELIVERY_CODE = '/delivery-code';
+  static const DELIVERY_DETAILS = '/delivery-details';
+  static const PHONE_FORM = '/phone-form';
+  static const DELIVERY_CODE_FORM = '/delivery-code-form';
 }

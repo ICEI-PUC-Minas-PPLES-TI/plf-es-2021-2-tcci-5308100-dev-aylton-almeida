@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
-void dismissKeyboard(BuildContext context) {
-  FocusScope.of(context).requestFocus(FocusNode());
+abstract class DismissKeyboard {
+  static void dismiss(BuildContext context) {
+    FocusScope.of(context).requestFocus(FocusNode());
+  }
 }
