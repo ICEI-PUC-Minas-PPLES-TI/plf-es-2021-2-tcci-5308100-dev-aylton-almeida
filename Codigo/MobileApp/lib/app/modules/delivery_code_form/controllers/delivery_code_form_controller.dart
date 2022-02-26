@@ -46,6 +46,8 @@ class DeliveryCodeFormController extends GetxController {
   }
 
   Future<void> submitForm() async {
+    // TODO: implement real logic
+
     isLoading.value = true;
     DismissKeyboard.dismiss(Get.overlayContext!);
 
@@ -62,5 +64,12 @@ class DeliveryCodeFormController extends GetxController {
     }
 
     isLoading.value = false;
+  }
+
+  void onSupplierPressed() {
+    Get.toNamed(
+      Routes.PHONE_FORM,
+      arguments: PhoneFormArgs(user: PhoneFormUser.supplier),
+    );
   }
 }

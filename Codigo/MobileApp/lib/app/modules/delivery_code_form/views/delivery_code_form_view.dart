@@ -67,7 +67,8 @@ class DeliveryCodeFormView extends GetView<DeliveryCodeFormController> {
                 ),
                 const SizedBox(height: 16),
                 OutlinedButton(
-                  onPressed: () => {},
+                  key: const Key('supplier_flow_button'),
+                  onPressed: controller.onSupplierPressed,
                   child: Text(
                     "trela_partner_button".tr,
                   ),
