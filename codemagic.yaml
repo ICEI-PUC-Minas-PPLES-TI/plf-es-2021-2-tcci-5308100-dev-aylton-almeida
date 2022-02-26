@@ -16,7 +16,6 @@ workflows:
     working_directory: Codigo/MobileApp
     triggering:
       events:
-        - push
         - pull_request
       branch_patterns:
         - pattern: "*"
