@@ -38,6 +38,8 @@ final _formValidation = {
   'empty_delivery_code_input_error': 'Digite o código de entrega',
   'invalid_delivery_code_input_error': 'Código de entrega invalido',
   'invalid_phone_input_error': 'Insira um telefone válido',
+  'empty_confirmation_code_input_error': 'Digite o código de confirmação',
+  'invalid_confirmation_code_input_error': 'Código de confirmação invalido',
 };
 
 final _buttonLabels = {

@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/modules/confirmation_code_form/arguments/confirmation_code_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
@@ -11,7 +12,7 @@ class PhoneFormController extends GetxController {
   late GlobalKey<FormState> phoneFormKey;
   late TextEditingController phoneController;
   late MaskTextInputFormatter phoneMask;
-  late PhoneFormArgs? args;
+  late PhoneFormUser? user;
   late Map<String, dynamic> currentAssets;
 
   final isLoading = false.obs;
@@ -22,7 +23,7 @@ class PhoneFormController extends GetxController {
     PhoneFormArgs? args,
   }) {
     this.phoneFormKey = phoneFormKey ?? GlobalKey<FormState>();
-    this.args = (Get.arguments as PhoneFormArgs?) ?? args;
+    user = (Get.arguments as PhoneFormArgs?)?.user ?? args?.user;
 
     setCurrentAssets();
   }
@@ -43,7 +44,7 @@ class PhoneFormController extends GetxController {
   }
 
   void setCurrentAssets() {
-    currentAssets = args?.user == PhoneFormUser.deliverer
+    currentAssets = user == PhoneFormUser.deliverer
         ? {
             'title': 'phone_form_deliverer_header'.tr,
             'btn': 'phone_form_deliverer_button'.tr
@@ -76,7 +77,15 @@ class PhoneFormController extends GetxController {
 
     await Future.delayed(const Duration(seconds: 1));
 
-    Get.toNamed(Routes.DELIVERY_DETAILS);
+    if (user == PhoneFormUser.deliverer) {
+      Get.toNamed(Routes.DELIVERY_DETAILS);
+    } else {
+      Get.toNamed(
+        Routes.CONFIRMATION_CODE_FORM,
+        arguments:
+            ConfirmationCodeFormArgs(currentPhone: phoneMask.getMaskedText()),
+      );
+    }
 
     isLoading.value = false;
   }
