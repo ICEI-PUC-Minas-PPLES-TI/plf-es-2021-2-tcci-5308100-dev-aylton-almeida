@@ -3,6 +3,7 @@ import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_arg
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/modules/phone_form/controllers/phone_form_controller.dart';
 import 'package:delivery_manager/app/modules/phone_form/views/phone_form_view.dart';
+import 'package:delivery_manager/app/widgets/loading_button.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,68 +13,103 @@ import '../../../../utils/create_test_view.dart';
 
 void main() {
   group('Phone Form View Widget Tests', () {
+    const submitButtonKey = Key('phone_submit_button');
+
     setUp(() {
       Get.lazyPut(
-        () => PhoneFormController(
-          args: PhoneFormArgs(user: PhoneFormUser.deliverer),
-        ),
+        () => PhoneFormController(),
       );
     });
 
-    testWidgets('Testing initial state', (WidgetTester tester) async {
+    testWidgets('Testing deliverer initial state', (WidgetTester tester) async {
       // when
-      const submitButtonKey = Key('code_submit_button');
+      await Get.delete<PhoneFormController>();
+      Get.put(PhoneFormController(
+        args: PhoneFormArgs(user: PhoneFormUser.deliverer),
+      ));
+
+      // pump
       await tester.pumpWidget(createTestView(PhoneFormView()));
       await tester.pump();
 
       // assert
       expect(
-        find.text('delivery_code_form_header'.tr),
+        find.text('phone_form_deliverer_header'.tr),
         findsOneWidget,
       );
       expect(
-        find.text('delivery_code_form_sub_header'.tr),
+        find.text('phone_form_sub_header'.tr),
         findsOneWidget,
       );
-      expect(find.text('code_input_label'.tr), findsOneWidget);
-      expect(find.text('Código'.tr), findsOneWidget);
+      expect(find.text('phone_input_label'.tr), findsOneWidget);
+      expect(find.text('phone_input_hint'.tr), findsOneWidget);
       expect(
-        find.text("verify_code_button".tr),
+        find.text("phone_form_deliverer_button".tr),
         findsOneWidget,
       );
       expect(
-        find.text('empty_delivery_code_input_error'.tr),
+        find.text('invalid_phone_input_error'.tr),
         findsNothing,
       );
       expect(
-        find.text('código de entrega inválido'.tr),
-        findsNothing,
-      );
-      expect(
-        tester.widget<ElevatedButton>(find.byKey(submitButtonKey)).onPressed,
+        tester.widget<LoadingButton>(find.byKey(submitButtonKey)).onPressed,
         isNull,
         reason: 'Expect initial submit button to be disabled',
       );
+    });
+
+    testWidgets('Testing supplier initial state', (WidgetTester tester) async {
+      // when
+      await Get.delete<PhoneFormController>();
+      Get.put(PhoneFormController(
+        args: PhoneFormArgs(user: PhoneFormUser.supplier),
+      ));
+
+      // pump
+      await tester.pumpWidget(createTestView(PhoneFormView()));
+      await tester.pump();
+
+      // assert
       expect(
-        find.text("trela_partner_button".tr),
+        find.text('phone_form_supplier_header'.tr),
         findsOneWidget,
+      );
+      expect(
+        find.text('phone_form_sub_header'.tr),
+        findsOneWidget,
+      );
+      expect(find.text('phone_input_label'.tr), findsOneWidget);
+      expect(find.text('phone_input_hint'.tr), findsOneWidget);
+      expect(
+        find.text("phone_form_supplier_button".tr),
+        findsOneWidget,
+      );
+      expect(
+        find.text('invalid_phone_input_error'.tr),
+        findsNothing,
+      );
+      expect(
+        tester.widget<LoadingButton>(find.byKey(submitButtonKey)).onPressed,
+        isNull,
+        reason: 'Expect initial submit button to be disabled',
       );
     });
 
-    testWidgets('Testing when invalid code', (WidgetTester tester) async {
+    testWidgets('Testing when invalid phone', (WidgetTester tester) async {
       // when
-      const submitButtonKey = Key('code_submit_button');
-      const code = '1234';
+      const phone = '1234';
+
+      // pump
       await tester.pumpWidget(createTestView(PhoneFormView()));
       await tester.pump();
 
       // then
-      await tester.enterText(find.byType(OutlinedTextField), code);
+      await tester.enterText(find.byType(OutlinedTextField), phone);
       await tester.pumpAndSettle();
 
       // assert
       expect(
-        find.text('código de entrega inválido'.tr),
+        find.text('invalid_phone_input_error'.tr),
         findsOneWidget,
       );
       expect(
@@ -85,27 +121,24 @@ void main() {
 
     testWidgets('Testing when valid code', (WidgetTester tester) async {
       // when
-      const submitButtonKey = Key('code_submit_button');
-      const code = '123456';
+      const phone = '+5531999999999';
+
+      // pump
       await tester.pumpWidget(createTestView(PhoneFormView()));
       await tester.pump();
 
       // then
-      await tester.enterText(find.byType(OutlinedTextField), code);
+      await tester.enterText(find.byType(OutlinedTextField), phone);
       await tester.pumpAndSettle();
 
       // assert
       expect(
-        find.text('empty_delivery_code_input_error'.tr),
+        find.text('invalid_phone_input_error'.tr),
         findsNothing,
       );
       expect(
-        find.text('código de entrega inválido'.tr),
-        findsNothing,
-      );
-      expect(
-        tester.widget<ElevatedButton>(find.byKey(submitButtonKey)).onPressed,
-        Get.find<DeliveryCodeFormController>().submitForm,
+        tester.widget<LoadingButton>(find.byKey(submitButtonKey)).onPressed,
+        Get.find<PhoneFormController>().submitForm,
         reason: 'Expect submit button to be enabled',
       );
     });

@@ -33,7 +33,7 @@ class PhoneFormView extends GetView<PhoneFormController> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'phone_form_deliverer_sub_header'.tr,
+                  'phone_form_sub_header'.tr,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),

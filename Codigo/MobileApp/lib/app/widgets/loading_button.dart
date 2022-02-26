@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class LoadingButton extends ElevatedButton {
-  // TODO: test
-
   const LoadingButton({
     Key? key,
     required void Function()? onPressed,

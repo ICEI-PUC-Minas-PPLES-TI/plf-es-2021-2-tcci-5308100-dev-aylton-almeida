@@ -46,11 +46,11 @@ class PhoneFormController extends GetxController {
     currentAssets = args?.user == PhoneFormUser.deliverer
         ? {
             'title': 'phone_form_deliverer_header'.tr,
-            'btn': 'phone_form_supplier_header'.tr
+            'btn': 'phone_form_deliverer_button'.tr
           }
         : {
-            'title': 'phone_form_supplier_sub_header'.tr,
-            'btn': 'receive_code_button'.tr
+            'title': 'phone_form_supplier_header'.tr,
+            'btn': 'phone_form_supplier_button'.tr
           };
   }
 
