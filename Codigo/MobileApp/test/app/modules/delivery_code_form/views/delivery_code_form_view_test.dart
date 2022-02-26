@@ -1,5 +1,5 @@
-import 'package:delivery_manager/app/modules/delivery_code/controllers/delivery_code_controller.dart';
-import 'package:delivery_manager/app/modules/delivery_code/views/delivery_code_view.dart';
+import 'package:delivery_manager/app/modules/delivery_code_form/controllers/delivery_code_form_controller.dart';
+import 'package:delivery_manager/app/modules/delivery_code_form/views/delivery_code_form_view.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,39 +8,38 @@ import 'package:get/get.dart';
 import '../../../../utils/create_test_widget.dart';
 
 void main() {
-  group('Delivery Code View Widget Tests', () {
+  group('Delivery Code View Form Widget Tests', () {
     setUp(() {
-      Get.lazyPut(() => DeliveryCodeController());
+      Get.lazyPut(() => DeliveryCodeFormController());
     });
 
     testWidgets('Testing initial state', (WidgetTester tester) async {
       // when
       const submitButtonKey = Key('code_submit_button');
-      await tester.pumpWidget(createTestView(const DeliveryCodeView()));
+      await tester.pumpWidget(createTestView(const DeliveryCodeFormView()));
       await tester.pump();
 
       // assert
       expect(
-        find.text('você possui um código?'.tr.capitalizeFirst!),
+        find.text('delivery_code_form_header'.tr),
         findsOneWidget,
       );
       expect(
-        find.text('caso não, mas deseje ver suas entregas'.tr.capitalizeFirst!),
+        find.text('delivery_code_form_sub_header'.tr),
+        findsOneWidget,
+      );
+      expect(find.text('code_input_label'.tr), findsOneWidget);
+      expect(find.text('code_input_hint'.tr), findsOneWidget);
+      expect(
+        find.text("verify_code_button".tr),
         findsOneWidget,
       );
       expect(
-          find.text('código de 6 dígitos'.tr.capitalizeFirst!), findsOneWidget);
-      expect(find.text('Código'.tr.capitalizeFirst!), findsOneWidget);
-      expect(
-        find.text("verificar código de entrega".tr.capitalizeFirst!),
-        findsOneWidget,
-      );
-      expect(
-        find.text('digite o código de entrega'.tr.capitalizeFirst!),
+        find.text('empty_delivery_code_input_error'.tr),
         findsNothing,
       );
       expect(
-        find.text('código de entrega inválido'.tr.capitalizeFirst!),
+        find.text('invalid_delivery_code_input_error'.tr),
         findsNothing,
       );
       expect(
@@ -49,7 +48,7 @@ void main() {
         reason: 'Expect initial submit button to be disabled',
       );
       expect(
-        find.text("sou um parceiro trela".tr.capitalizeFirst!),
+        find.text("trela_partner_button".tr),
         findsOneWidget,
       );
     });
@@ -58,7 +57,7 @@ void main() {
       // when
       const submitButtonKey = Key('code_submit_button');
       const code = '1234';
-      await tester.pumpWidget(createTestView(const DeliveryCodeView()));
+      await tester.pumpWidget(createTestView(const DeliveryCodeFormView()));
       await tester.pump();
 
       // then
@@ -67,7 +66,7 @@ void main() {
 
       // assert
       expect(
-        find.text('código de entrega inválido'.tr.capitalizeFirst!),
+        find.text('código de entrega inválido'.tr),
         findsOneWidget,
       );
       expect(
@@ -81,7 +80,7 @@ void main() {
       // when
       const submitButtonKey = Key('code_submit_button');
       const code = '123456';
-      await tester.pumpWidget(createTestView(const DeliveryCodeView()));
+      await tester.pumpWidget(createTestView(const DeliveryCodeFormView()));
       await tester.pump();
 
       // then
@@ -90,16 +89,16 @@ void main() {
 
       // assert
       expect(
-        find.text('digite o código de entrega'.tr.capitalizeFirst!),
+        find.text('empty_delivery_code_input_error'.tr),
         findsNothing,
       );
       expect(
-        find.text('código de entrega inválido'.tr.capitalizeFirst!),
+        find.text('código de entrega inválido'.tr),
         findsNothing,
       );
       expect(
         tester.widget<ElevatedButton>(find.byKey(submitButtonKey)).onPressed,
-        Get.find<DeliveryCodeController>().submitForm,
+        Get.find<DeliveryCodeFormController>().submitForm,
         reason: 'Expect submit button to be enabled',
       );
     });

@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/modules/phone_form/controllers/phone_form_controller.dart';
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
 import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
@@ -6,9 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/phone_input_controller.dart';
-
-class PhoneInputView extends GetView<PhoneInputController> {
+class PhoneFormView extends GetView<PhoneFormController> {
   @override
   Widget build(BuildContext context) {
     return KeyboardDismissContainer(
@@ -33,12 +32,12 @@ class PhoneInputView extends GetView<PhoneInputController> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'digite seu whatsapp'.tr,
+                  'phone_form_deliverer_sub_header'.tr,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'telefone completo'.tr.capitalizeFirst!,
+                  'phone_input_hint'.tr,
                   textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
@@ -46,7 +45,7 @@ class PhoneInputView extends GetView<PhoneInputController> {
                 OutlinedTextField(
                   controller: controller.phoneController,
                   keyboardType: TextInputType.number,
-                  hintText: 'telefone'.tr.capitalizeFirst!,
+                  hintText: 'phone_input_label'.tr,
                   validator: controller.validator,
                   onChanged: (_) => controller.handleFormChange(),
                   inputFormatters: [controller.phoneMask],

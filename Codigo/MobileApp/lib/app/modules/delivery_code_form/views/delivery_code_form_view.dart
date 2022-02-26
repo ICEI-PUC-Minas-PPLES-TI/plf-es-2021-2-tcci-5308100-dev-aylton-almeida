@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/delivery_code_controller.dart';
+import '../controllers/delivery_code_form_controller.dart';
 
-class DeliveryCodeView extends GetView<DeliveryCodeController> {
-  const DeliveryCodeView({Key? key}) : super(key: key);
+class DeliveryCodeFormView extends GetView<DeliveryCodeFormController> {
+  const DeliveryCodeFormView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +26,17 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'você possui um código?'.tr.capitalizeFirst!,
+                  'delivery_code_form_header'.tr,
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'caso não, mas deseje ver suas entregas'.tr.capitalizeFirst!,
+                  'delivery_code_form_sub_header'.tr,
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'código de 6 dígitos'.tr.capitalizeFirst!,
+                  'code_input_label'.tr,
                   textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
@@ -44,7 +44,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                 OutlinedTextField(
                   controller: controller.codeController,
                   keyboardType: TextInputType.number,
-                  hintText: 'código'.tr.capitalize!,
+                  hintText: 'code_input_hint'.tr,
                   validator: controller.validator,
                   onChanged: (_) => controller.handleFormChange(),
                   maxLength: 6,
@@ -71,7 +71,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                             ),
                           )
                         : Text(
-                            "verificar código de entrega".tr.capitalizeFirst!,
+                            "verify_code_button".tr,
                           ),
                   ),
                 ),
@@ -79,7 +79,7 @@ class DeliveryCodeView extends GetView<DeliveryCodeController> {
                 ElevatedButton(
                   onPressed: () => {},
                   child: Text(
-                    "sou um parceiro trela".tr.capitalizeFirst!,
+                    "trela_partner_button".tr,
                   ),
                 ),
               ],

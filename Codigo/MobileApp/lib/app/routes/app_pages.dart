@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
-import '../modules/delivery_code/bindings/delivery_code_binding.dart';
-import '../modules/delivery_code/views/delivery_code_view.dart';
+import '../modules/delivery_code_form/bindings/delivery_code_form_binding.dart';
+import '../modules/delivery_code_form/views/delivery_code_form_view.dart';
 import '../modules/delivery_details/bindings/delivery_details_binding.dart';
 import '../modules/delivery_details/views/delivery_details_view.dart';
-import '../modules/phone_input/bindings/phone_input_binding.dart';
-import '../modules/phone_input/views/phone_input_view.dart';
+import '../modules/phone_form/bindings/phone_form_binding.dart';
+import '../modules/phone_form/views/phone_form_view.dart';
 
 part 'app_routes.dart';
 
@@ -14,14 +14,14 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: _Paths.DELIVERY_CODE,
-      page: () => DeliveryCodeView(),
-      binding: DeliveryCodeBinding(),
+      name: _Paths.DELIVERY_CODE_FORM,
+      page: () => DeliveryCodeFormView(),
+      binding: DeliveryCodeFormBinding(),
     ),
     GetPage(
-      name: _Paths.PHONE_INPUT,
-      page: () => PhoneInputView(),
-      binding: PhoneInputBinding(),
+      name: _Paths.PHONE_FORM,
+      page: () => PhoneFormView(),
+      binding: PhoneFormBinding(),
     ),
     GetPage(
       name: _Paths.DELIVERY_DETAILS,

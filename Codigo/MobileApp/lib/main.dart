@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.DELIVERY_CODE,
+      initialRoute: Routes.DELIVERY_CODE_FORM,
       theme: appThemeData,
       defaultTransition: Transition.fade,
       getPages: AppPages.routes,

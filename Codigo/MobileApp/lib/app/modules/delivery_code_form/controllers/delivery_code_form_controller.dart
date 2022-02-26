@@ -1,13 +1,13 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
-import 'package:delivery_manager/app/modules/phone_input/arguments/phone_input_args.dart';
-import 'package:delivery_manager/app/modules/phone_input/arguments/phone_input_state.dart';
+import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
+import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/utils/dismiss_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 
-class DeliveryCodeController extends GetxController {
+class DeliveryCodeFormController extends GetxController {
   late GlobalKey<FormState> codeFormKey;
 
   late TextEditingController codeController;
@@ -15,7 +15,7 @@ class DeliveryCodeController extends GetxController {
   final isLoading = false.obs;
   final isValid = false.obs;
 
-  DeliveryCodeController({GlobalKey<FormState>? codeFormKey})
+  DeliveryCodeFormController({GlobalKey<FormState>? codeFormKey})
       : codeFormKey = codeFormKey ?? GlobalKey<FormState>();
 
   @override
@@ -34,9 +34,9 @@ class DeliveryCodeController extends GetxController {
 
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'digite o código de entrega'.tr.capitalizeFirst!;
+      return 'empty_delivery_code_input_error'.tr;
     } else if ((value.length != 6) || int.tryParse(value) == null) {
-      return 'código de entrega inválido'.tr.capitalizeFirst!;
+      return 'código de entrega inválido'.tr;
     }
     return null;
   }
@@ -53,8 +53,8 @@ class DeliveryCodeController extends GetxController {
       await Future.delayed(const Duration(seconds: 1));
 
       Get.toNamed(
-        Routes.PHONE_INPUT,
-        arguments: PhoneInputArgs(state: PhoneInputState.deliverer),
+        Routes.PHONE_FORM,
+        arguments: PhoneFormArgs(user: PhoneFormUser.deliverer),
       );
     } else {
       Get.find<AppController>()
