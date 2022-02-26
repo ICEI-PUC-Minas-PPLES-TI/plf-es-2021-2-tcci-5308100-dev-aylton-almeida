@@ -32,7 +32,7 @@ void main() {
         find.text('delivery_code_form_sub_header'.tr),
         findsOneWidget,
       );
-      expect(find.text('code_input_label'.tr), findsOneWidget);
+      expect(find.text('delivery_code_input_label'.tr), findsOneWidget);
       expect(find.text('code_input_hint'.tr), findsOneWidget);
       expect(
         find.text("verify_code_button".tr),

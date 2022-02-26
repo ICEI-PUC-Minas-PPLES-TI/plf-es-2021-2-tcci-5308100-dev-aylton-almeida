@@ -37,7 +37,7 @@ class DeliveryCodeFormView extends GetView<DeliveryCodeFormController> {
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'code_input_label'.tr,
+                  'delivery_code_input_label'.tr,
                   textAlign: TextAlign.start,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),

@@ -1,20 +1,27 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ConfirmationCodeFormController extends GetxController {
-  //TODO: Implement ConfirmationCodeFormController
+  late GlobalKey<FormState> codeFormKey;
+  late TextEditingController codeController;
 
-  final count = 0.obs;
+  final isLoading = false.obs;
+  final isValid = false.obs;
+
+  ConfirmationCodeFormController({GlobalKey<FormState>? codeFormKey})
+      : codeFormKey = codeFormKey ?? GlobalKey<FormState>();
+
   @override
   void onInit() {
     super.onInit();
+
+    codeController = TextEditingController();
   }
 
   @override
-  void onReady() {
-    super.onReady();
-  }
+  void onClose() {
+    codeController.dispose();
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+    super.onClose();
+  }
 }
