@@ -70,7 +70,7 @@ void main() {
       final response = controller.validator(value);
 
       // assert
-      expect(response, 'empty_delivery_code_input_error'.tr);
+      expect(response, 'empty_confirmation_code_input_error'.tr);
     });
 
     test('Code Field Validator when null', () {
@@ -81,7 +81,7 @@ void main() {
       // then
       final response = controller.validator(value);
 
-      expect(response, 'empty_delivery_code_input_error'.tr);
+      expect(response, 'empty_confirmation_code_input_error'.tr);
     });
 
     test('Code Field Validator when length is different than 5', () {
@@ -92,7 +92,7 @@ void main() {
       // then
       final response = controller.validator(value);
 
-      expect(response, 'invalid_delivery_code_input_error'.tr);
+      expect(response, 'invalid_confirmation_code_input_error'.tr);
     });
 
     test('Code Field Validator when smaller not int', () {
@@ -103,7 +103,7 @@ void main() {
       // then
       final response = controller.validator(value);
 
-      expect(response, 'invalid_delivery_code_input_error'.tr);
+      expect(response, 'invalid_confirmation_code_input_error'.tr);
     });
 
     test('Code Field Validator when valid code', () {
