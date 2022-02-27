@@ -1,3 +1,4 @@
+import json
 import os
 from typing import Union
 
@@ -7,12 +8,12 @@ from werkzeug.exceptions import NotFound
 g_cloud_api_key = os.getenv('G_CLOUD_API_KEY')
 
 
-def get_lat_lng_from_address(address: str):
+def get_lat_lng_from_address(address):
     """Gets lat/lng from address"""
 
     gmaps = Client(key=g_cloud_api_key)
 
-    geocode_result = gmaps.geocode(address)
+    geocode_result = gmaps.geocode(str(address))
 
     if not geocode_result:
         raise NotFound(f'Address not found: {address}')
@@ -39,5 +40,8 @@ def get_directions(
         alternatives=False,
         optimize_waypoints=True
     )
+
+    with open('temp.json', 'w') as f:
+        json.dump(directions_result, f)
 
     return directions_result

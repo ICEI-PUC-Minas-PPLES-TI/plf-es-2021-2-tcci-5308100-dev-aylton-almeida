@@ -62,7 +62,7 @@ class AddressModelTests(BaseTest):
         # assert
         self.assertEqual(address.lat, lat_lng.get('lat'))
         self.assertEqual(address.lng, lat_lng.get('lng'))
-        mock_get_lat_lng_from_address.assert_called_once_with(str(address))
+        mock_get_lat_lng_from_address.assert_called_once_with(address)
 
     def test_GetLatLng_when_Default(self):
         """Teste get_lat_lng when default behavior"""

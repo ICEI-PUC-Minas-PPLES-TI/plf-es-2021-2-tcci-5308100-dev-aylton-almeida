@@ -46,7 +46,7 @@ class AddressModel(BaseModel, db.Model):
     def set_lat_lng(self):
         """Based on address sets latitude and longitude values"""
 
-        lat_lng = get_lat_lng_from_address(str(self))
+        lat_lng = get_lat_lng_from_address(self)
         self.lat = lat_lng.get('lat')
         self.lng = lat_lng.get('lng')
 

@@ -14,6 +14,7 @@ class DeliveryBaseSchema(Schema):
     report_sent = fields.Bool()
     start_time = fields.DateTime()
     end_time = fields.DateTime()
+    supplier_id = fields.Int()
 
     orders = fields.Nested(OrderBaseSchema, many=True)
 
@@ -25,6 +26,7 @@ class DeliveryBaseSchema(Schema):
 
         return schema.load({
             **offer,
+            'supplier_id': offer.get('supplier').get('supplier_id'),
             'orders': [
                 OrderBaseSchema.from_offer_order(order)
                 for order in offer.get('orders', [])
