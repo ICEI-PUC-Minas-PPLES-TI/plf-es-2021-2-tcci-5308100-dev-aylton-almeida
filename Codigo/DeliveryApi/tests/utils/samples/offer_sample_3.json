@@ -1,0 +1,45 @@
+{
+  "name": "Compra em grupo Armando Russell",
+  "offerId": "d4b6507c-bc03-4bfc-9e4a-650a3ec7425c",
+  "orders": [
+    {
+      "buyer": {
+        "name": "Ada Pacifico"
+      },
+      "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69",
+      "orderProducts": [
+        {
+          "productName": "Hambúrguer Angus Carapreta (Caixa C/2 Unidades)",
+          "quantity": 4,
+          "sku": 1763,
+          "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69"
+        },
+        {
+          "productName": "Carpaccio de Angus Bovino (200g)",
+          "quantity": 5,
+          "sku": 2585,
+          "orderId": "741a57f6-56dd-499f-836b-53d8a83c6d69"
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 31339,
+        "cityName": "Belo Horizonte",
+        "countryState": "MG",
+        "neighborhoodName": "Bandeirantes (Pampulha)",
+        "postalCode": "31340560",
+        "streetName": "Rua Palermo",
+        "streetNumber": "1670",
+        "unitNumber": null
+      },
+      "transaction": {
+        "status": "paid"
+      }
+    }
+  ],
+  "supplier": {
+    "legalId": "29614991000184",
+    "name": "Armando Russell",
+    "phone": "+5511956939047",
+    "supplierId": 1033
+  }
+}

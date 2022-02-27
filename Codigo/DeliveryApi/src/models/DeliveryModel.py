@@ -62,6 +62,7 @@ class DeliveryModel(BaseModel, db.Model):
         self.report_sent = data.get('report_sent')
         self.start_time = data.get('start_time')
         self.end_time = data.get('end_time')
+        self.supplier_id = data.get('supplier_id')
 
         if orders := data.get('orders'):
             self.orders = [OrderModel(order) for order in orders]

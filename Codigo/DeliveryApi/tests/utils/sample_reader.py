@@ -14,7 +14,7 @@ def get_sample(name: str):
 
     data = None
     path = Path(__file__).parent / "samples/{}.json".format(name)
-    with open(path) as f:
+    with open(path, encoding='utf-8') as f:
         data = json.load(f)
 
     return data

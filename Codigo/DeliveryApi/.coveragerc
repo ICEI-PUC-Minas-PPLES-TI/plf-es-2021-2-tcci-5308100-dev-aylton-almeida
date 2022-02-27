@@ -1,6 +1,6 @@
 [run]
 branch = True
-command_line = -m unittest discover -s tests -p 'test_*.py'
+command_line = -m unittest discover -s tests/unit -p 'test_*.py'
 concurrency = gevent
 include = src/**/*.py
 

@@ -16,7 +16,6 @@ class Testing(Development):
     DEBUG = False
     TESTING = True
     WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = os.getenv('TEST_DB_SERVER_URL')
 
 
 class Production(Development):

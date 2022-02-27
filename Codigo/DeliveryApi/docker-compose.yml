@@ -30,28 +30,13 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: zapt
+      POSTGRES_DB: postgres
       PGDATA: /data/postgres
     volumes:
       - db:/data/postgres
     ports:
       - "5432:5432"
     restart: unless-stopped
-    networks:
-      - delivery-api-network
-
-  pgadmin:
-    container_name: trela_delivery_pgadmin
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
-      PGADMIN_DEFAULT_PASSWORD: "admin"
-    logging:
-      driver: "none"
-    ports:
-      - "16543:80"
-    depends_on:
-      - db
     networks:
       - delivery-api-network
 
@@ -77,5 +62,5 @@ networks:
 
 volumes:
   db:
-  pgadmin:
   app:
+  rabbit:

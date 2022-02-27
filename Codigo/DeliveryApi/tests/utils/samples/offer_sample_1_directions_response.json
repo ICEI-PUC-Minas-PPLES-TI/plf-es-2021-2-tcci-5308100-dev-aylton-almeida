@@ -1,0 +1,3878 @@
+[
+  {
+    "legs": [
+      {
+        "distance": {
+          "text": "0.6 km",
+          "value": 580
+        },
+        "duration": {
+          "text": "2 mins",
+          "value": 97
+        },
+        "end_address": "Alameda das \u00c1rvores, 26 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1720852,
+          "lng": -43.941003
+        },
+        "start_address": "Alameda das \u00c1rvores, 1172 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1724956,
+          "lng": -43.938409
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.5 km",
+              "value": 539
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 89
+            },
+            "end_location": {
+              "lat": -20.172243,
+              "lng": -43.9412915
+            },
+            "html_instructions": "Head <b>southwest</b> on <b>R. das Arauc\u00e1rias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "b}bzB`vdkGHDHBRBVAd@?RBVDRFRJRRb@f@FFNPPRJR@@FNBPBF@TBVATCPGTENINMPSRWVQNYXGHaA|@EDUVC@IHGFIDC?QDK@U?MCc@K"
+            },
+            "start_location": {
+              "lat": -20.1724956,
+              "lng": -43.938409
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "41 m",
+              "value": 41
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 8
+            },
+            "end_location": {
+              "lat": -20.1720852,
+              "lng": -43.941003
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>R. dos Resed\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "n{bzB`hekG@A?A?A?A?A?A?A?A?A?AAA?AAAAAAAA??AA?A?AAA?A?AAA?A?A?CU"
+            },
+            "start_location": {
+              "lat": -20.172243,
+              "lng": -43.9412915
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Alameda das \u00c1rvores, 26 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1720852,
+          "lng": -43.941003
+        },
+        "start_address": "Alameda das \u00c1rvores, 26 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1720852,
+          "lng": -43.941003
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1720852,
+              "lng": -43.941003
+            },
+            "html_instructions": "Head on <b>R. dos Resed\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "pzbzBffekG"
+            },
+            "start_location": {
+              "lat": -20.1720852,
+              "lng": -43.941003
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "2.4 km",
+          "value": 2370
+        },
+        "duration": {
+          "text": "9 mins",
+          "value": 515
+        },
+        "end_address": "R. dos Flamboyants, 455 - Alphaville Lagoa dos Ingleses, Nova Lima - MG, 34018-092, Brazil",
+        "end_location": {
+          "lat": -20.1725055,
+          "lng": -43.9338505
+        },
+        "start_address": "Alameda das \u00c1rvores, 26 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1720852,
+          "lng": -43.941003
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "12 m",
+              "value": 12
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 2
+            },
+            "end_location": {
+              "lat": -20.1721052,
+              "lng": -43.9411137
+            },
+            "html_instructions": "Head <b>west</b> on <b>R. dos Resed\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "pzbzBffekGBT"
+            },
+            "start_location": {
+              "lat": -20.1720852,
+              "lng": -43.941003
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 409
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 69
+            },
+            "end_location": {
+              "lat": -20.1690101,
+              "lng": -43.94264159999999
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>R. das Arauc\u00e1rias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "tzbzB|fekGA??@A?A?A@A?A@A@A@A@?@?@A??@?@?@A@?@?@?@?@@@?B@@?@@@?@]h@EHc@h@g@b@c@VWNA@UHa@Lk@LsD^_@De@DW@K@UBK?IA"
+            },
+            "start_location": {
+              "lat": -20.1721052,
+              "lng": -43.9411137
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 264
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 56
+            },
+            "end_location": {
+              "lat": -20.1667839,
+              "lng": -43.9430242
+            },
+            "html_instructions": "At the roundabout, take the <b>2nd</b> exit onto <b>Alameda das \u00c1rvores</b><div style=\"font-size:0.9em\">Partial restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "hgbzBnpekGAC?AAA?AAAAAAAA?AAAAA?AAA?A?AAA?A?A?C@A?A?A@A?A@A?A@A@A@A@A@?@A@A@?@?@?@A??B]@Q@}APG@eCRs@HI@OBKBGB"
+            },
+            "start_location": {
+              "lat": -20.1690101,
+              "lng": -43.94264159999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.8 km",
+              "value": 826
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 97
+            },
+            "end_location": {
+              "lat": -20.1667796,
+              "lng": -43.9354448
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Av. Princesa Diana</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "jyazBzrekG?AA?AA@KKmAa@aFa@aFAKc@mFKkAEe@Ee@Ee@KiAC[AIAS?Q?E?W@UBW@CF_@?AJYJYHMT_@R_@R]n@gAHa@"
+            },
+            "start_location": {
+              "lat": -20.1667839,
+              "lng": -43.9430242
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 141
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 146
+            },
+            "end_location": {
+              "lat": -20.1678173,
+              "lng": -43.9361726
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Alameda das Flores</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "jyazBncdkG?@@?@?@?@??A@?@?@ADH@@BBLDBBh@`@z@j@|@j@"
+            },
+            "start_location": {
+              "lat": -20.1667796,
+              "lng": -43.9354448
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 305
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 63
+            },
+            "end_location": {
+              "lat": -20.1694385,
+              "lng": -43.9338322
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. das Ac\u00e1cias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "z_bzB`hdkGDIFI~@}A@CbA_BPWVi@N[LQLOLILa@HQLUNQTW"
+            },
+            "start_location": {
+              "lat": -20.1678173,
+              "lng": -43.9361726
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 413
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 82
+            },
+            "end_location": {
+              "lat": -20.1725055,
+              "lng": -43.9338505
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. dos Flamboyants</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "~ibzBlyckGV?NCPAN?L@PDXFfA~@hA`AFFHDTPPJLDJ@N?PANCHERKTS~@q@LIb@YLKDI@CBGBC@GBK"
+            },
+            "start_location": {
+              "lat": -20.1694385,
+              "lng": -43.9338322
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "2.0 km",
+          "value": 1961
+        },
+        "duration": {
+          "text": "7 mins",
+          "value": 405
+        },
+        "end_address": "R. Cristal, 60 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1636447,
+          "lng": -43.9368956
+        },
+        "start_address": "R. dos Flamboyants, 455 - Alphaville Lagoa dos Ingleses, Nova Lima - MG, 34018-092, Brazil",
+        "start_location": {
+          "lat": -20.1725055,
+          "lng": -43.9338505
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 413
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 92
+            },
+            "end_location": {
+              "lat": -20.1694385,
+              "lng": -43.9338322
+            },
+            "html_instructions": "Head <b>west</b> on <b>R. dos Flamboyants</b> toward <b>R. das Hort\u00eancias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "d}bzBpyckGCJAFCBCFABEHMJc@XMH_Ap@URSJIDOBQ@O?KAMEQKUQIEGGiAaAgA_AYGQEMAO?Q@OBW?"
+            },
+            "start_location": {
+              "lat": -20.1725055,
+              "lng": -43.9338505
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "74 m",
+              "value": 74
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 16
+            },
+            "end_location": {
+              "lat": -20.1690579,
+              "lng": -43.9344094
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. das Ac\u00e1cias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "~ibzBlyckGUVOPMTIPM`@"
+            },
+            "start_location": {
+              "lat": -20.1694385,
+              "lng": -43.9338322
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 217
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 34
+            },
+            "end_location": {
+              "lat": -20.167889,
+              "lng": -43.9360672
+            },
+            "html_instructions": "Slight <b>right</b> to stay on <b>R. das Ac\u00e1cias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "rgbzB`}ckGMHMNMPOZWh@QVcA~AAB_A|A"
+            },
+            "start_location": {
+              "lat": -20.1690579,
+              "lng": -43.9344094
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 134
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 42
+            },
+            "end_location": {
+              "lat": -20.1669016,
+              "lng": -43.9353422
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Alameda das Flores</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "h`bzBlgdkG{@m@{@m@k@]CCKIECCAGC"
+            },
+            "start_location": {
+              "lat": -20.167889,
+              "lng": -43.9360672
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.6 km",
+              "value": 564
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 89
+            },
+            "end_location": {
+              "lat": -20.1661924,
+              "lng": -43.940013
+            },
+            "html_instructions": "At the roundabout, take the <b>2nd</b> exit onto <b>Av. Princesa Diana</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "bzazBzbdkG?A@??A?A?A?A?AA??A?AA??A?AA??AA??AA?AAA?A?A??AA?A@A?A?A?A@A?A@A??@A??@A??@A@?@?@A@?@?@?@?@?@?@@@i@|@U\\S^U\\S^CD[r@Op@Ir@?P?J?XJjABd@JjA@NBTRlBJvANbB"
+            },
+            "start_location": {
+              "lat": -20.1669016,
+              "lng": -43.9353422
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "45 m",
+              "value": 45
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 11
+            },
+            "end_location": {
+              "lat": -20.1658524,
+              "lng": -43.93993409999999
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Alameda das Minas</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "tuazB``ekGi@HA?A?A?AAAACCACACCC?AAAAA"
+            },
+            "start_location": {
+              "lat": -20.1661924,
+              "lng": -43.940013
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "23 m",
+              "value": 23
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 10
+            },
+            "end_location": {
+              "lat": -20.165806,
+              "lng": -43.93971990000001
+            },
+            "html_instructions": "Keep <b>right</b> to stay on <b>Alameda das Minas</b>",
+            "maneuver": "keep-right",
+            "polyline": {
+              "points": "psazBp_ekGGi@"
+            },
+            "start_location": {
+              "lat": -20.1658524,
+              "lng": -43.93993409999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "84 m",
+              "value": 84
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 27
+            },
+            "end_location": {
+              "lat": -20.1650703,
+              "lng": -43.9395787
+            },
+            "html_instructions": "Turn <b>left</b> to stay on <b>Alameda das Minas</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "hsazBf~dkGOBE?C@AAA?MCs@Ms@M"
+            },
+            "start_location": {
+              "lat": -20.165806,
+              "lng": -43.93971990000001
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 151
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 26
+            },
+            "end_location": {
+              "lat": -20.1637919,
+              "lng": -43.93911139999999
+            },
+            "html_instructions": "Continue straight<div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "straight",
+            "polyline": {
+              "points": "tnazBj}dkG[Me@OYEWECAs@Qg@KIEQEKECA"
+            },
+            "start_location": {
+              "lat": -20.1650703,
+              "lng": -43.9395787
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 178
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 39
+            },
+            "end_location": {
+              "lat": -20.1639542,
+              "lng": -43.93753239999999
+            },
+            "html_instructions": "Slight <b>right</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "tfazBlzdkGGEGIGOAGAIAIAO?]@_@?GB]Fa@H_@Pc@Te@"
+            },
+            "start_location": {
+              "lat": -20.1637919,
+              "lng": -43.93911139999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "78 m",
+              "value": 78
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 19
+            },
+            "end_location": {
+              "lat": -20.1636447,
+              "lng": -43.9368956
+            },
+            "html_instructions": "Turn <b>left</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "tgazBppdkGUSKQCEOYG]?Y"
+            },
+            "start_location": {
+              "lat": -20.1639542,
+              "lng": -43.93753239999999
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "32.9 km",
+          "value": 32894
+        },
+        "duration": {
+          "text": "46 mins",
+          "value": 2768
+        },
+        "end_address": "R. Dos Bouganvilles, 40 - Jardim Petropolis, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.0244763,
+          "lng": -43.8810292
+        },
+        "start_address": "R. Cristal, 60 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1636447,
+          "lng": -43.9368956
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "78 m",
+              "value": 78
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 11
+            },
+            "end_location": {
+              "lat": -20.1639542,
+              "lng": -43.93753239999999
+            },
+            "html_instructions": "Head <b>west</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "veazBrldkG?XF\\NXBDJPTR"
+            },
+            "start_location": {
+              "lat": -20.1636447,
+              "lng": -43.9368956
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 329
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 70
+            },
+            "end_location": {
+              "lat": -20.1650703,
+              "lng": -43.9395787
+            },
+            "html_instructions": "Turn <b>right</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "tgazBppdkGUd@Qb@I^G`@C\\?FA^?\\@N@H@H@FFNFHFDB@JDPDHDf@Jr@PB@VDXDd@NZL"
+            },
+            "start_location": {
+              "lat": -20.1639542,
+              "lng": -43.93753239999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "84 m",
+              "value": 84
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 23
+            },
+            "end_location": {
+              "lat": -20.165806,
+              "lng": -43.93971990000001
+            },
+            "html_instructions": "Continue onto <b>Alameda das Minas</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "tnazBj}dkGr@Lr@LLB@?@@BAD?NC"
+            },
+            "start_location": {
+              "lat": -20.1650703,
+              "lng": -43.9395787
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "46 m",
+              "value": 46
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 18
+            },
+            "end_location": {
+              "lat": -20.1661123,
+              "lng": -43.9395087
+            },
+            "html_instructions": "Turn <b>left</b> to stay on <b>Alameda das Minas</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "hsazBf~dkG?A@C@E@C@E@C@C@A@ABAf@E"
+            },
+            "start_location": {
+              "lat": -20.165806,
+              "lng": -43.93971990000001
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.7 km",
+              "value": 740
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 86
+            },
+            "end_location": {
+              "lat": -20.1671767,
+              "lng": -43.9464967
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Av. Princesa Diana</b><div style=\"font-size:0.9em\">Go through 1 roundabout</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "duazB||dkGNbBFp@b@nFf@fGB\\@FBJA@?@?@?@?@?@?@?@@??@@??@?HLjB`@fEBXHhA\\|D@VFh@"
+            },
+            "start_location": {
+              "lat": -20.1661123,
+              "lng": -43.9395087
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 404
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 35
+            },
+            "end_location": {
+              "lat": -20.1636223,
+              "lng": -43.9460671
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Av. Winbledon</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "z{azBrhfkGC@C@C@A@C@ABA@CDm@C]EwAKQAgAKc@CSCMAc@GgAKGAYCaBMyBU"
+            },
+            "start_location": {
+              "lat": -20.1671767,
+              "lng": -43.9464967
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.5 km",
+              "value": 482
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 43
+            },
+            "end_location": {
+              "lat": -20.1610195,
+              "lng": -43.9452898
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Av. Regent</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "reazB|efkGACAAAAA?AAAAAAAAUUCGAEAO?OBe@D_@?E@U@O?C?K?SAOESAGCKEGCEU]A?IIIGGCGCICOCEAOGMCK@O?I@M@QFKDIBOBIHQNe@`@OLQLmA~@w@l@"
+            },
+            "start_location": {
+              "lat": -20.1636223,
+              "lng": -43.9460671
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "1.2 km",
+              "value": 1182
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 96
+            },
+            "end_location": {
+              "lat": -20.1580695,
+              "lng": -43.9556713
+            },
+            "html_instructions": "At the roundabout, take the <b>2nd</b> exit and stay on <b>Av. Regent</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "ju`zB`afkGAAA?C?AAA?A?A?C?A?C@A?C@A@A?A@A@?@A@A@A@?BA@?@?@?B?@AB@@?@?B?@@@?@@B@@@@?@@?@@B@F`@Jf@BLDTDd@Fl@@n@Bx@?dA?FCp@E~@?BE`@Gt@M`A]~AMh@Kb@i@~BA@YdAK`@]jAGZCHGTsAfEIVu@vB_@fAo@`BA@O`@O`@s@dBO^?@Q^Q`@ADMZ"
+            },
+            "start_location": {
+              "lat": -20.1610195,
+              "lng": -43.9452898
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 228
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 26
+            },
+            "end_location": {
+              "lat": -20.1589327,
+              "lng": -43.9572696
+            },
+            "html_instructions": "At the roundabout, take the <b>2nd</b> exit onto <b>Av. College</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "|b`zB|ahkGA?C?A?A?A@A?C@A?A@A@A@A@A@?@A@A@?@AB?@?@?B?@?@?B?@@B@B?@@@@@@@?@@@B@@@@?@@nAjA\\Z`@`@NNHHDFBJ@L?JBf@"
+            },
+            "start_location": {
+              "lat": -20.1580695,
+              "lng": -43.9556713
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 351
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 20
+            },
+            "end_location": {
+              "lat": -20.1577345,
+              "lng": -43.9603766
+            },
+            "html_instructions": "Slight <b>right</b> onto <b>BR-356</b>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "hh`zB|khkGe@dBSx@ENk@|Be@~Aq@tBk@hB"
+            },
+            "start_location": {
+              "lat": -20.1589327,
+              "lng": -43.9572696
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 419
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 25
+            },
+            "end_location": {
+              "lat": -20.1546291,
+              "lng": -43.9623218
+            },
+            "html_instructions": "Take the ramp to <b>Belo Horizonte</b>/<wbr/><b>S\u00e3o Paulo</b>",
+            "maneuver": "ramp-right",
+            "polyline": {
+              "points": "x``zBj_ikGO^Uj@O^Yd@GJCBMLi@`@i@TWHSFeA^iA^cAXA?iB\\e@H[F"
+            },
+            "start_location": {
+              "lat": -20.1577345,
+              "lng": -43.9603766
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "13.3 km",
+              "value": 13332
+            },
+            "duration": {
+              "text": "10 mins",
+              "value": 572
+            },
+            "end_location": {
+              "lat": -20.047161,
+              "lng": -43.9641459
+            },
+            "html_instructions": "Merge onto <b>BR-040</b>/<wbr/><b>BR-356</b>",
+            "maneuver": "merge",
+            "polyline": {
+              "points": "lm_zBnkikGs@JkAHwARa@FWBk@Fs@BQ@_@?SAW?i@Ei@Gy@QSG]MOEGEg@SUKSM[Sa@]MMMKUSiAiA]]g@g@Y[oAiAy@w@_@]WSMI[S_@S_@OSICAKCQGWIWEc@Ie@Ec@C[A]Ae@B]?o@FUBA?MBk@H_B\\KBw@PQB_ATUD{@R_B\\A?o@Nc@HE@[H{Bd@eB`@s@N}@Pe@LQBA@[FE@]HSDg@La@HmBb@E@QBq@Ns@Nw@P_@HODa@H_@H_Ch@sAZkE~@G@IBC?KBuEbAmAZyH`BeE~@_APQDOB}@TmB`@qFlAoDt@UFA?eCh@uDv@WF{Cn@s@Ng@J{PtDwBf@wK`C{A\\gAT_ShEgATQDKBcAVw@T_AZs@Xe@To@Zw@`@WNQLq@b@IHWPy@p@k@l@iCnCYXc@d@yDhE]^SRGDYXy@n@u@f@aAl@OHg@Tu@XoA\\i@Nq@Ls@Js@FiBJsDJcCFc@@gDJm@B{L\\c@@gJVsRh@c@@yOd@kCFmFNkDJS@i@@k@BiELkELc@Bc@@s@FaALo@Je@Fu@N{@LgAZ}Bt@YJm@VWJq@Xs@^kAj@UNiAn@WLQLaC|AyCjBaBbAoC|AeDpBaCtA}AdAgCbBgAt@w@b@mAr@s@^u@Z}Ah@q@P{@VoB\\gBT}@FcADc@@wABwAEa@Cs@Eg@CcAMiAQu@KYI_@KA?a@MQEq@Uw@YGE_@O_@Qa@Q}@a@UMIE]Qg@WWOSKOKCCMM[Ko@_@gBcAgCqAQIQKq@_@iEqBMG}Ay@eAi@KGGEMKOIsAq@o@[mCwAsBiAiAk@gE}BqAq@s@_@oAq@y@c@u@_@qAo@eAm@OIUOMGKGIIGCKGOMQMQMa@Ya@[a@]a@]?AMKOOAAOOMMY[SUOQMOk@o@OQMQYa@W_@Yc@SYWa@SYU]S_@GKKQk@{@W_@GMKO_AwAWc@S]GOq@aAmAsBeAcBe@o@CEuAkB[a@{@iAk@q@AAY]SSq@s@m@m@a@]sAeAaBmAIGAAsAaAq@g@sAaAo@e@[QuAw@eBa@"
+            },
+            "start_location": {
+              "lat": -20.1546291,
+              "lng": -43.9623218
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "50 m",
+              "value": 50
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 12
+            },
+            "end_location": {
+              "lat": -20.0468384,
+              "lng": -43.96382
+            },
+            "html_instructions": "Take exit <b>549</b> toward <b>S\u00e3o Sebasti\u00e3o das \u00c1guas Claras</b>/<wbr/><b>Macacos</b>",
+            "maneuver": "ramp-right",
+            "polyline": {
+              "points": "vmjyB|vikGAIAA?AAAAAEEq@i@"
+            },
+            "start_location": {
+              "lat": -20.047161,
+              "lng": -43.9641459
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "87 m",
+              "value": 87
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 42
+            },
+            "end_location": {
+              "lat": -20.046343,
+              "lng": -43.9636608
+            },
+            "html_instructions": "Keep <b>right</b> at the fork",
+            "maneuver": "fork-right",
+            "polyline": {
+              "points": "vkjyBztikG_@c@AKCCEGCEGEG?G?G@KHCHCP"
+            },
+            "start_location": {
+              "lat": -20.0468384,
+              "lng": -43.96382
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 444
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 40
+            },
+            "end_location": {
+              "lat": -20.0424312,
+              "lng": -43.964133
+            },
+            "html_instructions": "Turn <b>right</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "rhjyBzsikGs@@_AAWCc@Ac@CaBAiABk@DM@SDc@FIBWDa@HC@eA`@{@V[BK?M?IAQA"
+            },
+            "start_location": {
+              "lat": -20.046343,
+              "lng": -43.9636608
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "7.4 km",
+              "value": 7365
+            },
+            "duration": {
+              "text": "11 mins",
+              "value": 662
+            },
+            "end_location": {
+              "lat": -20.043379,
+              "lng": -43.9151605
+            },
+            "html_instructions": "Turn <b>right</b> at the 1st cross street onto <b>Estr. S\u00e3o Sebasti\u00e3o das \u00c1guas Claras</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "dpiyBxvikGQQGCGEGAEAE?I?K?YIGCMGQO]W[UUQECYYYYKKMMIIW]OQKGGCGCs@IG?E?YDC@e@Ny@XQHEDABa@Lu@Vm@PC?a@LODI@I?M?K?_@AY?_@?S?e@BG?UBE?G@U@K@Q?G?IAKAKCKECAUMECECKGMK[YQSIOISM_@KSACCGIMEGMMYSQMIGUQKIGKCECE?CAEAE?C?A?K?C@C@E@CDGDGBCBCFEDCHGDCHG@AFEBADGJKFKDITg@d@aAFSDM@E?E?E?KAGAEGWGUMWIOOUMOIIIKMQA?KUKQGQ?CAC?A?CAA?A@C@MDG?AHQ@G@E@A@I?I?IAE?GEYEe@?CCUAEAGCUEM?ACKIMCEIEYQYK]EkAKe@AI?GAEAGACCCAaA_AQOIMCIAGAE?GAM?G@s@?u@?I?MC[CeA@W@M@KDUFQJ[HWHSBY@W?W@_@Fg@?I?I?I?IAI?IAIAIEYCMAM?M?G@GDQJSLS@ADGp@w@DCHKFKHKP_@Vi@L[@CDM@C@I@G@EB[F]@IBMBMBGBM@IBMBM?AFa@BW@A@K@O?G@K?OAIAGAEAGOe@Ok@Ou@QiACKAICMMu@AE?AAG?C?GAE?C@EA?@E@IBG@EFMHMJQBC?CBE@I?E?G?EAKEk@CMGc@Ko@UuACMUwAGk@?M?s@?Q?ADc@BS?GL}@?EHc@@GHa@H]Ne@\\}@@EN[Ri@Jg@D]?[?KCIKSIOIKOQIG][KQK_@Iu@AEGm@?WFOFW@EB]?A?KA[G_@Ok@MQMIKEM?SAUBOFQNSLEBKFA?ODC?KAA?KAQK_@_@Sc@MYACESAK?ABG@IBI@GJUBEFIFIFIJMHQDMBM?MCQAO?ACIEKACGIIKKMKGOKQSAAGKEIACACAA?CACAC?CAE?EAE?A?C@E@G?EFEBABAJCNC@?LALAVAPCLCFCFCBCBEHKDM@AJOJKNOHGBCFCLGJGHCHEBAHCJCHEJEJGLKDGFEHIFIDGFIJMJKNOJKNMHMJIHKHIFKBG?C@IAQAEEUCMAGAM?K?IBMJWPSr@s@Ve@p@}@\\QRGTELO@?HKBK@G@W?u@Ew@A_@EUCUC[_@yAAGIc@G]U}BKqAE_A?c@?A?[BIBSDODKLSR_@BCPSBCJMHOBGH[Fk@Dm@@U@_@?EBe@?ILi@JQDGTMBA\\I^Kd@INCPCj@EZCNCPCJCTIXKFCdAc@XMRGXOb@[b@a@@?XW@?VW@ALSBKFMAUAMEUO]_@k@s@qAw@wA[y@Sk@Qe@ISKKEAQIMGi@SUMEEOMEEIOGO?AC]Hu@n@mDNq@?CHWFMJKXYPIPGNERCLAJ?RBLBTHLDnA`@DBRF`@L`@LNDJB@?B?BAFA@ABADC@CBC@CBEBGL[NUFKHKNMNOf@_@jCyAVGNOBCBA@ABA@CDCNWBEBEBEBEBEBE@E@C@A@EBE@E@E@GJa@BWDa@Bo@@QFW@KH]BOFSPa@@AJSFGj@q@BET[LOFOEUOMIGKIIIEGACCEAICEAIAE?KAK?O?M?M?KAKAGCMEGCGCICG?GAE@K?GBIBIBGBGDC@ABADCDAFAFA"
+            },
+            "start_location": {
+              "lat": -20.0424312,
+              "lng": -43.964133
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.8 km",
+              "value": 824
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 126
+            },
+            "end_location": {
+              "lat": -20.0393531,
+              "lng": -43.9127625
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. Dona Maria da Gl\u00f3ria</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "bviyBvd`kGGGGGGEIEGCICGAQAC?G?I?KBK@IBG@KBK@U?MIQGSEOEg@CI?}@Ea@?C?_@?A?U?QAWCQEIAKIGEAAAEAG?I@G?ADGDE@ADCBCHEHEHAHAFADADAJCHC@A@AFG?C@?@K@MAM?O@E@EBEBCFE@AB?NGPCRCHAD?BAJCDC@C@C@CAG?CCEIGMEYEa@Gc@GGCg@OOEMCICI?OAO?Q?MAOCWE]Ia@Ia@Iq@OGACAGC"
+            },
+            "start_location": {
+              "lat": -20.043379,
+              "lng": -43.9151605
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.2 km",
+              "value": 2175
+            },
+            "duration": {
+              "text": "5 mins",
+              "value": 279
+            },
+            "end_location": {
+              "lat": -20.0362261,
+              "lng": -43.8969197
+            },
+            "html_instructions": "Continue onto <b>R. p/<wbr/> Jardim Petr\u00f3polis</b>",
+            "polyline": {
+              "points": "||hyBvu_kGMMISEMI]Ga@C[AQAE?[@o@Bq@Bk@Dk@LsA?G@GAKAGCIACCCMMMGMOKOEICGGYCMG]I]?AMi@ESESCGCCAAAACAEAGCG?EAG?G@E?IBOBQBYFSBE?]BE?i@By@?A?c@AI?KCI?CAIAQEECEAMGKGMKGGGOEMAK?a@?O@O?IAQAKAIAGAEAEAMAKAE?EAK?I?I?KAKAIAEAGAEAEACCIQMCCQMKEAA]QECECSOCA[]]g@Ua@OYGKK[EQAKAI?E@G?CDMDIBC?AFIFGBALEHAHC@?DAHCTEB?PAH?FAD?FADCBCDEBEBG@MAK?GAECKCIEQCM?SAO?Q@MRKLILG@ANMJKBCJSBEHOHOBELYL[@GHSDMDOFM@CFQDQBIHY?ADS@G?E@EAIAS?O?G?I@MB[?i@Ac@?AAW@M?A@M@GBEBC@AJKJKLMT_@HMHOHU?QAOGQKa@GOEOIQGKOg@M_@ISEMQ_@Y_@USSOQKCCCEAGAE?MBOBKDKDIBIDQBUAO?I?MAmAA[@GAIAECECEAACA"
+            },
+            "start_location": {
+              "lat": -20.0393531,
+              "lng": -43.9127625
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.9 km",
+              "value": 2936
+            },
+            "duration": {
+              "text": "6 mins",
+              "value": 343
+            },
+            "end_location": {
+              "lat": -20.0204701,
+              "lng": -43.89109089999999
+            },
+            "html_instructions": "<b>R. p/<wbr/> Jardim Petr\u00f3polis</b> turns <b>left</b> and becomes <b>Estr. p/<wbr/> S\u00e3o Sebasti\u00e3o das \u00c1guas Claras</b>",
+            "polyline": {
+              "points": "lihyBvr|jGKCK?]@a@HuAZWFG@KAKAIAOEKGIIIMEICACEAAA?CAA?A?AAA?C?A?A?A?A@A?ODMDI@IBI@O?c@BY?WAMCMEIGKMUSOKEAWO_@SECUOAAIEICMAI?Q@SDWDe@J]FMDGBYNCBYNu@b@QJGFCBCBCDABCBCDABCDABABITAPAD?JALAH?@AFEFIJSRKNIPIRGRA@KNILA?KLGLENETGZCRCNCLCFADEDEFKHMFIFCBGFEFCBABCB?@EJILEPCNENCPCJGJEJKLILINEFGJGHKNKHQLWTIPINGVEPAH?BAL?FCF?BA@GHGH]`@MHIDG@I@K?E?G@QDGBEBMFONGDKLC@A@C@C@A@C?C@A@C?C?C?A?]BM@E?C?C?C?AAA?CAC?AACAAAEECECECCACCEAICS?MAIAIAEAIIWUc@Qc@IQUk@MY?AAGEMEUC}@As@?MCOCOGMMSIQCMAOAK@M?M?ABIBKFILOJGDGBG@G@E?EAGAGCKIOOa@Ue@GKQ_@A?M[AEGOCQE_@AOAICKCECEIISOWUOM?ACEGIIOCCOW_@i@QWQ[ACGKGM?AEKEW?EQcAAMAO?a@CaAEe@AMCc@CW?A?[?e@?c@AGAEGIOUIMY[SQQSAAUQe@_@c@]WSCCCCCCCECCCCAECCCCAEACMWWa@ACAACCAAAACCCCCCCCECCCCAECCCEACAECWKOCEAUGEAWGIEOGYOSIICGAE?G?SDSBUDK@M@S@A?SAOC[IGCOEEAQE"
+            },
+            "start_location": {
+              "lat": -20.0362261,
+              "lng": -43.8969197
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "1.1 km",
+              "value": 1137
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 139
+            },
+            "end_location": {
+              "lat": -20.0241371,
+              "lng": -43.8818938
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Estr. Jardim Petr\u00f3polis</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "|feyBhn{jGj@s@LMFMBEBKJg@Hq@BIDSBMHOHQHI?AJIFEHCb@Ij@OTI\\OPKNKNS@CNYXo@H]FUHSLSDINUT_@X_@V]R[@EDI@KD[DW?CJg@H[BMFc@DWBW@MDe@?IBYC[?KEc@E_@AGCWEKGOIWKQCc@AS?Q?O@U@ABSBM?U?CACAIEUEWAMAK?M@I@KHWTk@JWNa@@CXk@b@m@@ATYV]"
+            },
+            "start_location": {
+              "lat": -20.0204701,
+              "lng": -43.89109089999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "74 m",
+              "value": 74
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 75
+            },
+            "end_location": {
+              "lat": -20.0247272,
+              "lng": -43.882216
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Av. Morro do Pires</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "z}eyBxtyjG|@`@@@`@RRH"
+            },
+            "start_location": {
+              "lat": -20.0241371,
+              "lng": -43.8818938
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 127
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 25
+            },
+            "end_location": {
+              "lat": -20.0244763,
+              "lng": -43.8810292
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. Dos Bouganvilles</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "pafyBzvyjGM{@Ge@CYCKK{@AME["
+            },
+            "start_location": {
+              "lat": -20.0247272,
+              "lng": -43.882216
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "41.4 km",
+          "value": 41425
+        },
+        "duration": {
+          "text": "56 mins",
+          "value": 3387
+        },
+        "end_address": "R. Madeira, 230 - Retiro Do Chale, Brumadinho - MG, 35460-000, Brazil",
+        "end_location": {
+          "lat": -20.1842217,
+          "lng": -44.0138746
+        },
+        "start_address": "R. Dos Bouganvilles, 40 - Jardim Petropolis, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.0244763,
+          "lng": -43.8810292
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 127
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 18
+            },
+            "end_location": {
+              "lat": -20.0247272,
+              "lng": -43.882216
+            },
+            "html_instructions": "Head <b>west</b> on <b>R. Dos Bouganvilles</b> toward <b>Av. Morro do Pires</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "~_fyBloyjGDZ@LJz@BJBXFd@Lz@"
+            },
+            "start_location": {
+              "lat": -20.0244763,
+              "lng": -43.8810292
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "74 m",
+              "value": 74
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 16
+            },
+            "end_location": {
+              "lat": -20.0241371,
+              "lng": -43.8818938
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Av. Morro do Pires</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "pafyBzvyjGSIa@SAA}@a@"
+            },
+            "start_location": {
+              "lat": -20.0247272,
+              "lng": -43.882216
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "1.1 km",
+              "value": 1137
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 120
+            },
+            "end_location": {
+              "lat": -20.0204701,
+              "lng": -43.89109089999999
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>Estr. Jardim Petr\u00f3polis</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "z}eyBxtyjGW\\UXA@c@l@Yj@ABO`@KVUj@IVAJAH?L@J@LDVDT@H@B?B?TCLCRA@AT?N?P@RBb@JPHVFNDJBV@FD^Db@?JBZCX?HEd@ALCVEVGb@CLIZKf@?BEVEZAJEHADSZW\\Y^U^OTEHMRIRGTI\\Yn@OXABOROJQJ]NUHk@Nc@HIBGDKH?@IHIPINCLERCHIp@Kf@CJCDGLMLk@r@"
+            },
+            "start_location": {
+              "lat": -20.0241371,
+              "lng": -43.8818938
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.9 km",
+              "value": 2936
+            },
+            "duration": {
+              "text": "6 mins",
+              "value": 330
+            },
+            "end_location": {
+              "lat": -20.0362261,
+              "lng": -43.8969197
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>Estr. p/<wbr/> S\u00e3o Sebasti\u00e3o das \u00c1guas Claras</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "|feyBhn{jGPDD@NDFBZHNBR@@?RALAJATERCREF?D?F@HBRHXNNFHDVFD@TFD@NBVJDBB@D@BBDBB@BBDBBBBBBBBB@@@@BB@@@BV`@LV@B@DBBBB@DBBBBBDBBBBBBVRb@\\d@^TP@@PRRPXZHLNTFH@D@F?b@?d@?Z?@BVBb@@LDd@B`A?`@@N@LPbA?DDVDJ?@FLFJ@BPZPV^h@NVBBHNFHBD?@NLVTRNHHBDBDBJ@H@ND^BPFN@DLZ@?P^FJTd@N`@HNBJ@F@F?DADAFCFEFKFMNGHCJCH?@?LAL@J@NBLHPLRFLBNBN?L@r@B|@DTDL@F?@LXTj@HPPb@Tb@HV@H@D@H@H?LBR@HBD@BBBBDBDDD@@B@@@B?B@@?@@B?B?B?D?LA\\C@?B?B?B?@ABAB?@ABABA@ABAJMFENOLGDCFCPEFAD?J?HAFAHELI\\a@FIFI@A?CBG?G@M?C@IDQFWHOHQVUPMJIJOFIFKDGHOHMJMDKFKBKBQDOBODQHMDK?ABC@CBCDGFGBCHGLGJIDGDE@EBGBMBOBSF[DUDOFMJM@?HMJO@AFSHSHQJORSHKDG@G?A@I@M?K@E@QHU@C@CBE@CBEBC@CBEBCBCFGPKt@c@XOBCXOFCLE\\Gd@KVEREPAH?L@HBHD@@TNDB^RVND@NJTRJLHFLDLBV@X?b@CN?HAHCHALENE@?@A@?@?@?B?@?@@@?@?B@@?@@BDB@DHHLHHJFNDH@J@J@FAVGtA[`@I\\AJ?JB"
+            },
+            "start_location": {
+              "lat": -20.0204701,
+              "lng": -43.89109089999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.2 km",
+              "value": 2175
+            },
+            "duration": {
+              "text": "5 mins",
+              "value": 273
+            },
+            "end_location": {
+              "lat": -20.0393531,
+              "lng": -43.9127625
+            },
+            "html_instructions": "<b>Estr. p/<wbr/> S\u00e3o Sebasti\u00e3o das \u00c1guas Claras</b> turns <b>right</b> and becomes <b>R. p/<wbr/> Jardim Petr\u00f3polis</b>",
+            "polyline": {
+              "points": "lihyBvr|jGB@@@BDBD@D@HAF@Z@lA?L?H@NCTEPCHEHEJCJCN?L@D@FBDBBPJRNTRX^P^DLHRL^Nf@FJHPDNFNJ`@FP@N?PITINILU^MLKJKJA@CBCDAFAL?@AL@V?@@b@?h@CZAL?H?F?N@R@HAD?DAFER?@IXCHEPGPABGLENELIRAFMZMXCDININCDKRCBKJOLA@MFMHSJAL?P@N?RBLDPBHBJ@D?F@JALCFCDEDCBEBG@E?G@I?Q@C?UDIBE@A?IBI@MDC@GFGH?@CBEHEL?BAF?D@H@JDPJZFJNXT`@\\f@Z\\B@RNDBDB\\P@@JDPLBBPLBH@B@D@D@F@D@H@J?J?H?H@J?D@D@J@L@D@D@F@H@J@P?HAN?N?`@@JDLFNFFLJJFLFD@DBPDH@B@H?JBH?b@@@?x@?h@CD?\\CD?RCXGPCNCHCD?FAF?D@F?FBD@B@@@@@BBBFDRDRLh@?@H\\F\\BLFXBFDHJNLNLFLLBB@BBH@F@JAF?FMrAEj@Cj@Cp@An@?Z@D@PBZF`@H\\DLHRLL"
+            },
+            "start_location": {
+              "lat": -20.0362261,
+              "lng": -43.8969197
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.8 km",
+              "value": 824
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 123
+            },
+            "end_location": {
+              "lat": -20.043379,
+              "lng": -43.9151605
+            },
+            "html_instructions": "Continue onto <b>R. Dona Maria da Gl\u00f3ria</b>",
+            "polyline": {
+              "points": "||hyBvu_kGFBB@F@p@N`@H`@H\\HVDNBL@P?N?N@H?HBLBNDf@NFBb@F`@FXDLDHFBD?B@FABABABEBKBC@E?I@SBQBOFC?A@GDCBCDADAD?N@LALAJA??BGFA@A@IBKBE@E@G@I@I@IDIDCBEBA@EDEF?@AF?H@F@D@@FDJHH@PDVBP@T?@?^?B?`@?|@DH?f@BNDRDPFLHT?JAJCFAHCJAJCH?F?B?P@F@HBFBHDFDFFFF"
+            },
+            "start_location": {
+              "lat": -20.0393531,
+              "lng": -43.9127625
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "7.4 km",
+              "value": 7356
+            },
+            "duration": {
+              "text": "11 mins",
+              "value": 689
+            },
+            "end_location": {
+              "lat": -20.0423856,
+              "lng": -43.9644763
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Estr. S\u00e3o Sebasti\u00e3o das \u00c1guas Claras</b>/<wbr/><b>R. da Saudade</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "bviyBvd`kGG@G@E@EBC@A@EBCFCFCHCH?FAJ@D?FBFBHBFDFBL@F@J?J?L?L?N@J?J@D@HBD@HBD@BDFHHJHHFNLDTGNMNUZCDk@p@GFKRA@Q`@GRCNI\\AJGVAPCn@E`@CVK`@AFADADCDADA@ABADCDCDCDCDCDCDOVEBABC@A@C@CBONWFkCxAg@^ONOLIJGJOTMZCFCDABCBABEBC@A@G@C@C?A?KCOEa@Ma@MSGECoAa@MEUIMCSCK?M@SBODQFQHYXKJGLIV?BOp@o@lDIt@B\\?@FNHNDDNLDDTLh@RLFPHD@JJHRPd@Rj@Zx@v@vAr@pA^j@N\\DT@L@TGLCJMRA@WVA?YVA?c@`@c@ZYNSFYLeAb@GBYJUHKBQBOB[Bk@DQBOBe@H_@J]HC@ULEFKPMh@?HCd@?DA^ATEl@Gj@IZCFINKLCBQRCBS^MREJENCRCH?Z?@?b@D~@JpAT|BF\\Hb@@F^xABZBTDT@^Dv@?t@AVAFCJIJA?MNUDSF]Pq@|@Wd@s@r@QRKVCL?H?J@L@FBLDT@D@PAH?BCFGJIHIJKHILOLKJONKJKLGHEFGHIHGDEFMJKFKDIDKBIBC@IDIBKFMFGBCBIFONKJKNA@ELIJCDCBGBGBMBQBW@M@M@A?OBKBC@C@GD?DAFAD?B?@@D?D@D?B@B@B?B@@@B@BDHFJ@@PRNJJFJLHJFH@BDJBH?@@NBP?LCLELIPKLGHGHGHCDKTAFCHAHCF?@@JDR@BLXRb@^^PJJ@@?J@B?NE@?JGDCRMPONGTCR@L?JDLHLPNj@F^@Z?J?@C\\ADGVGN?VFl@@DHt@J^JP\\ZHFNPHJHNJRBH?J?ZE\\Kf@Sh@OZAD]|@Od@I\\I`@AFIb@?DM|@?FCREb@?@?P?r@?LFj@TvABLTtAJn@Fb@BLDj@@J?D?F?DAHCD?BCBKPILGLADCFAHAD@?AD?B@D?F?B@F?@@DLt@BL@HBJPhANt@Nj@Nd@@F@D@F@H?NAJ?FANAJA@CVG`@?@CLCLAHCLCFCLCLAHG\\CZADAFAHABELABMZWh@Q^IJGJIJEBq@v@EFA@MRKREPAF?F?L@LBLDX@H@H?H@H?H?H?H?HGf@A^?VAVCXIRIVKZGPETAJALAVBdABZ?L?H?t@Ar@?F@L?F@D@FBHHLPN`A~@B@BBF@D@F@H?d@@jAJ\\DXJXPHDBDHLBJ?@DLBT@F@DBT?BDd@DX?F@D?H?HAHA@ADAFIP?@EFALAB?@@@?B?@@B?BFPJPJT@?LPHJHHLNNTHNLVFTFV@D@F?J?D?DADELGRe@`AUf@EHGJKJEFC@GDA@IFEBIFEBGDCBCBEFEFABADAB?B?J?@?B@D@D?BBDBDFJJHTPHFPLXRLLDFHLBF@BJRL^HRHNPRZXLJJFDBDBTLB@JDJBJ@H@F?P?JATAFAD?TCF?d@CR?^?X?^@J?L?H?HANE`@MB?l@Qt@W`@MH@D?h@KVAN@R?`@BP?P@B?VDVFZN@@TLFFHFNLh@b@XTRPFDVTTVHHTT@DBJ@DBBDFFFLHJDD@HBH?N@"
+            },
+            "start_location": {
+              "lat": -20.043379,
+              "lng": -43.9151605
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.6 km",
+              "value": 565
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 54
+            },
+            "end_location": {
+              "lat": -20.0467758,
+              "lng": -43.9642688
+            },
+            "html_instructions": "Slight <b>right</b>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "|oiyB~xikGTFFBD@NHJNBBDJPZJTFPDJFLDDFFDBFDD@@@F@D@J?F@FAHCBAFCBABAVQ^UXS`@U\\U~@k@XQRK\\KVKHAx@IbAAP@fABD@\\?b@?b@A"
+            },
+            "start_location": {
+              "lat": -20.0423856,
+              "lng": -43.9644763
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "15.4 km",
+              "value": 15417
+            },
+            "duration": {
+              "text": "11 mins",
+              "value": 668
+            },
+            "end_location": {
+              "lat": -20.1723566,
+              "lng": -43.9657906
+            },
+            "html_instructions": "Merge onto <b>BR-040</b>/<wbr/><b>BR-356</b><div style=\"font-size:0.9em\">Continue to follow BR-040</div>",
+            "maneuver": "merge",
+            "polyline": {
+              "points": "jkjyBtwikGNBTDXJZFB@n@RXH\\NRHVJRJb@P|@j@f@^t@f@~B`Bf@^ZTPNTRh@`@JJv@v@XX^`@f@n@p@x@`AvA^l@f@x@r@bAZf@DFNT|C|EpApBFHb@r@z@rADDn@bANVBBPX^h@b@n@Xb@PX`@h@j@r@\\`@l@p@|@~@h@b@n@j@NJd@^HFh@^`@Xp@b@ZPBBXPr@^t@`@^T|@d@zAx@n@^zDfBpCxA~@f@LFf@Vt@b@v@d@d@VRL~C~AjB`AdD`BjAl@nAp@t@`@PHPHbDdB~BnAv@h@l@\\~@d@^PpBbAj@V^NHBv@V`AZpBd@z@NtBVvAFvADdA@p@CfAE|AK^EzASnAURGh@K|@Yf@SFCxAk@tAq@xA{@tAy@t@c@x@g@ZU|@o@~@k@n@a@|A{@HEVOzAcAxA}@vAy@jAu@TQ`Ao@bAu@|@k@XSn@_@z@g@t@c@|A{@t@]@A^ONGPI\\Ml@Uh@QzBo@nB[jAQn@EdAKbAIp@GlAEv@CxEMHAX?b@CD?@?vBKfA?bEOfEMxGQbHSnCIbGO~GS|EMxBGzDKt@CbDIpDKfAEb@AhEMjBGt@Cz@Gn@Gz@Ix@MNE\\IBAt@Qn@Uv@[FC^Sr@]b@Yb@]n@g@|@y@fAiAZ]XYrE_Fz@{@b@e@HIPO^]l@e@h@_@b@[~@k@JE\\URK`Ae@`@Oh@S^M\\Mr@SvA_@ZID?`Ds@zEaAtD{@lAWrA[pJsBlDw@x@Q`Do@hKaCl@KhAUpAYr@OrEaAzA[lBc@z@SxD{@v@QBAxD{@NCDAxDw@|D{@fE_AdCk@pCm@DA`@KREp@OzCm@hCo@tCu@\\IDAREFADAfAW|A]DAREHAl@ObASzA[XGHCB?FAJCvCo@`LcCXGDARELC`FgAp@Ox@Ov@M`@Cv@Cd@?D?b@@f@Dh@Fj@L^JjBt@`@XVRB@NLVTd@b@DD~B`CFFbA`AZ\\j@h@`Av@`@VBBZPVLZJHDj@PXHVDp@Hp@D`@@bAAn@Ch@Et@I~@MbCWXA^Ap@@X@n@Dp@JXFp@ThAn@ZTPLNJ^Zd@Xr@l@TTn@b@VR\\RXNZPB?^NPF\\J`@HjBZvCDf@Bt@B|CLtDNpITT?JChBHjADd@BpAF`GVz@DX@J?Z@F?dDNN@@?`@@|DPpGXhGX"
+            },
+            "start_location": {
+              "lat": -20.0467758,
+              "lng": -43.9642688
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "6.4 km",
+              "value": 6397
+            },
+            "duration": {
+              "text": "9 mins",
+              "value": 553
+            },
+            "end_location": {
+              "lat": -20.1719007,
+              "lng": -44.0104385
+            },
+            "html_instructions": "Turn <b>right</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "f|bzBdajkGGb@?@OvACVQpBEh@AHAVGv@BVHTBFBFLLFBLHLDL@V?hAIJAb@ETAB?HAXAHAT?@?`@?L?\\Af@?j@?b@@N@LBJDDDHHLP@BDHDJ@F@H?TANGVINONKFA@QFYHSDUFUF]LWPORKRETAX?XDb@D\\BTAp@KfAId@Cb@AX?XBP?L@DD^DZBR@J?J?BATCTIPOZKL]Vq@Xc@ZQXGTGrAAP?RAV?d@@N?N@T?@@LDRBPBR@FVz@HPHPDJB@JNBBVRBBHDVLF@PFPFPDn@PPDF@XH@?p@RB@JB`@J@@D@LHNLLPJTFVBV?VE\\IX?@GNGHABGHEF[Z_@ZA@_@LQFw@PI@SFC?a@Fa@Fa@FYHQF[RwAdAWPSL_@R_@Pe@R{@j@}@|@OPw@bAEDQTKNKLw@dAMNWZ?@UTSLMFC@SBk@DC?UDIBA@IDMJCDEDILa@nAKXOh@Md@IZAFALCVANAR?@AJ?P@R@HBJXjAHX@HBLBTRjB?DFd@Dd@BNBFBFBFFDDDFD@@B@b@NFDFBFD@?DD@@@DBD?@@D?D?FAD?DCDCDA@EDGDIBE@IBSFC?SD]DaDVc@Bc@Dc@DcBLE@KDIBID?@GDIHGHIHIPA@AHEJCPCRALAZ?H?d@?H@P@HBLFVJb@XdAJb@XhAb@~AZfABFFPDJDHBHFHLNNNHFPNdA|@LJLFB@DBF@@?JBH@H@pADHBB@B@BB@B@@?@@B?B?B?@AB?BA@A@?@EBGBGBoAVE@A@A?CBABABAB?D@F@D@BBBB@@@D@L@x@DVBD@B@@?@@DBBBBBDDBB?@?@@B@B@D?D?F?FCFEJEHILEDEDE@A@GBMBI@I@O@I@G?W?C?K@I?EBEBCFAFAD@D?B@D@B@@hAl@PLJFHF@?BB@BFHBFBDDPBP@DBN@L@H@R?J@LAN?RANANS~@YtAEZC\\?BAPAR?BAtC?d@?d@?TAJCNAJGRKZkAfDK`@Id@ADGZId@Mt@CLAL?JAH?@?J?F@L@PBP@@TfALl@Pz@n@pCH`@J^LXFNJRNVFHFHV\\FJFJBFDFBHBHBLBF@HNbAHd@Fb@@?TpBFd@Jx@Jv@Hd@NhAFd@F\\|@vHn@bFBP@LBF@DBDBHDHP^v@`BR^hAbC"
+            },
+            "start_location": {
+              "lat": -20.1723566,
+              "lng": -43.9657906
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.7 km",
+              "value": 679
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 46
+            },
+            "end_location": {
+              "lat": -20.1708107,
+              "lng": -44.0160306
+            },
+            "html_instructions": "Continue onto <b>Rod. Jk</b>",
+            "polyline": {
+              "points": "jybzBfxrkGZj@DJDNDL@J?HAF?HAFCHAHEJGJKPIJCBSVWZYZWXq@v@IJMNYZWZWXWZKJ?@A@GLEHIR?BCHCJAHAJAF?H@h@@JBPBJDLNb@b@pA@@FPDNHRHZ@FBH?H@N@H?NA\\KnA"
+            },
+            "start_location": {
+              "lat": -20.1719007,
+              "lng": -44.0104385
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.4 km",
+              "value": 2372
+            },
+            "duration": {
+              "text": "4 mins",
+              "value": 230
+            },
+            "end_location": {
+              "lat": -20.1862616,
+              "lng": -44.0086246
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>Estr. Ant\u00f4nio Augusto de Medeiros</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "prbzBd{skGZQHKDKBK@ED]B_@AEIcA?GEe@COAUEeAAmA?CBU@IHQFKDEHINIBAPGH?P@TDRJRNf@\\hAJfB?d@?`@Eb@E@?zAe@d@U`Ae@XSj@a@VYJIBAPGNC^GfAS@?PAL?N?^@z@Br@JZJ`@LPFp@TTFFB@@f@RbAl@LJRNdAfA|A`BZRH@B?@?RCTEn@C@?T?HA^BL?ZDVB@?B?PDNAB?@?PGBCTOfAkBBCLSl@cA^o@DGBET]NWDERWx@_ALU@CT_@NY@CP[h@_A\\g@BCBATIZEh@KLENINSJOJ[H_@He@HWPe@DKP]Vo@XYLKJI@?HEJEJENCPAB?dBCTCj@GbAY@ABCBCBINa@"
+            },
+            "start_location": {
+              "lat": -20.1708107,
+              "lng": -44.0160306
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 375
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 58
+            },
+            "end_location": {
+              "lat": -20.1884127,
+              "lng": -44.0112968
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. Francisco dos Santos</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "bsezBzlrkGz@j@FDHFJJJLJNHLHNDJBF@HDVVr@DFBDdAn@RL@@@BRXT\\V\\T\\Zb@JPDNN^"
+            },
+            "start_location": {
+              "lat": -20.1862616,
+              "lng": -44.0086246
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "55 m",
+              "value": 55
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 10
+            },
+            "end_location": {
+              "lat": -20.1886274,
+              "lng": -44.0117742
+            },
+            "html_instructions": "Continue onto <b>Estr. Piedade do Paraopeba Aranha</b>",
+            "polyline": {
+              "points": "p`fzBr}rkGZz@DNDLBB"
+            },
+            "start_location": {
+              "lat": -20.1884127,
+              "lng": -44.0112968
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.5 km",
+              "value": 534
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 121
+            },
+            "end_location": {
+              "lat": -20.1863414,
+              "lng": -44.0162626
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Av. S\u00e3o Francico</b><div style=\"font-size:0.9em\">Partial restricted usage road</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "|afzBp`skGMLs@zAS^Q`@KPWn@q@dBg@rAQb@i@rAu@lBKXiA`D[v@"
+            },
+            "start_location": {
+              "lat": -20.1886274,
+              "lng": -44.0117742
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 338
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 61
+            },
+            "end_location": {
+              "lat": -20.1847027,
+              "lng": -44.0135335
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. Solim\u00f5es</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "rsezBr|skGmA_Cs@qAsAoCq@yA_AeB"
+            },
+            "start_location": {
+              "lat": -20.1863414,
+              "lng": -44.0162626
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "64 m",
+              "value": 64
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 17
+            },
+            "end_location": {
+              "lat": -20.1842217,
+              "lng": -44.0138746
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. Madeira</b><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "jiezBpkskGSLkAt@"
+            },
+            "start_location": {
+              "lat": -20.1847027,
+              "lng": -44.0135335
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "19.8 km",
+          "value": 19785
+        },
+        "duration": {
+          "text": "26 mins",
+          "value": 1585
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617852,
+          "lng": -43.9554389
+        },
+        "start_address": "R. Madeira, 230 - Retiro Do Chale, Brumadinho - MG, 35460-000, Brazil",
+        "start_location": {
+          "lat": -20.1842217,
+          "lng": -44.0138746
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "64 m",
+              "value": 64
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 12
+            },
+            "end_location": {
+              "lat": -20.1847027,
+              "lng": -44.0135335
+            },
+            "html_instructions": "Head <b>southeast</b> on <b>R. Madeira</b> toward <b>R. Solim\u00f5es</b>",
+            "polyline": {
+              "points": "jfezBtmskGjAu@RM"
+            },
+            "start_location": {
+              "lat": -20.1842217,
+              "lng": -44.0138746
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 338
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 56
+            },
+            "end_location": {
+              "lat": -20.1863414,
+              "lng": -44.0162626
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. Solim\u00f5es</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "jiezBpkskG~@dBp@xArAnCr@pAlA~B"
+            },
+            "start_location": {
+              "lat": -20.1847027,
+              "lng": -44.0135335
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.5 km",
+              "value": 534
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 94
+            },
+            "end_location": {
+              "lat": -20.1886274,
+              "lng": -44.0117742
+            },
+            "html_instructions": "Turn <b>left</b> at the 1st cross street onto <b>Av. S\u00e3o Francico</b><div style=\"font-size:0.9em\">Partial restricted usage road</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "rsezBr|skGZw@hAaDJYt@mBh@sAPc@f@sAp@eBVo@JQPa@R_@r@{ALM"
+            },
+            "start_location": {
+              "lat": -20.1863414,
+              "lng": -44.0162626
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "55 m",
+              "value": 55
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 14
+            },
+            "end_location": {
+              "lat": -20.1884127,
+              "lng": -44.0112968
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>Estr. Piedade do Paraopeba Aranha</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "|afzBp`skGCCEMEO[{@"
+            },
+            "start_location": {
+              "lat": -20.1886274,
+              "lng": -44.0117742
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 375
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 55
+            },
+            "end_location": {
+              "lat": -20.1862616,
+              "lng": -44.0086246
+            },
+            "html_instructions": "Continue onto <b>R. Francisco dos Santos</b>",
+            "polyline": {
+              "points": "p`fzBr}rkGO_@EOKQ[c@U]W]U]SYACAASMeAo@CEEGWs@EWAICGEKIOIMKOKMKKIGGE{@k@"
+            },
+            "start_location": {
+              "lat": -20.1884127,
+              "lng": -44.0112968
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.4 km",
+              "value": 2372
+            },
+            "duration": {
+              "text": "4 mins",
+              "value": 228
+            },
+            "end_location": {
+              "lat": -20.1708107,
+              "lng": -44.0160306
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>Estr. Ant\u00f4nio Augusto de Medeiros</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "bsezBzlrkGO`@CHCBCBA@cAXk@FUBeBBC?Q@OBKDKDIDA?KHMJYXWn@Q\\EJQd@IVId@I^KZKNOROHMDi@J[DUHC@CB]f@i@~@QZABOXU^ABMTy@~@SVEDOVU\\CDEF_@n@m@bAMRCBgAjBUNCBQFA?C?O@QEC?A?WC[EM?_@CI@U?A?o@BUDSBA?C?IA[S}AaBeAgASOMKcAm@g@SAAGCUGq@UQGa@M[Ks@K{@C_@AO?M?Q@A?gAR_@FOBQFC@KHWXk@`@YRaAd@e@T{Ad@A?c@Da@De@?gB?iAKg@]SOSKUEQAI?QFC@OHIHEDGJIPAHCT?B@lADdA@TBNDd@?FHbA@DC^E\\ADCJEJIJ[P"
+            },
+            "start_location": {
+              "lat": -20.1862616,
+              "lng": -44.0086246
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "7.1 km",
+              "value": 7075
+            },
+            "duration": {
+              "text": "10 mins",
+              "value": 625
+            },
+            "end_location": {
+              "lat": -20.1723566,
+              "lng": -43.9657906
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Rod. Jk</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "prbzBd{skGJoA@]?OAIAO?ICIAGI[ISEOGQAAc@qAOc@EMCKCQAKAi@?I@G@K@IBKBI?CHSDIFM@A?AJKV[VYV[X[LOHKp@w@VYX[V[RWBCHKJQFKDK@IBI@G?I@G?IAKEMEOEK[k@iAcCS_@w@aBQ_@EICICEAECGAMCQo@cF}@wHG]Ge@OiAIe@Kw@Ky@Ge@UqBA?Gc@Ie@OcAAICGCMCICIEGCGGKGKW]GIGIOWKSGOMYK_@Ia@o@qCQ{@Mm@UgAAACQAQAM?G?K?A@I?K@MBMLu@He@F[@EHe@Ja@jAgDJ[FS@KBO@K?U?e@?e@@uC?C@S@Q?CB]D[XuAR_A@O@O?S@OAM?KASAIAMCOAECQEQCECGGIACCCA?IGKGQMiAm@AAACAE?CAE@E@GBGDCDCH?JAB?V?F?HANAHAHALCFC@ADADEDEHMDIDKBG?G?G?EAEACAC?A?ACCEECCCCECAAA?CAEAWCy@EMAEAAACACCACAEAG?E@C@C@CBC@?@ADAnAWFCFCDC?A@A@A?C@C?A?C?CAC?AAAACCCCACAICqAEIAIAKCA?GAECCAMGMKeA}@QOIGOOMOGICIEIEKGQCG[gAc@_BYiAKc@YeAKc@GWCMAIAQ?I?e@?I@[@MBSBQDK@I@AHQHIFIHIFE?AHEHCJEDAbBMb@Eb@Eb@C`DW\\EREB?RGHCDAHCFEDE@ABEBE?E@E?G?EAE?ACEAEAAEEA?GEGCGEc@OCAAAGEEEGECGCGCGCOEe@Ge@?ESkBCUCMAIIYYkACKAIAS?Q@K?A@S@OBW@M@GH[Le@Ni@JY`@oAHMDEBELKHE@AHCTEB?j@ERCBALGRMTU?AV[LOv@eAJMJOPUDEv@cANQ|@}@z@k@d@S^Q^SRMVQvAeAZSPGXI`@G`@G`@GB?RGHAv@QPG^M@A^[Z[DGFI@CFIFO?AHYD]?WCWGWKUMQOMMIEAAAa@KKCCAq@SA?YIGAQEo@QQEQGQGGAWMIECCWSCCKOCAEKIQIQW{@AGCSCQESAM?AAU?OAO?e@@W?S@QFsAFUPYb@[p@Y\\WJMN[HQBU@U?C?KAKCSE[E_@AE?MCQ?Y@YBc@He@JgA@q@CUE]Ec@?Y@YDUJSNSVQ\\MTGTGREXIPG@AJGNOHOFW@O?UAIAGEKEIACMQIIEEKEMCOAc@Ak@?g@?]@M?a@?A?U?I@Y@I@C?U@c@DK@iAHW?MAMEMIGCMMCGCGIUCWFw@@W@IDi@PqBBWNwA?AFc@"
+            },
+            "start_location": {
+              "lat": -20.1708107,
+              "lng": -44.0160306
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "2.0 km",
+              "value": 1952
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 93
+            },
+            "end_location": {
+              "lat": -20.1891689,
+              "lng": -43.9696757
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>BR-040</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "f|bzBdajkGjMf@nBHb@@vERb@@b@BlCLxJd@pI^lBFhBHfCJnADb@BfBHd@Dl@Fz@LbARt@Pj@R~@Zf@TnAp@|OzJ"
+            },
+            "start_location": {
+              "lat": -20.1723566,
+              "lng": -43.9657906
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.7 km",
+              "value": 715
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 55
+            },
+            "end_location": {
+              "lat": -20.1910424,
+              "lng": -43.9759777
+            },
+            "html_instructions": "Turn <b>right</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "hefzBnyjkG?F?B?B@B@DBDDDzA`BJN@@Vh@Tt@Tv@@DBFv@rCBDT|@r@jCBHPz@R`AVrA@L@D?B@J?HA^A\\E|@IdCCd@AT"
+            },
+            "start_location": {
+              "lat": -20.1891689,
+              "lng": -43.9696757
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 344
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 28
+            },
+            "end_location": {
+              "lat": -20.1931093,
+              "lng": -43.9739317
+            },
+            "html_instructions": "Turn <b>left</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "~pfzBz`lkGPRFFD@B@B?D@B?BA@AFC^QbBeCd@q@V]j@{@n@}@~@qA"
+            },
+            "start_location": {
+              "lat": -20.1910424,
+              "lng": -43.9759777
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 304
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 24
+            },
+            "end_location": {
+              "lat": -20.1949267,
+              "lng": -43.97255759999999
+            },
+            "html_instructions": "Continue straight",
+            "maneuver": "straight",
+            "polyline": {
+              "points": "|}fzB`tkkGd@m@|@}ADG`@s@FIHSJQVi@HIJMFEDCJGNEPAP@J@F@FBHFJLJNFP"
+            },
+            "start_location": {
+              "lat": -20.1931093,
+              "lng": -43.9739317
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 130
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 12
+            },
+            "end_location": {
+              "lat": -20.1941759,
+              "lng": -43.9731601
+            },
+            "html_instructions": "Take the ramp to <b>Belo Horizonte</b>",
+            "maneuver": "ramp-right",
+            "polyline": {
+              "points": "higzBnkkkGBX?D?FALIPCFOPABCBGDIDG@A?K@Q?U@c@C"
+            },
+            "start_location": {
+              "lat": -20.1949267,
+              "lng": -43.97255759999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "4.1 km",
+              "value": 4124
+            },
+            "duration": {
+              "text": "3 mins",
+              "value": 178
+            },
+            "end_location": {
+              "lat": -20.1588763,
+              "lng": -43.9644882
+            },
+            "html_instructions": "Merge onto <b>BR-040</b>",
+            "maneuver": "merge",
+            "polyline": {
+              "points": "rdgzBfokkGe@YMGUMECYQMI_CyAgAq@{A_AGEUOuBqAUQeDoB}@k@qBoA[QUO[S}O{JoAq@g@U_A[k@Su@QcAS{@Mm@Ge@EgBIc@CoAEgCKiBImBGqI_@yJe@mCMc@Cc@AwESc@AoBIkMg@iGYqGY}DQa@AA?OAeDOG?[AK?YA{@EaGWqAGe@CkAEiBIQIC?yAE[Ca@AwBIyHW]ACAc@AuDQgAEk@E_@CQC[G"
+            },
+            "start_location": {
+              "lat": -20.1941759,
+              "lng": -43.9731601
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 412
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 26
+            },
+            "end_location": {
+              "lat": -20.1575357,
+              "lng": -43.9611273
+            },
+            "html_instructions": "Take the ramp to <b>Itabirito</b>/<wbr/><b>Ouro Preto Mariana</b>",
+            "maneuver": "ramp-right",
+            "polyline": {
+              "points": "~g`zB`yikGSOCAKCUIKEKGCAIEGCSSQSCGKQKYCIAIAECQEe@Ag@?KAQG_@I_@K[Q_@KWGMACGSCKEQCSA[?G@WD_@Hi@"
+            },
+            "start_location": {
+              "lat": -20.1588763,
+              "lng": -43.9644882
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.7 km",
+              "value": 670
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 34
+            },
+            "end_location": {
+              "lat": -20.159956,
+              "lng": -43.9552544
+            },
+            "html_instructions": "Merge onto <b>BR-356</b>",
+            "maneuver": "merge",
+            "polyline": {
+              "points": "r_`zB`dikGRc@`@_ALa@FMHS`@cA@Er@mBfBqGnAsEb@{Af@kBp@iC"
+            },
+            "start_location": {
+              "lat": -20.1575357,
+              "lng": -43.9611273
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 197
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 30
+            },
+            "end_location": {
+              "lat": -20.1615851,
+              "lng": -43.9557337
+            },
+            "html_instructions": "Slight <b>right</b> onto <b>Av. Picadilly</b>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "vn`zBh_hkGPMFCNCJ?L@LDHBRFTHXN\\JpAb@^JTJ"
+            },
+            "start_location": {
+              "lat": -20.159956,
+              "lng": -43.9552544
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 124
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 21
+            },
+            "end_location": {
+              "lat": -20.1617852,
+              "lng": -43.9554389
+            },
+            "html_instructions": "Enter the roundabout<div style=\"font-size:0.9em\">Destination will be on the left</div>",
+            "polyline": {
+              "points": "|x`zBhbhkG?B?B@@@B@B@B@@@BFDB@B@B@D@B?D?B?D?BADABCBABC@CBC@C@E@C@E?E?C?EACAEACCGACCCCCCACAEACAE?C?E?"
+            },
+            "start_location": {
+              "lat": -20.1615851,
+              "lng": -43.9557337
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "3 m",
+          "value": 3
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617852,
+          "lng": -43.9554389
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "3 m",
+              "value": 3
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "html_instructions": "Head <b>north</b> toward <b>Av. Picadilly</b>",
+            "polyline": {
+              "points": "dz`zBn`hkGC?A?"
+            },
+            "start_location": {
+              "lat": -20.1617852,
+              "lng": -43.9554389
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "html_instructions": "Head",
+            "polyline": {
+              "points": "~y`zBn`hkG"
+            },
+            "start_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "html_instructions": "Head",
+            "polyline": {
+              "points": "~y`zBn`hkG"
+            },
+            "start_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "html_instructions": "Head",
+            "polyline": {
+              "points": "~y`zBn`hkG"
+            },
+            "start_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "html_instructions": "Head",
+            "polyline": {
+              "points": "~y`zBn`hkG"
+            },
+            "start_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "html_instructions": "Head",
+            "polyline": {
+              "points": "~y`zBn`hkG"
+            },
+            "start_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "11 m",
+          "value": 11
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 2
+        },
+        "end_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1616766,
+          "lng": -43.9554889
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1617612,
+          "lng": -43.9554446
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "11 m",
+              "value": 11
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 2
+            },
+            "end_location": {
+              "lat": -20.1616766,
+              "lng": -43.9554889
+            },
+            "html_instructions": "Head <b>northwest</b> toward <b>Av. Picadilly</b>",
+            "polyline": {
+              "points": "~y`zBn`hkGA@A?A@C?A@A@A@"
+            },
+            "start_location": {
+              "lat": -20.1617612,
+              "lng": -43.9554446
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1.1 km",
+          "value": 1055
+        },
+        "duration": {
+          "text": "2 mins",
+          "value": 112
+        },
+        "end_address": "Av. Gaivotas 520, Nova Lima - MG, 34018-008, Brazil",
+        "end_location": {
+          "lat": -20.1616982,
+          "lng": -43.9615999
+        },
+        "start_address": "Av. Princesa Diana, 450 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1616766,
+          "lng": -43.9554889
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "45 m",
+              "value": 45
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 7
+            },
+            "end_location": {
+              "lat": -20.1616505,
+              "lng": -43.9558671
+            },
+            "html_instructions": "Head <b>northwest</b> toward <b>Av. Picadilly</b>",
+            "polyline": {
+              "points": "ny`zBx`hkGCBCBCBABABAD?DAB?D@D?B?B@@@B@B@B@@@B"
+            },
+            "start_location": {
+              "lat": -20.1616766,
+              "lng": -43.9554889
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 365
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 36
+            },
+            "end_location": {
+              "lat": -20.159484,
+              "lng": -43.9584045
+            },
+            "html_instructions": "Exit the roundabout onto <b>Av. Princesa Diana</b>",
+            "polyline": {
+              "points": "hy`zBdchkGCPENA@ELOXYh@GJo@lAGHmA`BgAlAgAz@wAr@"
+            },
+            "start_location": {
+              "lat": -20.1616505,
+              "lng": -43.9558671
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.6 km",
+              "value": 612
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 65
+            },
+            "end_location": {
+              "lat": -20.1616955,
+              "lng": -43.961286
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Av. Gaivotas</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "vk`zB~rhkGC@E@C@C@C@CBC@ABCB?BCD?BA@?B?@?B?@?@U`A]bAWz@Ob@IVCL?P?@?T@PDPLTJLHJPLRHJBPDP@P?PA`@Eb@EFAZE|@Ml@GVAN?JAL@J?XDf@XHFNNHL?@LXPh@"
+            },
+            "start_location": {
+              "lat": -20.159484,
+              "lng": -43.9584045
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "33 m",
+              "value": 33
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 4
+            },
+            "end_location": {
+              "lat": -20.1616982,
+              "lng": -43.9615999
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit and stay on <b>Av. Gaivotas</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "ry`zB`eikGAH?H@J?\\"
+            },
+            "start_location": {
+              "lat": -20.1616955,
+              "lng": -43.961286
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "4.6 km",
+          "value": 4608
+        },
+        "duration": {
+          "text": "12 mins",
+          "value": 723
+        },
+        "end_address": "R. dos Rouxin\u00f3is, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1733171,
+          "lng": -43.9565877
+        },
+        "start_address": "Av. Gaivotas 520, Nova Lima - MG, 34018-008, Brazil",
+        "start_location": {
+          "lat": -20.1616982,
+          "lng": -43.9615999
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 226
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 42
+            },
+            "end_location": {
+              "lat": -20.1608877,
+              "lng": -43.963321
+            },
+            "html_instructions": "Head <b>west</b> on <b>Av. Gaivotas</b> toward <b>Av. Gar\u00e7a</b>",
+            "polyline": {
+              "points": "ry`zB~fikGAl@CRMz@UpAM^M\\k@|@WZ?AAA?AAA?AA??AA??AA?A??AA?A?A?A?A?A?"
+            },
+            "start_location": {
+              "lat": -20.1616982,
+              "lng": -43.9615999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "50 m",
+              "value": 50
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 28
+            },
+            "end_location": {
+              "lat": -20.1610095,
+              "lng": -43.9634004
+            },
+            "html_instructions": "Turn <b>left</b> toward <b>Av. Gaivotas</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "pt`zBvqikGA??@A?A??@A??@A??@A??@?@A??@?@?@?@?@?@?@?@@??@?@@??@@@@@@?@@@?@?@?@@?A@?@?@?@A@??A@??A@??A@??A?A@??A?A?A?A?A?A"
+            },
+            "start_location": {
+              "lat": -20.1608877,
+              "lng": -43.963321
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 218
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 39
+            },
+            "end_location": {
+              "lat": -20.1619179,
+              "lng": -43.9616188
+            },
+            "html_instructions": "Continue onto <b>Av. Gaivotas</b>",
+            "polyline": {
+              "points": "hu`zBfrikGV[j@}@L]L_@TqAL{@BSLSFEBEDALG"
+            },
+            "start_location": {
+              "lat": -20.1610095,
+              "lng": -43.9634004
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.7 km",
+              "value": 664
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 78
+            },
+            "end_location": {
+              "lat": -20.1594323,
+              "lng": -43.958894
+            },
+            "html_instructions": "At the roundabout, take the <b>3rd</b> exit and stay on <b>Av. Gaivotas</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "~z`zBbgikGB?@?@?BAB?FCFCDCHIBE@C@C@E?I@A?CAC?EAEAC?ACEMQACA?CAC?CAEAm@[OKSKKEGCKGICIA_@GYEK?MAK@O?W@m@F}@L[DG@c@Da@DQ@Q?QAQEKCSIQMIKKMMUEQAQ?U?A?QBMHWNc@V{@\\k@LQNMVM"
+            },
+            "start_location": {
+              "lat": -20.1619179,
+              "lng": -43.9616188
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 419
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 42
+            },
+            "end_location": {
+              "lat": -20.1618537,
+              "lng": -43.9559406
+            },
+            "html_instructions": "At the roundabout, take the <b>2nd</b> exit onto <b>Av. Princesa Diana</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "lk`zB`vhkGB@@?@?@?@?@?@?@?D?DABABABABCBC@C@C@C@A@C?C?C@C?A?Cb@u@h@e@d@g@FEp@q@`@g@NSh@s@Xe@f@y@~@mBXa@"
+            },
+            "start_location": {
+              "lat": -20.1594323,
+              "lng": -43.958894
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "1.2 km",
+              "value": 1158
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 126
+            },
+            "end_location": {
+              "lat": -20.1673773,
+              "lng": -43.9470727
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit and stay on <b>Av. Princesa Diana</b><div style=\"font-size:0.9em\">Go through 2 roundabouts</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "pz`zBrchkGD?BADABCBABC@CBC@C@E@C@E?E?C?EACAEACCG@M@WBI@CDM`@cAb@{@BGZg@n@_ANSX[dAkA^k@HQRa@b@cA@Ab@sAt@eB@?@??A@??A@??A@??A@A?A?A?A?A?A?AnAmBDG@?@ATW?ARShAaAf@_@FGDK@@@?@?@?@?@?@A@??A@??A@??A?A@??A?A^OBAl@c@b@_@LKJMV]DENUHKJSFOHON[@EHUNg@Pw@BYDS@OBe@@M@Y?C?_A"
+            },
+            "start_location": {
+              "lat": -20.1618537,
+              "lng": -43.9559406
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "1.0 km",
+              "value": 976
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 91
+            },
+            "end_location": {
+              "lat": -20.1748329,
+              "lng": -43.9506044
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Av. Wimbledon</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "b}azBdlfkG@?BA@?@AB?@A@ABA`@An@DtE^@@^BfAJb@Db@B`@DxEb@`BJb@DJ@RBN@F@THB@VHFFLHLJLLHNJPLTTdBL`@DFFJJN\\X?@ZVZVVR^ZXV@?v@n@ZTBBXRRNFDXPND"
+            },
+            "start_location": {
+              "lat": -20.1673773,
+              "lng": -43.9470727
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 108
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 39
+            },
+            "end_location": {
+              "lat": -20.1742942,
+              "lng": -43.9514561
+            },
+            "html_instructions": "Turn <b>right</b> toward <b>Trilha de Bicicleta</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "tkczBfbgkGQb@ILA@QP_@j@[x@"
+            },
+            "start_location": {
+              "lat": -20.1748329,
+              "lng": -43.9506044
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 164
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 66
+            },
+            "end_location": {
+              "lat": -20.1737126,
+              "lng": -43.9526696
+            },
+            "html_instructions": "Continue onto <b>Trilha de Bicicleta</b>",
+            "polyline": {
+              "points": "hhczBrggkGIn@INiA\\A?UXERAZHhA"
+            },
+            "start_location": {
+              "lat": -20.1742942,
+              "lng": -43.9514561
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.6 km",
+              "value": 558
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 146
+            },
+            "end_location": {
+              "lat": -20.1728706,
+              "lng": -43.9569548
+            },
+            "html_instructions": "Turn <b>right</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "tdczBdogkGOFg@`AItADnA?\\Fd@CBUReC|@q@^]f@ADK`@?@BdAdCtG"
+            },
+            "start_location": {
+              "lat": -20.1737126,
+              "lng": -43.9526696
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "63 m",
+              "value": 63
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 21
+            },
+            "end_location": {
+              "lat": -20.1733359,
+              "lng": -43.9566174
+            },
+            "html_instructions": "Turn <b>left</b> toward <b>R. dos Rouxin\u00f3is</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "l_czB|ihkG|AaA"
+            },
+            "start_location": {
+              "lat": -20.1728706,
+              "lng": -43.9569548
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "4 m",
+              "value": 4
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 5
+            },
+            "end_location": {
+              "lat": -20.1733171,
+              "lng": -43.9565877
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. dos Rouxin\u00f3is</b><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "jbczBzghkGCE"
+            },
+            "start_location": {
+              "lat": -20.1733359,
+              "lng": -43.9566174
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "R. dos Rouxin\u00f3is, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1733171,
+          "lng": -43.9565877
+        },
+        "start_address": "R. dos Rouxin\u00f3is, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1733171,
+          "lng": -43.9565877
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1733171,
+              "lng": -43.9565877
+            },
+            "html_instructions": "Head on <b>R. dos Rouxin\u00f3is</b>",
+            "polyline": {
+              "points": "fbczBtghkG"
+            },
+            "start_location": {
+              "lat": -20.1733171,
+              "lng": -43.9565877
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "0.9 km",
+          "value": 933
+        },
+        "duration": {
+          "text": "3 mins",
+          "value": 167
+        },
+        "end_address": "R. dos Bem Te Vis, 605 - Alphaville Lagoa dos Ingleses, Nova Lima - MG, 34018-128, Brazil",
+        "end_location": {
+          "lat": -20.178186,
+          "lng": -43.9563537
+        },
+        "start_address": "R. dos Rouxin\u00f3is, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1733171,
+          "lng": -43.9565877
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 323
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 59
+            },
+            "end_location": {
+              "lat": -20.1740941,
+              "lng": -43.9545757
+            },
+            "html_instructions": "Head <b>northeast</b> on <b>R. dos Rouxin\u00f3is</b> toward <b>R. dos Can\u00e1rios</b>",
+            "polyline": {
+              "points": "fbczBtghkGYg@Ui@[s@Uu@Ok@?AAAAE?E@C?E?E@C?A@C@CBABCTGRIVIPGZMnCcA"
+            },
+            "start_location": {
+              "lat": -20.1733171,
+              "lng": -43.9565877
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 175
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 31
+            },
+            "end_location": {
+              "lat": -20.1748524,
+              "lng": -43.9560232
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. dos Can\u00e1rios</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "`gczBb{gkGR`AZbA@@j@nAZd@\\`@"
+            },
+            "start_location": {
+              "lat": -20.1740941,
+              "lng": -43.9545757
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 100
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 17
+            },
+            "end_location": {
+              "lat": -20.1754475,
+              "lng": -43.9555243
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>Alameda dos P\u00e1ssaros</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "xkczBbdhkGRTvAgBBGFI"
+            },
+            "start_location": {
+              "lat": -20.1748524,
+              "lng": -43.9560232
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 335
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 60
+            },
+            "end_location": {
+              "lat": -20.178186,
+              "lng": -43.9563537
+            },
+            "html_instructions": "Turn <b>right</b> at the 1st cross street onto <b>R. dos Bem Te Vis</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "poczB~`hkGNRv@t@|@l@HB~@^B@tAXpAFfAAf@GVC^K"
+            },
+            "start_location": {
+              "lat": -20.1754475,
+              "lng": -43.9555243
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "0.6 km",
+          "value": 581
+        },
+        "duration": {
+          "text": "2 mins",
+          "value": 109
+        },
+        "end_address": "R. dos Beija Flores, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1754822,
+          "lng": -43.9535011
+        },
+        "start_address": "R. dos Bem Te Vis, 605 - Alphaville Lagoa dos Ingleses, Nova Lima - MG, 34018-128, Brazil",
+        "start_location": {
+          "lat": -20.178186,
+          "lng": -43.9563537
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 335
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 55
+            },
+            "end_location": {
+              "lat": -20.1754475,
+              "lng": -43.9555243
+            },
+            "html_instructions": "Head <b>north</b> on <b>R. dos Bem Te Vis</b> toward <b>Alameda dos P\u00e1ssaros</b>",
+            "polyline": {
+              "points": "t`dzBdfhkG_@JWBg@FgA@qAGuAYCA_A_@IC}@m@w@u@OS"
+            },
+            "start_location": {
+              "lat": -20.178186,
+              "lng": -43.9563537
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "85 m",
+              "value": 85
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 14
+            },
+            "end_location": {
+              "lat": -20.1759655,
+              "lng": -43.9549204
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>Alameda dos P\u00e1ssaros</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "poczB~`hkGdAsA`@c@"
+            },
+            "start_location": {
+              "lat": -20.1754475,
+              "lng": -43.9555243
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 161
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 40
+            },
+            "end_location": {
+              "lat": -20.1754822,
+              "lng": -43.9535011
+            },
+            "html_instructions": "Turn <b>left</b> onto <b>R. dos Beija Flores</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "xrczBf}gkGOQa@{@Qg@IWOaACkA"
+            },
+            "start_location": {
+              "lat": -20.1759655,
+              "lng": -43.9549204
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "0.5 km",
+          "value": 471
+        },
+        "duration": {
+          "text": "2 mins",
+          "value": 91
+        },
+        "end_address": "R. das Araras, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1763037,
+          "lng": -43.9530006
+        },
+        "start_address": "R. dos Beija Flores, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1754822,
+          "lng": -43.9535011
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 302
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 58
+            },
+            "end_location": {
+              "lat": -20.1766853,
+              "lng": -43.9514335
+            },
+            "html_instructions": "Head <b>east</b> on <b>R. dos Beija Flores</b> toward <b>R. dos Can\u00e1rios</b>",
+            "polyline": {
+              "points": "voczBjtgkG?A@i@\\eDRuAJm@@GJc@HIJIBA^Gb@?l@@V?"
+            },
+            "start_location": {
+              "lat": -20.1754822,
+              "lng": -43.9535011
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 169
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 33
+            },
+            "end_location": {
+              "lat": -20.1763037,
+              "lng": -43.9530006
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. das Araras</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "hwczBlggkGe@bCe@nDAD"
+            },
+            "start_location": {
+              "lat": -20.1766853,
+              "lng": -43.9514335
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "2.6 km",
+          "value": 2628
+        },
+        "duration": {
+          "text": "9 mins",
+          "value": 531
+        },
+        "end_address": "Alameda dos Rios, Nova Lima - MG, Brazil",
+        "end_location": {
+          "lat": -20.1838901,
+          "lng": -43.9547782
+        },
+        "start_address": "R. das Araras, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1763037,
+          "lng": -43.9530006
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 169
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 32
+            },
+            "end_location": {
+              "lat": -20.1766853,
+              "lng": -43.9514335
+            },
+            "html_instructions": "Head <b>east</b> on <b>R. das Araras</b> toward <b>R. dos Beija Flores</b>",
+            "polyline": {
+              "points": "ztczBfqgkG@Ed@oDd@cC"
+            },
+            "start_location": {
+              "lat": -20.1763037,
+              "lng": -43.9530006
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.1 km",
+              "value": 95
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 19
+            },
+            "end_location": {
+              "lat": -20.1775387,
+              "lng": -43.95148289999999
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. dos Beija Flores</b>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "hwczBlggkGP@N@b@@h@@\\@F?R?"
+            },
+            "start_location": {
+              "lat": -20.1766853,
+              "lng": -43.9514335
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "64 m",
+              "value": 64
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 45
+            },
+            "end_location": {
+              "lat": -20.1780767,
+              "lng": -43.9516258
+            },
+            "html_instructions": "Continue onto <b>R. das Andorinhas</b>",
+            "polyline": {
+              "points": "r|czBvggkGH@RAL@`@DRJHH"
+            },
+            "start_location": {
+              "lat": -20.1775387,
+              "lng": -43.95148289999999
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.2 km",
+              "value": 198
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 68
+            },
+            "end_location": {
+              "lat": -20.1795451,
+              "lng": -43.950573
+            },
+            "html_instructions": "Turn <b>left</b>",
+            "maneuver": "turn-left",
+            "polyline": {
+              "points": "~_dzBthgkGhAu@^WRAnA_AZUz@m@"
+            },
+            "start_location": {
+              "lat": -20.1780767,
+              "lng": -43.9516258
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "44 m",
+              "value": 44
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 8
+            },
+            "end_location": {
+              "lat": -20.1795326,
+              "lng": -43.95092200000001
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "didzB`bgkGLDQ|@?@"
+            },
+            "start_location": {
+              "lat": -20.1795451,
+              "lng": -43.950573
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.5 km",
+              "value": 469
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 62
+            },
+            "end_location": {
+              "lat": -20.1798459,
+              "lng": -43.9551356
+            },
+            "html_instructions": "Continue onto <b>Alameda dos Rios</b>",
+            "polyline": {
+              "points": "`idzBfdgkGWzBQxBAL?BAd@GxAAzC?T?d@?H?t@Jl@J\\@FDJJNHHLJRLXRDB"
+            },
+            "start_location": {
+              "lat": -20.1795326,
+              "lng": -43.95092200000001
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.9 km",
+              "value": 913
+            },
+            "duration": {
+              "text": "3 mins",
+              "value": 184
+            },
+            "end_location": {
+              "lat": -20.1876143,
+              "lng": -43.9538777
+            },
+            "html_instructions": "Continue onto <b>Alameda dos Rios</b>",
+            "polyline": {
+              "points": "`kdzBr~gkGRDn@NzA^^Jz@HvAFhA@fA@ZCxAUpB]LBV?TAVENCTKJIJQPYjAw@LG`@Qz@c@@AbA[dAWpASvAMnDC"
+            },
+            "start_location": {
+              "lat": -20.1798459,
+              "lng": -43.9551356
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.7 km",
+              "value": 676
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 113
+            },
+            "end_location": {
+              "lat": -20.1838901,
+              "lng": -43.9547782
+            },
+            "html_instructions": "At the roundabout, take the <b>4th</b> exit and stay on <b>Alameda dos Rios</b><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "p{ezBvvgkG?J?ZJNFFHFFBNBh@@HEFCDEDMHU@O?UCOAGGGGGGCMGICKEYFIBGDGDGHGNkC?e@?yAHsAPeAReAZ}@`@A?o@XmAn@w@HID"
+            },
+            "start_location": {
+              "lat": -20.1876143,
+              "lng": -43.9538777
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1 m",
+          "value": 0
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 0
+        },
+        "end_address": "Alameda dos Rios, Nova Lima - MG, Brazil",
+        "end_location": {
+          "lat": -20.1838901,
+          "lng": -43.9547782
+        },
+        "start_address": "Alameda dos Rios, Nova Lima - MG, Brazil",
+        "start_location": {
+          "lat": -20.1838901,
+          "lng": -43.9547782
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "1 m",
+              "value": 0
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 0
+            },
+            "end_location": {
+              "lat": -20.1838901,
+              "lng": -43.9547782
+            },
+            "html_instructions": "Head on <b>Alameda dos Rios</b>",
+            "polyline": {
+              "points": "hdezBj|gkG"
+            },
+            "start_location": {
+              "lat": -20.1838901,
+              "lng": -43.9547782
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "3.2 km",
+          "value": 3205
+        },
+        "duration": {
+          "text": "9 mins",
+          "value": 519
+        },
+        "end_address": "R. dos Jatob\u00e1s, 1018 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1674108,
+          "lng": -43.9438982
+        },
+        "start_address": "Alameda dos Rios, Nova Lima - MG, Brazil",
+        "start_location": {
+          "lat": -20.1838901,
+          "lng": -43.9547782
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.5 km",
+              "value": 531
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 102
+            },
+            "end_location": {
+              "lat": -20.1794646,
+              "lng": -43.9546644
+            },
+            "html_instructions": "Head <b>northwest</b> on <b>Alameda dos Rios</b> toward <b>R. Parana\u00edba</b>",
+            "polyline": {
+              "points": "hdezBj|gkGMDYLWNMLOXoB\\yAR?@[@a@BaGYQCs@Ma@IA?c@IGAWG]OYWOOCCEGMO"
+            },
+            "start_location": {
+              "lat": -20.1838901,
+              "lng": -43.9547782
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 426
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 60
+            },
+            "end_location": {
+              "lat": -20.1797361,
+              "lng": -43.9506531
+            },
+            "html_instructions": "<b>Alameda dos Rios</b> turns slightly <b>right</b> and becomes <b>Alameda dos Rios</b>",
+            "polyline": {
+              "points": "rhdzBr{gkGK[Io@Ak@?G?]?i@@yCHmB@S@MNyBPeAFe@BKP}@"
+            },
+            "start_location": {
+              "lat": -20.1794646,
+              "lng": -43.9546644
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "1.7 km",
+              "value": 1718
+            },
+            "duration": {
+              "text": "3 mins",
+              "value": 174
+            },
+            "end_location": {
+              "lat": -20.1675321,
+              "lng": -43.9466262
+            },
+            "html_instructions": "At the roundabout, take the <b>2nd</b> exit onto <b>Av. Wimbledon</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "jjdzBpbgkGVDJBT?N?HAFCNKD[CKEGGGKGKGMGMEA?QEMAA?GAS?K?MBOFcAYa@Ma@Ka@McAY[AG?[AWAK?c@?O@S@U@M@a@FM@U?a@LKBw@T[NA?ULc@VSLe@b@QFSJKBYDI@M@OAEAGAUGCAOEYQGESOYSCC[Uw@o@A?YW_@[WS[W[W?A]YKOGKEGMa@UeBCWEOEMSc@QUEGIIOMAA[OSKMEEA[GSCQ?gAKqFa@{Ec@c@Ea@Ec@EeBOYAYI[K"
+            },
+            "start_location": {
+              "lat": -20.1797361,
+              "lng": -43.9506531
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 381
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 37
+            },
+            "end_location": {
+              "lat": -20.1667791,
+              "lng": -43.9431239
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Av. Princesa Diana</b>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "`~azBlifkGACACCCACCACACACAISIWEc@CKSkCEc@Ee@Gw@[_EUqBACAE"
+            },
+            "start_location": {
+              "lat": -20.1675321,
+              "lng": -43.9466262
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "59 m",
+              "value": 59
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 75
+            },
+            "end_location": {
+              "lat": -20.1672835,
+              "lng": -43.9430449
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>Alameda das \u00c1rvores</b><div style=\"font-size:0.9em\">Partial restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "jyazBnsekG@A?A?A@?DBF?TCF?r@I"
+            },
+            "start_location": {
+              "lat": -20.1667791,
+              "lng": -43.9431239
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "90 m",
+              "value": 90
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 71
+            },
+            "end_location": {
+              "lat": -20.1674108,
+              "lng": -43.9438982
+            },
+            "html_instructions": "Turn <b>right</b> onto <b>R. dos Jatob\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-right",
+            "polyline": {
+              "points": "n|azB~rekGVvC@R"
+            },
+            "start_location": {
+              "lat": -20.1672835,
+              "lng": -43.9430449
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "43 m",
+          "value": 43
+        },
+        "duration": {
+          "text": "1 min",
+          "value": 11
+        },
+        "end_address": "R. dos Jatob\u00e1s, 1015 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1674715,
+          "lng": -43.9443048
+        },
+        "start_address": "R. dos Jatob\u00e1s, 1018 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1674108,
+          "lng": -43.9438982
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "43 m",
+              "value": 43
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 11
+            },
+            "end_location": {
+              "lat": -20.1674715,
+              "lng": -43.9443048
+            },
+            "html_instructions": "Head <b>west</b> on <b>R. dos Jatob\u00e1s</b> toward <b>R. dos Grapi\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "h}azBjxekG@PH|@"
+            },
+            "start_location": {
+              "lat": -20.1674108,
+              "lng": -43.9438982
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "1.1 km",
+          "value": 1131
+        },
+        "duration": {
+          "text": "4 mins",
+          "value": 249
+        },
+        "end_address": "R. das Arauc\u00e1rias, 1040 - Alphaville, Nova Lima - MG, 34018-088, Brazil",
+        "end_location": {
+          "lat": -20.1756155,
+          "lng": -43.9450411
+        },
+        "start_address": "R. dos Jatob\u00e1s, 1015 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "start_location": {
+          "lat": -20.1674715,
+          "lng": -43.9443048
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "0.8 km",
+              "value": 812
+            },
+            "duration": {
+              "text": "3 mins",
+              "value": 177
+            },
+            "end_location": {
+              "lat": -20.1730968,
+              "lng": -43.946386
+            },
+            "html_instructions": "Head <b>west</b> on <b>R. dos Jatob\u00e1s</b> toward <b>R. dos Grapi\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "t}azBzzekGFp@XzDLxA@L@JDDDFNDB@lCP`@Db@D\\Dh@B`@Dv@Jv@PNBL@p@^b@Rp@LZDl@Fh@Bl@EFCtBs@x@UbBg@"
+            },
+            "start_location": {
+              "lat": -20.1674715,
+              "lng": -43.9443048
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 286
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 60
+            },
+            "end_location": {
+              "lat": -20.1754594,
+              "lng": -43.9453071
+            },
+            "html_instructions": "Continue straight to stay on <b>R. dos Jatob\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "straight",
+            "polyline": {
+              "points": "z`czB|gfkGNKPIpAa@pA_@bC}@BAhC_A"
+            },
+            "start_location": {
+              "lat": -20.1730968,
+              "lng": -43.946386
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "33 m",
+              "value": 33
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 12
+            },
+            "end_location": {
+              "lat": -20.1756155,
+              "lng": -43.9450411
+            },
+            "html_instructions": "Slight <b>left</b> onto <b>R. dos Jequitib\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+            "maneuver": "turn-slight-left",
+            "polyline": {
+              "points": "roczBdafkGFOHMLW"
+            },
+            "start_location": {
+              "lat": -20.1754594,
+              "lng": -43.9453071
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      },
+      {
+        "distance": {
+          "text": "2.1 km",
+          "value": 2109
+        },
+        "duration": {
+          "text": "6 mins",
+          "value": 358
+        },
+        "end_address": "Alameda das \u00c1rvores, 1172 - Alphaville, Nova Lima - MG, 34000-000, Brazil",
+        "end_location": {
+          "lat": -20.1724956,
+          "lng": -43.938409
+        },
+        "start_address": "R. das Arauc\u00e1rias, 1040 - Alphaville, Nova Lima - MG, 34018-088, Brazil",
+        "start_location": {
+          "lat": -20.1756155,
+          "lng": -43.9450411
+        },
+        "steps": [
+          {
+            "distance": {
+              "text": "33 m",
+              "value": 33
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 6
+            },
+            "end_location": {
+              "lat": -20.1754594,
+              "lng": -43.9453071
+            },
+            "html_instructions": "Head <b>northwest</b> on <b>R. dos Jequitib\u00e1s</b> toward <b>R. dos Jatob\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "rpczBn_fkGMVILGN"
+            },
+            "start_location": {
+              "lat": -20.1756155,
+              "lng": -43.9450411
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.3 km",
+              "value": 263
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 63
+            },
+            "end_location": {
+              "lat": -20.1732724,
+              "lng": -43.9462754
+            },
+            "html_instructions": "Slight <b>right</b> onto <b>R. dos Jatob\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "roczBdafkGiC~@C@cC|@qA^qA`@"
+            },
+            "start_location": {
+              "lat": -20.1754594,
+              "lng": -43.9453071
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 367
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 63
+            },
+            "end_location": {
+              "lat": -20.17019,
+              "lng": -43.9465875
+            },
+            "html_instructions": "Slight <b>left</b> to stay on <b>R. dos Jatob\u00e1s</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-slight-left",
+            "polyline": {
+              "points": "|aczBfgfkGQHOJcBf@y@TuBr@GBm@Di@Cm@G[Eq@Mc@Sq@_@"
+            },
+            "start_location": {
+              "lat": -20.1732724,
+              "lng": -43.9462754
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "75 m",
+              "value": 75
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 10
+            },
+            "end_location": {
+              "lat": -20.1698048,
+              "lng": -43.946002
+            },
+            "html_instructions": "Slight <b>right</b> toward <b>R. dos Ip\u00eas</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "turn-slight-right",
+            "polyline": {
+              "points": "tnbzBdifkGIK]g@MOWq@"
+            },
+            "start_location": {
+              "lat": -20.17019,
+              "lng": -43.9465875
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 420
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 62
+            },
+            "end_location": {
+              "lat": -20.1690114,
+              "lng": -43.942756
+            },
+            "html_instructions": "Continue onto <b>R. dos Ip\u00eas</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "polyline": {
+              "points": "flbzBnefkGEOQw@?CCu@AQHqAR}@Re@@AFMTk@Fg@?S?CC[I_@KWGIOQQMOIUIe@OOEGEIEMCKCME"
+            },
+            "start_location": {
+              "lat": -20.1698048,
+              "lng": -43.946002
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.4 km",
+              "value": 384
+            },
+            "duration": {
+              "text": "1 min",
+              "value": 57
+            },
+            "end_location": {
+              "lat": -20.1720336,
+              "lng": -43.9413367
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit onto <b>R. das Arauc\u00e1rias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "hgbzBfqekG?A?A@A?A?A?ATCJANCJANEd@E^ErD_@j@M`@MTI@AVOb@Wf@c@b@i@DI\\i@"
+            },
+            "start_location": {
+              "lat": -20.1690114,
+              "lng": -43.942756
+            },
+            "travel_mode": "DRIVING"
+          },
+          {
+            "distance": {
+              "text": "0.6 km",
+              "value": 567
+            },
+            "duration": {
+              "text": "2 mins",
+              "value": 97
+            },
+            "end_location": {
+              "lat": -20.1724956,
+              "lng": -43.938409
+            },
+            "html_instructions": "At the roundabout, take the <b>1st</b> exit and stay on <b>R. das Arauc\u00e1rias</b><div style=\"font-size:0.9em\">Restricted usage road</div>",
+            "maneuver": "roundabout-right",
+            "polyline": {
+              "points": "dzbzBjhekG@?@@@@@?@@@?@?@?@?@?@?@?@?@?@A@?@A@A@A@??A?A@??A?Ab@JLBT?JAPEB?HEFGHIBATWDE`A}@FIXYPOVWRSLQHODOFUBQ@UCWAUCGCQGOAAKSQSOQGGc@g@SSSKSGWESCe@?W@SCICIE"
+            },
+            "start_location": {
+              "lat": -20.1720336,
+              "lng": -43.9413367
+            },
+            "travel_mode": "DRIVING"
+          }
+        ],
+        "traffic_speed_entry": [],
+        "via_waypoint": []
+      }
+    ],
+    "waypoint_order": [
+      14,
+      15,
+      24,
+      3,
+      19,
+      8,
+      0,
+      1,
+      5,
+      10,
+      12,
+      16,
+      17,
+      23,
+      11,
+      22,
+      18,
+      13,
+      21,
+      20,
+      6,
+      4,
+      7,
+      9,
+      2
+    ]
+  }
+]
