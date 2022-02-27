@@ -41,7 +41,4 @@ def get_directions(
         optimize_waypoints=True
     )
 
-    with open('temp.json', 'w') as f:
-        json.dump(directions_result, f)
-
     return directions_result
