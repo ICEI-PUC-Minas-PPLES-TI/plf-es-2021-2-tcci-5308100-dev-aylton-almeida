@@ -1,0 +1,39 @@
+name: Delivery API Integration Tests
+
+on:
+  push:
+    branches:
+      - master
+      - aylton-almeida/issue44
+
+jobs:
+  integration_tests:
+    defaults:
+      run:
+        working-directory: Codigo/DeliveryApi
+    env:
+      DB_SERVER_URL: postgresql://postgres:postgres@localhost:5432/test
+      MQ_EXCHANGE: TEST.EXCHANGE
+      MQ_URL: amqps://mqadmin:mqadmin@localhost:5672
+      FLASK_ENV: testing
+      FLASK_APP: main.py
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - uses: syphar/restore-virtualenv@v1
+        id: cache-venv
+
+      - name: Setup env
+        run: docker compose up -d db rabbit
+
+      - name: Install dependencies
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
+        run: pip install -r requirements.txt
+
+      - name: Run integration tests
+        run: coverage run -m unittest discover -s tests/integration -p 'test_*.py'
