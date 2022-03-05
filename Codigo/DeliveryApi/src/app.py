@@ -4,7 +4,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 
-from src.controllers.AuthController import DelivererResource
+from src.controllers.AuthController import DelivererAuthResource
 from src.events.listen import *
 from src.models import *
 
@@ -43,11 +43,11 @@ def create_app(env_name):
     app.config.update(doc_spec)
 
     # add routes
-    api.add_resource(DelivererResource, f'{PATH}/deliverers')
+    api.add_resource(DelivererAuthResource, f'{PATH}/auth/deliverers')
 
     # init docs
     docs.init_app(app)
-    docs.register(DelivererResource)
+    docs.register(DelivererAuthResource)
 
     # db initialization
     db.init_app(app)

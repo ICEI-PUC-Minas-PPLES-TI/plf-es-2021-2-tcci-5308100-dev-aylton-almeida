@@ -15,6 +15,7 @@ jobs:
       DB_SERVER_URL: ${{secrets.DB_SERVER_URL}}
       MQ_EXCHANGE: ${{secrets.MQ_EXCHANGE}}
       MQ_URL: ${{secrets.MQ_URL}}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
       FLASK_ENV: production
       FLASK_APP: main.py
 

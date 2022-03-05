@@ -3,26 +3,24 @@ from http import HTTPStatus
 from flask_apispec import MethodResource, doc, use_kwargs
 from flask_restful import Resource
 
-# from src.apis.AuthApi import Role
-from src.controllers.schemas.AuthControllerSchemas import AuthDelivererSchema
-# from src.guards.AuthGuard import auth_guard
+from src.controllers.schemas.AuthControllerSchemas import (
+    AuthDelivererResponseSchema, AuthDelivererSchema)
 from src.guards.ExceptionGuard import exception_guard
 from src.guards.MarshalResponse import marshal_response
-from src.schemas.deliverer.DelivererBaseSchema import DelivererBaseSchema
-from src.services.DelivererService import DelivererService
+from src.services.AuthService import AuthService
 
 
-class DelivererResource(MethodResource, Resource):
+class DelivererAuthResource(MethodResource, Resource):
 
     @doc(description="Authenticates a new deliverer", tags=['Offer'])
     @exception_guard
     @use_kwargs(AuthDelivererSchema, location='json')
-    @marshal_response(DelivererBaseSchema)
+    @marshal_response(AuthDelivererResponseSchema)
     def post(self, **deliverer_data):
         """Authenticates a new deliverer"""
 
         # TODO: test
 
-        deliverer = DelivererService.create(deliverer_data)
+        token, deliverer = AuthService.auth_deliverer(**deliverer_data)
 
-        return deliverer, HTTPStatus.OK
+        return {'token': token, 'deliverer': deliverer}, HTTPStatus.OK
