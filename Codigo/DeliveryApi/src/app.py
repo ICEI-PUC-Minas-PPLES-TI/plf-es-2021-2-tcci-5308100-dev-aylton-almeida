@@ -4,7 +4,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 
-from src.controllers.DelivererController import DelivererResource
+from src.controllers.AuthController import DelivererResource
 from src.events.listen import *
 from src.models import *
 
