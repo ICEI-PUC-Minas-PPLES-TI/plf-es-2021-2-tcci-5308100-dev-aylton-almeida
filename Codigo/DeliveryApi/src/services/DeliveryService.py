@@ -8,7 +8,17 @@ from src.services.DeliveryRouteService import DeliveryRouteService
 class DeliveryService(ABC):
 
     @staticmethod
-    def get_one_by_offer_id(offer_id: UUID):
+    def get_one_by_code(code: str) -> DeliveryModel:
+        """Gets one delivery given its access code"""
+
+        # TODO: test
+
+        return DeliveryModel.get_one_filtered([
+            DeliveryModel.access_code == code
+        ])
+
+    @staticmethod
+    def get_one_by_offer_id(offer_id: UUID) -> DeliveryModel:
         """Gets one delivery given its offer id"""
 
         return DeliveryModel.get_one_filtered([
