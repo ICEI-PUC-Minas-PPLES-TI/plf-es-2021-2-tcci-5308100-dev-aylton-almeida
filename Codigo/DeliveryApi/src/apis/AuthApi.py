@@ -1,48 +1,40 @@
-import json
-import os
-from enum import Enum
+from werkzeug.exceptions import Forbidden
 
-import requests
-from src.libs.aws.cognito import get_headers
-from src.utils.CaseConverter import convert_to_case, to_snake_case
-
-
-class Role(Enum):
-    customer = 0
-    leader = 1
-    admin = 2
-    supplier = 3
-
-    def __str__(self) -> str:
-        return str(self.name)
+from src.classes.Role import Role
+from src.utils.JwtUtils import decode_jwt_token
 
 
 class AuthApi:
 
-    api_url: str
-    headers: dict
-
-    def __init__(self):
-        self.api_url = os.getenv('SERVICES_BASE_API') + \
-            os.getenv('AUTH_API')
-
-    def authorize_request(self, token: str, role: Role = Role.customer):
+    def authorize_request(self, token: str, role: Role = Role.deliverer):
         """Authorize user token
 
         Args:
-            token (str): Token to authorize user with
-            role (Role, optional): Role in which to check for given user token. Defaults to Role.customer.
+            token (str): Bearer Token to authorize user with
+            role (Role, optional): Role in which to check for given user token. Defaults to Role.deliverer.
+
+        Returns:
+            dict[R: Allowed roles for authenticated user and its user id
         """
 
-        auth_response = requests.post(
-            self.api_url + '/authorize',
-            headers=get_headers(False),
-            data=json.dumps({
-                'token': token,
-                'role': role.name
-            })
-        )
+        # TODO: test
 
-        auth_response.raise_for_status()
+        try:
+            if not token:
+                raise Forbidden('No token provided')
 
-        return convert_to_case(json.loads(auth_response.text), to_snake_case)
+            user_id, found_role = decode_jwt_token(
+                token.replace('Bearer ', '')
+            )
+
+            allowed_roles = found_role.get_authorized_roles()
+
+            if role not in allowed_roles:
+                raise Forbidden('User does not have access to this resource')
+
+            return {
+                'roles': [allowed_roles],
+                'user_id': user_id
+            }
+        except Exception as e:  # pylint: disable=broad-except
+            raise Forbidden(str(e)) from e

@@ -1,5 +1,6 @@
 from abc import ABC
 
+from src.apis.AuthApi import Role
 from src.models.DelivererModel import DelivererModel
 from src.services.DelivererService import DelivererService
 from src.utils.JwtUtils import create_jwt_token
@@ -29,6 +30,6 @@ class AuthService(ABC):
             False
         )
 
-        token = create_jwt_token(deliverer.deliverer_id)
+        token = create_jwt_token(deliverer.deliverer_id, Role.deliverer)
 
         return token, deliverer

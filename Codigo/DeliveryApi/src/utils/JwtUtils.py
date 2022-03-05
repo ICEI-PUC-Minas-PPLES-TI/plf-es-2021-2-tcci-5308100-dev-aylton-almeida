@@ -3,8 +3,10 @@ from datetime import datetime, timezone
 
 import jwt
 
+from src.classes.Role import Role
 
-def create_jwt_token(key: str) -> str:
+
+def create_jwt_token(key: str, role: Role) -> str:
     """Creates JWT token
 
     Args:
@@ -17,18 +19,23 @@ def create_jwt_token(key: str) -> str:
     # TODO: test
 
     secret = os.getenv('SECRET_KEY')
+    payload = {
+        'key': key,
+        'iat': datetime.now(tz=timezone.utc),
+        'role': str(role)
+    }
 
-    return jwt.encode({'key': key, 'iat': datetime.now(tz=timezone.utc)}, secret, algorithm='HS256')
+    return jwt.encode(payload, secret, algorithm='HS256')
 
 
-def decode_jwt_token(token: str):
+def decode_jwt_token(token: str) -> tuple[str, Role]:
     """Decore JWT token
 
     Args:
         jwt (str): JWT token
 
     Returns:
-        str: JWT token key
+        tuple[str, Role]: JWT token key and user role
     """
 
     # TODO: test
@@ -36,4 +43,4 @@ def decode_jwt_token(token: str):
     secret = os.getenv('SECRET_KEY')
     decoded = jwt.decode(token, secret, algorithms='HS256')
 
-    return decoded.get('key')
+    return decoded.get('key'), Role[decoded.get('role')]

@@ -4,8 +4,10 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 
+from src.classes.Role import Role
 from src.controllers.AuthController import DelivererAuthResource
 from src.events.listen import *
+from src.guards.AuthGuard import auth_guard
 from src.models import *
 
 from .config import app_config
@@ -62,6 +64,7 @@ def create_app(env_name):
     )
 
     @app.route(PATH+'/ping', methods=['GET'])
+    @auth_guard(Role.deliverer)
     def _():
         result = 'pong'
         return custom_response(result, 200)
