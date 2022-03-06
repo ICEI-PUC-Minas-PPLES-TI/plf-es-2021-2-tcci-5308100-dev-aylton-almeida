@@ -15,6 +15,6 @@ class Role(Enum):
         # TODO: test
 
         if self == Role.admin:
-            return [Role.deliverer, Role.supplier]
+            return [Role.deliverer]
 
         return [self]

@@ -33,7 +33,7 @@ class AuthApi:
                 raise Forbidden('User does not have access to this resource')
 
             return {
-                'roles': [allowed_roles],
+                'roles': allowed_roles,
                 'user_id': user_id
             }
         except Exception as e:  # pylint: disable=broad-except

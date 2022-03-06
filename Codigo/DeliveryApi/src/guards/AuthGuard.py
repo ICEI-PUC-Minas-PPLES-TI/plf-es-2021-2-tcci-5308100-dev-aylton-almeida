@@ -2,8 +2,8 @@ from functools import wraps
 
 from flask import request
 
-from src.apis.AuthApi import Role
 from src.apis.gateway import gateway
+from src.classes.Role import Role
 
 
 def auth_guard(role: Role = Role.deliverer, needs_user_id=False, needs_role: Role = False):
@@ -24,7 +24,7 @@ def auth_guard(role: Role = Role.deliverer, needs_user_id=False, needs_role: Rol
             if needs_user_id:
                 kwargs['auth_user_id'] = uid
             if needs_role:
-                kwargs['roles'] = [Role[role] for role in roles]
+                kwargs['roles'] = roles
 
             return fn(*args, **kwargs)
         return decorated_function
