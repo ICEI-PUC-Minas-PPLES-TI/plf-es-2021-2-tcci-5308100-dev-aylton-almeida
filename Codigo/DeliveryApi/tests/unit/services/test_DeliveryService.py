@@ -11,6 +11,29 @@ from tests.utils.models.BaseTest import BaseTest
 class DeliveryServiceTests(BaseTest):
 
     @patch.object(DeliveryModel, 'get_one_filtered')
+    def test_GetOneByCode_when_Default(self, mock_get_one_filtered: MagicMock):
+        """Test get_one_by_code when default behavior"""
+
+        # when
+        code = 'access-code'
+        found_delivery = DeliveryModel({})
+
+        # mock
+        mock_get_one_filtered.return_value = found_delivery
+
+        # then
+        response = DeliveryService.get_one_by_code(code)
+
+        # assert
+        self.assertEqual(response, found_delivery)
+        self.assertTrue(
+            mock_get_one_filtered.call_args_list[0][0][0][0].compare(
+                DeliveryModel.access_code == code
+            ),
+            'assert filter has access_code == code'
+        )
+
+    @patch.object(DeliveryModel, 'get_one_filtered')
     def test_GetOneByOfferId_when_Default(self, mock_get_one_filtered: MagicMock):
         """Test get_one_by_offer_id when default behavior"""
 

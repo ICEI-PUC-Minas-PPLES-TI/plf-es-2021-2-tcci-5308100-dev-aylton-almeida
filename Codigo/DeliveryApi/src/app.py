@@ -2,7 +2,11 @@ import warnings
 
 from flask import Flask
 from flask_cors import CORS
+from flask_restful import Api
 
+from src.controllers.AuthController import (AuthorizeResource,
+                                            DelivererAuthResource)
+from src.controllers.DeliveryController import VerifyDeliveryResource
 from src.events.listen import *
 from src.models import *
 
@@ -34,18 +38,26 @@ def create_app(env_name):
     # app initialization
     app = Flask(__name__)
     # uncomment to add routes
-    # api = Api(app)
+    api = Api(app)
     CORS(app)
 
     app.config.from_object(app_config[env_name])
     app.config.update(doc_spec)
 
     # add routes
-    # api.add_resource(OfferListResource, PATH + '/offers')
+    api.add_resource(VerifyDeliveryResource,
+                     f'{PATH}/deliveries/verify/<string:code>')
+
+    api.add_resource(AuthorizeResource, f'{PATH}/auth')
+    api.add_resource(DelivererAuthResource, f'{PATH}/auth/deliverers')
 
     # init docs
     docs.init_app(app)
-    # docs.register(OfferListResource)
+
+    docs.register(VerifyDeliveryResource)
+
+    docs.register(AuthorizeResource)
+    docs.register(DelivererAuthResource)
 
     # db initialization
     db.init_app(app)

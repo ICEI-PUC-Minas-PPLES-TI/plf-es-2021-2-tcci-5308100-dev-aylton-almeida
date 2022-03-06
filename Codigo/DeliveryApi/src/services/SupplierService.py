@@ -6,6 +6,21 @@ from src.models.SupplierModel import SupplierModel
 class SupplierService(ABC):
 
     @staticmethod
+    def get_one_by_id(supplier_id: int) -> SupplierModel:
+        """Gets supplier by its id
+
+        Args:
+            supplier_id (int): supplier id
+
+        Returns:
+            SupplierModel: found supplier
+        """
+
+        return SupplierModel.get_one_filtered([
+            SupplierModel.supplier_id == supplier_id
+        ])
+
+    @staticmethod
     def create_if_not_created(supplier_data: dict) -> SupplierModel:
         """Creates new supplier if supplier doesn't exist"""
 

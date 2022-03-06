@@ -13,6 +13,7 @@ services:
       - MQ_EXCHANGE=${MQ_EXCHANGE}
       - MQ_URL=${MQ_URL}
       - G_CLOUD_API_KEY=${G_CLOUD_API_KEY}
+      - SECRET_KEY=${SECRET_KEY}
     depends_on:
       - db
     ports:
