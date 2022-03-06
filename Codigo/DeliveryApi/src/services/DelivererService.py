@@ -1,5 +1,4 @@
 from abc import ABC
-from uuid import UUID
 
 from src.models.DelivererModel import DelivererModel
 
@@ -7,11 +6,11 @@ from src.models.DelivererModel import DelivererModel
 class DelivererService(ABC):
 
     @staticmethod
-    def get_one_by_id(deliverer_id: UUID) -> DelivererModel:
+    def get_one_by_id(deliverer_id: int) -> DelivererModel:
         """Gets deliverer by its id
 
         Args:
-            deliverer_id (UUID): deliverer id
+            deliverer_id (int): deliverer id
 
         Returns:
             DelivererModel: found deliverer

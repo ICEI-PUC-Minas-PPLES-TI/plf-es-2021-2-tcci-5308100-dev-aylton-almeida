@@ -26,4 +26,4 @@ class VerifyDeliveryResource(MethodResource, Resource):
         if not delivery:
             raise NotFound('Delivery not found with given code')
 
-        return {'delivery_id': delivery.delivery_id}, HTTPStatus.OK
+        return {'delivery_id': delivery.delivery_id}, HTTPStatus.ACCEPTED

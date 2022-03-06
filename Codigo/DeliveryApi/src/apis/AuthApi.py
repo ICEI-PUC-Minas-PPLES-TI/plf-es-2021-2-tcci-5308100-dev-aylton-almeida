@@ -1,4 +1,4 @@
-from werkzeug.exceptions import Forbidden
+from werkzeug.exceptions import Forbidden, Unauthorized
 
 from src.classes.Role import Role
 from src.utils.JwtUtils import decode_jwt_token
@@ -6,7 +6,7 @@ from src.utils.JwtUtils import decode_jwt_token
 
 class AuthApi:
 
-    def authorize_request(self, token: str, role: Role = Role.deliverer):
+    def authorize_request(self, token: str, role: Role = Role.any):
         """Authorize user token
 
         Args:
@@ -17,24 +17,23 @@ class AuthApi:
             dict[R: Allowed roles for authenticated user and its user id
         """
 
-        # TODO: test
+        if not token:
+            raise Forbidden('No token provided')
 
         try:
-            if not token:
-                raise Forbidden('No token provided')
-
             user_id, found_role = decode_jwt_token(
                 token.replace('Bearer ', '')
             )
+        except Exception as err:  # pylint: disable=broad-except
+            raise Unauthorized(str(err)) from err
 
-            allowed_roles = found_role.get_authorized_roles()
+        allowed_roles = found_role.get_authorized_roles()
 
-            if role not in allowed_roles:
-                raise Forbidden('User does not have access to this resource')
+        if role not in allowed_roles:
+            raise Unauthorized(
+                'User does not have access to this resource')
 
-            return {
-                'roles': allowed_roles,
-                'user_id': user_id
-            }
-        except Exception as e:  # pylint: disable=broad-except
-            raise Forbidden(str(e)) from e
+        return {
+            'roles': allowed_roles,
+            'user_id': user_id
+        }

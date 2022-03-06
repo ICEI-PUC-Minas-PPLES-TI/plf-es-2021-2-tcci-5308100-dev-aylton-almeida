@@ -5,7 +5,8 @@ from flask_cors import CORS
 from flask_restful import Api
 
 from src.classes.Role import Role
-from src.controllers.AuthController import DelivererAuthResource
+from src.controllers.AuthController import (AuthorizeResource,
+                                            DelivererAuthResource)
 from src.controllers.DeliveryController import VerifyDeliveryResource
 from src.events.listen import *
 from src.guards.AuthGuard import auth_guard
@@ -48,11 +49,16 @@ def create_app(env_name):
     # add routes
     api.add_resource(VerifyDeliveryResource,
                      f'{PATH}/deliveries/<string:code>')
+
+    api.add_resource(AuthorizeResource, f'{PATH}/auth')
     api.add_resource(DelivererAuthResource, f'{PATH}/auth/deliverers')
 
     # init docs
     docs.init_app(app)
+    
     docs.register(VerifyDeliveryResource)
+
+    docs.register(AuthorizeResource)
     docs.register(DelivererAuthResource)
 
     # db initialization

@@ -6,7 +6,7 @@ from src.apis.gateway import gateway
 from src.classes.Role import Role
 
 
-def auth_guard(role: Role = Role.deliverer, needs_user_id=False, needs_role: Role = False):
+def auth_guard(role: Role = Role.any, needs_user_id=False, needs_role: Role = False):
     """Guards the route with user authentication and role
 
     Args:

@@ -1,8 +1,8 @@
-from marshmallow import fields, validate
+from marshmallow import fields
 
-from src.classes.Role import Role
 from src.schemas.CamelCaseSchema import CamelCaseSchema
 from src.schemas.deliverer.DelivererBaseSchema import DelivererBaseSchema
+from src.schemas.SupplierBaseSchema import SupplierBaseSchema
 
 
 class AuthDelivererSchema(CamelCaseSchema):
@@ -15,10 +15,6 @@ class AuthDelivererResponseSchema(CamelCaseSchema):
     deliverer = fields.Nested(DelivererBaseSchema, required=True)
 
 
-class AuthorizeDelivererResponseSchema(CamelCaseSchema, DelivererBaseSchema):
-    roles = fields.List(
-        fields.Str(validate=validate.OneOf([
-            str(role) for role in Role
-        ])),
-        required=True
-    )
+class AuthorizeResponseSchema(CamelCaseSchema):
+    deliverer = fields.Nested(DelivererBaseSchema)
+    supplier = fields.Nested(SupplierBaseSchema)

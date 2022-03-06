@@ -11,8 +11,6 @@ class DeliveryService(ABC):
     def get_one_by_code(code: str) -> DeliveryModel:
         """Gets one delivery given its access code"""
 
-        # TODO: test
-
         return DeliveryModel.get_one_filtered([
             DeliveryModel.access_code == code
         ])

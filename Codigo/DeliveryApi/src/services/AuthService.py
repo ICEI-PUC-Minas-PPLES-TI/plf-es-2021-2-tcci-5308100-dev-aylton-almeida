@@ -1,29 +1,36 @@
 from abc import ABC
-from uuid import UUID
 
 from src.apis.AuthApi import Role
 from src.models.BaseModel import BaseModel
 from src.models.DelivererModel import DelivererModel
 from src.services.DelivererService import DelivererService
+from src.services.SupplierService import SupplierService
 from src.utils.JwtUtils import create_jwt_token
 
 
 class AuthService(ABC):
 
     @staticmethod
-    def authorize_deliverer(deliverer_id: UUID) -> DelivererModel:
-        """Returns current deliverer for given deliverer id
+    def authorize(user_id: int, roles: list[Role]) -> dict:
+        """Authorizes current user
 
         Args:
-            deliverer_id (UUID): deliverer id to be found
+            user_id (int): user id
+            role (Role): list of allowed roles for user
 
         Returns:
-            DelivererModel: found deliverer
+            dict: found deliverer and/or supplier
         """
 
-        # TODO: test
+        response = {}
 
-        return DelivererService.get_one_by_id(deliverer_id)
+        if Role.deliverer in roles:
+            response['deliverer'] = DelivererService.get_one_by_id(user_id)
+
+        if Role.supplier in roles:
+            response['supplier'] = SupplierService.get_one_by_id(user_id)
+
+        return response
 
     @staticmethod
     def authenticate_deliverer(phone: str, delivery_id: str) -> tuple[str, DelivererModel]:
@@ -36,8 +43,6 @@ class AuthService(ABC):
         Returns:
             str, DelivererModel: JWT token and deliverer data
         """
-
-        # TODO: test
 
         deliverer = DelivererService.create(
             {
