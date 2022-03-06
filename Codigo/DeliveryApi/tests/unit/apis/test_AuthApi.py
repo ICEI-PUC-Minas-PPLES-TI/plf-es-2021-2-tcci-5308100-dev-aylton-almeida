@@ -113,7 +113,7 @@ class AuthApiTests(BaseTest):
 
         # assert
         self.assertEqual(response, {
-            'roles': [Role.deliverer],
+            'roles': [Role.deliverer, Role.any],
             'user_id': '1'
         })
         mock_decode_jwt_token.assert_called_once_with(

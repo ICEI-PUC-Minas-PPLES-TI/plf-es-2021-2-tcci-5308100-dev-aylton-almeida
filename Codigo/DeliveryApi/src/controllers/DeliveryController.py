@@ -19,11 +19,9 @@ class VerifyDeliveryResource(MethodResource, Resource):
     def get(self, code: str):
         """Verifies if delivery with given code exists"""
 
-        # TODO: test
-
         delivery = DeliveryService.get_one_by_code(code)
 
         if not delivery:
             raise NotFound('Delivery not found with given code')
 
-        return {'delivery_id': delivery.delivery_id}, HTTPStatus.ACCEPTED
+        return {'delivery_id': delivery.delivery_id}, HTTPStatus.OK

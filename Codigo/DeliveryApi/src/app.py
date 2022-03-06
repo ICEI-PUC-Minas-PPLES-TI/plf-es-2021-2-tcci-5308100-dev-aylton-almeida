@@ -4,12 +4,10 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 
-from src.classes.Role import Role
 from src.controllers.AuthController import (AuthorizeResource,
                                             DelivererAuthResource)
 from src.controllers.DeliveryController import VerifyDeliveryResource
 from src.events.listen import *
-from src.guards.AuthGuard import auth_guard
 from src.models import *
 
 from .config import app_config
@@ -48,14 +46,14 @@ def create_app(env_name):
 
     # add routes
     api.add_resource(VerifyDeliveryResource,
-                     f'{PATH}/deliveries/<string:code>')
+                     f'{PATH}/deliveries/verify/<string:code>')
 
     api.add_resource(AuthorizeResource, f'{PATH}/auth')
     api.add_resource(DelivererAuthResource, f'{PATH}/auth/deliverers')
 
     # init docs
     docs.init_app(app)
-    
+
     docs.register(VerifyDeliveryResource)
 
     docs.register(AuthorizeResource)
@@ -74,7 +72,6 @@ def create_app(env_name):
     )
 
     @app.route(PATH+'/ping', methods=['GET'])
-    @auth_guard(Role.deliverer)
     def _():
         result = 'pong'
         return custom_response(result, 200)

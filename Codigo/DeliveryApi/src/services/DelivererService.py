@@ -16,8 +16,6 @@ class DelivererService(ABC):
             DelivererModel: found deliverer
         """
 
-        # TODO: test
-
         return DelivererModel.get_one_filtered([
             DelivererModel.deliverer_id == deliverer_id
         ])
@@ -30,8 +28,6 @@ class DelivererService(ABC):
             deliverer (dict): deliverer base data
             commit (bool): commit changes to db. Defaults to True.
         """
-
-        # TODO: test
 
         deliverer = DelivererModel(deliverer)
         deliverer.save(commit)

@@ -16,9 +16,7 @@ class SupplierService(ABC):
             SupplierModel: found supplier
         """
 
-        # TODO: test
-
-        SupplierModel.get_one_filtered([
+        return SupplierModel.get_one_filtered([
             SupplierModel.supplier_id == supplier_id
         ])
 

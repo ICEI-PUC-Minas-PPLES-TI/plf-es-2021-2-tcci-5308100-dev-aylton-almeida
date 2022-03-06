@@ -16,8 +16,6 @@ def create_jwt_token(key: str, role: Role) -> str:
         str: JWT token
     """
 
-    # TODO: test
-
     secret = os.getenv('SECRET_KEY')
     payload = {
         'key': key,
@@ -37,8 +35,6 @@ def decode_jwt_token(token: str) -> tuple[str, Role]:
     Returns:
         tuple[str, Role]: JWT token key and user role
     """
-
-    # TODO: test
 
     secret = os.getenv('SECRET_KEY')
     decoded = jwt.decode(token, secret, algorithms='HS256')
