@@ -9,8 +9,8 @@ import 'package:get/get.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 
 class DeliveryCodeFormController extends GetxController {
-  final AppController appController;
-  final DeliveriesRepository deliveriesRepository;
+  final AppController _appController;
+  final DeliveriesRepository _deliveriesRepository;
 
   late GlobalKey<FormState> codeFormKey;
   late TextEditingController codeController;
@@ -19,10 +19,12 @@ class DeliveryCodeFormController extends GetxController {
   final isValid = false.obs;
 
   DeliveryCodeFormController({
-    required this.appController,
-    required this.deliveriesRepository,
+    required AppController appController,
+    required DeliveriesRepository deliveriesRepository,
     GlobalKey<FormState>? codeFormKey,
-  }) : codeFormKey = codeFormKey ?? GlobalKey<FormState>();
+  })  : codeFormKey = codeFormKey ?? GlobalKey<FormState>(),
+        _appController = appController,
+        _deliveriesRepository = deliveriesRepository;
 
   @override
   void onInit() {
@@ -41,7 +43,7 @@ class DeliveryCodeFormController extends GetxController {
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
       return 'empty_delivery_code_input_error'.tr;
-    } else if ((value.length != 6) || int.tryParse(value) != null) {
+    } else if ((value.length != 6)) {
       return 'invalid_delivery_code_input_error'.tr;
     }
     return null;
@@ -58,7 +60,7 @@ class DeliveryCodeFormController extends GetxController {
       isLoading.value = true;
       DismissKeyboard.dismiss(Get.overlayContext!);
 
-      final deliveryId = await deliveriesRepository.verifyDelivery(
+      final deliveryId = await _deliveriesRepository.verifyDelivery(
         codeController.text,
       );
 
@@ -70,7 +72,7 @@ class DeliveryCodeFormController extends GetxController {
         ),
       );
     } catch (e) {
-      appController.showAlert(
+      _appController.showAlert(
           text: 'invalid_delivery_code_error'.tr, type: AlertType.error);
     } finally {
       isLoading.value = false;

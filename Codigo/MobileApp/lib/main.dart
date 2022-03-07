@@ -1,8 +1,7 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
-import 'package:delivery_manager/app/data/provider/storage_client.dart';
-import 'package:delivery_manager/app/data/repository/auth_repositoty.dart';
+import 'package:delivery_manager/app/data/repository/auth_repository.dart';
 import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:delivery_manager/app/theme/app_theme.dart';
@@ -20,7 +19,9 @@ Future main() async {
   await dotenv.load();
 
   // Add initialization logic here
-  FlutterNativeSplash.removeAfter((BuildContext _) async => {});
+  FlutterNativeSplash.removeAfter(
+    (BuildContext _) async => Get.find<AuthController>().getCurrentUser(),
+  );
 
   runApp(const MyApp());
 }
@@ -29,21 +30,23 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   void initializeControllers() {
+    final storageRepository = StorageRepository(
+      storageClient: const FlutterSecureStorage(),
+    );
+
     Get.lazyPut(() => AppController());
     Get.lazyPut(
       () => AuthController(
         authRepository: AuthRepository(
           apiClient: ApiClient(
             httpClient: Client(),
+            storageRepository: storageRepository,
           ),
         ),
-        storageRepository: StorageRepository(
-          storageClient: StorageClient(
-            storageClient: const FlutterSecureStorage(),
-          ),
-        ),
+        storageRepository: storageRepository,
       ),
     );
+    Get.lazyPut(() => storageRepository);
   }
 
   @override

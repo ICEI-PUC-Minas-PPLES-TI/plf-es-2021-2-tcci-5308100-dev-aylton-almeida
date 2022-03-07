@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -12,10 +13,12 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
         title: const Text('DeliveryDetailsView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'DeliveryDetailsView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: Obx(
+          () => Text(
+            'Current deliverer phone ${Get.find<AuthController>().deliverer.value.phone ?? ''}',
+            style: const TextStyle(fontSize: 20),
+          ),
         ),
       ),
     );
