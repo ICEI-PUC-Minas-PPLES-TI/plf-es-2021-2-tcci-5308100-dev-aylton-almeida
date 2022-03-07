@@ -41,7 +41,7 @@ class DeliveryCodeFormController extends GetxController {
   String? validator(String? value) {
     if (value == null || value.isEmpty) {
       return 'empty_delivery_code_input_error'.tr;
-    } else if ((value.length != 6) || int.tryParse(value) == null) {
+    } else if ((value.length != 6) || int.tryParse(value) != null) {
       return 'invalid_delivery_code_input_error'.tr;
     }
     return null;
@@ -52,26 +52,29 @@ class DeliveryCodeFormController extends GetxController {
   }
 
   Future<void> submitForm() async {
-    // TODO: implement real logic
+    // TODO: test
 
-    isLoading.value = true;
-    DismissKeyboard.dismiss(Get.overlayContext!);
+    try {
+      isLoading.value = true;
+      DismissKeyboard.dismiss(Get.overlayContext!);
 
-    // deliveriesRepository.verifyDelivery('')
-
-    if (!codeFormKey.currentState!.validate()) {
-      await Future.delayed(const Duration(seconds: 1));
+      final deliveryId = await deliveriesRepository.verifyDelivery(
+        codeController.text,
+      );
 
       Get.toNamed(
         Routes.PHONE_FORM,
-        arguments: PhoneFormArgs(user: PhoneFormUser.deliverer),
+        arguments: PhoneFormArgs(
+          user: PhoneFormUser.deliverer,
+          deliveryId: deliveryId,
+        ),
       );
-    } else {
+    } catch (e) {
       appController.showAlert(
           text: 'invalid_delivery_code_error'.tr, type: AlertType.error);
+    } finally {
+      isLoading.value = false;
     }
-
-    isLoading.value = false;
   }
 
   void onSupplierPressed() {
