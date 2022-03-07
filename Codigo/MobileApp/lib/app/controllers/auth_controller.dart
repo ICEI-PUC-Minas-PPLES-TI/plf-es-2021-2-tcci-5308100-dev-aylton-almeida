@@ -20,6 +20,8 @@ class AuthController extends GetxController {
         _storageRepository = storageRepository;
 
   authenticateDeliverer(String phone, String deliveryId) async {
+    // TODO: test
+
     final response = await _authRepository.authDeliverer(phone, deliveryId);
 
     await _storageRepository.setAuthToken(response.item2);
@@ -28,6 +30,8 @@ class AuthController extends GetxController {
   }
 
   getCurrentUser() async {
+    // TODO: test
+
     try {
       final response = await _authRepository.authorizeUser();
 
