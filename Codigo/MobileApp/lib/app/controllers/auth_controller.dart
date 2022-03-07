@@ -28,8 +28,6 @@ class AuthController extends GetxController {
   }
 
   getCurrentUser() async {
-    // TODO: finish implementation
-
     try {
       final response = await _authRepository.authorizeUser();
 
