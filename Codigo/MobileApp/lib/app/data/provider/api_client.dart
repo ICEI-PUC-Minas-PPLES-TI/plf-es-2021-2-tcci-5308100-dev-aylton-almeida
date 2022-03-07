@@ -1,29 +1,65 @@
 import 'dart:convert';
 
+import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:http/http.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-// TODO: add correct url
-const baseUrl = 'http://gerador-nomes.herokuapp.com';
+final baseUrl = dotenv.env['API_URL'];
 
 class ApiClient {
-  final Client httpClient;
+  final Client _httpClient;
+  final StorageRepository _storageRepository;
 
-  ApiClient({required this.httpClient});
+  ApiClient(
+      {required Client httpClient,
+      required StorageRepository storageRepository})
+      : _httpClient = httpClient,
+        _storageRepository = storageRepository;
 
-  Future<Iterable> getAll(String path) async {
+  getHeaders() async {
     // TODO: test
 
-    try {
-      final uri = Uri.parse('$baseUrl/$path');
-      final response = await httpClient.get(uri);
+    final authToken = await _storageRepository.getAuthToken();
 
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception('Failed request with error ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception(e.toString());
+    return {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': authToken != null ? 'Bearer $authToken' : ''
+    };
+  }
+
+  handleApiResponse(Response response) {
+    // TODO: test
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed request with error ${response.statusCode}');
     }
+  }
+
+  Future<Map<String, dynamic>> get(String path) async {
+    // TODO: test
+
+    final uri = Uri.parse('$baseUrl$path');
+    final response = await _httpClient.get(uri, headers: await getHeaders());
+
+    return handleApiResponse(response);
+  }
+
+  Future<Map<String, dynamic>> post(
+    String path,
+    Map<String, dynamic> body,
+  ) async {
+    // TODO: test
+
+    final uri = Uri.parse('$baseUrl$path');
+    final response = await _httpClient.post(
+      uri,
+      body: jsonEncode(body),
+      headers: await getHeaders(),
+    );
+
+    return handleApiResponse(response);
   }
 }

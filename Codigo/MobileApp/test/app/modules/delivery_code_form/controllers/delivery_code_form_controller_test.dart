@@ -1,7 +1,13 @@
+import 'package:delivery_manager/app/controllers/app_controller.dart';
+import 'package:delivery_manager/app/data/provider/api_client.dart';
+import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
+import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_code_form/controllers/delivery_code_form_controller.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -10,6 +16,21 @@ import 'delivery_code_form_controller_test.mocks.dart';
 @GenerateMocks([TextEditingController, GlobalKey, FormState])
 void main() {
   group('Testing Delivery Code Form Controller', () {
+    createDeliveryCodeFormController({GlobalKey<FormState>? codeFormKey}) {
+      return DeliveryCodeFormController(
+        codeFormKey: codeFormKey,
+        appController: AppController(),
+        deliveriesRepository: DeliveriesRepository(
+          apiClient: ApiClient(
+            httpClient: Client(),
+            storageRepository: StorageRepository(
+              storageClient: const FlutterSecureStorage(),
+            ),
+          ),
+        ),
+      );
+    }
+
     // Mock
     late MockGlobalKey<FormState> mockGlobalKey;
     late MockFormState mockFormState;
@@ -29,7 +50,7 @@ void main() {
 
     test('Controller onInit', () {
       // when
-      final controller = DeliveryCodeFormController();
+      final controller = createDeliveryCodeFormController();
 
       // then
       Get.put(controller);
@@ -43,7 +64,7 @@ void main() {
 
     test('Controller destruction', () async {
       // when
-      final controller = DeliveryCodeFormController();
+      final controller = createDeliveryCodeFormController();
       const tag = 'controller destruction test';
       Get.put(controller, tag: tag);
 
@@ -59,7 +80,7 @@ void main() {
 
     test('Code Field Validator when empty', () {
       // when
-      final controller = DeliveryCodeFormController();
+      final controller = createDeliveryCodeFormController();
       const value = '';
 
       // then
@@ -71,7 +92,7 @@ void main() {
 
     test('Code Field Validator when null', () {
       // when
-      final controller = DeliveryCodeFormController();
+      final controller = createDeliveryCodeFormController();
       const value = null;
 
       // then
@@ -82,19 +103,8 @@ void main() {
 
     test('Code Field Validator when length is different than 6', () {
       // when
-      final controller = DeliveryCodeFormController();
+      final controller = createDeliveryCodeFormController();
       var value = '1478';
-
-      // then
-      final response = controller.validator(value);
-
-      expect(response, 'invalid_delivery_code_input_error'.tr);
-    });
-
-    test('Code Field Validator when smaller not int', () {
-      // when
-      final controller = DeliveryCodeFormController();
-      const value = 'abceac';
 
       // then
       final response = controller.validator(value);
@@ -104,8 +114,8 @@ void main() {
 
     test('Code Field Validator when valid code', () {
       // when
-      final controller = DeliveryCodeFormController();
-      const value = '123456';
+      final controller = createDeliveryCodeFormController();
+      const value = 'ABC123';
 
       // then
       final response = controller.validator(value);
@@ -115,7 +125,8 @@ void main() {
 
     test('handleFormChange when form is valid', () {
       // when
-      final controller = DeliveryCodeFormController(codeFormKey: mockGlobalKey);
+      final controller =
+          createDeliveryCodeFormController(codeFormKey: mockGlobalKey);
 
       // mock
       when(mockGlobalKey.currentState).thenReturn(mockFormState);
@@ -130,7 +141,8 @@ void main() {
 
     test('handleFormChange when form is invalid', () {
       // when
-      final controller = DeliveryCodeFormController(codeFormKey: mockGlobalKey);
+      final controller =
+          createDeliveryCodeFormController(codeFormKey: mockGlobalKey);
 
       // mock
       when(mockGlobalKey.currentState).thenReturn(mockFormState);
