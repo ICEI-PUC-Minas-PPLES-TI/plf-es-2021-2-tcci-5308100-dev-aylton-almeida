@@ -8,6 +8,8 @@ definitions:
     flutter: stable
     xcode: latest
     cocoapods: default
+    groups:
+      - default
 
 workflows:
   feature-branch-workflow:
