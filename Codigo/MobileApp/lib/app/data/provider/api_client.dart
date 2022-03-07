@@ -1,29 +1,31 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-// TODO: add correct url
-const baseUrl = 'http://gerador-nomes.herokuapp.com';
+final baseUrl = dotenv.env['API_URL'];
 
 class ApiClient {
   final Client httpClient;
 
   ApiClient({required this.httpClient});
 
-  Future<Iterable> getAll(String path) async {
+  handleApiResponse(Response response) {
     // TODO: test
 
-    try {
-      final uri = Uri.parse('$baseUrl/$path');
-      final response = await httpClient.get(uri);
-
-      if (response.statusCode == 200) {
-        return json.decode(response.body);
-      } else {
-        throw Exception('Failed request with error ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception(e.toString());
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed request with error ${response.statusCode}');
     }
+  }
+
+  Future<Map<String, dynamic>> get(String path) async {
+    // TODO: test
+
+    final uri = Uri.parse('$baseUrl/$path');
+    final response = await httpClient.get(uri);
+
+    return handleApiResponse(response);
   }
 }

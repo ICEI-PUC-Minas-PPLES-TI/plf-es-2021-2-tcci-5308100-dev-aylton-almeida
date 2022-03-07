@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
+import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/utils/dismiss_keyboard.dart';
@@ -8,15 +9,20 @@ import 'package:get/get.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 
 class DeliveryCodeFormController extends GetxController {
-  late GlobalKey<FormState> codeFormKey;
+  final AppController appController;
+  final DeliveriesRepository deliveriesRepository;
 
+  late GlobalKey<FormState> codeFormKey;
   late TextEditingController codeController;
 
   final isLoading = false.obs;
   final isValid = false.obs;
 
-  DeliveryCodeFormController({GlobalKey<FormState>? codeFormKey})
-      : codeFormKey = codeFormKey ?? GlobalKey<FormState>();
+  DeliveryCodeFormController({
+    required this.appController,
+    required this.deliveriesRepository,
+    GlobalKey<FormState>? codeFormKey,
+  }) : codeFormKey = codeFormKey ?? GlobalKey<FormState>();
 
   @override
   void onInit() {
@@ -51,7 +57,9 @@ class DeliveryCodeFormController extends GetxController {
     isLoading.value = true;
     DismissKeyboard.dismiss(Get.overlayContext!);
 
-    if (codeFormKey.currentState!.validate()) {
+    // deliveriesRepository.verifyDelivery('')
+
+    if (!codeFormKey.currentState!.validate()) {
       await Future.delayed(const Duration(seconds: 1));
 
       Get.toNamed(
@@ -59,8 +67,8 @@ class DeliveryCodeFormController extends GetxController {
         arguments: PhoneFormArgs(user: PhoneFormUser.deliverer),
       );
     } else {
-      Get.find<AppController>().showAlert(
-          text: 'invalid_delivery_code_error', type: AlertType.error);
+      appController.showAlert(
+          text: 'invalid_delivery_code_error'.tr, type: AlertType.error);
     }
 
     isLoading.value = false;

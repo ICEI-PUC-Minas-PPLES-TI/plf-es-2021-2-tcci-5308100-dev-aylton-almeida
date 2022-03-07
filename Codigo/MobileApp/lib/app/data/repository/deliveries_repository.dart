@@ -7,8 +7,9 @@ class DeliveriesRepository {
 
   DeliveriesRepository({required this.apiClient});
 
-  getAll() async {
-    final apiResponse = await apiClient.getAll(basePath);
-    return apiResponse.map((json) => Delivery.fromJson(json));
+  Future<String?> verifyDelivery(String accessCode) async {
+    final apiResponse = await apiClient.get('$basePath/verify/$accessCode');
+
+    return Delivery.fromJson(apiResponse).deliveryId;
   }
 }

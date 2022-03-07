@@ -1,12 +1,19 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
+import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/data/provider/api_client.dart';
+import 'package:delivery_manager/app/data/provider/storage_client.dart';
+import 'package:delivery_manager/app/data/repository/auth_repositoty.dart';
+import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:delivery_manager/app/theme/app_theme.dart';
 import 'package:delivery_manager/app/translations/app_translations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart';
 
 Future main() async {
   // Load env variables
@@ -21,9 +28,27 @@ Future main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  void initializeControllers() {
+    Get.lazyPut(() => AppController());
+    Get.lazyPut(
+      () => AuthController(
+        authRepository: AuthRepository(
+          apiClient: ApiClient(
+            httpClient: Client(),
+          ),
+        ),
+        storageRepository: StorageRepository(
+          storageClient: StorageClient(
+            storageClient: const FlutterSecureStorage(),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => AppController());
+    initializeControllers();
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
