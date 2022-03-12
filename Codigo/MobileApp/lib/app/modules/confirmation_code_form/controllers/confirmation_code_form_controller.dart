@@ -65,9 +65,14 @@ class ConfirmationCodeFormController extends GetxController {
       await _authController.verifySupplierAuthCode(codeController.text);
 
       Get.offAllNamed(Routes.SUPPLIER_ACCOUNT);
-    } catch (e) {
-      _appController.showAlert(
-          text: 'generic_error_msg'.tr, type: AlertType.error);
+    } on Exception catch (e, _) {
+      if (e.toString().contains('Failed request with error 401')) {
+        _appController.showAlert(
+            text: 'invalid_confirmation_code_error'.tr, type: AlertType.error);
+      } else {
+        _appController.showAlert(
+            text: 'generic_error_msg'.tr, type: AlertType.error);
+      }
     } finally {
       isLoading.value = false;
     }

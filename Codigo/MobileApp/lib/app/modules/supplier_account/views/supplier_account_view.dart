@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -12,10 +13,10 @@ class SupplierAccountView extends GetView<SupplierAccountController> {
         title: const Text('SupplierAccountView'),
         centerTitle: true,
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'SupplierAccountView is working',
-          style: TextStyle(fontSize: 20),
+          Get.find<AuthController>().supplier.value!.name,
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );
