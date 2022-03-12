@@ -6,7 +6,7 @@ on:
       - Codigo/DeliveryApi/**/*
 
 jobs:
-  deploy_api:
+  api_pipe:
     defaults:
       run:
         working-directory: Codigo/DeliveryApi
