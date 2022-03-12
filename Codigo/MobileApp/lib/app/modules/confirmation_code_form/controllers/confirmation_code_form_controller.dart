@@ -79,7 +79,7 @@ class ConfirmationCodeFormController extends GetxController {
   }
 
   Future<void> resendCode() async {
-    // TODO: implement resendCode
+    // ! implement resendCode when necessary
 
     DismissKeyboard.dismiss(Get.overlayContext!);
 

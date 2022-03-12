@@ -92,7 +92,7 @@ class PhoneFormController extends GetxController {
   }
 
   Future<void> handleSupplierSubmit(String phone) async {
-    // TODO: implement
+    // TODO: test
 
     try {
       await _authController.authenticateSupplier(phone);
