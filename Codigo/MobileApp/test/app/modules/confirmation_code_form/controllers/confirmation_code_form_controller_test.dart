@@ -1,7 +1,14 @@
+import 'package:delivery_manager/app/controllers/app_controller.dart';
+import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/data/provider/api_client.dart';
+import 'package:delivery_manager/app/data/repository/auth_repository.dart';
+import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/modules/confirmation_code_form/controllers/confirmation_code_form_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -19,6 +26,26 @@ void main() {
     late MockFormState mockFormState;
     late MockTextEditingController mockTextEditingController;
 
+    createFormController({GlobalKey<FormState>? codeFormKey}) {
+      final storageRepository = StorageRepository(
+        storageClient: const FlutterSecureStorage(),
+      );
+
+      return ConfirmationCodeFormController(
+        codeFormKey: codeFormKey,
+        appController: AppController(),
+        authController: AuthController(
+          authRepository: AuthRepository(
+            apiClient: ApiClient(
+              httpClient: Client(),
+              storageRepository: storageRepository,
+            ),
+          ),
+          storageRepository: storageRepository,
+        ),
+      );
+    }
+
     setUp(() {
       mockGlobalKey = MockGlobalKey<FormState>();
       mockFormState = MockFormState();
@@ -33,7 +60,7 @@ void main() {
 
     test('Controller onInit', () {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
 
       // then
       Get.put(controller);
@@ -47,7 +74,7 @@ void main() {
 
     test('Controller destruction', () async {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
       const tag = 'controller destruction test';
       Get.put(controller, tag: tag);
 
@@ -63,7 +90,7 @@ void main() {
 
     test('Code Field Validator when empty', () {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
       const value = '';
 
       // then
@@ -75,7 +102,7 @@ void main() {
 
     test('Code Field Validator when null', () {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
       const value = null;
 
       // then
@@ -86,7 +113,7 @@ void main() {
 
     test('Code Field Validator when length is different than 5', () {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
       var value = '147';
 
       // then
@@ -97,7 +124,7 @@ void main() {
 
     test('Code Field Validator when smaller not int', () {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
       const value = 'abcea';
 
       // then
@@ -108,7 +135,7 @@ void main() {
 
     test('Code Field Validator when valid code', () {
       // when
-      final controller = ConfirmationCodeFormController();
+      final controller = createFormController();
       const value = '12345';
 
       // then
@@ -119,8 +146,7 @@ void main() {
 
     test('handleFormChange when form is valid', () {
       // when
-      final controller =
-          ConfirmationCodeFormController(codeFormKey: mockGlobalKey);
+      final controller = createFormController(codeFormKey: mockGlobalKey);
 
       // mock
       when(mockGlobalKey.currentState).thenReturn(mockFormState);
@@ -135,8 +161,7 @@ void main() {
 
     test('handleFormChange when form is invalid', () {
       // when
-      final controller =
-          ConfirmationCodeFormController(codeFormKey: mockGlobalKey);
+      final controller = createFormController(codeFormKey: mockGlobalKey);
 
       // mock
       when(mockGlobalKey.currentState).thenReturn(mockFormState);
