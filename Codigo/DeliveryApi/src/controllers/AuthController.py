@@ -56,8 +56,6 @@ class SupplierAuthResource(MethodResource, Resource):
     def post(self, phone: str):
         """Authenticates a supplier, returning it's supplier id"""
 
-        # TODO: test
-
         supplier = AuthService.authenticate_supplier(phone)
 
         return {'supplier_id': supplier.supplier_id}, HTTPStatus.OK
@@ -72,8 +70,6 @@ class SupplierAuthCodeResource(MethodResource, Resource):
     def post(self, supplier_id: int, code: str):
         """Verifies a supplier auth code"""
 
-        # TODO: test
-
-        supplier, token = AuthService.verify_supplier_code(supplier_id, code)
+        token, supplier = AuthService.verify_supplier_code(supplier_id, code)
 
         return {'token': token, 'supplier': supplier}, HTTPStatus.OK

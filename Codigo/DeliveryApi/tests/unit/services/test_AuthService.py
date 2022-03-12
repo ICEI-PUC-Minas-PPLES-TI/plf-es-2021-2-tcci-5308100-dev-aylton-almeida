@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
 from uuid import uuid4
 
+from werkzeug.exceptions import NotFound, Unauthorized
+
 from src.classes.Role import Role
 from src.models.BaseModel import BaseModel
 from src.models.DelivererModel import DelivererModel
@@ -138,3 +140,138 @@ class AuthServiceTests(BaseTest):
         mock_create_jwt_token.assert_called_once_with(
             deliverer_id, Role.deliverer)
         mock_commit.assert_called_once()
+
+    @patch.object(SupplierService, 'get_one_by_phone')
+    def test_AuthenticateSupplier_when_Found(
+        self,
+        mock_get_one_by_phone: MagicMock,
+    ):
+        """Test authenticate supplier when supplier was found"""
+
+        # when
+        phone = 'valid phone'
+        supplier_id = 123
+        expected_supplier = SupplierModel({
+            'supplier_id': supplier_id,
+        })
+
+        # mock
+        mock_get_one_by_phone.return_value = expected_supplier
+
+        # then
+        response = AuthService.authenticate_supplier(phone)
+
+        # assert
+        self.assertEqual(response, expected_supplier)
+        mock_get_one_by_phone.assert_called_once_with(phone)
+
+    @patch.object(SupplierService, 'get_one_by_phone')
+    def test_AuthenticateSupplier_when_NotFound(
+        self,
+        mock_get_one_by_phone: MagicMock,
+    ):
+        """Test authenticate supplier when supplier was not found"""
+
+        # when
+        phone = 'valid phone'
+
+        # mock
+        mock_get_one_by_phone.return_value = None
+
+        # then
+        with self.assertRaises(NotFound) as err:
+            AuthService.authenticate_supplier(phone)
+
+        # assert
+        self.assertIn(
+            f'Supplier not found with phone {phone}', str(err.exception))
+        mock_get_one_by_phone.assert_called_once_with(phone)
+
+    @patch.object(SupplierService, 'get_one_by_id')
+    @patch('src.services.AuthService.create_jwt_token')
+    def test_VerifySupplierCode_when_CodeIsValid(
+        self,
+        mock_create_jwt_token: MagicMock,
+        mock_get_one_by_id: MagicMock,
+    ):
+        """Test verify supplier code when code is valid"""
+
+        # when
+        supplier_id = 123
+        code = '123321'
+        token = 'valid token'
+        expected_supplier = SupplierModel({
+            'supplier_id': supplier_id,
+        })
+
+        # mock
+        mock_get_one_by_id.return_value = expected_supplier
+        mock_create_jwt_token.return_value = token
+
+        # then
+        response = AuthService.verify_supplier_code(supplier_id, code)
+
+        # assert
+        self.assertTupleEqual(response, (token, expected_supplier))
+        mock_get_one_by_id.assert_called_once_with(supplier_id)
+        mock_create_jwt_token.assert_called_once_with(
+            supplier_id, Role.supplier)
+
+    @patch.object(SupplierService, 'get_one_by_id')
+    @patch('src.services.AuthService.create_jwt_token')
+    def test_VerifySupplierCode_when_CodeIsInvalid(
+        self,
+        mock_create_jwt_token: MagicMock,
+        mock_get_one_by_id: MagicMock,
+    ):
+        """Test verify supplier code when code is invalid"""
+
+        # when
+        supplier_id = 123
+        code = '123322'
+        token = 'valid token'
+        expected_supplier = SupplierModel({
+            'supplier_id': supplier_id,
+        })
+
+        # mock
+        mock_get_one_by_id.return_value = expected_supplier
+        mock_create_jwt_token.return_value = token
+
+        # then
+        with self.assertRaises(Unauthorized) as err:
+            AuthService.verify_supplier_code(supplier_id, code)
+
+        # assert
+        self.assertIn('Invalid code received', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(supplier_id)
+        mock_create_jwt_token.assert_not_called()
+
+    @patch.object(SupplierService, 'get_one_by_id')
+    @patch('src.services.AuthService.create_jwt_token')
+    def test_VerifySupplierCode_when_SupplierNotFound(
+        self,
+        mock_create_jwt_token: MagicMock,
+        mock_get_one_by_id: MagicMock,
+    ):
+        """Test verify supplier code when supplier not found"""
+
+        # when
+        supplier_id = 123
+        code = '123322'
+        token = 'valid token'
+        expected_supplier = None
+
+        # mock
+        mock_get_one_by_id.return_value = expected_supplier
+        mock_create_jwt_token.return_value = token
+
+        # then
+        with self.assertRaises(NotFound) as err:
+            AuthService.verify_supplier_code(supplier_id, code)
+
+        # assert
+        self.assertIn(
+            f'Supplier not found with id {supplier_id}', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(supplier_id)
+        mock_create_jwt_token.assert_not_called()

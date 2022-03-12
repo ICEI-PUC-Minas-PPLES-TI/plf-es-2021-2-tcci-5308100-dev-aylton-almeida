@@ -36,7 +36,7 @@ class AuthService(ABC):
         return response
 
     @staticmethod
-    def authenticate_deliverer(phone: str, delivery_id: str) -> tuple[str, DelivererModel]:
+    def authenticate_deliverer(phone: str, delivery_id: str):
         """Authenticates deliverer
 
         Args:
@@ -72,8 +72,6 @@ class AuthService(ABC):
             SupplierModel: Found supplier if any
         """
 
-        # TODO: test
-
         supplier = SupplierService.get_one_by_phone(phone)
 
         if not supplier:
@@ -82,7 +80,7 @@ class AuthService(ABC):
         return supplier
 
     @staticmethod
-    def verify_supplier_code(supplier_id: int, code: str) -> tuple[SupplierModel, str]:
+    def verify_supplier_code(supplier_id: int, code: str):
         """Verifies supplier code and return supplier if code is correct
 
         Args:
@@ -100,9 +98,10 @@ class AuthService(ABC):
         if not supplier:
             raise NotFound(f'Supplier not found with id {supplier_id}')
 
-        if code != '526732':
+        # ! This token is only temporary. It should be replaced with a real validation method for production
+        if code != '123321':
             raise Unauthorized('Invalid code received')
 
         token = create_jwt_token(supplier_id, Role.supplier)
 
-        return supplier, token
+        return token, supplier
