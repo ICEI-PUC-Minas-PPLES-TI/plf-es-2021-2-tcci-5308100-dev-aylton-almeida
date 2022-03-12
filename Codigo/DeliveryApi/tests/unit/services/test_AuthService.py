@@ -198,7 +198,7 @@ class AuthServiceTests(BaseTest):
 
         # when
         supplier_id = 123
-        code = '123321'
+        code = '12332'
         token = 'valid token'
         expected_supplier = SupplierModel({
             'supplier_id': supplier_id,

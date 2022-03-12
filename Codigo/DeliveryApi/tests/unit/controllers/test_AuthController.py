@@ -182,7 +182,7 @@ class AuthControllerTests(BaseTest):
         """
 
         # when
-        code = '123321'
+        code = '12332'
         supplier_id = 123
         authenticate_response = {'supplier_id': supplier_id}
         token = 'valid jwt token'
