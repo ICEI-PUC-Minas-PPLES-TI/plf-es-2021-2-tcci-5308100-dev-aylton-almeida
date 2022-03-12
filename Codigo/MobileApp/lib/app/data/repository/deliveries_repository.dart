@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 
 class DeliveriesRepository {
