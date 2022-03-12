@@ -7,7 +7,9 @@ from werkzeug.exceptions import NotFound
 
 from src.classes.Role import Role
 from src.controllers.schemas.AuthControllerSchemas import (
-    AuthDelivererResponseSchema, AuthDelivererSchema, AuthorizeResponseSchema)
+    AuthDelivererResponseSchema, AuthDelivererSchema, AuthorizeResponseSchema,
+    AuthSupplierResponseSchema, AuthSupplierSchema, VerifyAuthCode,
+    VerifyAuthCodeResponse)
 from src.guards.AuthGuard import auth_guard
 from src.guards.ExceptionGuard import exception_guard
 from src.guards.MarshalResponse import marshal_response
@@ -43,3 +45,35 @@ class DelivererAuthResource(MethodResource, Resource):
         token, deliverer = AuthService.authenticate_deliverer(**deliverer_data)
 
         return {'token': token, 'deliverer': deliverer}, HTTPStatus.OK
+
+
+class SupplierAuthResource(MethodResource, Resource):
+
+    @doc(description="Authenticates a supplier", tags=['Offer'])
+    @exception_guard
+    @use_kwargs(AuthSupplierSchema, location='json')
+    @marshal_response(AuthSupplierResponseSchema)
+    def post(self, phone: str):
+        """Authenticates a supplier, returning it's supplier id"""
+
+        # TODO: test
+
+        supplier = AuthService.authenticate_supplier(phone)
+
+        return {'supplier_id': supplier.supplier_id}, HTTPStatus.OK
+
+
+class SupplierAuthCodeResource(MethodResource, Resource):
+
+    @doc(description="Verifies a supplier auth code", tags=['Offer'])
+    @exception_guard
+    @use_kwargs(VerifyAuthCode, location='json')
+    @marshal_response(VerifyAuthCodeResponse)
+    def post(self, supplier_id: int, code: str):
+        """Verifies a supplier auth code"""
+
+        # TODO: test
+
+        supplier, token = AuthService.verify_supplier_code(supplier_id, code)
+
+        return {'token': token, 'supplier': supplier}, HTTPStatus.OK

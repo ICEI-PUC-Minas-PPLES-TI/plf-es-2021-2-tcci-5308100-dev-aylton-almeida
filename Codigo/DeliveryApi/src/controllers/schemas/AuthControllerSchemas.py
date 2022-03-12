@@ -1,4 +1,4 @@
-from marshmallow import fields
+from marshmallow import fields, validate
 
 from src.schemas.CamelCaseSchema import CamelCaseSchema
 from src.schemas.deliverer.DelivererBaseSchema import DelivererBaseSchema
@@ -17,4 +17,22 @@ class AuthDelivererResponseSchema(CamelCaseSchema):
 
 class AuthorizeResponseSchema(CamelCaseSchema):
     deliverer = fields.Nested(DelivererBaseSchema)
+    supplier = fields.Nested(SupplierBaseSchema)
+
+
+class AuthSupplierSchema(CamelCaseSchema):
+    phone = fields.Str(required=True)
+
+
+class AuthSupplierResponseSchema(CamelCaseSchema):
+    supplier_id = fields.Int()
+
+
+class VerifyAuthCode(CamelCaseSchema):
+    supplier_id = fields.Int(required=True)
+    code = fields.Str(required=True, validate=validate.Length(equal=6))
+
+
+class VerifyAuthCodeResponse(CamelCaseSchema):
+    token = fields.Str(required=True)
     supplier = fields.Nested(SupplierBaseSchema)
