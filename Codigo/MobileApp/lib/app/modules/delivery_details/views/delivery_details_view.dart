@@ -16,7 +16,7 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
       body: Center(
         child: Obx(
           () => Text(
-            'Current deliverer phone ${Get.find<AuthController>().deliverer.value.phone ?? ''}',
+            'Current deliverer phone ${Get.find<AuthController>().deliverer.value!.phone}',
             style: const TextStyle(fontSize: 20),
           ),
         ),

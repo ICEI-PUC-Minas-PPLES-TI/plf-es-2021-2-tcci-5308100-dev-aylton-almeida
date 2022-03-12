@@ -10,8 +10,10 @@ class AuthController extends GetxController {
   final AuthRepository _authRepository;
   final StorageRepository _storageRepository;
 
-  var deliverer = const Deliverer().obs;
-  var supplier = const Supplier().obs;
+  Rx<Deliverer?> deliverer = Rx(null);
+  Rx<Supplier?> supplier = Rx(null);
+
+  int? supplierId;
 
   AuthController({
     required AuthRepository authRepository,
@@ -19,7 +21,7 @@ class AuthController extends GetxController {
   })  : _authRepository = authRepository,
         _storageRepository = storageRepository;
 
-  authenticateDeliverer(String phone, String deliveryId) async {
+  Future<void> authenticateDeliverer(String phone, String deliveryId) async {
     // TODO: test
 
     final response = await _authRepository.authDeliverer(phone, deliveryId);
@@ -29,7 +31,24 @@ class AuthController extends GetxController {
     deliverer.value = response.item1;
   }
 
-  getCurrentUser() async {
+  Future<void> authenticateSupplier(String phone) async {
+    // TODO: test
+
+    supplierId = await _authRepository.authSupplier(phone);
+  }
+
+  Future<void> verifySupplierAuthCode(String code) async {
+    // TODO: test
+
+    final response =
+        await _authRepository.verifySupplierAuthCode(supplierId!, code);
+
+    await _storageRepository.setAuthToken(response.item2);
+
+    supplier.value = response.item1;
+  }
+
+  Future<void> getCurrentUser() async {
     // TODO: test
 
     try {

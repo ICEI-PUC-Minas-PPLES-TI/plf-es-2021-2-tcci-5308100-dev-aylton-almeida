@@ -7,11 +7,11 @@ class DeliveriesRepository {
 
   DeliveriesRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
-  Future<String?> verifyDelivery(String accessCode) async {
+  Future<String> verifyDelivery(String accessCode) async {
     // TODO: test
 
-    final apiResponse = await _apiClient.get('$_basePath/verify/$accessCode');
+    final response = await _apiClient.get('$_basePath/verify/$accessCode');
 
-    return Delivery.fromJson(apiResponse).deliveryId;
+    return response['deliveryId'];
   }
 }
