@@ -83,3 +83,26 @@ class SupplierServiceTests(BaseTest):
             ),
             'assert filter has supplier_id == supplier_id'
         )
+
+    @patch.object(SupplierModel, 'get_one_filtered')
+    def test_GetOneByPhone_when_Default(self, mock_get_one_filtered: MagicMock):
+        """Test get_one_by_phone when default behavior"""
+
+        # when
+        phone = 'valid phone'
+        found_supplier = SupplierModel({})
+
+        # mock
+        mock_get_one_filtered.return_value = found_supplier
+
+        # then
+        response = SupplierService.get_one_by_phone(phone)
+
+        # assert
+        self.assertEqual(response, found_supplier)
+        self.assertTrue(
+            mock_get_one_filtered.call_args_list[0][0][0][0].compare(
+                SupplierModel.phone == phone
+            ),
+            'assert filter has phone == phone'
+        )

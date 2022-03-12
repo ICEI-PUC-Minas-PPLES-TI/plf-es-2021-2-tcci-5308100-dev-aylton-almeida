@@ -21,6 +21,21 @@ class SupplierService(ABC):
         ])
 
     @staticmethod
+    def get_one_by_phone(phone: str) -> SupplierModel:
+        """Gets supplier by its phone
+
+        Args:
+            phone (str): Supplier phone
+
+        Returns:
+            SupplierModel: found supplier
+        """
+
+        return SupplierModel.get_one_filtered([
+            SupplierModel.phone == phone
+        ])
+
+    @staticmethod
     def create_if_not_created(supplier_data: dict) -> SupplierModel:
         """Creates new supplier if supplier doesn't exist"""
 

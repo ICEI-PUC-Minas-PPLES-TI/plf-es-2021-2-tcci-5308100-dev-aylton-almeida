@@ -1,8 +1,9 @@
 from abc import ABC
 
+from werkzeug.exceptions import NotFound, Unauthorized
+
 from src.apis.AuthApi import Role
 from src.models.BaseModel import BaseModel
-from src.models.DelivererModel import DelivererModel
 from src.services.DelivererService import DelivererService
 from src.services.SupplierService import SupplierService
 from src.utils.JwtUtils import create_jwt_token
@@ -33,7 +34,7 @@ class AuthService(ABC):
         return response
 
     @staticmethod
-    def authenticate_deliverer(phone: str, delivery_id: str) -> tuple[str, DelivererModel]:
+    def authenticate_deliverer(phone: str, delivery_id: str):
         """Authenticates deliverer
 
         Args:
@@ -57,3 +58,46 @@ class AuthService(ABC):
         BaseModel.commit()
 
         return token, deliverer
+
+    @staticmethod
+    def authenticate_supplier(phone: str):
+        """Authenticates supplier, returning it if found
+
+        Args:
+            phone (str): Phone to authenticate supplier with
+
+        Returns:
+            SupplierModel: Found supplier if any
+        """
+
+        supplier = SupplierService.get_one_by_phone(phone)
+
+        if not supplier:
+            raise NotFound(f'Supplier not found with phone {phone}')
+
+        return supplier
+
+    @staticmethod
+    def verify_supplier_code(supplier_id: int, code: str):
+        """Verifies supplier code and return supplier if code is correct
+
+        Args:
+            supplier_id (int): Supplier id to verify code with
+            code (str): Code to be verified
+
+        Returns:
+            tuple[SupplierModel, str]: Authenticated supplier and JWT token
+        """
+
+        supplier = SupplierService.get_one_by_id(supplier_id)
+
+        if not supplier:
+            raise NotFound(f'Supplier not found with id {supplier_id}')
+
+        # ! This token is only temporary. It should be replaced with a real validation method for production
+        if code != '123321':
+            raise Unauthorized('Invalid code received')
+
+        token = create_jwt_token(supplier_id, Role.supplier)
+
+        return token, supplier
