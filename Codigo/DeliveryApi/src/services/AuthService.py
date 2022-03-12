@@ -95,7 +95,7 @@ class AuthService(ABC):
             raise NotFound(f'Supplier not found with id {supplier_id}')
 
         # ! This token is only temporary. It should be replaced with a real validation method for production
-        if code != '123321':
+        if code != '12332':
             raise Unauthorized('Invalid code received')
 
         token = create_jwt_token(supplier_id, Role.supplier)

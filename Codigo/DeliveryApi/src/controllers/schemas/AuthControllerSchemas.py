@@ -30,7 +30,7 @@ class AuthSupplierResponseSchema(CamelCaseSchema):
 
 class VerifyAuthCode(CamelCaseSchema):
     supplier_id = fields.Int(required=True)
-    code = fields.Str(required=True, validate=validate.Length(equal=6))
+    code = fields.Str(required=True, validate=validate.Length(equal=5))
 
 
 class VerifyAuthCodeResponse(CamelCaseSchema):
