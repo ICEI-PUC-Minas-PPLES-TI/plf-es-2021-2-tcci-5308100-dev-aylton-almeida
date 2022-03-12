@@ -31,8 +31,6 @@ class SupplierService(ABC):
             SupplierModel: found supplier
         """
 
-        # TODO: test
-
         return SupplierModel.get_one_filtered([
             SupplierModel.phone == phone
         ])

@@ -4,8 +4,6 @@ from werkzeug.exceptions import NotFound, Unauthorized
 
 from src.apis.AuthApi import Role
 from src.models.BaseModel import BaseModel
-from src.models.DelivererModel import DelivererModel
-from src.models.SupplierModel import SupplierModel
 from src.services.DelivererService import DelivererService
 from src.services.SupplierService import SupplierService
 from src.utils.JwtUtils import create_jwt_token
@@ -62,7 +60,7 @@ class AuthService(ABC):
         return token, deliverer
 
     @staticmethod
-    def authenticate_supplier(phone: str) -> SupplierModel:
+    def authenticate_supplier(phone: str):
         """Authenticates supplier, returning it if found
 
         Args:
@@ -90,8 +88,6 @@ class AuthService(ABC):
         Returns:
             tuple[SupplierModel, str]: Authenticated supplier and JWT token
         """
-
-        # TODO: test
 
         supplier = SupplierService.get_one_by_id(supplier_id)
 
