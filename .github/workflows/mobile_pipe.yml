@@ -42,9 +42,18 @@ jobs:
         run: flutter test
 
       - name: Build android
-        if: github.ref == 'ref/head/master'
-        run: flutter build appbundle
+        if: github.ref != 'ref/head/master'
+        run: flutter build appbundle --release
 
       - name: Build IOS
-        if: github.ref == 'ref/head/master'
+        if: github.ref != 'ref/head/master'
         run: flutter build ios --release --no-codesign
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: built-app
+          path: |
+            build/**/outputs/bundle/**/*.aab
+            build/ios/ipa/*.ipa
+            /tmp/xcodebuild_logs/*.log
