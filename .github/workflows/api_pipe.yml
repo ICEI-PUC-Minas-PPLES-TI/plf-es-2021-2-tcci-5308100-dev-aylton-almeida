@@ -1,4 +1,4 @@
-name: Delivery API Deployment
+name: Delivery API Pipeline
 
 on:
   push:

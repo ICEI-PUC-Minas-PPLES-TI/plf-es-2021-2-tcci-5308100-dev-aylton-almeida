@@ -1,4 +1,4 @@
-name: Delivery API Deployment
+name: Mobile App Deployment
 
 on:
   push:
