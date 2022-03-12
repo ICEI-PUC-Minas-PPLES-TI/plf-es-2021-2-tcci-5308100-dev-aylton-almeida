@@ -1,4 +1,4 @@
-name: Mobile App Deployment
+name: Mobile App Pipeline
 
 on:
   push:
