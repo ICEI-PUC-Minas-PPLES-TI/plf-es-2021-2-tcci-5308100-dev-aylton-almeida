@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - Codigo/DeliveryApi/**/*
+      - .github/workflows/api_pipe.yml
 
 jobs:
   api_pipe:

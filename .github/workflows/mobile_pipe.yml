@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - Codigo/MobileApp/**/*
+      - .github/workflows/mobile_pipe.yml
 
 jobs:
   mobile_pipe:
