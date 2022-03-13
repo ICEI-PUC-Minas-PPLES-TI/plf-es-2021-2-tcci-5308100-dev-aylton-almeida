@@ -62,7 +62,7 @@ class ConfirmationCodeFormController extends GetxController {
 
       await _authController.verifySupplierAuthCode(codeController.text);
 
-      Get.offAllNamed(Routes.SUPPLIER_ACCOUNT);
+      Get.offAllNamed(Routes.DELIVERY_LIST);
     } on Exception catch (e, _) {
       if (e.toString().contains('Failed request with error 401')) {
         _appController.showAlert(

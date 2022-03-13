@@ -19,8 +19,8 @@ final _subHeaders = {
       'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone'
 };
 
-final _bodyTexts = {
-  'supplier_data': 'Dados da Empresa',
+final _listTitles = {
+  'supplier_data': 'Dados da empresa',
 };
 
 final _inputLabels = {
@@ -73,7 +73,7 @@ final Map<String, String> ptBR = {
   ..._appBarTitles,
   ..._headers,
   ..._subHeaders,
-  ..._bodyTexts,
+  ..._listTitles,
   ..._inputLabels,
   ..._inputHints,
   ..._formValidation,

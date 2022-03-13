@@ -9,4 +9,8 @@ class SupplierAccountController extends GetxController {
       : _authController = authController;
 
   Supplier get supplier => _authController.supplier.value!;
+
+  void exit() => _authController.signOut();
+
+  void goBack() => Get.back();
 }

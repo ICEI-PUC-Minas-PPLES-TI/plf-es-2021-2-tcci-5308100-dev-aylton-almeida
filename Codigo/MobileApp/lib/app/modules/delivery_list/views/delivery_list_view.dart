@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/widgets/authenticated_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,7 @@ class DeliveryListView extends GetView<DeliveryListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: DefaultAppBar(
+        appBar: AuthenticatedAppBar(
           titleText: 'Lista de Entregas',
           bottom: TabBar(
             controller: controller.tabsController,

@@ -42,6 +42,15 @@ class AuthController extends GetxController {
     supplier.value = response.item1;
   }
 
+  Future<void> signOut() async {
+    await _storageRepository.deleteAuthToken();
+
+    deliverer.value = null;
+    supplier.value = null;
+
+    Get.offAllNamed(Routes.DELIVERY_CODE_FORM);
+  }
+
   Future<void> getCurrentUser() async {
     try {
       final response = await _authRepository.authorizeUser();

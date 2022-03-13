@@ -6,6 +6,7 @@ class FlatAppBar extends AppBar {
     required Widget title,
     List<Widget>? actions,
     Widget? leading,
+    bool centerTile = true,
   }) : super(
           key: key,
           title: title,
@@ -13,7 +14,7 @@ class FlatAppBar extends AppBar {
             child: Container(color: Colors.grey[50], height: 1),
             preferredSize: const Size.fromHeight(1),
           ),
-          centerTitle: true,
+          centerTitle: centerTile,
           leading: leading,
           actions: actions,
         );

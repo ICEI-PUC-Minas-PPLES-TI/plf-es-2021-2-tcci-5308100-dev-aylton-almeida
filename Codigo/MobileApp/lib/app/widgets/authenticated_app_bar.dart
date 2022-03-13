@@ -1,8 +1,8 @@
 import 'package:delivery_manager/app/widgets/user_icon.dart';
 import 'package:flutter/material.dart';
 
-class DefaultAppBar extends AppBar {
-  DefaultAppBar({
+class AuthenticatedAppBar extends AppBar {
+  AuthenticatedAppBar({
     Key? key,
     required String titleText,
     List<Widget>? actions,
@@ -11,12 +11,7 @@ class DefaultAppBar extends AppBar {
     String? userName,
   }) : super(
           key: key,
-          title: Text(
-            titleText,
-            style: const TextStyle(
-              color: Colors.black,
-            ),
-          ),
+          title: Text(titleText),
           leading: leading,
           actions: userName == null
               ? actions
