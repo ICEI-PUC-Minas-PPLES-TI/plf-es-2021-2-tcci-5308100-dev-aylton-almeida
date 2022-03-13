@@ -57,7 +57,10 @@ final _alerts = {
   'invalid_delivery_code_error': 'Código de entrega inválido',
   'phone_not_registered_error':
       'Este telefone não possuí uma conta de Parceiro Trela.',
-  'generic_error_msg': 'Ocorreu um erro, tente novamente mais tarde.'
+  'invalid_confirmation_code_error':
+      'Código inválido. Verifique-o e tente novamente',
+  'generic_error_msg': 'Ocorreu um erro, tente novamente mais tarde.',
+  'resend_code_success_message': 'Código de autenticação reenviado com sucesso.'
 };
 
 final Map<String, String> ptBR = {

@@ -6,9 +6,9 @@ part 'deliverer.g.dart';
 @Freezed()
 class Deliverer with _$Deliverer {
   const factory Deliverer({
-    int? delivererId,
-    String? phone,
-    String? deliveryId,
+    required int delivererId,
+    required String phone,
+    required String deliveryId,
   }) = _Deliverer;
 
   factory Deliverer.fromJson(Map<String, dynamic> json) =>

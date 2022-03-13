@@ -1,12 +1,13 @@
-name: Delivery API Deployment
+name: Delivery API Pipeline
 
 on:
   push:
     paths:
       - Codigo/DeliveryApi/**/*
+      - .github/workflows/api_pipe.yml
 
 jobs:
-  deploy_api:
+  api_pipe:
     defaults:
       run:
         working-directory: Codigo/DeliveryApi

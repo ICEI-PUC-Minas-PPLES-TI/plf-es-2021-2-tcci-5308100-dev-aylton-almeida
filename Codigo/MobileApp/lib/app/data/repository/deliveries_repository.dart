@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 
 class DeliveriesRepository {
@@ -7,11 +6,9 @@ class DeliveriesRepository {
 
   DeliveriesRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
-  Future<String?> verifyDelivery(String accessCode) async {
-    // TODO: test
+  Future<String> verifyDelivery(String accessCode) async {
+    final response = await _apiClient.get('$_basePath/verify/$accessCode');
 
-    final apiResponse = await _apiClient.get('$_basePath/verify/$accessCode');
-
-    return Delivery.fromJson(apiResponse).deliveryId;
+    return response['deliveryId'];
   }
 }

@@ -57,7 +57,7 @@ class PhoneFormController extends GetxController {
     super.onClose();
   }
 
-  setCurrentAssets() {
+  void setCurrentAssets() {
     currentAssets = user == PhoneFormUser.deliverer
         ? {
             'title': 'phone_form_deliverer_header'.tr,
@@ -79,41 +79,42 @@ class PhoneFormController extends GetxController {
     return null;
   }
 
-  handleFormChange() {
+  void handleFormChange() {
     isValid.value = phoneFormKey.currentState!.validate();
   }
 
-  handleDelivererSubmit() async {
-    // TODO: test
-
-    final phone = '+${phoneMask.getUnmaskedText()}';
-
+  Future<void> handleDelivererSubmit(String phone) async {
     await _authController.authenticateDeliverer(phone, currentDeliveryId!);
 
     Get.offAllNamed(Routes.DELIVERY_DETAILS);
   }
 
-  handleSupplierSubmit() async {
-    // TODO: implement
+  Future<void> handleSupplierSubmit(String phone) async {
+    try {
+      await _authController.authenticateSupplier(phone);
 
-    Get.toNamed(
-      Routes.CONFIRMATION_CODE_FORM,
-      arguments:
-          ConfirmationCodeFormArgs(currentPhone: phoneMask.getMaskedText()),
-    );
+      Get.toNamed(
+        Routes.CONFIRMATION_CODE_FORM,
+        arguments:
+            ConfirmationCodeFormArgs(currentPhone: phoneMask.getMaskedText()),
+      );
+    } catch (e) {
+      _appController.showAlert(
+          text: 'phone_not_registered_error'.tr, type: AlertType.error);
+    }
   }
 
   Future<void> submitForm() async {
-    // TODO: test
-
     try {
       isLoading.value = true;
       DismissKeyboard.dismiss(Get.overlayContext!);
 
+      final phone = '+${phoneMask.getUnmaskedText()}';
+
       if (user == PhoneFormUser.deliverer) {
-        await handleDelivererSubmit();
+        await handleDelivererSubmit(phone);
       } else {
-        await handleSupplierSubmit();
+        await handleSupplierSubmit(phone);
       }
     } catch (e) {
       _appController.showAlert(

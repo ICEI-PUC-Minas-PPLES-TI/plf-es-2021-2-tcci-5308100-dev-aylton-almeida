@@ -6,10 +6,10 @@ part 'supplier.g.dart';
 @Freezed()
 class Supplier with _$Supplier {
   const factory Supplier({
-    int? supplierId,
-    String? phone,
-    String? name,
-    String? legalId,
+    required int supplierId,
+    required String phone,
+    required String name,
+    required String legalId,
   }) = _Supplier;
 
   factory Supplier.fromJson(Map<String, dynamic> json) =>

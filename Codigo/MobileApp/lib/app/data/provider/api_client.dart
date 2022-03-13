@@ -17,8 +17,6 @@ class ApiClient {
         _storageRepository = storageRepository;
 
   getHeaders() async {
-    // TODO: test
-
     final authToken = await _storageRepository.getAuthToken();
 
     return {
@@ -29,8 +27,6 @@ class ApiClient {
   }
 
   handleApiResponse(Response response) {
-    // TODO: test
-
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
@@ -39,8 +35,6 @@ class ApiClient {
   }
 
   Future<Map<String, dynamic>> get(String path) async {
-    // TODO: test
-
     final uri = Uri.parse('$baseUrl$path');
     final response = await _httpClient.get(uri, headers: await getHeaders());
 
@@ -51,8 +45,6 @@ class ApiClient {
     String path,
     Map<String, dynamic> body,
   ) async {
-    // TODO: test
-
     final uri = Uri.parse('$baseUrl$path');
     final response = await _httpClient.post(
       uri,
