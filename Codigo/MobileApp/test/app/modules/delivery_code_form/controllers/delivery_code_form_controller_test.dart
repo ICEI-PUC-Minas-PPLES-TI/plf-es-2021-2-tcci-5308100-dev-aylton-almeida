@@ -1,4 +1,5 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
+import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/storage_repository.dart';
@@ -13,33 +14,41 @@ import 'package:mockito/mockito.dart';
 
 import 'delivery_code_form_controller_test.mocks.dart';
 
-@GenerateMocks([TextEditingController, GlobalKey, FormState])
+@GenerateMocks([
+  TextEditingController,
+  GlobalKey,
+  FormState,
+  DeliveriesRepository,
+  AppController
+])
 void main() {
   group('Testing Delivery Code Form Controller', () {
-    createDeliveryCodeFormController({GlobalKey<FormState>? codeFormKey}) {
-      return DeliveryCodeFormController(
-        codeFormKey: codeFormKey,
-        appController: AppController(),
-        deliveriesRepository: DeliveriesRepository(
-          apiClient: ApiClient(
-            httpClient: Client(),
-            storageRepository: StorageRepository(
-              storageClient: const FlutterSecureStorage(),
-            ),
-          ),
-        ),
-      );
-    }
-
     // Mock
     late MockGlobalKey<FormState> mockGlobalKey;
     late MockFormState mockFormState;
     late MockTextEditingController mockTextEditingController;
+    late MockDeliveriesRepository mockDeliveriesRepository;
+    late MockAppController mockAppController;
+
+    createDeliveryCodeFormController({
+      AppController? appController,
+      DeliveriesRepository? deliveriesRepository,
+      GlobalKey<FormState>? codeFormKey,
+    }) {
+      return DeliveryCodeFormController(
+        codeFormKey: codeFormKey,
+        appController: appController ?? MockAppController(),
+        deliveriesRepository:
+            deliveriesRepository ?? MockDeliveriesRepository(),
+      );
+    }
 
     setUp(() {
       mockGlobalKey = MockGlobalKey<FormState>();
       mockFormState = MockFormState();
       mockTextEditingController = MockTextEditingController();
+      mockDeliveriesRepository = MockDeliveriesRepository();
+      mockAppController = MockAppController();
     });
 
     tearDown(() {

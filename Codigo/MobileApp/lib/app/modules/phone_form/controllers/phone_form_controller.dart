@@ -84,16 +84,12 @@ class PhoneFormController extends GetxController {
   }
 
   Future<void> handleDelivererSubmit(String phone) async {
-    // TODO: test
-
     await _authController.authenticateDeliverer(phone, currentDeliveryId!);
 
     Get.offAllNamed(Routes.DELIVERY_DETAILS);
   }
 
   Future<void> handleSupplierSubmit(String phone) async {
-    // TODO: test
-
     try {
       await _authController.authenticateSupplier(phone);
 
@@ -109,8 +105,6 @@ class PhoneFormController extends GetxController {
   }
 
   Future<void> submitForm() async {
-    // TODO: test
-
     try {
       isLoading.value = true;
       DismissKeyboard.dismiss(Get.overlayContext!);

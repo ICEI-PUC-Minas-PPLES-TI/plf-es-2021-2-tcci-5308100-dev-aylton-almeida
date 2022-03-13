@@ -56,8 +56,6 @@ class ConfirmationCodeFormController extends GetxController {
   }
 
   Future<void> submitForm() async {
-    // TODO: test
-
     try {
       isLoading.value = true;
       DismissKeyboard.dismiss(Get.overlayContext!);

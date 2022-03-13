@@ -22,8 +22,6 @@ class AuthController extends GetxController {
         _storageRepository = storageRepository;
 
   Future<void> authenticateDeliverer(String phone, String deliveryId) async {
-    // TODO: test
-
     final response = await _authRepository.authDeliverer(phone, deliveryId);
 
     await _storageRepository.setAuthToken(response.item2);
@@ -32,14 +30,10 @@ class AuthController extends GetxController {
   }
 
   Future<void> authenticateSupplier(String phone) async {
-    // TODO: test
-
     supplierId = await _authRepository.authSupplier(phone);
   }
 
   Future<void> verifySupplierAuthCode(String code) async {
-    // TODO: test
-
     final response =
         await _authRepository.verifySupplierAuthCode(supplierId!, code);
 
@@ -49,8 +43,6 @@ class AuthController extends GetxController {
   }
 
   Future<void> getCurrentUser() async {
-    // TODO: test
-
     try {
       final response = await _authRepository.authorizeUser();
 
