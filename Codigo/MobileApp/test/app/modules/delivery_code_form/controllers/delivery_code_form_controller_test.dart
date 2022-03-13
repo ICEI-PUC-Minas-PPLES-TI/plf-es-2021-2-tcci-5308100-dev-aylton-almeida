@@ -1,14 +1,9 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
-import 'package:delivery_manager/app/data/enums/alert_type.dart';
-import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
-import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_code_form/controllers/delivery_code_form_controller.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -27,8 +22,6 @@ void main() {
     late MockGlobalKey<FormState> mockGlobalKey;
     late MockFormState mockFormState;
     late MockTextEditingController mockTextEditingController;
-    late MockDeliveriesRepository mockDeliveriesRepository;
-    late MockAppController mockAppController;
 
     createDeliveryCodeFormController({
       AppController? appController,
@@ -47,8 +40,6 @@ void main() {
       mockGlobalKey = MockGlobalKey<FormState>();
       mockFormState = MockFormState();
       mockTextEditingController = MockTextEditingController();
-      mockDeliveriesRepository = MockDeliveriesRepository();
-      mockAppController = MockAppController();
     });
 
     tearDown(() {

@@ -75,7 +75,6 @@ void main() {
       );
       const phone = 'valid phone';
       const supplierId = 1;
-      const token = 'token';
 
       // mock
       when(mockAuthRepository.authSupplier(phone))
