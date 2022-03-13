@@ -1,7 +1,7 @@
 import 'package:delivery_manager/app/modules/phone_form/controllers/phone_form_controller.dart';
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
 import 'package:delivery_manager/app/widgets/loading_button.dart';
-import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
+import 'package:delivery_manager/app/widgets/flat_app_bar.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/app/widgets/scrollable_form.dart';
 import 'package:flutter/material.dart';

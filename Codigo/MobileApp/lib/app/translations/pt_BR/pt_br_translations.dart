@@ -63,6 +63,12 @@ final _alerts = {
   'resend_code_success_message': 'Código de autenticação reenviado com sucesso.'
 };
 
+final _tabs = {
+  'today_label': 'Hoje',
+  'pending_label': 'Pendentes',
+  'delivered_label': 'Entregues',
+};
+
 final Map<String, String> ptBR = {
   ..._appBarTitles,
   ..._headers,
@@ -73,4 +79,5 @@ final Map<String, String> ptBR = {
   ..._formValidation,
   ..._buttonLabels,
   ..._alerts,
+  ..._tabs,
 };

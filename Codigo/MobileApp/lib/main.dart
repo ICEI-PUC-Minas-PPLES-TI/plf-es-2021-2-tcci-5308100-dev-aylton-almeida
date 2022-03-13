@@ -34,9 +34,9 @@ class MyApp extends StatelessWidget {
       storageClient: const FlutterSecureStorage(),
     );
 
-    Get.lazyPut(() => AppController());
-    Get.lazyPut(
-      () => AuthController(
+    Get.put(AppController());
+    Get.put(
+      AuthController(
         authRepository: AuthRepository(
           apiClient: ApiClient(
             httpClient: Client(),

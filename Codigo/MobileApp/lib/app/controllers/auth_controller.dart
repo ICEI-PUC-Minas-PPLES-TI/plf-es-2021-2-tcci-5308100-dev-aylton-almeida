@@ -53,7 +53,7 @@ class AuthController extends GetxController {
         Get.offAllNamed(Routes.DELIVERY_DETAILS);
       } else if (response.item2 != null) {
         supplier.value = response.item2!;
-        Get.offAllNamed(Routes.SUPPLIER_ACCOUNT);
+        Get.offAllNamed(Routes.DELIVERY_LIST);
       }
       // ignore: empty_catches
     } catch (e) {}
