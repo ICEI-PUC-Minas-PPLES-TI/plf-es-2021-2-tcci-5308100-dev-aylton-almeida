@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - aylton-almeida/issue44
 
 jobs:
   integration_tests:

@@ -1,0 +1,54 @@
+name: Mobile App Integration Tests
+
+on:
+  push:
+    branches:
+      - master
+      - aylton-almeida/issue50 # TODO: remove this
+
+jobs:
+  integration_tests:
+    strategy:
+      matrix:
+        device:
+          - "iPhone 8 (13.1)"
+          - "iPhone 11 Pro Max (13.1)"
+      fail-fast: false
+
+    defaults:
+      run:
+        working-directory: Codigo/MobileApp
+    env:
+      API_URL: ${{secrets.API_URL}}
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 2.10.0
+          channel: stable
+          cache: true
+      - name: "List all simulators"
+        run: "xcrun instruments -s"
+      - name: "Start Simulator"
+        run: |
+          UDID=$(
+            xcrun instruments -s |
+            awk \
+              -F ' *[][]' \
+              -v 'device=${{ matrix.device }}' \
+              '$1 == device { print $2 }'
+          )
+          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+
+      - name: Install dependencies
+        run: |
+          flutter pub get
+          touch assets/.env
+          echo "API_URL={{secrets.API_URL}}" > assets/.env
+          flutter pub run build_runner build
+
+      - name: Run tests
+        run: flutter test integration_test
