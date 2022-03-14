@@ -1,12 +1,14 @@
 from http import HTTPStatus
+from uuid import UUID
 
 from flask_apispec import MethodResource, doc
 from flask_restful import Resource
-from werkzeug.exceptions import NotFound
+from werkzeug.exceptions import Forbidden, NotFound
 
 from src.classes.Role import Role
-from src.controllers.schemas.DeliveryControllerSchemas import \
-    VerifyDeliveryResponseSchema
+from src.controllers.schemas.DeliveryControllerSchemas import (
+    GetDeliveryResponseSchema, GetSupplierDeliveriesResponseSchema,
+    VerifyDeliveryResponseSchema)
 from src.guards.AuthGuard import auth_guard
 from src.guards.ExceptionGuard import exception_guard
 from src.guards.MarshalResponse import marshal_response
@@ -34,10 +36,31 @@ class DeliveryListResource(MethodResource, Resource):
     @doc(description="Returns all deliveries based on signed in user", tags=['Delivery'])
     @exception_guard
     @auth_guard(Role.supplier, needs_user_id=True)
-    @marshal_response(VerifyDeliveryResponseSchema, many=True)
-    def get(self):
+    @marshal_response(GetSupplierDeliveriesResponseSchema)
+    def get(self, auth_user_id: str):
         """Returns all deliveries based on signed in user"""
 
-        deliveries = DeliveryService.get_all()
+        # TODO:test
 
-        return deliveries, HTTPStatus.OK
+        deliveries = DeliveryService.get_all_by_supplier(auth_user_id)
+
+        return {'deliveries': deliveries}, HTTPStatus.OK
+
+
+class DeliveryResource(MethodResource, Resource):
+
+    @doc(description="Gets one delivery", tags=['Delivery'])
+    @exception_guard
+    @auth_guard(Role.supplier, needs_user_id=True)
+    @marshal_response(GetDeliveryResponseSchema)
+    def get(self, delivery_id: str, auth_user_id: str):
+        """Gets one delivery"""
+
+        # TODO:test
+
+        delivery = DeliveryService.get_one_by_id(UUID(delivery_id))
+
+        if delivery.supplier_id != auth_user_id:
+            raise Forbidden('You do not have access to this resource')
+
+        return {'delivery': delivery}, HTTPStatus.OK

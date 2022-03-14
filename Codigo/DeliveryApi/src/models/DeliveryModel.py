@@ -35,11 +35,13 @@ class DeliveryModel(BaseModel, db.Model):
     delivery_id = db.Column(
         UUID(as_uuid=True), primary_key=True, default=uuid4)
     offer_id = db.Column(UUID(as_uuid=True), nullable=True, unique=True)
+    name = db.Column(db.String(255), nullable=False)
     status = db.Column(
         db.String(30), default=str(DeliveryStatus.created), nullable=False)
     access_code = db.Column(
         db.String(6), default=_generate_delivery_access_code, nullable=False)
     report_sent = db.Column(db.Boolean, default=False)
+    delivery_date = db.Column(db.DateTime, nullable=False)
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
 
@@ -57,9 +59,11 @@ class DeliveryModel(BaseModel, db.Model):
 
         self.delivery_id = data.get('delivery_id')
         self.offer_id = data.get('offer_id')
+        self.name = data.get('name')
         self.status = data.get('status')
         self.access_code = data.get('access_code')
         self.report_sent = data.get('report_sent')
+        self.delivery_date = data.get('delivery_date')
         self.start_time = data.get('start_time')
         self.end_time = data.get('end_time')
         self.supplier_id = data.get('supplier_id')

@@ -8,10 +8,12 @@ class DeliveryBaseSchema(Schema):
 
     delivery_id = fields.UUID()
     offer_id = fields.UUID()
+    name = fields.Str()
     status = fields.Str(validate=validate.OneOf(
         [str(status) for status in DeliveryStatus]))
     access_code = fields.Str(validate=validate.Length(equal=6))
     report_sent = fields.Bool()
+    delivery_date = fields.DateTime()
     start_time = fields.DateTime()
     end_time = fields.DateTime()
     supplier_id = fields.Int()

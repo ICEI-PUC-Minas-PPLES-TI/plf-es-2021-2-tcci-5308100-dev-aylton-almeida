@@ -12,4 +12,15 @@ class VerifyDeliveryResponseSchema(CamelCaseSchema):
 
 class GetSupplierDeliveriesResponseSchema(CamelCaseSchema):
     deliveries = fields.List(fields.Nested(
-        DeliveryBaseSchema, only=['delivery_id', 'status', ]))
+        DeliveryBaseSchema,
+        only=[
+            'delivery_id',
+            'status',
+            'delivery_date',
+            'name'
+        ]
+    ))
+
+
+class GetDeliveryResponseSchema(CamelCaseSchema):
+    delivery = fields.Nested(DeliveryBaseSchema)
