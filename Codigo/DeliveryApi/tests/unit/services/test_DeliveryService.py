@@ -56,24 +56,6 @@ class DeliveryServiceTests(BaseTest):
             'assert filter has offer_id == offer_id'
         )
 
-    @patch('flask_sqlalchemy._QueryProperty.__get__')
-    def test_GetOneByDeliveryId_when_Default(self, mock_query: MagicMock):
-        """Test get_one_by_id when default behavior"""
-
-        # when
-        delivery_id = uuid4()
-        found_delivery = DeliveryModel({})
-
-        # mock
-        mock_query.return_value.get = MagicMock(return_value=found_delivery)
-
-        # then
-        response = DeliveryService.get_one_by_id(delivery_id)
-
-        # assert
-        self.assertEqual(response, found_delivery)
-        mock_query.return_value.get.assert_called_once_with(delivery_id)
-
     @patch.object(DeliveryModel, 'get_all_filtered')
     def test_GetAllBySupplier_when_Default(self, mock_get_all_filtered: MagicMock):
         """Test get_all_by_supplier when default behavior"""
