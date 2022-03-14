@@ -1,4 +1,7 @@
-final _appBarTitles = {'supplier_account_title': 'Sua Conta'};
+final _appBarTitles = {
+  'supplier_account_title': 'Sua Conta',
+  'delivery_list_title': 'Lista de Ofertas'
+};
 
 final _headers = {
   'delivery_code_form_header':
@@ -56,7 +59,7 @@ final _buttonLabels = {
 final _alerts = {
   'invalid_delivery_code_error': 'Código de entrega inválido',
   'phone_not_registered_error':
-      'Este telefone não possuí uma conta de Parceiro Trela.',
+      'Este telefone não possuí uma conta de parceiro Trela.',
   'invalid_confirmation_code_error':
       'Código inválido. Verifique-o e tente novamente',
   'generic_error_msg': 'Ocorreu um erro, tente novamente mais tarde.',

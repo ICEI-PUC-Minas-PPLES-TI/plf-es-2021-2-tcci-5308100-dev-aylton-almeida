@@ -10,7 +10,7 @@ class DeliveryListView extends GetView<DeliveryListController> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AuthenticatedAppBar(
-          titleText: 'Lista de Entregas',
+          titleText: 'delivery_list_title'.tr,
           bottom: TabBar(
             controller: controller.tabsController,
             tabs: controller.tabs,

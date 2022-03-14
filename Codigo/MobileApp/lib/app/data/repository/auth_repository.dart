@@ -9,10 +9,6 @@ class AuthRepository {
 
   AuthRepository({required ApiClient apiClient}) : _apiClient = apiClient;
 
-  dynamic getCurrentUser(String userToken) {
-    // TODO: implement
-  }
-
   Future<Tuple2<Deliverer, String>> authDeliverer(
     String phone,
     String deliveryId,
