@@ -44,7 +44,7 @@ jobs:
               -v 'device=${{ matrix.device }}' \
               '$1 == device { print $2 }'
           )
-          open -a Simulator --args -CurrentDeviceUDID "${UDID:?No Simulator with this name found}"
+          open -a Simulator.app
 
       - name: Install dependencies
         run: |
