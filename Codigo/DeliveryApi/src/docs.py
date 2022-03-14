@@ -22,7 +22,7 @@ doc_spec = {
             }
         }
     ),
-    'APISPEC_SWAGGER_URL': '/swagger/',
+    'APISPEC_SWAGGER_URL': '/delivery/swagger/',
     'APISPEC_SWAGGER_UI_URL': '/delivery/docs/'
 }
 

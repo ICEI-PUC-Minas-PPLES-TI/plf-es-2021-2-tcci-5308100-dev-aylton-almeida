@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/utils/legal_id_parser.dart';
 import 'package:flutter_test/flutter_test.dart';
 
