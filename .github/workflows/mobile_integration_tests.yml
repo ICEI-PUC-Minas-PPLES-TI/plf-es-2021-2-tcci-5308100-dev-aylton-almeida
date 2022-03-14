@@ -4,17 +4,9 @@ on:
   push:
     branches:
       - master
-      - aylton-almeida/issue50 # TODO: remove this
 
 jobs:
   integration_tests:
-    strategy:
-      matrix:
-        device:
-          - iPhone 8 (13.1)
-          - iPhone 11 Pro Max (13.1)
-      fail-fast: false
-
     defaults:
       run:
         working-directory: Codigo/MobileApp
@@ -36,15 +28,7 @@ jobs:
         run: xcrun simctl list
 
       - name: Start Simulator
-        run: |
-          UDID=$(
-            xcrun simctl list |
-            awk \
-              -F ' *[][]' \
-              -v 'device=${{ matrix.device }}' \
-              '$1 == device { print $2 }'
-          )
-          open -a Simulator.app
+        run: open -a Simulator.app
 
       - name: Install dependencies
         run: |
