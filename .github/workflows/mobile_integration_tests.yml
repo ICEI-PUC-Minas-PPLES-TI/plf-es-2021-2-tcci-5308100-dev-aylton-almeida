@@ -11,13 +11,14 @@ jobs:
     strategy:
       matrix:
         device:
-          - "iPhone 8 (13.1)"
-          - "iPhone 11 Pro Max (13.1)"
+          - iPhone 8 (13.1)
+          - iPhone 11 Pro Max (13.1)
       fail-fast: false
 
     defaults:
       run:
         working-directory: Codigo/MobileApp
+
     env:
       API_URL: ${{secrets.API_URL}}
 
@@ -30,9 +31,11 @@ jobs:
           flutter-version: 2.10.0
           channel: stable
           cache: true
-      - name: "List all simulators"
-        run: "xcrun instruments -s"
-      - name: "Start Simulator"
+
+      - name: List all simulators
+        run: xcrun simctl list
+
+      - name: Start Simulator
         run: |
           UDID=$(
             xcrun instruments -s |
@@ -41,7 +44,7 @@ jobs:
               -v 'device=${{ matrix.device }}' \
               '$1 == device { print $2 }'
           )
-          xcrun simctl boot "${UDID:?No Simulator with this name found}"
+          open -a Simulator --args -CurrentDeviceUDID "${UDID:?No Simulator with this name found}"
 
       - name: Install dependencies
         run: |
