@@ -55,3 +55,9 @@ class BaseModel:
         """Gets one of given model given filters"""
 
         return cls.query.filter(*filters).first()
+
+    @classmethod
+    def get_all_filtered(cls, filters: list[BinaryExpression]):
+        """Gets all of given model given filters"""
+
+        return cls.query.filter(*filters).all()

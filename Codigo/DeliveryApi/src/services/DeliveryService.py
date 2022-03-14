@@ -24,6 +24,20 @@ class DeliveryService(ABC):
         ])
 
     @staticmethod
+    def get_one_by_id(delivery_id: UUID) -> DeliveryModel:
+        """Gets one delivery given its id"""
+
+        return DeliveryModel.query.get(delivery_id)
+
+    @staticmethod
+    def get_all_by_supplier(supplier_id: int) -> list[DeliveryModel]:
+        """Gets all deliveries found for a given supplier"""
+
+        return DeliveryModel.get_all_filtered([
+            DeliveryModel.supplier_id == supplier_id
+        ])
+
+    @staticmethod
     def create_optimized_delivery(delivery_data: dict):
         """Creates a new delivery and also an optimized route for its orders"""
 

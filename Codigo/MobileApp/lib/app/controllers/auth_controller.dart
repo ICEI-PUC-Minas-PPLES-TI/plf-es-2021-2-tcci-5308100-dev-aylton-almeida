@@ -65,8 +65,6 @@ class AuthController extends GetxController {
         Get.offAllNamed(Routes.DELIVERY_LIST);
       }
       // ignore: empty_catches
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 }

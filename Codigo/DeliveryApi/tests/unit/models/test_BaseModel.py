@@ -166,3 +166,27 @@ class BaseModelTests(BaseTest):
         self.assertEqual(response, 'found-model')
         mock_filter.assert_called_once_with(*filters)
         mock_first.assert_called_once_with()
+
+    def test_GetAllFiltered_when_Default(self):
+        """Test get_all_filtered when default behavior"""
+
+        # when
+        filters = [
+            DeliveryModel.delivery_id == uuid4(),
+            DeliveryModel.offer_id == uuid4()
+        ]
+
+        # mock
+        mock_filter = MagicMock()
+        mock_all = MagicMock(return_value='found-model')
+        mock_filter.return_value.all = mock_all
+        BaseModel.query = MagicMock()
+        BaseModel.query.filter = mock_filter
+
+        # then
+        response = BaseModel.get_all_filtered(filters)
+
+        # assert
+        self.assertEqual(response, 'found-model')
+        mock_filter.assert_called_once_with(*filters)
+        mock_all.assert_called_once_with()

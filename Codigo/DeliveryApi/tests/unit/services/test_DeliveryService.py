@@ -56,6 +56,29 @@ class DeliveryServiceTests(BaseTest):
             'assert filter has offer_id == offer_id'
         )
 
+    @patch.object(DeliveryModel, 'get_all_filtered')
+    def test_GetAllBySupplier_when_Default(self, mock_get_all_filtered: MagicMock):
+        """Test get_all_by_supplier when default behavior"""
+
+        # when
+        supplier_id = 1
+        found_deliveries = [DeliveryModel({}), DeliveryModel({})]
+
+        # mock
+        mock_get_all_filtered.return_value = found_deliveries
+
+        # then
+        response = DeliveryService.get_all_by_supplier(supplier_id)
+
+        # assert
+        self.assertEqual(response, found_deliveries)
+        self.assertTrue(
+            mock_get_all_filtered.call_args_list[0][0][0][0].compare(
+                DeliveryModel.supplier_id == supplier_id
+            ),
+            'assert filter has supplier_id == supplier_id'
+        )
+
     @patch.object(DeliveryRouteService, 'create_from_delivery')
     @patch.object(DeliveryModel, 'save')
     def test_CreateOptimizedDelivery_when_Default(self, mocK_save: MagicMock, mock_create_from_delivery: MagicMock):
