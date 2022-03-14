@@ -21,7 +21,7 @@ Future<void> main() async {
       await tester.pumpAndSettle();
 
       // when
-      const phone = '5531999385992';
+      const validPhone = '5531999385992';
 
       // Find I'm a partner button and press it
       expect(find.text('trela_partner_button'.tr), findsOneWidget);
@@ -29,11 +29,13 @@ Future<void> main() async {
 
       await tester.pumpAndSettle();
 
-      // Find the phone field, fill it and go to next step
+      // Check if user was redirected to the phone form page
       expect(find.text('phone_form_sub_header'.tr), findsOneWidget);
       expect(find.text('phone_input_label'.tr), findsOneWidget);
       expect(find.byKey(const Key('phone_submit_button')), findsOneWidget);
-      await tester.enterText(find.byType(OutlinedTextField), phone);
+
+      // Enter a valid phone and check if the next page appears
+      await tester.enterText(find.byType(OutlinedTextField), validPhone);
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('phone_submit_button')));
 
