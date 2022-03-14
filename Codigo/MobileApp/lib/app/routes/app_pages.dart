@@ -6,6 +6,8 @@ import '../modules/delivery_code_form/bindings/delivery_code_form_binding.dart';
 import '../modules/delivery_code_form/views/delivery_code_form_view.dart';
 import '../modules/delivery_details/bindings/delivery_details_binding.dart';
 import '../modules/delivery_details/views/delivery_details_view.dart';
+import '../modules/delivery_list/bindings/delivery_list_binding.dart';
+import '../modules/delivery_list/views/delivery_list_view.dart';
 import '../modules/phone_form/bindings/phone_form_binding.dart';
 import '../modules/phone_form/views/phone_form_view.dart';
 import '../modules/supplier_account/bindings/supplier_account_binding.dart';
@@ -41,6 +43,11 @@ class AppPages {
       name: _Paths.SUPPLIER_ACCOUNT,
       page: () => SupplierAccountView(),
       binding: SupplierAccountBinding(),
+    ),
+    GetPage(
+      name: _Paths.DELIVERY_LIST,
+      page: () => DeliveryListView(),
+      binding: DeliveryListBinding(),
     ),
   ];
 }

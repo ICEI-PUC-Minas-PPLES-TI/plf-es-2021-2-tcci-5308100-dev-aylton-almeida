@@ -1,4 +1,7 @@
-final _appBarTitles = {'supplier_account_title': 'Sua Conta'};
+final _appBarTitles = {
+  'supplier_account_title': 'Sua Conta',
+  'delivery_list_title': 'Lista de Ofertas'
+};
 
 final _headers = {
   'delivery_code_form_header':
@@ -19,8 +22,8 @@ final _subHeaders = {
       'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone'
 };
 
-final _bodyTexts = {
-  'supplier_data': 'Dados da Empresa',
+final _listTitles = {
+  'supplier_data': 'Dados da empresa',
 };
 
 final _inputLabels = {
@@ -56,21 +59,28 @@ final _buttonLabels = {
 final _alerts = {
   'invalid_delivery_code_error': 'Código de entrega inválido',
   'phone_not_registered_error':
-      'Este telefone não possuí uma conta de Parceiro Trela.',
+      'Este telefone não possuí uma conta de parceiro Trela.',
   'invalid_confirmation_code_error':
       'Código inválido. Verifique-o e tente novamente',
   'generic_error_msg': 'Ocorreu um erro, tente novamente mais tarde.',
   'resend_code_success_message': 'Código de autenticação reenviado com sucesso.'
 };
 
+final _tabs = {
+  'today_label': 'Hoje',
+  'pending_label': 'Pendentes',
+  'delivered_label': 'Entregues',
+};
+
 final Map<String, String> ptBR = {
   ..._appBarTitles,
   ..._headers,
   ..._subHeaders,
-  ..._bodyTexts,
+  ..._listTitles,
   ..._inputLabels,
   ..._inputHints,
   ..._formValidation,
   ..._buttonLabels,
   ..._alerts,
+  ..._tabs,
 };

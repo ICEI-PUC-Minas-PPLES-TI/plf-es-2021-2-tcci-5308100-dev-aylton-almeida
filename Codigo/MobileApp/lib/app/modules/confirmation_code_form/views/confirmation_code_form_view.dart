@@ -1,6 +1,6 @@
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
 import 'package:delivery_manager/app/widgets/loading_button.dart';
-import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
+import 'package:delivery_manager/app/widgets/flat_app_bar.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/app/widgets/scrollable_form.dart';
 import 'package:flutter/material.dart';
@@ -30,20 +30,20 @@ class ConfirmationCodeFormView extends GetView<ConfirmationCodeFormController> {
               children: [
                 Text(
                   'confirmation_code_form_header'.tr,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Get.textTheme.headline6,
                 ),
                 const SizedBox(height: 16),
                 Text(
                   'confirmation_code_form_sub_header'
                       .tr
                       .replaceAll(':phone', controller.currentPhone ?? ''),
-                  style: Theme.of(context).textTheme.subtitle2,
+                  style: Get.textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),
                 Text(
                   'confirmation_code_input_label'.tr,
                   textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Get.textTheme.bodyText1,
                 ),
                 const SizedBox(height: 16),
                 OutlinedTextField(

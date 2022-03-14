@@ -1,0 +1,42 @@
+name: Mobile App Integration Tests
+
+on:
+  push:
+    branches:
+      - master
+      - aylton-almeida/issue50
+
+jobs:
+  integration_tests:
+    defaults:
+      run:
+        working-directory: Codigo/MobileApp
+
+    env:
+      API_URL: ${{secrets.API_URL}}
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 2.10.0
+          channel: stable
+          cache: true
+
+      - name: List all simulators
+        run: xcrun simctl list
+
+      - name: Start Simulator
+        run: open -a Simulator.app
+
+      - name: Install dependencies
+        run: |
+          flutter pub get
+          touch .env
+          echo "API_URL={{secrets.API_URL}}" > .env
+          flutter pub run build_runner build
+
+      - name: Run tests
+        run: flutter test integration_test

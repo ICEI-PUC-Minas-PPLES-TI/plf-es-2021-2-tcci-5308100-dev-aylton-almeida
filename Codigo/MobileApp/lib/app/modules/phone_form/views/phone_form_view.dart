@@ -1,7 +1,7 @@
 import 'package:delivery_manager/app/modules/phone_form/controllers/phone_form_controller.dart';
 import 'package:delivery_manager/app/widgets/keyboard_dismiss_container.dart';
 import 'package:delivery_manager/app/widgets/loading_button.dart';
-import 'package:delivery_manager/app/widgets/logo_app_bar.dart';
+import 'package:delivery_manager/app/widgets/flat_app_bar.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/app/widgets/scrollable_form.dart';
 import 'package:flutter/material.dart';
@@ -29,18 +29,18 @@ class PhoneFormView extends GetView<PhoneFormController> {
               children: [
                 Text(
                   controller.currentAssets['title'],
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Get.textTheme.headline6,
                 ),
                 const SizedBox(height: 16),
                 Text(
                   'phone_form_sub_header'.tr,
-                  style: Theme.of(context).textTheme.subtitle2,
+                  style: Get.textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),
                 Text(
                   'phone_input_hint'.tr,
                   textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Get.textTheme.bodyText1,
                 ),
                 const SizedBox(height: 16),
                 OutlinedTextField(

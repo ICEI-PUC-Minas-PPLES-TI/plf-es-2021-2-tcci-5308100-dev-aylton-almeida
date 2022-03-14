@@ -1,13 +1,13 @@
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:get/get.dart';
 
-import '../controllers/supplier_account_controller.dart';
+import '../controllers/delivery_list_controller.dart';
 
-class SupplierAccountBinding extends Bindings {
+class DeliveryListBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<SupplierAccountController>(
-      () => SupplierAccountController(
+    Get.lazyPut<DeliveryListController>(
+      () => DeliveryListController(
         authController: Get.find<AuthController>(),
       ),
     );

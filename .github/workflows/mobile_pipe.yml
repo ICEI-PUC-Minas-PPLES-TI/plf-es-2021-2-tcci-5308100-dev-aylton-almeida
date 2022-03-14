@@ -31,8 +31,8 @@ jobs:
       - name: Install dependencies
         run: |
           flutter pub get
-          touch assets/.env
-          echo "API_URL={{secrets.API_URL}}" > assets/.env
+          touch .env
+          echo "API_URL={{secrets.API_URL}}" > .env
           flutter pub run build_runner build
 
       - name: Run analysis

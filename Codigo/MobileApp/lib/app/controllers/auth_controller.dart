@@ -42,6 +42,15 @@ class AuthController extends GetxController {
     supplier.value = response.item1;
   }
 
+  Future<void> signOut() async {
+    await _storageRepository.deleteAuthToken();
+
+    deliverer.value = null;
+    supplier.value = null;
+
+    Get.offAllNamed(Routes.DELIVERY_CODE_FORM);
+  }
+
   Future<void> getCurrentUser() async {
     try {
       final response = await _authRepository.authorizeUser();
@@ -53,9 +62,11 @@ class AuthController extends GetxController {
         Get.offAllNamed(Routes.DELIVERY_DETAILS);
       } else if (response.item2 != null) {
         supplier.value = response.item2!;
-        Get.offAllNamed(Routes.SUPPLIER_ACCOUNT);
+        Get.offAllNamed(Routes.DELIVERY_LIST);
       }
       // ignore: empty_catches
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 }

@@ -9,6 +9,7 @@ abstract class Routes {
   static const DELIVERY_CODE_FORM = _Paths.DELIVERY_CODE_FORM;
   static const CONFIRMATION_CODE_FORM = _Paths.CONFIRMATION_CODE_FORM;
   static const SUPPLIER_ACCOUNT = _Paths.SUPPLIER_ACCOUNT;
+  static const DELIVERY_LIST = _Paths.DELIVERY_LIST;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const DELIVERY_CODE_FORM = '/delivery-code-form';
   static const CONFIRMATION_CODE_FORM = '/confirmation-code-form';
   static const SUPPLIER_ACCOUNT = '/supplier-account';
+  static const DELIVERY_LIST = '/delivery-list';
 }
