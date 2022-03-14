@@ -60,6 +60,4 @@ class BaseModel:
     def get_all_filtered(cls, filters: list[BinaryExpression]):
         """Gets all of given model given filters"""
 
-        # TODO: test
-
         return cls.query.filter(*filters).all()

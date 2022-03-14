@@ -27,15 +27,11 @@ class DeliveryService(ABC):
     def get_one_by_id(delivery_id: UUID) -> DeliveryModel:
         """Gets one delivery given its id"""
 
-        # TODO: Test
-
         return DeliveryModel.query.get(delivery_id)
 
     @staticmethod
     def get_all_by_supplier(supplier_id: int) -> list[DeliveryModel]:
         """Gets all deliveries found for a given supplier"""
-
-        # TODO: test
 
         return DeliveryModel.get_all_filtered([
             DeliveryModel.supplier_id == supplier_id

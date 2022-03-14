@@ -33,14 +33,12 @@ class VerifyDeliveryResource(MethodResource, Resource):
 
 class DeliveryListResource(MethodResource, Resource):
 
-    @doc(description="Returns all deliveries based on signed in user", tags=['Delivery'])
+    @doc(description="Get Supplier deliveries", tags=['Delivery'])
     @exception_guard
     @auth_guard(Role.supplier, needs_user_id=True)
     @marshal_response(GetSupplierDeliveriesResponseSchema)
     def get(self, auth_user_id: str):
-        """Returns all deliveries based on signed in user"""
-
-        # TODO:test
+        """Get Supplier deliveries"""
 
         deliveries = DeliveryService.get_all_by_supplier(auth_user_id)
 
@@ -55,8 +53,6 @@ class DeliveryResource(MethodResource, Resource):
     @marshal_response(GetDeliveryResponseSchema)
     def get(self, delivery_id: str, auth_user_id: str):
         """Gets one delivery"""
-
-        # TODO:test
 
         delivery = DeliveryService.get_one_by_id(UUID(delivery_id))
 
