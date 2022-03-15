@@ -41,6 +41,8 @@ Future<void> main() async {
       await tester.enterText(find.byType(OutlinedTextField), validPhone);
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('phone_submit_button')));
+
+      // TODO: verify if new page is found
     });
   });
 }
