@@ -3,6 +3,7 @@ from abc import ABC
 from werkzeug.exceptions import NotFound, Unauthorized
 
 from src.apis.AuthApi import Role
+from src.apis.gateway import gateway
 from src.models.BaseModel import BaseModel
 from src.services.DelivererService import DelivererService
 from src.services.SupplierService import SupplierService
@@ -75,6 +76,8 @@ class AuthService(ABC):
         if not supplier:
             raise NotFound(f'Supplier not found with phone {phone}')
 
+        gateway.service['auth'].authenticate_supplier(supplier.supplier_id)
+
         return supplier
 
     @staticmethod
@@ -94,8 +97,7 @@ class AuthService(ABC):
         if not supplier:
             raise NotFound(f'Supplier not found with id {supplier_id}')
 
-        # ! This token is only temporary. It should be replaced with a real validation method for production
-        if code != '12332':
+        if gateway.service['auth'].verify_auth_code(code):
             raise Unauthorized('Invalid code received')
 
         token = create_jwt_token(supplier_id, Role.supplier)

@@ -37,3 +37,17 @@ class AuthApi:
             'roles': allowed_roles,
             'user_id': user_id
         }
+
+    def verify_auth_code(self, code: str):
+        """Validates auth code with auth api"""
+
+        # ! This method is only a mock, when integrating with Trelas API it should be replaced
+
+        return code == '12332'
+
+    def authenticate_supplier(self, supplier_id: int):
+        """Start supplier authentication flow"""
+
+        # ! This method is only a mock, when integrating with Trelas API it should be replaced
+
+        return supplier_id
