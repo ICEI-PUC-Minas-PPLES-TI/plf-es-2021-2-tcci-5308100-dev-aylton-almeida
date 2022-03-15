@@ -16,8 +16,6 @@ Future<void> main() async {
   group('E2E Test the supplier auth flow', () {
     testWidgets('Sign in successfully as a supplier',
         (WidgetTester tester) async {
-      print(dotenv.env['API_URL']);
-
       // Initialize app
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
