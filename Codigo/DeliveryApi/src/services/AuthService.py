@@ -97,7 +97,7 @@ class AuthService(ABC):
         if not supplier:
             raise NotFound(f'Supplier not found with id {supplier_id}')
 
-        if gateway.service['auth'].verify_auth_code(code):
+        if not gateway.service['auth'].verify_auth_code(code):
             raise Unauthorized('Invalid code received')
 
         token = create_jwt_token(supplier_id, Role.supplier)
