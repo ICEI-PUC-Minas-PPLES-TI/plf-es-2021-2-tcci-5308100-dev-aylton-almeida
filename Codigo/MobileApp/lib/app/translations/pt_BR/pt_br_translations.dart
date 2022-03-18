@@ -26,6 +26,10 @@ final _listTitles = {
   'supplier_data': 'Dados da empresa',
 };
 
+final _listContent = {
+  'delivery_list_no_deliveries': 'Nenhuma entrega encontrada',
+};
+
 final _inputLabels = {
   'delivery_code_input_label': 'Código de 6 dígitos',
   'phone_input_label': 'Telefone',
@@ -66,9 +70,9 @@ final _alerts = {
 };
 
 final _tabs = {
-  'today_label': 'Hoje',
-  'pending_label': 'Pendentes',
-  'delivered_label': 'Entregues',
+  'pending': 'Pendentes',
+  'in_progress': 'Em andamento',
+  'delivered': 'Entregues',
 };
 
 final Map<String, String> ptBR = {
@@ -76,6 +80,7 @@ final Map<String, String> ptBR = {
   ..._headers,
   ..._subHeaders,
   ..._listTitles,
+  ..._listContent,
   ..._inputLabels,
   ..._inputHints,
   ..._formValidation,

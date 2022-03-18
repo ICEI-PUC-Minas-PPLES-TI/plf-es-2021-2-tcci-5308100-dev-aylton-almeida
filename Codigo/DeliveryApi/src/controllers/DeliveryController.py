@@ -23,7 +23,7 @@ class VerifyDeliveryResource(MethodResource, Resource):
     def get(self, code: str):
         """Verifies if delivery with given code exists"""
 
-        delivery = DeliveryService.get_one_by_code(code)
+        delivery = DeliveryService.get_available_one_by_code(code)
 
         if not delivery:
             raise NotFound('Delivery not found with given code')

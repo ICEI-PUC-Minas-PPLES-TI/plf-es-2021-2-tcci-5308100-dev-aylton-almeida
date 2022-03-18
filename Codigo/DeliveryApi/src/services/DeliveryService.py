@@ -1,6 +1,7 @@
 from abc import ABC
 from uuid import UUID
 
+from src.classes.DeliveryStatus import DeliveryStatus
 from src.models.DeliveryModel import DeliveryModel
 from src.services.DeliveryRouteService import DeliveryRouteService
 
@@ -8,11 +9,12 @@ from src.services.DeliveryRouteService import DeliveryRouteService
 class DeliveryService(ABC):
 
     @staticmethod
-    def get_one_by_code(code: str) -> DeliveryModel:
-        """Gets one delivery given its access code"""
+    def get_available_one_by_code(code: str) -> DeliveryModel:
+        """Gets one available delivery given its access code"""
 
         return DeliveryModel.get_one_filtered([
-            DeliveryModel.access_code == code
+            DeliveryModel.access_code == code,
+            DeliveryModel.status == str(DeliveryStatus.created)
         ])
 
     @staticmethod

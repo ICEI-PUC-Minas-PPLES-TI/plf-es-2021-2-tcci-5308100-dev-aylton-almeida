@@ -29,6 +29,7 @@ dev_dependencies:
   get_cli: ^1.7.1
   integration_test:
     sdk: flutter
+  json_annotation: ^4.4.0
   json_serializable: ^6.1.4
   mockito: ^5.0.17
 

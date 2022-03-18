@@ -7,14 +7,16 @@ part 'delivery.g.dart';
 @Freezed()
 class Delivery with _$Delivery {
   const factory Delivery({
-    required String deliveryId,
-    required int supplierId,
-    required String offerId,
-    required DeliveryStatus status,
-    required String accessCode,
-    required bool reportSent,
-    required DateTime startTime,
-    required DateTime endTime,
+    required String? deliveryId,
+    required int? supplierId,
+    required String? offerId,
+    required String? name,
+    required DeliveryStatus? status,
+    required String? accessCode,
+    required bool? reportSent,
+    required DateTime? deliveryDate,
+    required DateTime? startTime,
+    required DateTime? endTime,
   }) = _Delivery;
 
   factory Delivery.fromJson(Map<String, dynamic> json) =>
