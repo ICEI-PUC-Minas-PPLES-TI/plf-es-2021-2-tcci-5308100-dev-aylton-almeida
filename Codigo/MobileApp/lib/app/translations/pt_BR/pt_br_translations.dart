@@ -57,7 +57,6 @@ final _buttonLabels = {
 };
 
 final _alerts = {
-  'invalid_delivery_code_error': 'Código de entrega inválido',
   'phone_not_registered_error':
       'Este telefone não possuí uma conta de parceiro Trela.',
   'invalid_confirmation_code_error':

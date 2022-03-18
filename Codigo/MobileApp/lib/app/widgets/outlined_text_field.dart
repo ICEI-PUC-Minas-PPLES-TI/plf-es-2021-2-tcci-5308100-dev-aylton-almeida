@@ -10,6 +10,7 @@ class OutlinedTextField extends TextFormField {
     String? Function(String?)? validator,
     void Function(String)? onChanged,
     String? hintText,
+    String? errorText,
     int? maxLength,
     List<TextInputFormatter>? inputFormatters,
   }) : super(
@@ -18,6 +19,7 @@ class OutlinedTextField extends TextFormField {
           maxLength: maxLength,
           decoration: InputDecoration(
             hintText: hintText,
+            errorText: errorText,
             counterText: '',
             border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(100)),

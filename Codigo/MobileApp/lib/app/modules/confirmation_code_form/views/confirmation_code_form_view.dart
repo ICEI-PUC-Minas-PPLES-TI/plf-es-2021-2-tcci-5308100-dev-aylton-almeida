@@ -46,13 +46,16 @@ class ConfirmationCodeFormView extends GetView<ConfirmationCodeFormController> {
                   style: Get.textTheme.bodyText1,
                 ),
                 const SizedBox(height: 16),
-                OutlinedTextField(
-                  controller: controller.codeController,
-                  keyboardType: TextInputType.number,
-                  hintText: 'code_input_hint'.tr,
-                  validator: controller.validator,
-                  onChanged: (_) => controller.handleFormChange(),
-                  maxLength: 5,
+                Obx(
+                  () => OutlinedTextField(
+                    controller: controller.codeController,
+                    keyboardType: TextInputType.number,
+                    hintText: 'code_input_hint'.tr,
+                    errorText: controller.errorMessage.value,
+                    validator: controller.validator,
+                    onChanged: (_) => controller.handleFormChange(),
+                    maxLength: 5,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 TextButton(

@@ -34,7 +34,6 @@ void main() {
       return PhoneFormController(
           args: args,
           phoneFormKey: phoneFormKey,
-          appController: AppController(),
           authController: AuthController(
             authRepository: AuthRepository(
               apiClient: ApiClient(

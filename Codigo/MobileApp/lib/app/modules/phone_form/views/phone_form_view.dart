@@ -43,14 +43,17 @@ class PhoneFormView extends GetView<PhoneFormController> {
                   style: Get.textTheme.bodyText1,
                 ),
                 const SizedBox(height: 16),
-                OutlinedTextField(
-                  controller: controller.phoneController,
-                  keyboardType: TextInputType.number,
-                  hintText: 'phone_input_label'.tr,
-                  validator: controller.validator,
-                  onChanged: (_) => controller.handleFormChange(),
-                  inputFormatters: [controller.phoneMask],
-                ),
+                Obx(
+                  () => OutlinedTextField(
+                    controller: controller.phoneController,
+                    keyboardType: TextInputType.number,
+                    hintText: 'phone_input_label'.tr,
+                    errorText: controller.errorMessage.value,
+                    validator: controller.validator,
+                    onChanged: (_) => controller.handleFormChange(),
+                    inputFormatters: [controller.phoneMask],
+                  ),
+                )
               ],
             ),
             const Expanded(child: SizedBox(height: 16)),

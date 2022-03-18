@@ -14,7 +14,6 @@ import 'delivery_code_form_controller_test.mocks.dart';
   GlobalKey,
   FormState,
   DeliveriesRepository,
-  AppController
 ])
 void main() {
   group('Testing Delivery Code Form Controller', () {
@@ -30,7 +29,6 @@ void main() {
     }) {
       return DeliveryCodeFormController(
         codeFormKey: codeFormKey,
-        appController: appController ?? MockAppController(),
         deliveriesRepository:
             deliveriesRepository ?? MockDeliveriesRepository(),
       );

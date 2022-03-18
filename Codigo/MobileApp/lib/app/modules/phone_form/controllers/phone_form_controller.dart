@@ -1,6 +1,4 @@
-import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
-import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/modules/confirmation_code_form/arguments/confirmation_code_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
@@ -12,7 +10,6 @@ import 'package:get/get.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class PhoneFormController extends GetxController {
-  late AppController _appController;
   late AuthController _authController;
 
   late GlobalKey<FormState> phoneFormKey;
@@ -24,9 +21,9 @@ class PhoneFormController extends GetxController {
 
   final isLoading = false.obs;
   final isValid = false.obs;
+  final Rx<String?> errorMessage = Rx(null);
 
   PhoneFormController({
-    required AppController appController,
     required AuthController authController,
     GlobalKey<FormState>? phoneFormKey,
     PhoneFormArgs? args,
@@ -36,7 +33,6 @@ class PhoneFormController extends GetxController {
     currentDeliveryId =
         (Get.arguments as PhoneFormArgs?)?.deliveryId ?? args?.deliveryId;
 
-    _appController = appController;
     _authController = authController;
 
     setCurrentAssets();
@@ -80,6 +76,9 @@ class PhoneFormController extends GetxController {
   }
 
   void handleFormChange() {
+    if (errorMessage.value != null) {
+      errorMessage.value = null;
+    }
     isValid.value = phoneFormKey.currentState!.validate();
   }
 
@@ -99,8 +98,7 @@ class PhoneFormController extends GetxController {
             ConfirmationCodeFormArgs(currentPhone: phoneMask.getMaskedText()),
       );
     } catch (e) {
-      _appController.showAlert(
-          text: 'phone_not_registered_error'.tr, type: AlertType.error);
+      errorMessage.value = 'phone_not_registered_error'.tr;
     }
   }
 
@@ -117,8 +115,7 @@ class PhoneFormController extends GetxController {
         await handleSupplierSubmit(phone);
       }
     } catch (e) {
-      _appController.showAlert(
-          text: 'generic_error_msg'.tr, type: AlertType.error);
+      errorMessage.value = 'generic_error_msg'.tr;
     } finally {
       isLoading.value = false;
     }
