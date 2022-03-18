@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/storage_repository.dart';
@@ -19,7 +18,6 @@ void main() {
     setUp(() {
       Get.lazyPut(
         () => DeliveryCodeFormController(
-          appController: AppController(),
           deliveriesRepository: DeliveriesRepository(
             apiClient: ApiClient(
               httpClient: Client(),

@@ -23,7 +23,6 @@ void main() {
     late MockTextEditingController mockTextEditingController;
 
     createDeliveryCodeFormController({
-      AppController? appController,
       DeliveriesRepository? deliveriesRepository,
       GlobalKey<FormState>? codeFormKey,
     }) {
