@@ -21,7 +21,7 @@ Future<void> main() async {
       await tester.pumpAndSettle();
 
       // when
-      const validCode = 'XCBS2C';
+      const validCode = 'AYLTON';
       const validPhone = '5531999385992';
 
       // Find the text field and enter the code

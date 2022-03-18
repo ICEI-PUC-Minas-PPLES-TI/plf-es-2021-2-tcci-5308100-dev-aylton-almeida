@@ -1,5 +1,3 @@
-import 'package:delivery_manager/app/controllers/app_controller.dart';
-import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
@@ -9,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 
 class DeliveryCodeFormController extends GetxController {
-  final AppController _appController;
   final DeliveriesRepository _deliveriesRepository;
 
   late GlobalKey<FormState> codeFormKey;
@@ -17,13 +14,12 @@ class DeliveryCodeFormController extends GetxController {
 
   final isLoading = false.obs;
   final isValid = false.obs;
+  final Rx<String?> errorMessage = Rx(null);
 
   DeliveryCodeFormController({
-    required AppController appController,
     required DeliveriesRepository deliveriesRepository,
     GlobalKey<FormState>? codeFormKey,
   })  : codeFormKey = codeFormKey ?? GlobalKey<FormState>(),
-        _appController = appController,
         _deliveriesRepository = deliveriesRepository;
 
   @override
@@ -50,6 +46,10 @@ class DeliveryCodeFormController extends GetxController {
   }
 
   void handleFormChange() {
+    if (errorMessage.value != null) {
+      errorMessage.value = null;
+    }
+
     isValid.value = codeFormKey.currentState!.validate();
   }
 
@@ -70,8 +70,7 @@ class DeliveryCodeFormController extends GetxController {
         ),
       );
     } catch (e) {
-      _appController.showAlert(
-          text: 'invalid_delivery_code_error'.tr, type: AlertType.error);
+      errorMessage.value = 'invalid_delivery_code_input_error'.tr;
     } finally {
       isLoading.value = false;
     }

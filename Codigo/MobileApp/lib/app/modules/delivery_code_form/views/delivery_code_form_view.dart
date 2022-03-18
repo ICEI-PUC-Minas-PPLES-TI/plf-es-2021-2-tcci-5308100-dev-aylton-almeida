@@ -42,14 +42,17 @@ class DeliveryCodeFormView extends GetView<DeliveryCodeFormController> {
                   style: Get.textTheme.bodyText1,
                 ),
                 const SizedBox(height: 16),
-                OutlinedTextField(
-                  controller: controller.codeController,
-                  hintText: 'code_input_hint'.tr,
-                  validator: controller.validator,
-                  onChanged: (_) => controller.handleFormChange(),
-                  textCapitalization: TextCapitalization.characters,
-                  maxLength: 6,
-                ),
+                Obx(
+                  () => OutlinedTextField(
+                    controller: controller.codeController,
+                    hintText: 'code_input_hint'.tr,
+                    validator: controller.validator,
+                    errorText: controller.errorMessage.value,
+                    onChanged: (_) => controller.handleFormChange(),
+                    textCapitalization: TextCapitalization.characters,
+                    maxLength: 6,
+                  ),
+                )
               ],
             ),
             const Expanded(child: SizedBox(height: 16)),

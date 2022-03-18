@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_code_form/controllers/delivery_code_form_controller.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +13,6 @@ import 'delivery_code_form_controller_test.mocks.dart';
   GlobalKey,
   FormState,
   DeliveriesRepository,
-  AppController
 ])
 void main() {
   group('Testing Delivery Code Form Controller', () {
@@ -24,13 +22,11 @@ void main() {
     late MockTextEditingController mockTextEditingController;
 
     createDeliveryCodeFormController({
-      AppController? appController,
       DeliveriesRepository? deliveriesRepository,
       GlobalKey<FormState>? codeFormKey,
     }) {
       return DeliveryCodeFormController(
         codeFormKey: codeFormKey,
-        appController: appController ?? MockAppController(),
         deliveriesRepository:
             deliveriesRepository ?? MockDeliveriesRepository(),
       );

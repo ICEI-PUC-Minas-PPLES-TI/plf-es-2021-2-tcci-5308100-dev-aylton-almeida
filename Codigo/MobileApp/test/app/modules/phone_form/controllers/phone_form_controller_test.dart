@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
@@ -34,7 +33,6 @@ void main() {
       return PhoneFormController(
           args: args,
           phoneFormKey: phoneFormKey,
-          appController: AppController(),
           authController: AuthController(
             authRepository: AuthRepository(
               apiClient: ApiClient(

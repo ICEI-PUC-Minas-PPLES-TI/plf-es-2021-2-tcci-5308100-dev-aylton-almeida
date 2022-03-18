@@ -17,6 +17,7 @@ class ConfirmationCodeFormController extends GetxController {
 
   final isLoading = false.obs;
   final isValid = false.obs;
+  final Rx<String?> errorMessage = Rx(null);
 
   ConfirmationCodeFormController({
     required AppController appController,
@@ -65,11 +66,9 @@ class ConfirmationCodeFormController extends GetxController {
       Get.offAllNamed(Routes.DELIVERY_LIST);
     } on Exception catch (e, _) {
       if (e.toString().contains('Failed request with error 401')) {
-        _appController.showAlert(
-            text: 'invalid_confirmation_code_error'.tr, type: AlertType.error);
+        errorMessage.value = 'invalid_confirmation_code_error'.tr;
       } else {
-        _appController.showAlert(
-            text: 'generic_error_msg'.tr, type: AlertType.error);
+        errorMessage.value = 'generic_error_msg'.tr;
       }
     } finally {
       isLoading.value = false;
@@ -86,6 +85,10 @@ class ConfirmationCodeFormController extends GetxController {
   }
 
   void handleFormChange() {
+    if (errorMessage.value != null) {
+      errorMessage.value = null;
+    }
+
     isValid.value = codeFormKey.currentState!.validate();
   }
 

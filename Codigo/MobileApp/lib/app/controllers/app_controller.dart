@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppController extends GetxController {
-  void showAlert({required String text, AlertType type = AlertType.info}) =>
+  void showAlert({
+    required String text,
+    AlertType type = AlertType.info,
+    EdgeInsets margin = const EdgeInsets.all(16),
+  }) =>
       Get.overlayContext != null
           ? ScaffoldMessenger.of(Get.overlayContext!).showSnackBar(
               SnackBar(
@@ -16,6 +20,7 @@ class AppController extends GetxController {
                   ),
                 ),
                 backgroundColor: type.color,
+                margin: margin,
               ),
             )
           : null;
