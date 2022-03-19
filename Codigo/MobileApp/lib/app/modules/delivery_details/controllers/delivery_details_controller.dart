@@ -19,11 +19,11 @@ class DeliveryDetailsController extends GetxController
   static const _products = Key('products');
   static const _orders = Key('orders');
 
-  final DeliveriesRepository _deliveriesRepository;
-  final AppController _appController;
-  final AuthController _authController;
+  late DeliveriesRepository _deliveriesRepository;
+  late AppController _appController;
+  late AuthController _authController;
 
-  final String _deliveryId;
+  late String _deliveryId;
 
   late TabController tabsController;
 
@@ -42,11 +42,15 @@ class DeliveryDetailsController extends GetxController
     required AppController appController,
     required AuthController authController,
     String? deliveryId,
-  })  : _deliveryId =
-            (Get.arguments as DeliveryDetailsArgs?)?.deliveryId ?? deliveryId!,
-        _appController = appController,
-        _authController = authController,
-        _deliveriesRepository = deliveriesRepository;
+    Delivery? delivery,
+  }) {
+    _deliveryId =
+        (Get.arguments as DeliveryDetailsArgs?)?.deliveryId ?? deliveryId!;
+    _delivery.value = delivery;
+    _appController = appController;
+    _authController = authController;
+    _deliveriesRepository = deliveriesRepository;
+  }
 
   Supplier? get supplier => _authController.supplier.value;
 
@@ -57,50 +61,49 @@ class DeliveryDetailsController extends GetxController
 
   @override
   void onInit() {
-    // TODO: test
     super.onInit();
 
     tabsController = TabController(length: tabs.length, vsync: this);
 
-    fetchDelivery();
+    _fetchDelivery();
   }
 
   @override
   void onClose() {
-    // TODO: test
     tabsController.dispose();
     super.onClose();
   }
 
-  List<OrderProduct> getProducts(Delivery delivery) {
-    // TODO: test
+  List<OrderProduct> _getProducts(Delivery delivery) {
     final flatList =
         flatten(_delivery.value!.orders!.map((order) => order.orderProducts));
     final grouped = groupBy(flatList, (OrderProduct item) => item.productSku);
 
-    return grouped.values.map((e) => e[0]).toList();
+    return grouped.values.map((e) {
+      return OrderProduct(
+        orderProductId: e[0].orderProductId,
+        productSku: e[0].productSku,
+        name: e[0].name,
+        quantity: grouped[e[0].productSku]!.map(((e) => e.quantity)).sum,
+      );
+    }).toList();
   }
 
-  List<Order> getOrders(Delivery delivery) {
-    // TODO: test
-
+  List<Order> _getOrders(Delivery delivery) {
     return delivery.orders!;
   }
 
   List<dynamic> getTabData(Key currentTab) {
-    // TODO: test
     if (currentTab == _products) {
-      return _productItems.value ??= getProducts(_delivery.value!);
+      return _productItems.value ??= _getProducts(_delivery.value!);
     } else if (currentTab == _orders) {
-      return _orderItems.value ??= getOrders(_delivery.value!);
+      return _orderItems.value ??= _getOrders(_delivery.value!);
     }
 
     return [];
   }
 
-  Future<void> fetchDelivery() async {
-    // TODO: test
-
+  Future<void> _fetchDelivery() async {
     isLoading.value = true;
 
     try {

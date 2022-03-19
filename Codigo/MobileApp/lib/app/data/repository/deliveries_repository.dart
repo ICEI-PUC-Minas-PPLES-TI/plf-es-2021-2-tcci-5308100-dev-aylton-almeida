@@ -14,8 +14,6 @@ class DeliveriesRepository {
   }
 
   Future<List<Delivery>> getSupplierDeliveries() async {
-    // TODO: test
-
     final response = await _apiClient.get(_basePath);
 
     return (response['deliveries'] as List<dynamic>)
@@ -24,8 +22,6 @@ class DeliveriesRepository {
   }
 
   Future<Delivery> getDelivery(String deliveryId) async {
-    // TODO: test
-
     final response = await _apiClient.get('$_basePath/$deliveryId');
 
     return Delivery.fromJson(response['delivery']);
