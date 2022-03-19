@@ -1,6 +1,7 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
+import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/models/order_product.dart';
@@ -50,6 +51,9 @@ class DeliveryDetailsController extends GetxController
   Supplier? get supplier => _authController.supplier.value;
 
   Delivery? get delivery => _delivery.value;
+
+  bool get shouldShowShareButton =>
+      _delivery.value?.status == DeliveryStatus.created;
 
   @override
   void onInit() {

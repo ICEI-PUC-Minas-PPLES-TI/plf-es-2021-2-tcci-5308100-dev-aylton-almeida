@@ -8,10 +8,12 @@ class DeliveryDetailsHeader extends StatelessWidget {
     Key? key,
     required this.delivery,
     required this.onShareTap,
+    required this.showShareBtn,
   }) : super(key: key);
 
   final Delivery delivery;
   final void Function() onShareTap;
+  final bool showShareBtn;
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +56,19 @@ class DeliveryDetailsHeader extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 24),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: onShareTap,
-              child: Text('share_delivery_with_deliverer'.tr),
-            ),
-          ),
+          if (showShareBtn)
+            Column(
+              children: [
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: onShareTap,
+                    child: Text('share_delivery_with_deliverer'.tr),
+                  ),
+                ),
+              ],
+            )
         ],
       ),
     );

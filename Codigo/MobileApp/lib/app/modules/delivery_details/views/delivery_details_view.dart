@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/delivery_details_header.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/order_list_tile.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/product_list_tile.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/delivery_details_controller.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
   @override
@@ -40,6 +38,7 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
                 child: DeliveryDetailsHeader(
                   delivery: delivery,
                   onShareTap: controller.shareWithDeliverer,
+                  showShareBtn: controller.shouldShowShareButton,
                 ),
               ),
               SliverOverlapAbsorber(
