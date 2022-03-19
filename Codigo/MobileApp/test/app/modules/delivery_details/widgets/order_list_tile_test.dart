@@ -1,5 +1,4 @@
 import 'package:delivery_manager/app/data/models/order.dart';
-import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/order_list_tile.dart';
 import 'package:flutter_test/flutter_test.dart';
 
