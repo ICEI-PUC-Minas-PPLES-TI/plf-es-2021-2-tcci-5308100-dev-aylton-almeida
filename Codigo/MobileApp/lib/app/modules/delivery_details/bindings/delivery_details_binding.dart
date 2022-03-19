@@ -19,6 +19,7 @@ class DeliveryDetailsBinding extends Bindings {
             storageRepository: Get.find<StorageRepository>(),
           ),
         ),
+        authController: Get.find<AuthController>(),
         appController: Get.find<AppController>(),
       ),
     );

@@ -63,7 +63,7 @@ class DeliveryListController extends GetxController
 
   Supplier get supplier => _authController.supplier.value!;
 
-  void handleDeliveryClick(String deliveryId) {
+  void onDeliveryTap(String deliveryId) {
     Get.toNamed(
       Routes.DELIVERY_DETAILS,
       arguments: DeliveryDetailsArgs(deliveryId: deliveryId),

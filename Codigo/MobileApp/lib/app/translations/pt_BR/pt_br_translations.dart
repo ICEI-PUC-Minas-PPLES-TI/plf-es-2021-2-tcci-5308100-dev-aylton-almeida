@@ -1,6 +1,7 @@
 final _appBarTitles = {
   'supplier_account_title': 'Sua Conta',
-  'delivery_list_title': 'Lista de Ofertas'
+  'delivery_list_title': 'Lista de Ofertas',
+  'delivery_details': 'Detalhes da Oferta',
 };
 
 final _headers = {

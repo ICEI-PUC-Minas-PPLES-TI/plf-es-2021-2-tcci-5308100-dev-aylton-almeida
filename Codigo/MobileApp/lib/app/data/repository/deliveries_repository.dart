@@ -28,6 +28,6 @@ class DeliveriesRepository {
 
     final response = await _apiClient.get('$_basePath/$deliveryId');
 
-    return Delivery.fromJson(response);
+    return Delivery.fromJson(response['delivery']);
   }
 }

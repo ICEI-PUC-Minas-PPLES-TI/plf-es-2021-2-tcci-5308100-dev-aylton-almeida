@@ -40,7 +40,7 @@ class DeliveryListView extends GetView<DeliveryListController> {
                     onRefreshList: () =>
                         controller.fetchDeliveries(wasForced: true),
                     deliveries: currentDeliveries,
-                    onTileTap: (deliveryId) {},
+                    onTileTap: controller.onDeliveryTap,
                   );
                 },
               ),

@@ -1,4 +1,4 @@
-import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/widgets/authenticated_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,18 +9,24 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('DeliveryDetailsView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Obx(
-          () => Text(
-            'Current deliverer phone ${Get.find<AuthController>().deliverer.value!.phone}',
-            style: const TextStyle(fontSize: 20),
+      appBar: AuthenticatedAppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.black,
           ),
+          onPressed: controller.goBack,
         ),
+        titleText: 'delivery_details'.tr,
+        userName: controller.supplier?.name,
       ),
+      body: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        return Center(child: Text(controller.delivery?.name ?? ''));
+      }),
     );
   }
 }
