@@ -1,6 +1,5 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
-import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
@@ -52,8 +51,6 @@ void main() {
         ),
       );
     }
-
-    setUp(() {});
 
     setUp(() {
       mockDeliveriesRepository = MockDeliveriesRepository();
