@@ -6,6 +6,7 @@ import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DeliveryDetailsController extends GetxController {
   final DeliveriesRepository _deliveriesRepository;
@@ -54,6 +55,13 @@ class DeliveryDetailsController extends GetxController {
       isLoading.value = false;
     }
   }
+
+  void shareWithDeliverer() => Share.share(
+        'share_with_deliverer'
+            .tr
+            .replaceAll(':name', _delivery.value!.name!)
+            .replaceAll(':code', _delivery.value!.accessCode!),
+      );
 
   void goBack() => Get.back();
 }

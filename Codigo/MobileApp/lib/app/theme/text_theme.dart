@@ -19,7 +19,7 @@ const textThemeData = TextTheme(
   ),
   headline5: TextStyle(
     fontSize: 24.0,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
   ),
   headline6: TextStyle(
     fontSize: 20.0,

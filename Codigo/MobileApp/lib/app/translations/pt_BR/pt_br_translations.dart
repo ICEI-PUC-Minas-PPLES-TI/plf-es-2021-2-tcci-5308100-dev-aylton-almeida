@@ -60,6 +60,7 @@ final _buttonLabels = {
   'resend_code_button': 'Reenviar código',
   'change_number_button': 'Trocar número de celular',
   'exit_button': 'Sair',
+  'share_delivery_with_deliverer': 'Enviar para Entregador'
 };
 
 final _alerts = {
@@ -77,6 +78,11 @@ final _tabs = {
   'delivered': 'Entregues',
 };
 
+final _shareMessages = {
+  'share_with_deliverer':
+      'Olá, aqui está o código de acesso à entrega :name: :code'
+};
+
 final Map<String, String> ptBR = {
   ..._appBarTitles,
   ..._headers,
@@ -89,4 +95,5 @@ final Map<String, String> ptBR = {
   ..._buttonLabels,
   ..._alerts,
   ..._tabs,
+  ..._shareMessages
 };
