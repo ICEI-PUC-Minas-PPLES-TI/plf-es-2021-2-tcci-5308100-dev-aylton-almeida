@@ -41,8 +41,11 @@ Future<void> main() async {
       await tester.enterText(find.byType(OutlinedTextField), validPhone);
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('phone_submit_button')));
+      // TODO: test do a pump and settle when possible
+      await tester.pump(const Duration(seconds: 5));
 
-      // TODO: verify if new page is found
+      // Find the delivery details page
+      expect(find.text('delivery_details'.tr), findsOneWidget);
     });
   });
 }

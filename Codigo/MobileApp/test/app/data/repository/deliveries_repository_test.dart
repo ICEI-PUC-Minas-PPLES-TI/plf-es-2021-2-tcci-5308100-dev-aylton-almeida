@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -36,6 +37,55 @@ void main() {
       // assert
       expect(response, equals(expectedResponse['deliveryId']));
       verify(mockApiClient.get('/deliveries/verify/$accessCode')).called(1);
+    });
+
+    test('Get Supplier deliveries', () async {
+      // when
+      final repository = DeliveriesRepository(apiClient: mockApiClient);
+      const expectedResponse = {
+        'deliveries': [
+          {'deliveryId': '123'},
+          {'deliveryId': '456'},
+          {'deliveryId': '789'},
+        ]
+      };
+
+      // mock
+      when(mockApiClient.get('/deliveries'))
+          .thenAnswer((_) async => expectedResponse);
+
+      // then
+      final response = await repository.getSupplierDeliveries();
+
+      // assert
+      expect(
+          response,
+          equals([
+            for (final data in expectedResponse['deliveries']!)
+              Delivery.fromJson(data),
+          ]));
+      verify(mockApiClient.get('/deliveries')).called(1);
+    });
+
+    test('Get Delivery Details', () async {
+      // when
+      final repository = DeliveriesRepository(apiClient: mockApiClient);
+      const deliveryId = '123';
+      const expectedResponse = {
+        'delivery': {'deliveryId': '123'},
+      };
+
+      // mock
+      when(mockApiClient.get('/deliveries/$deliveryId'))
+          .thenAnswer((_) async => expectedResponse);
+
+      // then
+      final response = await repository.getDelivery(deliveryId);
+
+      // assert
+      expect(
+          response, equals(Delivery.fromJson(expectedResponse['delivery']!)));
+      verify(mockApiClient.get('/deliveries/$deliveryId')).called(1);
     });
   });
 }

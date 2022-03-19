@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/theme/app_bar_theme.dart';
 import 'package:delivery_manager/app/theme/elevated_button_theme.dart';
+import 'package:delivery_manager/app/theme/list_tile_theme.dart';
 import 'package:delivery_manager/app/theme/outlined_button_theme.dart';
 import 'package:delivery_manager/app/theme/snackbar_theme.dart';
 import 'package:delivery_manager/app/theme/tab_bar_theme.dart';
@@ -17,4 +18,5 @@ final appThemeData = ThemeData(
   backgroundColor: Colors.white,
   textTheme: textThemeData,
   tabBarTheme: tabBarTheme,
+  listTileTheme: listTileTheme,
 );

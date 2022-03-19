@@ -1,6 +1,7 @@
 from unittest.mock import MagicMock, call, patch
 from uuid import uuid4
 
+from src.classes.DeliveryStatus import DeliveryStatus
 from src.models.DeliveryModel import DeliveryModel
 from src.models.DeliveryRouteModel import DeliveryRouteModel
 from src.services.DeliveryRouteService import DeliveryRouteService
@@ -11,7 +12,7 @@ from tests.utils.models.BaseTest import BaseTest
 class DeliveryServiceTests(BaseTest):
 
     @patch.object(DeliveryModel, 'get_one_filtered')
-    def test_GetOneByCode_when_Default(self, mock_get_one_filtered: MagicMock):
+    def test_GetAvailableOneByCode_when_Default(self, mock_get_one_filtered: MagicMock):
         """Test get_one_by_code when default behavior"""
 
         # when
@@ -22,7 +23,7 @@ class DeliveryServiceTests(BaseTest):
         mock_get_one_filtered.return_value = found_delivery
 
         # then
-        response = DeliveryService.get_one_by_code(code)
+        response = DeliveryService.get_available_one_by_code(code)
 
         # assert
         self.assertEqual(response, found_delivery)
@@ -31,6 +32,12 @@ class DeliveryServiceTests(BaseTest):
                 DeliveryModel.access_code == code
             ),
             'assert filter has access_code == code'
+        )
+        self.assertTrue(
+            mock_get_one_filtered.call_args_list[0][0][0][1].compare(
+                DeliveryModel.status == DeliveryStatus.created
+            ),
+            'assert filter has status == created'
         )
 
     @patch.object(DeliveryModel, 'get_one_filtered')

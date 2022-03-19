@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/modules/confirmation_code_form/arguments/confirmation_code_form_args.dart';
+import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
@@ -85,7 +86,10 @@ class PhoneFormController extends GetxController {
   Future<void> handleDelivererSubmit(String phone) async {
     await _authController.authenticateDeliverer(phone, currentDeliveryId!);
 
-    Get.offAllNamed(Routes.DELIVERY_DETAILS);
+    Get.offAllNamed(
+      Routes.DELIVERY_DETAILS,
+      arguments: DeliveryDetailsArgs(deliveryId: currentDeliveryId!),
+    );
   }
 
   Future<void> handleSupplierSubmit(String phone) async {

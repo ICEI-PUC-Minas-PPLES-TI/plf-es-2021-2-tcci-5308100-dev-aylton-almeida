@@ -1,6 +1,7 @@
 final _appBarTitles = {
   'supplier_account_title': 'Sua Conta',
-  'delivery_list_title': 'Lista de Ofertas'
+  'delivery_list_title': 'Lista de Ofertas',
+  'delivery_details': 'Detalhes da Oferta',
 };
 
 final _headers = {
@@ -24,6 +25,11 @@ final _subHeaders = {
 
 final _listTitles = {
   'supplier_data': 'Dados da empresa',
+};
+
+final _listContent = {
+  'delivery_list_no_deliveries': 'Nenhuma entrega encontrada',
+  'delivery_subtitle': 'Entrega prevista: dia :day às :hour horas',
 };
 
 final _inputLabels = {
@@ -54,6 +60,7 @@ final _buttonLabels = {
   'resend_code_button': 'Reenviar código',
   'change_number_button': 'Trocar número de celular',
   'exit_button': 'Sair',
+  'share_delivery_with_deliverer': 'Enviar para Entregador'
 };
 
 final _alerts = {
@@ -66,9 +73,16 @@ final _alerts = {
 };
 
 final _tabs = {
-  'today_label': 'Hoje',
-  'pending_label': 'Pendentes',
-  'delivered_label': 'Entregues',
+  'pending': 'Pendentes',
+  'in_progress': 'Em andamento',
+  'delivered': 'Entregues',
+  'products': 'Produtos',
+  'orders': 'Pedidos'
+};
+
+final _shareMessages = {
+  'share_with_deliverer':
+      'Olá, aqui está o código de acesso à entrega :name: :code'
 };
 
 final Map<String, String> ptBR = {
@@ -76,10 +90,12 @@ final Map<String, String> ptBR = {
   ..._headers,
   ..._subHeaders,
   ..._listTitles,
+  ..._listContent,
   ..._inputLabels,
   ..._inputHints,
   ..._formValidation,
   ..._buttonLabels,
   ..._alerts,
   ..._tabs,
+  ..._shareMessages
 };

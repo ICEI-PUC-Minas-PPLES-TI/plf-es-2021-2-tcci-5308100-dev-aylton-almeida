@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 
 class DeliveriesRepository {
@@ -10,5 +11,19 @@ class DeliveriesRepository {
     final response = await _apiClient.get('$_basePath/verify/$accessCode');
 
     return response['deliveryId'];
+  }
+
+  Future<List<Delivery>> getSupplierDeliveries() async {
+    final response = await _apiClient.get(_basePath);
+
+    return (response['deliveries'] as List<dynamic>)
+        .map((delivery) => Delivery.fromJson(delivery))
+        .toList();
+  }
+
+  Future<Delivery> getDelivery(String deliveryId) async {
+    final response = await _apiClient.get('$_basePath/$deliveryId');
+
+    return Delivery.fromJson(response['delivery']);
   }
 }
