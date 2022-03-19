@@ -5,6 +5,8 @@ import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
+import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
+import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,6 +48,7 @@ class DeliveryListController extends GetxController
 
   @override
   void onInit() {
+    // TODO: test
     super.onInit();
     tabsController = TabController(vsync: this, length: tabs.length);
     fetchDeliveries();
@@ -53,16 +56,26 @@ class DeliveryListController extends GetxController
 
   @override
   void onClose() {
+    // TODO: test
     tabsController.dispose();
     super.onClose();
   }
 
   Supplier get supplier => _authController.supplier.value!;
 
+  void handleDeliveryClick(String deliveryId) {
+    Get.toNamed(
+      Routes.DELIVERY_DETAILS,
+      arguments: DeliveryDetailsArgs(deliveryId: deliveryId),
+    );
+  }
+
+  // TODO: test
   List<Delivery> getCurrentDelivery(Key tabKey) => _deliveries.value[tabKey]!;
 
   List<Delivery> _getFilteredDeliveries(
       List<Delivery> deliveries, DeliveryStatus status) {
+    // TODO: test
     final filtered =
         deliveries.where((delivery) => delivery.status == status).toList();
 
@@ -72,6 +85,7 @@ class DeliveryListController extends GetxController
   }
 
   Future<void> fetchDeliveries({bool wasForced = false}) async {
+    // TODO: test
     if (!wasForced) {
       isLoading.value = true;
     }
