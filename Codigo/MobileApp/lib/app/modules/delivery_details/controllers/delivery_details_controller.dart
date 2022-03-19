@@ -2,10 +2,14 @@ import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
+import 'package:delivery_manager/app/data/models/order.dart';
+import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
+import 'package:delivery_manager/app/utils/flatten.dart';
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -29,6 +33,8 @@ class DeliveryDetailsController extends GetxController
 
   final isLoading = false.obs;
   final Rx<Delivery?> _delivery = Rx(null);
+  final _orderItems = Rx<List<Order>?>(null);
+  final _productItems = Rx<List<OrderProduct>?>(null);
 
   DeliveryDetailsController({
     required DeliveriesRepository deliveriesRepository,
@@ -60,6 +66,32 @@ class DeliveryDetailsController extends GetxController
     // TODO: test
     tabsController.dispose();
     super.onClose();
+  }
+
+  List<OrderProduct> getProducts(Delivery delivery) {
+    // TODO: test
+    final flatList =
+        flatten(_delivery.value!.orders!.map((order) => order.orderProducts));
+    final grouped = groupBy(flatList, (OrderProduct item) => item.productSku);
+
+    return grouped.values.map((e) => e[0]).toList();
+  }
+
+  List<Order> getOrders(Delivery delivery) {
+    // TODO: test
+
+    return delivery.orders!;
+  }
+
+  List<dynamic> getTabData(Key currentTab) {
+    // TODO: test
+    if (currentTab == _products) {
+      return _productItems.value ??= getProducts(_delivery.value!);
+    } else if (currentTab == _orders) {
+      return _orderItems.value ??= getOrders(_delivery.value!);
+    }
+
+    return [];
   }
 
   Future<void> fetchDelivery() async {

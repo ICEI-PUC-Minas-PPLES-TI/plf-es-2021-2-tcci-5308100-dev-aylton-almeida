@@ -57,41 +57,42 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
           },
           body: TabBarView(
             controller: controller.tabsController,
-            children: controller.tabs
-                .map(
-                  (item) => SafeArea(
-                    top: false,
-                    bottom: false,
-                    child: Builder(
-                      builder: (context) => CustomScrollView(
-                        slivers: [
-                          SliverOverlapInjector(
-                            handle:
-                                NestedScrollView.sliverOverlapAbsorberHandleFor(
-                              context,
+            children: controller.tabs.map(
+              (item) {
+                final data = controller.getTabData(item.key!);
+
+                return SafeArea(
+                  top: false,
+                  bottom: false,
+                  child: Builder(
+                    builder: (context) => CustomScrollView(
+                      slivers: [
+                        SliverOverlapInjector(
+                          handle:
+                              NestedScrollView.sliverOverlapAbsorberHandleFor(
+                            context,
+                          ),
+                        ),
+                        SliverPadding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          sliver: SliverFixedExtentList(
+                            itemExtent: 60.0,
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return ListTile(
+                                  title: Text('Item $index'),
+                                );
+                              },
+                              childCount: data.length,
                             ),
                           ),
-                          SliverPadding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            sliver: SliverFixedExtentList(
-                              itemExtent: 60.0,
-                              delegate: SliverChildBuilderDelegate(
-                                (BuildContext context, int index) {
-                                  return ListTile(
-                                    title: Text('Item $index'),
-                                  );
-                                },
-                                childCount: 30,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                        )
+                      ],
                     ),
                   ),
-                )
-                .toList(),
+                );
+              },
+            ).toList(),
           ),
         );
       }),
