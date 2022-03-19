@@ -5,15 +5,27 @@ import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 
-class DeliveryDetailsController extends GetxController {
+class DeliveryDetailsController extends GetxController
+    with SingleGetTickerProviderMixin {
+  static const _products = Key('products');
+  static const _orders = Key('orders');
+
   final DeliveriesRepository _deliveriesRepository;
   final AppController _appController;
   final AuthController _authController;
 
   final String _deliveryId;
+
+  late TabController tabsController;
+
+  final tabs = <Tab>[
+    Tab(key: _products, text: 'products'.tr),
+    Tab(key: _orders, text: 'orders'.tr),
+  ];
 
   final isLoading = false.obs;
   final Rx<Delivery?> _delivery = Rx(null);
@@ -38,7 +50,16 @@ class DeliveryDetailsController extends GetxController {
     // TODO: test
     super.onInit();
 
+    tabsController = TabController(length: tabs.length, vsync: this);
+
     fetchDelivery();
+  }
+
+  @override
+  void onClose() {
+    // TODO: test
+    tabsController.dispose();
+    super.onClose();
   }
 
   Future<void> fetchDelivery() async {

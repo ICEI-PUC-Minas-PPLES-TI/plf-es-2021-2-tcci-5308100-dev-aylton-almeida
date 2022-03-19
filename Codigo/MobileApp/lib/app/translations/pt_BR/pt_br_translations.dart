@@ -76,6 +76,8 @@ final _tabs = {
   'pending': 'Pendentes',
   'in_progress': 'Em andamento',
   'delivered': 'Entregues',
+  'products': 'Produtos',
+  'orders': 'Pedidos'
 };
 
 final _shareMessages = {

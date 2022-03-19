@@ -23,7 +23,6 @@ class DeliveryListController extends GetxController
 
   late TabController tabsController;
 
-  // list containing the tabs and the filter function related to it
   final tabs = <Tab>[
     Tab(key: _pending, text: 'pending'.tr),
     Tab(key: _inProgress, text: 'in_progress'.tr),

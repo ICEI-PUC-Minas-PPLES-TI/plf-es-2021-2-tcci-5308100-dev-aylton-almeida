@@ -1,3 +1,5 @@
+import 'package:delivery_manager/app/data/models/delivery.dart';
+import 'package:delivery_manager/app/modules/delivery_details/widgets/delivery_details_header.dart';
 import 'package:delivery_manager/app/widgets/authenticated_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,7 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AuthenticatedAppBar(
         leading: IconButton(
           icon: const Icon(
@@ -28,60 +31,67 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
 
         final delivery = controller.delivery!;
 
-        return SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(delivery.name!, style: Get.textTheme.headline5),
-              const SizedBox(height: 8),
-              Text(
-                'delivery_subtitle'
-                    .tr
-                    .replaceAll(':day', delivery.deliveryDate!.day.toString())
-                    .replaceAll(
-                        ':hour', delivery.deliveryDate!.hour.toString()),
+        return NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [
+              SliverToBoxAdapter(
+                child: DeliveryDetailsHeader(
+                  delivery: delivery,
+                  onShareTap: controller.shareWithDeliverer,
+                ),
               ),
-              const SizedBox(height: 24),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: SizedBox(
-                  height: 200,
-                  width: double.infinity,
-                  child: GoogleMap(
-                    markers: {
-                      Marker(
-                        markerId: const MarkerId('marker'),
-                        position: LatLng(
-                          delivery.orders![0].shippingAddress.lat,
-                          delivery.orders![0].shippingAddress.lng,
-                        ),
-                      ),
-                    },
-                    initialCameraPosition: CameraPosition(
-                      target: LatLng(
-                        delivery.orders![0].shippingAddress.lat,
-                        delivery.orders![0].shippingAddress.lng,
-                      ),
-                      zoom: 15.0,
-                    ),
+              SliverOverlapAbsorber(
+                handle:
+                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                sliver: SliverAppBar(
+                  toolbarHeight: 0,
+                  pinned: true,
+                  forceElevated: innerBoxIsScrolled,
+                  bottom: TabBar(
+                    controller: controller.tabsController,
+                    tabs: controller.tabs.toList(),
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: controller.shareWithDeliverer,
-                  child: Text('share_delivery_with_deliverer'.tr),
-                ),
-              ),
-              const SizedBox(height: 24),
-              Container(
-                height: 500,
-                color: Colors.green,
-              )
-            ],
+            ];
+          },
+          body: TabBarView(
+            controller: controller.tabsController,
+            children: controller.tabs
+                .map(
+                  (item) => SafeArea(
+                    top: false,
+                    bottom: false,
+                    child: Builder(
+                      builder: (context) => CustomScrollView(
+                        slivers: [
+                          SliverOverlapInjector(
+                            handle:
+                                NestedScrollView.sliverOverlapAbsorberHandleFor(
+                              context,
+                            ),
+                          ),
+                          SliverPadding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            sliver: SliverFixedExtentList(
+                              itemExtent: 60.0,
+                              delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                                  return ListTile(
+                                    title: Text('Item $index'),
+                                  );
+                                },
+                                childCount: 30,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         );
       }),
