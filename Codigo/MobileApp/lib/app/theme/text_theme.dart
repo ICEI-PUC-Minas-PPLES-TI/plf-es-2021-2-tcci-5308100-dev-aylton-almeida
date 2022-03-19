@@ -35,7 +35,7 @@ const textThemeData = TextTheme(
     color: Color.fromRGBO(0, 0, 0, 0.5),
   ),
   bodyText1: TextStyle(
-    fontSize: 16.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w400,
   ),
   bodyText2: TextStyle(

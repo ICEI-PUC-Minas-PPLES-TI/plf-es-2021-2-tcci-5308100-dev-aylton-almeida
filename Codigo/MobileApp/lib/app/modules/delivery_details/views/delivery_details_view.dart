@@ -1,5 +1,7 @@
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/delivery_details_header.dart';
+import 'package:delivery_manager/app/modules/delivery_details/widgets/order_list_tile.dart';
+import 'package:delivery_manager/app/modules/delivery_details/widgets/product_list_tile.dart';
 import 'package:delivery_manager/app/widgets/authenticated_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -58,8 +60,8 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
           body: TabBarView(
             controller: controller.tabsController,
             children: controller.tabs.map(
-              (item) {
-                final data = controller.getTabData(item.key!);
+              (currentTab) {
+                final data = controller.getTabData(currentTab.key!);
 
                 return SafeArea(
                   top: false,
@@ -75,14 +77,18 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
                         ),
                         SliverPadding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          sliver: SliverFixedExtentList(
-                            itemExtent: 60.0,
+                          sliver: SliverList(
                             delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                                return ListTile(
-                                  title: Text('Item $index'),
-                                );
-                              },
+                              (BuildContext context, int index) => Column(
+                                children: [
+                                  if (currentTab.key == const Key('orders'))
+                                    OrderListTile(order: data[index]),
+                                  if (currentTab.key == const Key('products'))
+                                    ProductListTile(orderProduct: data[index]),
+                                  if (index != (data.length - 1))
+                                    const Divider(),
+                                ],
+                              ),
                               childCount: data.length,
                             ),
                           ),

@@ -1,10 +1,13 @@
+import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:flutter/material.dart';
 
-class ProductListTile extends StatelessWidget {
-  const ProductListTile({Key? key}) : super(key: key);
+class ProductListTile extends ListTile {
+  final OrderProduct orderProduct;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  ProductListTile({Key? key, required this.orderProduct})
+      : super(
+          key: key,
+          title: Text(orderProduct.name),
+          trailing: Text('${orderProduct.quantity}x'),
+        );
 }

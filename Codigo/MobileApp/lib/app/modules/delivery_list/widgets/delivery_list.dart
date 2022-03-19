@@ -36,7 +36,6 @@ class DeliveryList extends StatelessWidget {
                       .replaceAll(':day', delivery.deliveryDate!.day.toString())
                       .replaceAll(
                           ':hour', delivery.deliveryDate!.hour.toString()),
-                  style: const TextStyle(fontSize: 14),
                 ),
                 trailing: const RotatedBox(
                   quarterTurns: 2,
