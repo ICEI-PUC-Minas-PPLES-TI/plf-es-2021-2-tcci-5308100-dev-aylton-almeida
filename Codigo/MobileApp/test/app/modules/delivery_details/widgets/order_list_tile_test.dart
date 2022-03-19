@@ -32,12 +32,8 @@ void main() {
     testWidgets("Testing when product name is to big it's trimmed",
         (WidgetTester tester) async {
       // when
-      order.orderProducts[0] = OrderProduct(
-        orderProductId: order.orderProducts[0].orderProductId,
-        productSku: order.orderProducts[0].productSku,
-        name: 'This is a very long product name and should be trimmed',
-        quantity: order.orderProducts[0].quantity,
-      );
+      order.orderProducts[0] = order.orderProducts[0].copyWith(
+          name: 'This is a very long product name and should be trimmed');
 
       // pump
       await tester.pumpWidget(createTestMaterialWidget(
