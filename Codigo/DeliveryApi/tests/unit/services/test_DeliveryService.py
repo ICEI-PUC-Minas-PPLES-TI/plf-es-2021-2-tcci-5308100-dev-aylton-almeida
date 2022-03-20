@@ -35,7 +35,7 @@ class DeliveryServiceTests(BaseTest):
         )
         self.assertTrue(
             mock_get_one_filtered.call_args_list[0][0][0][1].compare(
-                DeliveryModel.status == DeliveryStatus.created
+                DeliveryModel.status == str(DeliveryStatus.created)
             ),
             'assert filter has status == created'
         )
