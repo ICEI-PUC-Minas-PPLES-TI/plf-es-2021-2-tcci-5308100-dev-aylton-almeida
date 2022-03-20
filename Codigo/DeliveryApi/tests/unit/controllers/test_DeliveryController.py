@@ -12,10 +12,10 @@ from tests.utils.models.BaseTest import BaseTest
 
 class DeliveryControllerTests(BaseTest):
 
-    @patch.object(DeliveryService, 'get_one_by_code')
+    @patch.object(DeliveryService, 'get_available_one_by_code')
     def test_VerifyDelivery_when_DeliveryFound(
         self,
-        mock_get_one_by_code: MagicMock,
+        mock_get_available_one_by_code: MagicMock,
     ):
         """Test verify delivery when delivery was found
         """
@@ -27,7 +27,7 @@ class DeliveryControllerTests(BaseTest):
             {'access_code': code, 'delivery_id': delivery_id})
 
         # mock
-        mock_get_one_by_code.return_value = delivery
+        mock_get_available_one_by_code.return_value = delivery
 
         # then
         response = self.app.get(
@@ -38,12 +38,12 @@ class DeliveryControllerTests(BaseTest):
         # assert
         self.assertEqual(response.json.get('deliveryId'), str(delivery_id))
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        mock_get_one_by_code.assert_called_once_with(code)
+        mock_get_available_one_by_code.assert_called_once_with(code)
 
-    @patch.object(DeliveryService, 'get_one_by_code')
+    @patch.object(DeliveryService, 'get_available_one_by_code')
     def test_VerifyDelivery_when_DeliveryNotFound(
         self,
-        mock_get_one_by_code: MagicMock,
+        mock_get_available_one_by_code: MagicMock,
     ):
         """Test verify delivery when delivery was not found
         """
@@ -53,7 +53,7 @@ class DeliveryControllerTests(BaseTest):
         delivery = None
 
         # mock
-        mock_get_one_by_code.return_value = delivery
+        mock_get_available_one_by_code.return_value = delivery
 
         # then
         response = self.app.get(
@@ -63,7 +63,7 @@ class DeliveryControllerTests(BaseTest):
 
         # assert
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
-        mock_get_one_by_code.assert_called_once_with(code)
+        mock_get_available_one_by_code.assert_called_once_with(code)
 
     @patch.object(gateway.service['auth'], 'authorize_request')
     @patch.object(DeliveryService, 'get_all_by_supplier')
