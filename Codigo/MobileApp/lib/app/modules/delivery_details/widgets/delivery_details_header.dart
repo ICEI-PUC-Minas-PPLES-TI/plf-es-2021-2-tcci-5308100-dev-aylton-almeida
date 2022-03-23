@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,10 +26,17 @@ class DeliveryDetailsHeader extends StatelessWidget {
           Text(delivery.name!, style: Get.textTheme.headline5),
           const SizedBox(height: 8),
           Text(
-            'delivery_subtitle'
+            'delivery_${delivery.status!.value}_subtitle'
                 .tr
                 .replaceAll(':day', delivery.deliveryDate!.day.toString())
                 .replaceAll(':hour', delivery.deliveryDate!.hour.toString()),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'delivery_initial_address'.tr.replaceAll(
+                  ':address',
+                  delivery.orders![0].shippingAddress.formatted,
+                ),
           ),
           const SizedBox(height: 24),
           ClipRRect(

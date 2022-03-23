@@ -5,6 +5,8 @@ part 'address.g.dart';
 
 @Freezed()
 class Address with _$Address {
+  const Address._();
+
   const factory Address({
     required int addressId,
     required String cityName,
@@ -20,4 +22,7 @@ class Address with _$Address {
 
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
+
+  String get formatted =>
+      '$streetName, $streetNumber${unitNumber != null ? '/$unitNumber' : ''} - $neighborhoodName, $cityName - $countryState';
 }

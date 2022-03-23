@@ -38,7 +38,7 @@ void main() {
       // assert
       expect(find.text(delivery.name!), findsOneWidget);
       expect(
-        find.text('delivery_subtitle'
+        find.text('delivery_created_subtitle'
             .tr
             .replaceAll(':day', delivery.deliveryDate!.day.toString())
             .replaceAll(':hour', delivery.deliveryDate!.hour.toString())),
@@ -63,7 +63,7 @@ void main() {
       // assert
       expect(find.text(delivery.name!), findsOneWidget);
       expect(
-        find.text('delivery_subtitle'
+        find.text('delivery_created_subtitle'
             .tr
             .replaceAll(':day', delivery.deliveryDate!.day.toString())
             .replaceAll(':hour', delivery.deliveryDate!.hour.toString())),

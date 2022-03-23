@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,7 @@ class DeliveryList extends StatelessWidget {
         separatorBuilder: (context, index) => const Divider(height: 1),
         itemBuilder: (context, index) {
           final delivery = deliveries[index];
+
           return Column(
             children: [
               ListTile(
@@ -31,7 +33,7 @@ class DeliveryList extends StatelessWidget {
                   style: const TextStyle(fontSize: 18),
                 ),
                 subtitle: Text(
-                  'delivery_subtitle'
+                  'delivery_${delivery.status!.value}_subtitle'
                       .tr
                       .replaceAll(':day', delivery.deliveryDate!.day.toString())
                       .replaceAll(
