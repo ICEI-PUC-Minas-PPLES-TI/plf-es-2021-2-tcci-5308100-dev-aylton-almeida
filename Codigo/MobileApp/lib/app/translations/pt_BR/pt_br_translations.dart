@@ -32,6 +32,7 @@ final _listContent = {
   'delivery_created_subtitle': 'Entrega prevista: dia :day às :hour horas',
   'delivery_in_progress_subtitle': 'Entrega prevista: dia :day às :hour horas',
   'delivery_finished_subtitle': 'Entregue: dia :day às :hour horas',
+  'delivery_initial_address': 'Endereço inicial: :address'
 };
 
 final _inputLabels = {
