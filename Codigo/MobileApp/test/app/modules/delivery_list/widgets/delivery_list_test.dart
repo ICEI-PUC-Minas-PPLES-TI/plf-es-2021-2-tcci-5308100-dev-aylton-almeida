@@ -50,7 +50,7 @@ void main() {
       );
       expect(
         find.text(
-          'delivery_subtitle'
+          'delivery_created_subtitle'
               .tr
               .replaceAll(':day', deliveries[0].deliveryDate!.day.toString())
               .replaceAll(':hour', deliveries[0].deliveryDate!.hour.toString()),

@@ -29,7 +29,9 @@ final _listTitles = {
 
 final _listContent = {
   'delivery_list_no_deliveries': 'Nenhuma entrega encontrada',
-  'delivery_subtitle': 'Entrega prevista: dia :day às :hour horas',
+  'delivery_created_subtitle': 'Entrega prevista: dia :day às :hour horas',
+  'delivery_in_progress_subtitle': 'Entrega prevista: dia :day às :hour horas',
+  'delivery_finished_subtitle': 'Entregue: dia :day às :hour horas',
 };
 
 final _inputLabels = {
