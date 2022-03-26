@@ -14,6 +14,7 @@ class OrderProductModel(BaseModel, db.Model):
     product_sku = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String(500), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
+    variant = db.Column(db.String(500), nullable=False)
 
     order_id = db.Column(UUID(as_uuid=True), db.ForeignKey(
         'delivery_orders.order_id'), nullable=False)
@@ -26,3 +27,4 @@ class OrderProductModel(BaseModel, db.Model):
         self.name = data.get('name')
         self.quantity = data.get('quantity')
         self.order_id = data.get('order_id')
+        self.variant = data.get('variant')
