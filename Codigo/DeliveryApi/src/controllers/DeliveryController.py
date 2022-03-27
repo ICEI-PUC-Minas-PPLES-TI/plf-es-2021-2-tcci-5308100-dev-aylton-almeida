@@ -35,7 +35,7 @@ class DeliveryListResource(MethodResource, Resource):
 
     @doc(description="Get Supplier deliveries", tags=['Delivery'])
     @exception_guard
-    @auth_guard(Role.supplier, needs_user_id=True)
+    @auth_guard([Role.supplier], needs_user_id=True)
     @marshal_response(GetSupplierDeliveriesResponseSchema)
     def get(self, auth_user_id: str):
         """Get Supplier deliveries"""
@@ -49,14 +49,22 @@ class DeliveryResource(MethodResource, Resource):
 
     @doc(description="Gets one delivery", tags=['Delivery'])
     @exception_guard
-    @auth_guard(Role.supplier, needs_user_id=True)
+    @auth_guard([Role.supplier, Role.deliverer], needs_user_id=True, needs_role=True)
     @marshal_response(GetDeliveryResponseSchema)
-    def get(self, delivery_id: str, auth_user_id: str):
+    def get(self, delivery_id: str, auth_user_id: str, roles: list[Role]):
         """Gets one delivery"""
 
         delivery = DeliveryService.get_one_by_id(UUID(delivery_id))
 
-        if delivery.supplier_id != auth_user_id:
+        if Role.supplier in roles and delivery.supplier_id != auth_user_id:
             raise Forbidden('You do not have access to this resource')
 
-        return {'delivery': delivery}, HTTPStatus.OK
+        if Role.deliverer in roles and\
+                (not delivery.deliverers or
+                 not any(deliverer.deliverer_id == auth_user_id for deliverer in delivery.deliverers)):
+            raise Forbidden('You do not have access to this resource')
+
+        return {
+            'delivery': delivery,
+            'route': delivery.route if Role.deliverer in roles else None
+        }, HTTPStatus.OK

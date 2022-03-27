@@ -6,7 +6,7 @@ from src.utils.JwtUtils import decode_jwt_token
 
 class AuthApi:
 
-    def authorize_request(self, token: str, role: Role = Role.any):
+    def authorize_request(self, token: str, roles: list[Role]):
         """Authorize user token
 
         Args:
@@ -16,6 +16,8 @@ class AuthApi:
         Returns:
             dict[R: Allowed roles for authenticated user and its user id
         """
+
+        # TODO: test
 
         if not token:
             raise Forbidden('No token provided')
@@ -29,7 +31,7 @@ class AuthApi:
 
         allowed_roles = found_role.get_authorized_roles()
 
-        if role not in allowed_roles:
+        if not any(role for role in roles if role in allowed_roles):
             raise Unauthorized(
                 'User does not have access to this resource')
 
