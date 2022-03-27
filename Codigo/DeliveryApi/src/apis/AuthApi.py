@@ -17,8 +17,6 @@ class AuthApi:
             dict[R: Allowed roles for authenticated user and its user id
         """
 
-        # TODO: test
-
         if not token:
             raise Forbidden('No token provided')
 
