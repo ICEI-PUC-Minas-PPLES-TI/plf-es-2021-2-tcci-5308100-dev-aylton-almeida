@@ -85,6 +85,7 @@ class DeliveryDetailsController extends GetxController
         productSku: e[0].productSku,
         name: e[0].name,
         quantity: grouped[e[0].productSku]!.map(((e) => e.quantity)).sum,
+        variant: e[0].variant,
       );
     }).toList();
   }

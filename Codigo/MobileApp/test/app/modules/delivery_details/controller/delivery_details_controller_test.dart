@@ -138,14 +138,24 @@ void main() {
         response[0],
         equals(
           const OrderProduct(
-              orderProductId: 1, productSku: 1, name: 'product 1', quantity: 2),
+            orderProductId: 1,
+            productSku: 1,
+            name: 'product 1',
+            quantity: 2,
+            variant: 'variant 1',
+          ),
         ),
       );
       expect(
         response[1],
         equals(
           const OrderProduct(
-              orderProductId: 2, productSku: 2, name: 'product 2', quantity: 4),
+            orderProductId: 2,
+            productSku: 2,
+            name: 'product 2',
+            quantity: 4,
+            variant: 'variant 2',
+          ),
         ),
       );
     });

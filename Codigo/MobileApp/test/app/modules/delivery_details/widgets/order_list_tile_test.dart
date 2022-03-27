@@ -24,7 +24,36 @@ void main() {
       expect(find.text(order.buyerName), findsOneWidget);
       for (final orderProduct in order.orderProducts) {
         expect(find.text(orderProduct.name), findsWidgets);
-        expect(find.text('${orderProduct.quantity}x'), findsWidgets);
+        expect(
+          find.text('${orderProduct.variant} - ${orderProduct.quantity}x'),
+          findsWidgets,
+        );
+      }
+    });
+
+    testWidgets('Testing when product has no variant',
+        (WidgetTester tester) async {
+      // when
+      final testOrder = order.copyWith(
+        orderProducts: [
+          order.orderProducts[0].copyWith(variant: ''),
+        ],
+      );
+
+      // pump
+      await tester.pumpWidget(createTestMaterialWidget(
+        OrderListTile(order: testOrder),
+      ));
+      await tester.pumpAndSettle();
+
+      // assert
+      expect(find.text(testOrder.buyerName), findsOneWidget);
+      for (final orderProduct in testOrder.orderProducts) {
+        expect(find.text(orderProduct.name), findsWidgets);
+        expect(
+          find.text('${orderProduct.quantity}x'),
+          findsWidgets,
+        );
       }
     });
 

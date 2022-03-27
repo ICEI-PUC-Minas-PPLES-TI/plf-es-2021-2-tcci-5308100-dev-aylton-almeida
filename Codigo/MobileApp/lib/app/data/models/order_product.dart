@@ -10,6 +10,7 @@ class OrderProduct with _$OrderProduct {
     required int productSku,
     required String name,
     required int quantity,
+    required String variant,
   }) = _OrderProduct;
 
   factory OrderProduct.fromJson(Map<String, dynamic> json) =>
