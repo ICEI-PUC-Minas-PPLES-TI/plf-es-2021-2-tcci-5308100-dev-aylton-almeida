@@ -37,13 +37,15 @@ final deliverySample = Delivery.fromJson({
           'orderProductId': 1,
           'productSku': 1,
           'name': 'product 1',
-          'quantity': 2
+          'quantity': 2,
+          'variant': 'variant 1',
         },
         {
           'orderProductId': 2,
           'productSku': 2,
           'name': 'product 2',
-          'quantity': 2
+          'quantity': 2,
+          'variant': 'variant 2',
         },
       ]
     },
@@ -54,7 +56,8 @@ final deliverySample = Delivery.fromJson({
           'orderProductId': 3,
           'productSku': 2,
           'name': 'product 2',
-          'quantity': 2
+          'quantity': 2,
+          'variant': 'variant 2',
         },
       ]
     },

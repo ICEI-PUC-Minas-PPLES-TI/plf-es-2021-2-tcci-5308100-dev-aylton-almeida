@@ -13,7 +13,8 @@ void main() {
       product = deliverySample.orders![0].orderProducts[0];
     });
 
-    testWidgets('Testing initial state', (WidgetTester tester) async {
+    testWidgets('Testing initial state when product has variant',
+        (WidgetTester tester) async {
       // pump
       await tester.pumpWidget(createTestMaterialWidget(
         ProductListTile(orderProduct: product),
@@ -22,7 +23,25 @@ void main() {
 
       // assert
       expect(find.text(product.name), findsOneWidget);
+      expect(find.text(product.variant), findsOneWidget);
       expect(find.text('${product.quantity}x'), findsOneWidget);
+    });
+
+    testWidgets('Testing initial state when product has no variant',
+        (WidgetTester tester) async {
+      // when
+      final testProduct = product.copyWith(variant: '');
+
+      // pump
+      await tester.pumpWidget(createTestMaterialWidget(
+        ProductListTile(orderProduct: testProduct),
+      ));
+      await tester.pumpAndSettle();
+
+      // assert
+      expect(find.text(testProduct.name), findsOneWidget);
+      expect(find.text(testProduct.variant), findsNothing);
+      expect(find.text('${testProduct.quantity}x'), findsOneWidget);
     });
   });
 }

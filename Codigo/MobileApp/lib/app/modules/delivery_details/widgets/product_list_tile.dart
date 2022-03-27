@@ -8,6 +8,13 @@ class ProductListTile extends ListTile {
       : super(
           key: key,
           title: Text(orderProduct.name),
-          trailing: Text('${orderProduct.quantity}x'),
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              if (orderProduct.variant.isNotEmpty) Text(orderProduct.variant),
+              Text('${orderProduct.quantity}x')
+            ],
+          ),
         );
 }
