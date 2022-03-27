@@ -28,13 +28,13 @@ Future<void> main() async {
       // check if the deliveries list is shown and click on the first one
       expect(find.text('delivery_list_title'.tr), findsOneWidget);
       expect(find.text('Compra em grupo Charlotte Fifield'), findsOneWidget);
-      expect(find.text('Entrega prevista: dia 17 às 10 horas'), findsWidgets);
+      expect(find.text('Entrega prevista: dia 10 às 10 horas'), findsWidgets);
       await tester.tap(find.text('Compra em grupo Charlotte Fifield'));
       await tester.pumpAndSettle();
 
       // assert the the delivery details page is shown with the products tab open
       expect(find.text('Compra em grupo Charlotte Fifield'), findsOneWidget);
-      expect(find.text('Entrega prevista: dia 17 às 10 horas'), findsOneWidget);
+      expect(find.text('Entrega prevista: dia 10 às 10 horas'), findsOneWidget);
       expect(find.byType(GoogleMap), findsOneWidget);
       expect(find.text('share_delivery_with_deliverer'.tr), findsOneWidget);
       expect(find.text('products'.tr), findsOneWidget);
