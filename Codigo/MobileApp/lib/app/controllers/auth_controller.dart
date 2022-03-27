@@ -1,7 +1,9 @@
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/deliverer.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
 import 'package:delivery_manager/app/data/repository/storage_repository.dart';
+import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
 import 'package:get/get.dart';
 
 import '../routes/app_pages.dart';
@@ -59,7 +61,13 @@ class AuthController extends GetxController {
         Get.offAllNamed(Routes.DELIVERY_CODE_FORM);
       } else if (response.item1 != null) {
         deliverer.value = response.item1!;
-        Get.offAllNamed(Routes.DELIVERY_DETAILS);
+        Get.offAllNamed(
+          Routes.DELIVERY_DETAILS,
+          arguments: DeliveryDetailsArgs(
+            deliveryId: deliverer.value!.deliveryId,
+            user: User.deliverer,
+          ),
+        );
       } else if (response.item2 != null) {
         supplier.value = response.item2!;
         Get.offAllNamed(Routes.DELIVERY_LIST);

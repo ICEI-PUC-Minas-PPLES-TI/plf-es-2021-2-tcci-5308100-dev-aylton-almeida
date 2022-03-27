@@ -1,8 +1,8 @@
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/modules/confirmation_code_form/arguments/confirmation_code_form_args.dart';
 import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
-import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:delivery_manager/app/utils/create_phone_mask.dart';
 import 'package:delivery_manager/app/utils/dismiss_keyboard.dart';
@@ -16,7 +16,7 @@ class PhoneFormController extends GetxController {
   late GlobalKey<FormState> phoneFormKey;
   late TextEditingController phoneController;
   late MaskTextInputFormatter phoneMask;
-  late PhoneFormUser? user;
+  late User? user;
   late String? currentDeliveryId;
   late Map<String, dynamic> currentAssets;
 
@@ -55,7 +55,7 @@ class PhoneFormController extends GetxController {
   }
 
   void setCurrentAssets() {
-    currentAssets = user == PhoneFormUser.deliverer
+    currentAssets = user == User.deliverer
         ? {
             'title': 'phone_form_deliverer_header'.tr,
             'btn': 'phone_form_deliverer_button'.tr
@@ -88,7 +88,10 @@ class PhoneFormController extends GetxController {
 
     Get.offAllNamed(
       Routes.DELIVERY_DETAILS,
-      arguments: DeliveryDetailsArgs(deliveryId: currentDeliveryId!),
+      arguments: DeliveryDetailsArgs(
+        deliveryId: currentDeliveryId!,
+        user: User.deliverer,
+      ),
     );
   }
 
@@ -113,7 +116,7 @@ class PhoneFormController extends GetxController {
 
       final phone = '+${phoneMask.getUnmaskedText()}';
 
-      if (user == PhoneFormUser.deliverer) {
+      if (user == User.deliverer) {
         await handleDelivererSubmit(phone);
       } else {
         await handleSupplierSubmit(phone);
