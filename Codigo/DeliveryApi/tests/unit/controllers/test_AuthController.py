@@ -48,7 +48,7 @@ class AuthControllerTests(BaseTest):
 
         # assert
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
-        mock_authorize_request.assert_called_once_with(token, Role.any)
+        mock_authorize_request.assert_called_once_with(token, [Role.any])
         mock_authorize.assert_called_once_with(uid, roles)
 
     @patch.object(gateway.service['auth'], 'authorize_request')
@@ -93,7 +93,7 @@ class AuthControllerTests(BaseTest):
             'deliverer': {'delivererId': uid},
             'supplier': {'supplierId': uid},
         })
-        mock_authorize_request.assert_called_once_with(token, Role.any)
+        mock_authorize_request.assert_called_once_with(token, [Role.any])
         mock_authorize.assert_called_once_with(uid, roles)
 
     @patch.object(AuthService, 'authenticate_deliverer')
