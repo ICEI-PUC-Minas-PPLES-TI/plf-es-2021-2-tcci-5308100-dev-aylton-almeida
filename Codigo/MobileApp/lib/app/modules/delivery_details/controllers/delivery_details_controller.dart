@@ -61,8 +61,10 @@ class DeliveryDetailsController extends GetxController
 
   Delivery? get delivery => _delivery.value;
 
+  // TODO: test
   bool get showBackButton => _currentUser == User.supplier;
 
+  // TODO: test
   bool get shouldShowShareButton =>
       _currentUser == User.supplier &&
       _delivery.value?.status == DeliveryStatus.created;
