@@ -75,14 +75,14 @@ class AuthApiTests(BaseTest):
 
         # when
         token = 'Bearer supplier token'
-        role = Role.deliverer
+        roles = [Role.deliverer]
 
         # mock
         mock_decode_jwt_token.return_value = ('1', Role.supplier)
 
         # then
         with self.assertRaises(Unauthorized) as err:
-            self.auth_api.authorize_request(token, role)
+            self.auth_api.authorize_request(token, roles)
 
         # assert
         self.assertIn(
@@ -103,13 +103,13 @@ class AuthApiTests(BaseTest):
 
         # when
         token = 'Bearer deliverer token'
-        role = Role.deliverer
+        roles = [Role.deliverer]
 
         # mock
         mock_decode_jwt_token.return_value = ('1', Role.deliverer)
 
         # then
-        response = self.auth_api.authorize_request(token, role)
+        response = self.auth_api.authorize_request(token, roles)
 
         # assert
         self.assertEqual(response, {
