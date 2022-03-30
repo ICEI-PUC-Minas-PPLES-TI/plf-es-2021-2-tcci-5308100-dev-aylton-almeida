@@ -2,6 +2,7 @@ from datetime import time
 from unittest.mock import MagicMock, patch
 from uuid import UUID
 
+from src.classes.DeliveryStatus import DeliveryStatus
 from src.events.listen.OfferQueue import offer_completed_queue
 from src.models.DeliveryModel import DeliveryModel
 from src.models.SupplierModel import SupplierModel
@@ -49,7 +50,7 @@ class GenerateOptimizedRouteTest(BaseIntegrationTest):
         mock_get_directions.assert_called_once()
 
         self.assertEqual(delivery.offer_id, UUID(offer_sample['offer_id']))
-        self.assertEqual(delivery.status, 'created')
+        self.assertEqual(delivery.status, DeliveryStatus.created)
         self.assertEqual(delivery.supplier_id, supplier.supplier_id)
         self.assertDictEqual(
             vars(supplier) | {
