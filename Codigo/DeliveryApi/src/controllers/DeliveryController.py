@@ -51,7 +51,7 @@ class DeliveryResource(MethodResource, Resource):
     @exception_guard
     @auth_guard([Role.supplier, Role.deliverer], needs_user_id=True, needs_role=True)
     @marshal_response(GetDeliveryResponseSchema)
-    def get(self, delivery_id: str, auth_user_id: str, roles: list[Role]):
+    def get(self, delivery_id: str, auth_user_id: int, roles: list[Role]):
         """Gets one delivery"""
 
         delivery = DeliveryService.get_one_by_id(UUID(delivery_id))
@@ -68,3 +68,13 @@ class DeliveryResource(MethodResource, Resource):
             'delivery': delivery,
             'route': delivery.route if Role.deliverer in roles else None
         }, HTTPStatus.OK
+
+    @doc(description="Starts delivery", tags=['Delivery'])
+    @exception_guard
+    @auth_guard([Role.deliverer], needs_user_id=True)
+    def post(self, delivery_id: str, auth_user_id: int):
+        """Starts delivery"""
+
+        DeliveryService.start_delivery(UUID(delivery_id), auth_user_id)
+
+        return 'ok', HTTPStatus.OK
