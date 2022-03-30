@@ -38,13 +38,16 @@ class DeliveryModel(BaseModel, db.Model):
     offer_id = db.Column(UUID(as_uuid=True), nullable=True, unique=True)
     name = db.Column(db.String(255), nullable=False)
     status = db.Column(
-        db.String(30), default=str(DeliveryStatus.created), nullable=False)
+        db.Enum(DeliveryStatus),
+        default=DeliveryStatus.created,
+        nullable=False
+    )
     access_code = db.Column(
         db.String(6), default=_generate_delivery_access_code, nullable=False)
     report_sent = db.Column(db.Boolean, default=False)
-    delivery_date = db.Column(db.DateTime, nullable=False)
-    start_time = db.Column(db.DateTime)
-    end_time = db.Column(db.DateTime)
+    delivery_date = db.Column(db.DateTime(timezone=True), nullable=False)
+    start_time = db.Column(db.DateTime(timezone=True))
+    end_time = db.Column(db.DateTime(timezone=True))
 
     supplier_id = db.Column(db.Integer, db.ForeignKey(
         'delivery_suppliers.supplier_id'))

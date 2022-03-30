@@ -1,9 +1,12 @@
 from abc import ABC
 from uuid import UUID
 
+from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
+
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.models.DeliveryModel import DeliveryModel
 from src.services.DeliveryRouteService import DeliveryRouteService
+from src.utils.DateUtils import get_current_datetime
 
 
 class DeliveryService(ABC):
@@ -14,7 +17,7 @@ class DeliveryService(ABC):
 
         return DeliveryModel.get_one_filtered([
             DeliveryModel.access_code == code,
-            DeliveryModel.status == str(DeliveryStatus.created)
+            DeliveryModel.status == DeliveryStatus.created
         ])
 
     @staticmethod
@@ -52,3 +55,28 @@ class DeliveryService(ABC):
 
         # Commit transaction
         delivery.save()
+
+    @staticmethod
+    def start_delivery(delivery_id: UUID, deliverer_id: int):
+        """Starts a delivery
+
+            Args:
+                delivery_id (UUID): id of the delivery to start
+                deliverer_id (int): id of the deliverer who starts the delivery
+        """
+
+        delivery = DeliveryService.get_one_by_id(delivery_id)
+
+        if not delivery:
+            raise NotFound('Delivery not found')
+
+        if delivery.status != DeliveryStatus.created:
+            raise BadRequest('Delivery has already started')
+
+        if not any(deliverer.deliverer_id == deliverer_id for deliverer in delivery.deliverers):
+            raise Unauthorized('You are not authorized to start this delivery')
+
+        delivery.update({
+            'status': DeliveryStatus.in_progress,
+            'start_time': get_current_datetime()
+        })

@@ -345,3 +345,41 @@ class DeliveryControllerTests(BaseTest):
             token,
             [Role.supplier, Role.deliverer]
         )
+
+    @patch.object(gateway.service['auth'], 'authorize_request')
+    @patch.object(DeliveryService, 'start_delivery')
+    def test_StartDelivery_when_Default(
+        self,
+        mock_start_delivery: MagicMock,
+        mock_authorize_request: MagicMock,
+    ):
+        """Test start delivery when default behavior"""
+
+        # when
+        deliverer_id = 1
+        delivery_id = uuid4()
+        token = 'Bearer 12345'
+
+        # mock
+        mock_authorize_request.return_value = {
+            'roles': [Role.deliverer], 'user_id': deliverer_id}
+
+        # then
+        response = self.app.post(
+            f'{base_path}/deliveries/{delivery_id}',
+            follow_redirects=True,
+            headers={
+                'Authorization': token
+            }
+        )
+
+        # assert
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        mock_authorize_request.assert_called_once_with(
+            token,
+            [Role.deliverer]
+        )
+        mock_start_delivery.assert_called_once_with(
+            delivery_id,
+            deliverer_id,
+        )
