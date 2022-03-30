@@ -1,7 +1,11 @@
+from datetime import datetime, timezone
 from unittest.mock import MagicMock, call, patch
 from uuid import uuid4
 
+from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
+
 from src.classes.DeliveryStatus import DeliveryStatus
+from src.models.DelivererModel import DelivererModel
 from src.models.DeliveryModel import DeliveryModel
 from src.models.DeliveryRouteModel import DeliveryRouteModel
 from src.services.DeliveryRouteService import DeliveryRouteService
@@ -35,7 +39,7 @@ class DeliveryServiceTests(BaseTest):
         )
         self.assertTrue(
             mock_get_one_filtered.call_args_list[0][0][0][1].compare(
-                DeliveryModel.status == str(DeliveryStatus.created)
+                DeliveryModel.status == DeliveryStatus.created
             ),
             'assert filter has status == created'
         )
@@ -109,3 +113,132 @@ class DeliveryServiceTests(BaseTest):
             call()
         ])
         mock_create_from_delivery.assert_called_once()
+
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(DeliveryModel, 'update')
+    def test_StartDelivery_when_NotFound(
+        self,
+        mock_update: MagicMock,
+        mock_get_one_by_id: MagicMock
+    ):
+        """Test start_delivery when delivery was not found"""
+
+        # when
+        delivery = None
+        delivery_id = uuid4()
+        deliverer_id = 1
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        with self.assertRaises(NotFound) as err:
+            DeliveryService.start_delivery(delivery_id, deliverer_id)
+
+        # assert
+        self.assertIn('Delivery not found', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_update.assert_not_called()
+
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(DeliveryModel, 'update')
+    def test_StartDelivery_when_DeliveryAlreadyStarted(
+        self,
+        mock_update: MagicMock,
+        mock_get_one_by_id: MagicMock
+    ):
+        """Test start_delivery when delivery has already started"""
+
+        # when
+        delivery_id = uuid4()
+        delivery = DeliveryModel({
+            'delivery_id': delivery_id,
+            'status': DeliveryStatus.in_progress
+        })
+        deliverer_id = 1
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        with self.assertRaises(BadRequest) as err:
+            DeliveryService.start_delivery(delivery_id, deliverer_id)
+
+        # assert
+        self.assertIn('Delivery has already started', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_update.assert_not_called()
+
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(DeliveryModel, 'update')
+    def test_StartDelivery_when_DelivererNotDeliveringGivenDelivery(
+        self,
+        mock_update: MagicMock,
+        mock_get_one_by_id: MagicMock
+    ):
+        """Test start_delivery when deliverer is not delivering given delivery"""
+
+        # when
+        delivery_id = uuid4()
+        delivery = DeliveryModel({
+            'delivery_id': delivery_id,
+            'status': DeliveryStatus.created
+        })
+        delivery.deliverers = [
+            DelivererModel({'deliverer_id': index})
+            for index in range(2, 4)
+        ]
+        deliverer_id = 1
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        with self.assertRaises(Unauthorized) as err:
+            DeliveryService.start_delivery(delivery_id, deliverer_id)
+
+        # assert
+        self.assertIn(
+            'You are not authorized to start this delivery',
+            str(err.exception)
+        )
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_update.assert_not_called()
+
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(DeliveryModel, 'update')
+    def test_StartDelivery_when_Default(
+        self,
+        mock_update: MagicMock,
+        mock_get_one_by_id: MagicMock,
+        mock_get_current_datetime: MagicMock
+    ):
+        """Test start_delivery when default behavior"""
+
+        # when
+        delivery_id = uuid4()
+        delivery = DeliveryModel({
+            'delivery_id': delivery_id,
+            'status': DeliveryStatus.created
+        })
+        delivery.deliverers = [
+            DelivererModel({'deliverer_id': index})
+            for index in range(3)
+        ]
+        deliverer_id = 1
+        now = datetime.utcnow().replace(tzinfo=timezone.utc)
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+        mock_get_current_datetime.return_value = now
+
+        # then
+        DeliveryService.start_delivery(delivery_id, deliverer_id)
+
+        # assert
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_update.assert_called_once_with({
+            'status': DeliveryStatus.in_progress,
+            'start_time': now
+        })
