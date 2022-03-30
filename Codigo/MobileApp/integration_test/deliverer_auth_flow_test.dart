@@ -21,7 +21,7 @@ Future<void> main() async {
       await tester.pumpAndSettle();
 
       // when
-      const validCode = 'AYLTON';
+      const validCode = '5IMIVP';
       const validPhone = '5531999385992';
 
       // Find the text field and enter the code
@@ -41,8 +41,7 @@ Future<void> main() async {
       await tester.enterText(find.byType(OutlinedTextField), validPhone);
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('phone_submit_button')));
-      // TODO: test do a pump and settle when possible
-      await tester.pump(const Duration(seconds: 5));
+      await tester.pumpAndSettle();
 
       // Find the delivery details page
       expect(find.text('delivery_details'.tr), findsOneWidget);
