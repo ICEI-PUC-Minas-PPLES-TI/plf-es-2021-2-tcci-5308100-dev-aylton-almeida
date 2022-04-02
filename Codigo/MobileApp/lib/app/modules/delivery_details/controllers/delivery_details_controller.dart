@@ -2,6 +2,7 @@ import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/enums/delivery_status.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/models/order_product.dart';
@@ -24,6 +25,7 @@ class DeliveryDetailsController extends GetxController
   late AuthController _authController;
 
   late String _deliveryId;
+  late User _currentUser;
 
   late TabController tabsController;
 
@@ -42,10 +44,13 @@ class DeliveryDetailsController extends GetxController
     required AppController appController,
     required AuthController authController,
     String? deliveryId,
+    User? currentUser,
     Delivery? delivery,
   }) {
     _deliveryId =
         (Get.arguments as DeliveryDetailsArgs?)?.deliveryId ?? deliveryId!;
+    _currentUser =
+        (Get.arguments as DeliveryDetailsArgs?)?.user ?? currentUser!;
     _delivery.value = delivery;
     _appController = appController;
     _authController = authController;
@@ -56,7 +61,12 @@ class DeliveryDetailsController extends GetxController
 
   Delivery? get delivery => _delivery.value;
 
+  // TODO: test
+  bool get showBackButton => _currentUser == User.supplier;
+
+  // TODO: test
   bool get shouldShowShareButton =>
+      _currentUser == User.supplier &&
       _delivery.value?.status == DeliveryStatus.created;
 
   @override

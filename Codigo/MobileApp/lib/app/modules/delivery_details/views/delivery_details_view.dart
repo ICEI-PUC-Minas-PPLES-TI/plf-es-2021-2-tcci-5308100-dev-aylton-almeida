@@ -14,13 +14,15 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AuthenticatedAppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.black,
-          ),
-          onPressed: controller.goBack,
-        ),
+        leading: controller.showBackButton
+            ? IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.black,
+                ),
+                onPressed: controller.goBack,
+              )
+            : null,
         titleText: 'delivery_details'.tr,
         userName: controller.supplier?.name,
       ),

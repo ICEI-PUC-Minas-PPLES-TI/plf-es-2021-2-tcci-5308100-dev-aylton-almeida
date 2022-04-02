@@ -1,6 +1,7 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
@@ -27,7 +28,11 @@ void main() {
     late MockAppController mockAppController;
     late MockTabController mockTabController;
 
-    createController({String deliveryId = '1', Delivery? delivery}) {
+    createController({
+      String deliveryId = '1',
+      User currentUser = User.supplier,
+      Delivery? delivery,
+    }) {
       final storageRepository = StorageRepository(
         storageClient: const FlutterSecureStorage(),
       );
@@ -35,6 +40,7 @@ void main() {
       return DeliveryDetailsController(
         deliveryId: deliveryId,
         delivery: delivery,
+        currentUser: currentUser,
         deliveriesRepository: mockDeliveriesRepository,
         appController: mockAppController,
         authController: AuthController(

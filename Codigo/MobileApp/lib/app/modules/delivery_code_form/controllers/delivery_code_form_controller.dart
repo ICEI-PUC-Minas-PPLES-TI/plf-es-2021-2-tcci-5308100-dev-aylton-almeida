@@ -1,6 +1,6 @@
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
-import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/utils/dismiss_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +65,7 @@ class DeliveryCodeFormController extends GetxController {
       Get.toNamed(
         Routes.PHONE_FORM,
         arguments: PhoneFormArgs(
-          user: PhoneFormUser.deliverer,
+          user: User.deliverer,
           deliveryId: deliveryId,
         ),
       );
@@ -79,7 +79,7 @@ class DeliveryCodeFormController extends GetxController {
   void onSupplierPressed() {
     Get.toNamed(
       Routes.PHONE_FORM,
-      arguments: PhoneFormArgs(user: PhoneFormUser.supplier),
+      arguments: PhoneFormArgs(user: User.supplier),
     );
   }
 }
