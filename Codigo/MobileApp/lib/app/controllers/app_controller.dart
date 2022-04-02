@@ -24,4 +24,36 @@ class AppController extends GetxController {
               ),
             )
           : null;
+
+  void showDialog({
+    required Widget title,
+    required String cancelText,
+    required String confirmText,
+    required Function() onConfirmTap,
+  }) =>
+      Get.dialog(
+        AlertDialog(
+          title: title,
+          actions: [
+            OutlinedButton(
+              onPressed: Get.back,
+              child: Text(cancelText),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: onConfirmTap,
+              child: Text(confirmText),
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 }

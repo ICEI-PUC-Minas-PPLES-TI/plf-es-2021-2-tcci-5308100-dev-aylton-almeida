@@ -32,7 +32,8 @@ final _listContent = {
   'delivery_created_subtitle': 'Entrega prevista: dia :day às :hour horas',
   'delivery_in_progress_subtitle': 'Entrega prevista: dia :day às :hour horas',
   'delivery_finished_subtitle': 'Entregue: dia :day às :hour horas',
-  'delivery_initial_address': 'Endereço inicial: :address'
+  'delivery_initial_address': 'Endereço inicial: :address',
+  'delivery_estimate_time': 'Tempo estimado: :hour horas e :minute minutos',
 };
 
 final _inputLabels = {
@@ -63,7 +64,11 @@ final _buttonLabels = {
   'resend_code_button': 'Reenviar código',
   'change_number_button': 'Trocar número de celular',
   'exit_button': 'Sair',
-  'share_delivery_with_deliverer': 'Enviar para Entregador'
+  'share_delivery_with_deliverer': 'Enviar para Entregador',
+  'start_delivery': 'Iniciar entrega',
+  'cancel_delivery': 'Cancelar entrega',
+  'cancel': 'Cancelar',
+  'confirm': 'Confirmar'
 };
 
 final _alerts = {
@@ -88,6 +93,13 @@ final _shareMessages = {
       'Olá, aqui está o código de acesso à entrega :name: :code'
 };
 
+final _dialogTitles = {
+  'start_delivery_dialog_title':
+      'Você tem certeza que deseja iniciar essa entrega?',
+  'cancel_delivery_dialog_title':
+      'Você tem certeza que deseja cancelar essa entrega?',
+};
+
 final Map<String, String> ptBR = {
   ..._appBarTitles,
   ..._headers,
@@ -100,5 +112,6 @@ final Map<String, String> ptBR = {
   ..._buttonLabels,
   ..._alerts,
   ..._tabs,
-  ..._shareMessages
+  ..._shareMessages,
+  ..._dialogTitles
 };

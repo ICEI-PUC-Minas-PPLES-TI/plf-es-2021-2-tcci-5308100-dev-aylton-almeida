@@ -39,8 +39,10 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
               SliverToBoxAdapter(
                 child: DeliveryDetailsHeader(
                   delivery: delivery,
-                  onShareTap: controller.shareWithDeliverer,
-                  showShareBtn: controller.shouldShowShareButton,
+                  currentUser: controller.currentUser,
+                  onShareTap: controller.onShareTap,
+                  onStartTap: controller.onStartTap,
+                  onCancelTap: controller.onCancelTap,
                 ),
               ),
               SliverOverlapAbsorber(

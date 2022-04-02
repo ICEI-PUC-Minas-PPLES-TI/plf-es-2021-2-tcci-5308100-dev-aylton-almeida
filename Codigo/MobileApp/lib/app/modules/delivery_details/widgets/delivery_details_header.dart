@@ -1,20 +1,68 @@
 import 'package:delivery_manager/app/data/enums/delivery_status.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DeliveryDetailsHeader extends StatelessWidget {
-  const DeliveryDetailsHeader({
+  DeliveryDetailsHeader({
     Key? key,
     required this.delivery,
+    required User currentUser,
     required this.onShareTap,
-    required this.showShareBtn,
-  }) : super(key: key);
+    required this.onStartTap,
+    required this.onCancelTap,
+  })  : showDeliveryDate = currentUser == User.supplier,
+        showEstimateTime = currentUser == User.deliverer,
+        showShareButton = currentUser == User.supplier &&
+            delivery.status == DeliveryStatus.created,
+        showStartButton = currentUser == User.deliverer,
+        super(key: key);
 
   final Delivery delivery;
-  final void Function() onShareTap;
-  final bool showShareBtn;
+  final void Function()? onShareTap;
+  final void Function()? onStartTap;
+  final void Function()? onCancelTap;
+
+  final bool showDeliveryDate; // TODO: test
+  final bool showEstimateTime; // TODO: test
+  final bool showShareButton; // TODO: test
+  final bool showStartButton; // TODO: test
+
+  Widget getEstimateTime() {
+    return Column(
+      children: [
+        const SizedBox(height: 16),
+        Text(
+          'delivery_estimate_time'
+              .tr
+              .replaceAll(
+                ':hour',
+                delivery.route!.estimateTime.split(':')[0],
+              )
+              .replaceAll(
+                ':minute',
+                delivery.route!.estimateTime.split(':')[1],
+              ),
+        ),
+      ],
+    );
+  }
+
+  Widget getDeliveryDate() {
+    return Column(
+      children: [
+        const SizedBox(height: 16),
+        Text(
+          'delivery_${delivery.status!.value}_subtitle'
+              .tr
+              .replaceAll(':day', delivery.deliveryDate!.day.toString())
+              .replaceAll(':hour', delivery.deliveryDate!.hour.toString()),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +72,7 @@ class DeliveryDetailsHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(delivery.name!, style: Get.textTheme.headline5),
-          const SizedBox(height: 8),
-          Text(
-            'delivery_${delivery.status!.value}_subtitle'
-                .tr
-                .replaceAll(':day', delivery.deliveryDate!.day.toString())
-                .replaceAll(':hour', delivery.deliveryDate!.hour.toString()),
-          ),
+          if (showDeliveryDate) getDeliveryDate(),
           const SizedBox(height: 16),
           Text(
             'delivery_initial_address'.tr.replaceAll(
@@ -38,6 +80,7 @@ class DeliveryDetailsHeader extends StatelessWidget {
                   delivery.orders![0].shippingAddress.formatted,
                 ),
           ),
+          if (showEstimateTime) getEstimateTime(),
           const SizedBox(height: 24),
           ClipRRect(
             borderRadius: BorderRadius.circular(25),
@@ -64,16 +107,30 @@ class DeliveryDetailsHeader extends StatelessWidget {
               ),
             ),
           ),
-          if (showShareBtn)
+          if (showShareButton)
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 24),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: onShareTap,
-                    child: Text('share_delivery_with_deliverer'.tr),
-                  ),
+                ElevatedButton(
+                  onPressed: onShareTap,
+                  child: Text('share_delivery_with_deliverer'.tr),
+                ),
+              ],
+            ),
+          if (showStartButton)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: onStartTap,
+                  child: Text('start_delivery'.tr),
+                ),
+                const SizedBox(height: 16),
+                OutlinedButton(
+                  onPressed: onCancelTap,
+                  child: Text('cancel_delivery'.tr),
                 ),
               ],
             )

@@ -30,7 +30,7 @@ void main() {
         DeliveryDetailsHeader(
           delivery: delivery,
           onShareTap: mockOnShareTap,
-          showShareBtn: true,
+          showShareButton: true,
         ),
       ));
       await tester.pumpAndSettle();
@@ -55,7 +55,7 @@ void main() {
         DeliveryDetailsHeader(
           delivery: delivery,
           onShareTap: mockOnShareTap,
-          showShareBtn: false,
+          showShareButton: false,
         ),
       ));
       await tester.pumpAndSettle();
@@ -80,7 +80,7 @@ void main() {
         DeliveryDetailsHeader(
           delivery: delivery,
           onShareTap: mockOnShareTap,
-          showShareBtn: true,
+          showShareButton: true,
         ),
       ));
       await tester.pumpAndSettle();

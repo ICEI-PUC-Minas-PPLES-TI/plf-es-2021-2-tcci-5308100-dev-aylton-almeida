@@ -25,7 +25,7 @@ class DeliveryDetailsController extends GetxController
   late AuthController _authController;
 
   late String _deliveryId;
-  late User _currentUser;
+  late User currentUser;
 
   late TabController tabsController;
 
@@ -49,7 +49,7 @@ class DeliveryDetailsController extends GetxController
   }) {
     _deliveryId =
         (Get.arguments as DeliveryDetailsArgs?)?.deliveryId ?? deliveryId!;
-    _currentUser =
+    this.currentUser =
         (Get.arguments as DeliveryDetailsArgs?)?.user ?? currentUser!;
     _delivery.value = delivery;
     _appController = appController;
@@ -62,12 +62,7 @@ class DeliveryDetailsController extends GetxController
   Delivery? get delivery => _delivery.value;
 
   // TODO: test
-  bool get showBackButton => _currentUser == User.supplier;
-
-  // TODO: test
-  bool get shouldShowShareButton =>
-      _currentUser == User.supplier &&
-      _delivery.value?.status == DeliveryStatus.created;
+  bool get showBackButton => currentUser == User.supplier;
 
   @override
   void onInit() {
@@ -127,12 +122,30 @@ class DeliveryDetailsController extends GetxController
     }
   }
 
-  void shareWithDeliverer() => Share.share(
+  void onShareTap() => Share.share(
         'share_with_deliverer'
             .tr
             .replaceAll(':name', _delivery.value!.name!)
             .replaceAll(':code', _delivery.value!.accessCode!),
       );
+
+  void onStartTap() {
+    _appController.showDialog(
+      title: Text('start_delivery_dialog_title'.tr),
+      cancelText: 'cancel'.tr,
+      confirmText: 'confirm'.tr,
+      onConfirmTap: () {},
+    );
+  }
+
+  void onCancelTap() {
+    _appController.showDialog(
+      title: Text('cancel_delivery_dialog_title'.tr),
+      cancelText: 'cancel'.tr,
+      confirmText: 'confirm'.tr,
+      onConfirmTap: _authController.signOut,
+    );
+  }
 
   void goBack() => Get.back();
 }
