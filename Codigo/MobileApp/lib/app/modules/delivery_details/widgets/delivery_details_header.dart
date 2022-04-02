@@ -31,7 +31,7 @@ class DeliveryDetailsHeader extends StatelessWidget {
   final bool _showEstimateTime;
   final bool _showShareButton;
   final bool _showStartButton;
-  final bool isStartLoading; // TODO: test
+  final bool isStartLoading;
 
   Widget getEstimateTime() {
     return Column(

@@ -13,8 +13,6 @@ class AuthRepository {
     String phone,
     String deliveryId,
   ) async {
-    // TODO: test
-
     final response = await _apiClient.post('$_basePath/deliverers', body: {
       'phone': phone,
       'deliveryId': deliveryId,
@@ -24,8 +22,6 @@ class AuthRepository {
   }
 
   Future<int> authSupplier(String phone) async {
-    // TODO: test
-
     final response = await _apiClient.post('$_basePath/suppliers', body: {
       'phone': phone,
     });
@@ -37,8 +33,6 @@ class AuthRepository {
     int supplierId,
     String code,
   ) async {
-    // TODO: test
-
     final response =
         await _apiClient.post('$_basePath/suppliers/verify-code', body: {
       'supplierId': supplierId,
@@ -49,8 +43,6 @@ class AuthRepository {
   }
 
   Future<Tuple2<Deliverer?, Supplier?>> authorizeUser() async {
-    // TODO: test
-
     final response = await _apiClient.get(_basePath);
 
     return Tuple2(

@@ -1,6 +1,7 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
+import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
@@ -8,6 +9,8 @@ import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
+import 'package:delivery_manager/app/modules/order_directions/arguments/order_directions_args.dart';
+import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:delivery_manager/app/utils/flatten.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -113,6 +116,13 @@ class DeliveryDetailsController extends GetxController
 
     try {
       _delivery.value = await _deliveriesRepository.getDelivery(_deliveryId);
+
+      if (_delivery.value!.status == DeliveryStatus.in_progress) {
+        await goToOrderDirections(_delivery.value!);
+      }
+      if (_delivery.value!.status == DeliveryStatus.finished) {
+        await _authController.signOut();
+      }
     } catch (e) {
       _appController.showAlert(
           text: 'generic_error_msg'.tr, type: AlertType.error);
@@ -139,6 +149,8 @@ class DeliveryDetailsController extends GetxController
         try {
           Get.back();
           await _deliveriesRepository.startDelivery(_deliveryId);
+
+          await goToOrderDirections(_delivery.value!);
         } catch (e) {
           _appController.showAlert(
               text: 'generic_error_msg'.tr, type: AlertType.error);
@@ -157,6 +169,11 @@ class DeliveryDetailsController extends GetxController
       onConfirmTap: _authController.signOut,
     );
   }
+
+  goToOrderDirections(Delivery delivery) => Get.offAllNamed(
+        Routes.ORDER_DIRECTIONS,
+        arguments: OrderDirectionsArgs(delivery: delivery),
+      );
 
   void goBack() => Get.back();
 }
