@@ -30,4 +30,8 @@ class DeliveriesRepository {
 
     return Delivery.fromJson(response['delivery']);
   }
+
+  Future<void> startDelivery(String deliveryId) async {
+    await _apiClient.post('$_basePath/$deliveryId');
+  }
 }

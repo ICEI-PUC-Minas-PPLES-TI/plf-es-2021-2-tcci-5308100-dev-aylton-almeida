@@ -15,7 +15,7 @@ class AuthRepository {
   ) async {
     // TODO: test
 
-    final response = await _apiClient.post('$_basePath/deliverers', {
+    final response = await _apiClient.post('$_basePath/deliverers', body: {
       'phone': phone,
       'deliveryId': deliveryId,
     });
@@ -26,7 +26,7 @@ class AuthRepository {
   Future<int> authSupplier(String phone) async {
     // TODO: test
 
-    final response = await _apiClient.post('$_basePath/suppliers', {
+    final response = await _apiClient.post('$_basePath/suppliers', body: {
       'phone': phone,
     });
 
@@ -39,7 +39,8 @@ class AuthRepository {
   ) async {
     // TODO: test
 
-    final response = await _apiClient.post('$_basePath/suppliers/verify-code', {
+    final response =
+        await _apiClient.post('$_basePath/suppliers/verify-code', body: {
       'supplierId': supplierId,
       "code": code,
     });

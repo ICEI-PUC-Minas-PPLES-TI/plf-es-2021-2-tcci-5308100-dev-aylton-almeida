@@ -84,7 +84,7 @@ void main() {
       expect(find.byType(SliverAppBar), findsOneWidget);
       expect(find.text('products'.tr), findsOneWidget);
       expect(find.text('orders'.tr), findsOneWidget);
-      expect(find.byType(ProductListTile), findsNWidgets(2));
+      expect(find.byType(ProductListTile), findsNWidgets(1));
       expect(find.text('product 1'), findsWidgets);
       expect(find.byType(OrderListTile), findsNothing);
       expect(find.text('buyer name'), findsNothing);
@@ -109,7 +109,7 @@ void main() {
       expect(find.text('orders'.tr), findsOneWidget);
       expect(find.byType(ProductListTile), findsNothing);
       expect(find.text('product 1'), findsWidgets);
-      expect(find.byType(OrderListTile), findsNWidgets(2));
+      expect(find.byType(OrderListTile), findsNWidgets(1));
       expect(find.text('buyer name'), findsWidgets);
     });
   });

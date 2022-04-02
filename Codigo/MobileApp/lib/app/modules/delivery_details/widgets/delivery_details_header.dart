@@ -1,6 +1,7 @@
 import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
+import 'package:delivery_manager/app/widgets/loading_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,11 +14,12 @@ class DeliveryDetailsHeader extends StatelessWidget {
     required this.onShareTap,
     required this.onStartTap,
     required this.onCancelTap,
-  })  : showDeliveryDate = currentUser == User.supplier,
-        showEstimateTime = currentUser == User.deliverer,
-        showShareButton = currentUser == User.supplier &&
+    required this.isStartLoading,
+  })  : _showDeliveryDate = currentUser == User.supplier,
+        _showEstimateTime = currentUser == User.deliverer,
+        _showShareButton = currentUser == User.supplier &&
             delivery.status == DeliveryStatus.created,
-        showStartButton = currentUser == User.deliverer,
+        _showStartButton = currentUser == User.deliverer,
         super(key: key);
 
   final Delivery delivery;
@@ -25,10 +27,11 @@ class DeliveryDetailsHeader extends StatelessWidget {
   final void Function()? onStartTap;
   final void Function()? onCancelTap;
 
-  final bool showDeliveryDate; // TODO: test
-  final bool showEstimateTime; // TODO: test
-  final bool showShareButton; // TODO: test
-  final bool showStartButton; // TODO: test
+  final bool _showDeliveryDate;
+  final bool _showEstimateTime;
+  final bool _showShareButton;
+  final bool _showStartButton;
+  final bool isStartLoading; // TODO: test
 
   Widget getEstimateTime() {
     return Column(
@@ -72,7 +75,7 @@ class DeliveryDetailsHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(delivery.name!, style: Get.textTheme.headline5),
-          if (showDeliveryDate) getDeliveryDate(),
+          if (_showDeliveryDate) getDeliveryDate(),
           const SizedBox(height: 16),
           Text(
             'delivery_initial_address'.tr.replaceAll(
@@ -80,7 +83,7 @@ class DeliveryDetailsHeader extends StatelessWidget {
                   delivery.orders![0].shippingAddress.formatted,
                 ),
           ),
-          if (showEstimateTime) getEstimateTime(),
+          if (_showEstimateTime) getEstimateTime(),
           const SizedBox(height: 24),
           ClipRRect(
             borderRadius: BorderRadius.circular(25),
@@ -107,7 +110,7 @@ class DeliveryDetailsHeader extends StatelessWidget {
               ),
             ),
           ),
-          if (showShareButton)
+          if (_showShareButton)
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -118,18 +121,21 @@ class DeliveryDetailsHeader extends StatelessWidget {
                 ),
               ],
             ),
-          if (showStartButton)
+          if (_showStartButton)
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 24),
-                ElevatedButton(
+                LoadingButton(
+                  key: const Key('start_delivery_button'),
                   onPressed: onStartTap,
                   child: Text('start_delivery'.tr),
+                  isLoading: isStartLoading,
                 ),
                 const SizedBox(height: 16),
                 OutlinedButton(
-                  onPressed: onCancelTap,
+                  key: const Key('cancel_delivery_button'),
+                  onPressed: !isStartLoading ? onCancelTap : null,
                   child: Text('cancel_delivery'.tr),
                 ),
               ],

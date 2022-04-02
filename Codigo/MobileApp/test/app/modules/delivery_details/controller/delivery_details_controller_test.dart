@@ -178,5 +178,25 @@ void main() {
       // assert
       expect(response, deliverySample.orders!);
     });
+
+    test('if should show back button is true when user is supplier', () {
+      // when
+      const user = User.supplier;
+
+      final controller = createController(currentUser: user);
+
+      // assert
+      expect(controller.showBackButton, isTrue);
+    });
+
+    test('if should show back button is false when user is deliverer', () {
+      // when
+      const user = User.deliverer;
+
+      final controller = createController(currentUser: user);
+
+      // assert
+      expect(controller.showBackButton, isFalse);
+    });
   });
 }

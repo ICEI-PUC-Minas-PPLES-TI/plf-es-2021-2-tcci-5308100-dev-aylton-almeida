@@ -37,12 +37,15 @@ class DeliveryDetailsView extends GetView<DeliveryDetailsController> {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverToBoxAdapter(
-                child: DeliveryDetailsHeader(
-                  delivery: delivery,
-                  currentUser: controller.currentUser,
-                  onShareTap: controller.onShareTap,
-                  onStartTap: controller.onStartTap,
-                  onCancelTap: controller.onCancelTap,
+                child: Obx(
+                  () => DeliveryDetailsHeader(
+                    delivery: delivery,
+                    currentUser: controller.currentUser,
+                    onShareTap: controller.onShareTap,
+                    onStartTap: controller.onStartTap,
+                    onCancelTap: controller.onCancelTap,
+                    isStartLoading: controller.isStartLoading.value,
+                  ),
                 ),
               ),
               SliverOverlapAbsorber(

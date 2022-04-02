@@ -28,7 +28,7 @@ class ApiClient {
 
   handleApiResponse(Response response) {
     if (response.statusCode == 200) {
-      return json.decode(response.body);
+      return jsonDecode(response.body);
     } else {
       throw Exception('Failed request with error ${response.statusCode}');
     }
@@ -41,10 +41,10 @@ class ApiClient {
     return handleApiResponse(response);
   }
 
-  Future<Map<String, dynamic>> post(
-    String path,
-    Map<String, dynamic> body,
-  ) async {
+  Future<dynamic> post<T>(
+    String path, {
+    Map<String, dynamic>? body,
+  }) async {
     final uri = Uri.parse('$baseUrl$path');
     final response = await _httpClient.post(
       uri,

@@ -1,7 +1,6 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
-import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
@@ -35,6 +34,7 @@ class DeliveryDetailsController extends GetxController
   ];
 
   final isLoading = false.obs;
+  final isStartLoading = false.obs;
   final Rx<Delivery?> _delivery = Rx(null);
   final _orderItems = Rx<List<Order>?>(null);
   final _productItems = Rx<List<OrderProduct>?>(null);
@@ -61,7 +61,6 @@ class DeliveryDetailsController extends GetxController
 
   Delivery? get delivery => _delivery.value;
 
-  // TODO: test
   bool get showBackButton => currentUser == User.supplier;
 
   @override
@@ -134,7 +133,19 @@ class DeliveryDetailsController extends GetxController
       title: Text('start_delivery_dialog_title'.tr),
       cancelText: 'cancel'.tr,
       confirmText: 'confirm'.tr,
-      onConfirmTap: () {},
+      onConfirmTap: () async {
+        isStartLoading.value = true;
+
+        try {
+          Get.back();
+          await _deliveriesRepository.startDelivery(_deliveryId);
+        } catch (e) {
+          _appController.showAlert(
+              text: 'generic_error_msg'.tr, type: AlertType.error);
+        } finally {
+          isStartLoading.value = false;
+        }
+      },
     );
   }
 

@@ -61,5 +61,11 @@ final deliverySample = Delivery.fromJson({
         },
       ]
     },
-  ]
+  ],
+  'route': {
+    'deliveryRouteId': 1,
+    'deliveryId': 'delivery_id',
+    'estimateTime': '04:10:20',
+    'addresses': []
+  }
 });
