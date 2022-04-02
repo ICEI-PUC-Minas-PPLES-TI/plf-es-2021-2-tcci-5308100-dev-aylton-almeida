@@ -1,9 +1,7 @@
 import 'package:delivery_manager/app/data/models/deliverer.dart';
-import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
-import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

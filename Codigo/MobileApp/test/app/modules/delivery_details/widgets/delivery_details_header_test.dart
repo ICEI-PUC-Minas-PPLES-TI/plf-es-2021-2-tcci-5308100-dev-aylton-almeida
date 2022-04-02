@@ -1,7 +1,6 @@
 import 'package:delivery_manager/app/data/enums/delivery_status.dart';
 import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
-import 'package:delivery_manager/app/modules/delivery_details/controllers/delivery_details_controller.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/delivery_details_header.dart';
 import 'package:delivery_manager/app/widgets/loading_button.dart';
 import 'package:flutter/material.dart';
