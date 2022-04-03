@@ -1,5 +1,6 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
@@ -30,7 +31,7 @@ void main() {
     late MockAppController mockAppController;
     late MockTabController mockTabController;
 
-    createController() {
+    createController({User currentUser = User.supplier}) {
       final storageRepository = StorageRepository(
         storageClient: const FlutterSecureStorage(),
       );
@@ -38,6 +39,7 @@ void main() {
       return DeliveryDetailsController(
         deliveryId: deliverySample.deliveryId,
         delivery: deliverySample,
+        currentUser: currentUser,
         deliveriesRepository: mockDeliveriesRepository,
         appController: mockAppController,
         authController: AuthController(
@@ -82,7 +84,7 @@ void main() {
       expect(find.byType(SliverAppBar), findsOneWidget);
       expect(find.text('products'.tr), findsOneWidget);
       expect(find.text('orders'.tr), findsOneWidget);
-      expect(find.byType(ProductListTile), findsNWidgets(2));
+      expect(find.byType(ProductListTile), findsNWidgets(1));
       expect(find.text('product 1'), findsWidgets);
       expect(find.byType(OrderListTile), findsNothing);
       expect(find.text('buyer name'), findsNothing);
@@ -107,7 +109,7 @@ void main() {
       expect(find.text('orders'.tr), findsOneWidget);
       expect(find.byType(ProductListTile), findsNothing);
       expect(find.text('product 1'), findsWidgets);
-      expect(find.byType(OrderListTile), findsNWidgets(2));
+      expect(find.byType(OrderListTile), findsNWidgets(1));
       expect(find.text('buyer name'), findsWidgets);
     });
   });

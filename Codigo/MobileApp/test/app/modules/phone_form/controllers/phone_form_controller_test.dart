@@ -1,9 +1,9 @@
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
 import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_args.dart';
-import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
 import 'package:delivery_manager/app/modules/phone_form/controllers/phone_form_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -159,7 +159,7 @@ void main() {
     test('setCurrentAssets when current user is deliverer', () {
       // when
       final controller = createFormController(
-        args: PhoneFormArgs(user: PhoneFormUser.deliverer),
+        args: PhoneFormArgs(user: User.deliverer),
       );
 
       // then
@@ -174,7 +174,7 @@ void main() {
     test('setCurrentAssets when current user is supplier', () {
       // when
       final controller = createFormController(
-        args: PhoneFormArgs(user: PhoneFormUser.supplier),
+        args: PhoneFormArgs(user: User.supplier),
       );
 
       // then

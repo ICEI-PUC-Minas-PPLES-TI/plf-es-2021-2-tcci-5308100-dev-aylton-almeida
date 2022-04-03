@@ -1,6 +1,7 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
@@ -27,7 +28,11 @@ void main() {
     late MockAppController mockAppController;
     late MockTabController mockTabController;
 
-    createController({String deliveryId = '1', Delivery? delivery}) {
+    createController({
+      String deliveryId = '1',
+      User currentUser = User.supplier,
+      Delivery? delivery,
+    }) {
       final storageRepository = StorageRepository(
         storageClient: const FlutterSecureStorage(),
       );
@@ -35,6 +40,7 @@ void main() {
       return DeliveryDetailsController(
         deliveryId: deliveryId,
         delivery: delivery,
+        currentUser: currentUser,
         deliveriesRepository: mockDeliveriesRepository,
         appController: mockAppController,
         authController: AuthController(
@@ -171,6 +177,26 @@ void main() {
 
       // assert
       expect(response, deliverySample.orders!);
+    });
+
+    test('if should show back button is true when user is supplier', () {
+      // when
+      const user = User.supplier;
+
+      final controller = createController(currentUser: user);
+
+      // assert
+      expect(controller.showBackButton, isTrue);
+    });
+
+    test('if should show back button is false when user is deliverer', () {
+      // when
+      const user = User.deliverer;
+
+      final controller = createController(currentUser: user);
+
+      // assert
+      expect(controller.showBackButton, isFalse);
     });
   });
 }

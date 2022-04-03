@@ -2,6 +2,7 @@ import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/enums/delivery_status.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
@@ -63,7 +64,10 @@ class DeliveryListController extends GetxController
   void onDeliveryTap(String deliveryId) {
     Get.toNamed(
       Routes.DELIVERY_DETAILS,
-      arguments: DeliveryDetailsArgs(deliveryId: deliveryId),
+      arguments: DeliveryDetailsArgs(
+        deliveryId: deliveryId,
+        user: User.supplier,
+      ),
     );
   }
 

@@ -1,7 +1,7 @@
-import 'package:delivery_manager/app/modules/phone_form/arguments/phone_form_user.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 
 class PhoneFormArgs {
-  PhoneFormUser user;
+  User user;
   String? deliveryId;
 
   PhoneFormArgs({

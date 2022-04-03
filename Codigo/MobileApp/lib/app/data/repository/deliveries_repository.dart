@@ -24,6 +24,14 @@ class DeliveriesRepository {
   Future<Delivery> getDelivery(String deliveryId) async {
     final response = await _apiClient.get('$_basePath/$deliveryId');
 
+    if (response['route'] != null) {
+      response['delivery']['route'] = response['route'];
+    }
+
     return Delivery.fromJson(response['delivery']);
+  }
+
+  Future<void> startDelivery(String deliveryId) async {
+    await _apiClient.post('$_basePath/$deliveryId');
   }
 }

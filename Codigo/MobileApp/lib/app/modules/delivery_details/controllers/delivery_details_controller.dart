@@ -2,12 +2,15 @@ import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/enums/delivery_status.dart';
+import 'package:delivery_manager/app/data/enums/user.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/models/order_product.dart';
 import 'package:delivery_manager/app/data/models/supplier.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/delivery_details/arguments/delivery_details_args.dart';
+import 'package:delivery_manager/app/modules/order_directions/arguments/order_directions_args.dart';
+import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:delivery_manager/app/utils/flatten.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -24,6 +27,7 @@ class DeliveryDetailsController extends GetxController
   late AuthController _authController;
 
   late String _deliveryId;
+  late User currentUser;
 
   late TabController tabsController;
 
@@ -33,6 +37,7 @@ class DeliveryDetailsController extends GetxController
   ];
 
   final isLoading = false.obs;
+  final isStartLoading = false.obs;
   final Rx<Delivery?> _delivery = Rx(null);
   final _orderItems = Rx<List<Order>?>(null);
   final _productItems = Rx<List<OrderProduct>?>(null);
@@ -42,10 +47,13 @@ class DeliveryDetailsController extends GetxController
     required AppController appController,
     required AuthController authController,
     String? deliveryId,
+    User? currentUser,
     Delivery? delivery,
   }) {
     _deliveryId =
         (Get.arguments as DeliveryDetailsArgs?)?.deliveryId ?? deliveryId!;
+    this.currentUser =
+        (Get.arguments as DeliveryDetailsArgs?)?.user ?? currentUser!;
     _delivery.value = delivery;
     _appController = appController;
     _authController = authController;
@@ -56,8 +64,7 @@ class DeliveryDetailsController extends GetxController
 
   Delivery? get delivery => _delivery.value;
 
-  bool get shouldShowShareButton =>
-      _delivery.value?.status == DeliveryStatus.created;
+  bool get showBackButton => currentUser == User.supplier;
 
   @override
   void onInit() {
@@ -109,6 +116,13 @@ class DeliveryDetailsController extends GetxController
 
     try {
       _delivery.value = await _deliveriesRepository.getDelivery(_deliveryId);
+
+      if (_delivery.value!.status == DeliveryStatus.in_progress) {
+        await goToOrderDirections(_delivery.value!);
+      }
+      if (_delivery.value!.status == DeliveryStatus.finished) {
+        await _authController.signOut();
+      }
     } catch (e) {
       _appController.showAlert(
           text: 'generic_error_msg'.tr, type: AlertType.error);
@@ -117,11 +131,48 @@ class DeliveryDetailsController extends GetxController
     }
   }
 
-  void shareWithDeliverer() => Share.share(
+  void onShareTap() => Share.share(
         'share_with_deliverer'
             .tr
             .replaceAll(':name', _delivery.value!.name!)
             .replaceAll(':code', _delivery.value!.accessCode!),
+      );
+
+  void onStartTap() {
+    _appController.showDialog(
+      title: Text('start_delivery_dialog_title'.tr),
+      cancelText: 'cancel'.tr,
+      confirmText: 'confirm'.tr,
+      onConfirmTap: () async {
+        isStartLoading.value = true;
+
+        try {
+          Get.back();
+          await _deliveriesRepository.startDelivery(_deliveryId);
+
+          await goToOrderDirections(_delivery.value!);
+        } catch (e) {
+          _appController.showAlert(
+              text: 'generic_error_msg'.tr, type: AlertType.error);
+        } finally {
+          isStartLoading.value = false;
+        }
+      },
+    );
+  }
+
+  void onCancelTap() {
+    _appController.showDialog(
+      title: Text('cancel_delivery_dialog_title'.tr),
+      cancelText: 'cancel'.tr,
+      confirmText: 'confirm'.tr,
+      onConfirmTap: _authController.signOut,
+    );
+  }
+
+  goToOrderDirections(Delivery delivery) => Get.offAllNamed(
+        Routes.ORDER_DIRECTIONS,
+        arguments: OrderDirectionsArgs(delivery: delivery),
       );
 
   void goBack() => Get.back();
