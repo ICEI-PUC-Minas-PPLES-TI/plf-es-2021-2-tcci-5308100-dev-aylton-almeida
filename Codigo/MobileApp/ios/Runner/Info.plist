@@ -43,5 +43,7 @@
 		<false/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>This app needs access to location to give the user the directions to it's next delivery.</string>
 	</dict>
 </plist>
