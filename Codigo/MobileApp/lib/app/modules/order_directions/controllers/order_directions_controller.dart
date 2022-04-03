@@ -2,6 +2,7 @@ import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
+import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
 import 'package:delivery_manager/app/modules/order_directions/arguments/order_directions_args.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,10 +10,11 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class OrderDirectionsController extends GetxController {
-  late DeliveriesRepository _deliveriesRepository;
-  late PositionRepository _locationRepository;
-  late AppController _appController;
-  late AuthController _authController;
+  final DeliveriesRepository _deliveriesRepository;
+  final PositionRepository _locationRepository;
+  final MapsRepository _mapsRepository;
+  final AppController _appController;
+  final AuthController _authController;
 
   late GoogleMapController _mapsController;
 
@@ -22,6 +24,7 @@ class OrderDirectionsController extends GetxController {
   OrderDirectionsController({
     required DeliveriesRepository deliveriesRepository,
     required PositionRepository locationRepository,
+    required MapsRepository mapsRepository,
     required AppController appController,
     required AuthController authController,
     Delivery? delivery,
@@ -29,6 +32,7 @@ class OrderDirectionsController extends GetxController {
             (Get.arguments as OrderDirectionsArgs?)?.delivery ?? delivery!,
         _deliveriesRepository = deliveriesRepository,
         _locationRepository = locationRepository,
+        _mapsRepository = mapsRepository,
         _appController = appController,
         _authController = authController;
 
@@ -60,6 +64,7 @@ class OrderDirectionsController extends GetxController {
   }
 
   Future<void> getInitialPosition() async {
+    // TODO: test
     final position = await _locationRepository.getCurrentPosition();
     _currentPosition.value = position;
   }
