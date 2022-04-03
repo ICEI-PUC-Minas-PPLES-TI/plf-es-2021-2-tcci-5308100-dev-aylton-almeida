@@ -19,7 +19,9 @@ class DeliveryRouteModel(BaseModel, db.Model):
         'delivery_deliveries.delivery_id'))
 
     addresses: list[DeliveryRouteAddressModel] = db.relationship(
-        'DeliveryRouteAddressModel')
+        'DeliveryRouteAddressModel',
+        order_by='DeliveryRouteAddressModel.position',
+    )
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)
