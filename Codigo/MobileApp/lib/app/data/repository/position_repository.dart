@@ -4,6 +4,8 @@ import 'package:geolocator/geolocator.dart';
 
 class PositionRepository {
   Future<Position> getCurrentPosition() async {
+    // TODO: test
+
     bool serviceEnabled;
     LocationPermission permission;
 

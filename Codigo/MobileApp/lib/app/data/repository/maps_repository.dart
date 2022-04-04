@@ -9,8 +9,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 final mapsApi = dotenv.env['MAPS_API_KEY'];
 
 class MapsRepository {
-  static const _basePath =
-      'https://maps.googleapis.com/maps/api/directions/json';
+  static const _basePath = 'maps.googleapis.com';
 
   final Client _client;
 
@@ -22,17 +21,18 @@ class MapsRepository {
   }) async {
     // TODO: Test
 
-    final response = await _client.get(
-      Uri.https(_basePath, '', {
-        'origin': '${origin.latitude},${origin.longitude}',
-        'destination': '${destination.latitude},${destination.longitude}',
-        'key': mapsApi,
-      }),
-    );
+    final uri = Uri.https(_basePath, '/maps/api/directions/json', {
+      'origin': '${origin.latitude},${origin.longitude}',
+      'destination': '${destination.latitude},${destination.longitude}',
+      'key': mapsApi,
+    });
+
+    final response = await _client.get(uri);
 
     // Check if response is successful and return directions
     if (response.statusCode == 200) {
-      return Directions.fromMap(jsonDecode(response.body));
+      final parsed = jsonDecode(response.body);
+      return Directions.fromMap(parsed);
     }
     return null;
   }

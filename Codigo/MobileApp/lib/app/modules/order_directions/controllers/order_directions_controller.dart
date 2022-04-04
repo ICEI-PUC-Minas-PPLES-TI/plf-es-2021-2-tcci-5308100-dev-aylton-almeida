@@ -1,6 +1,8 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
+import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
+import 'package:delivery_manager/app/data/models/directions.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
@@ -8,8 +10,11 @@ import 'package:delivery_manager/app/modules/order_directions/arguments/order_di
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:tuple/tuple.dart';
 
 class OrderDirectionsController extends GetxController {
+  final defaultZoom = 18.0;
+
   final DeliveriesRepository _deliveriesRepository;
   final PositionRepository _locationRepository;
   final MapsRepository _mapsRepository;
@@ -19,7 +24,9 @@ class OrderDirectionsController extends GetxController {
   late GoogleMapController _mapsController;
 
   final Delivery _delivery;
+
   final _currentPosition = Rx<Position?>(null);
+  final _directions = Rx<Directions?>(null);
 
   OrderDirectionsController({
     required DeliveriesRepository deliveriesRepository,
@@ -48,6 +55,8 @@ class OrderDirectionsController extends GetxController {
           _currentPosition.value!.latitude, _currentPosition.value!.longitude)
       : null;
 
+  Directions? get directions => _directions.value;
+
   void onMapCreated(GoogleMapController controller) {
     _mapsController = controller;
     _locationRepository.getPositionStream(onPosition: (position) {
@@ -56,7 +65,7 @@ class OrderDirectionsController extends GetxController {
         _mapsController.animateCamera(CameraUpdate.newCameraPosition(
           CameraPosition(
             target: LatLng(position.latitude, position.longitude),
-            zoom: 18.0,
+            zoom: defaultZoom,
           ),
         ));
       }
@@ -65,7 +74,58 @@ class OrderDirectionsController extends GetxController {
 
   Future<void> getInitialPosition() async {
     // TODO: test
-    final position = await _locationRepository.getCurrentPosition();
-    _currentPosition.value = position;
+
+    try {
+      final position = await _locationRepository.getCurrentPosition();
+      _currentPosition.value = position;
+    } catch (e) {
+      _appController.showAlert(
+          text: 'location_permission_error'.tr, type: AlertType.error);
+    }
+
+    try {
+      await getNextDirection();
+    } catch (e) {
+      _appController.showAlert(
+          text: 'generic_error_msg'.tr, type: AlertType.error);
+    }
+  }
+
+  Future<void> getNextDirection() async {
+    // TODO: test
+
+    final nextDirection = _delivery.route!.addresses
+        .map(
+          (address) => Tuple2(
+            _delivery.orders!.firstWhere(
+                (order) => order.shippingAddressId == address.addressId),
+            address,
+          ),
+        )
+        .firstWhere((element) => (!element.item1.delivered));
+
+    _directions.value = await _mapsRepository.getDirections(
+        origin: LatLng(
+          _currentPosition.value!.latitude,
+          _currentPosition.value!.longitude,
+        ),
+        destination: LatLng(
+          nextDirection.item2.address.lat,
+          nextDirection.item2.address.lng,
+        ));
+  }
+
+  void centerCurrentLocation() {
+    // TODO: test
+
+    _mapsController.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(
+        target: LatLng(
+          _currentPosition.value!.latitude,
+          _currentPosition.value!.longitude,
+        ),
+        zoom: defaultZoom,
+      ),
+    ));
   }
 }

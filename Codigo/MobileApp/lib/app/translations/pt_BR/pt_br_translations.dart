@@ -77,7 +77,10 @@ final _alerts = {
   'invalid_confirmation_code_error':
       'Código inválido. Verifique-o e tente novamente',
   'generic_error_msg': 'Ocorreu um erro, tente novamente mais tarde.',
-  'resend_code_success_message': 'Código de autenticação reenviado com sucesso.'
+  'resend_code_success_message':
+      'Código de autenticação reenviado com sucesso.',
+  'location_permission_error':
+      'Para realizar a entrega precisamos de sua localização. Por favor habilite a localização.',
 };
 
 final _tabs = {
