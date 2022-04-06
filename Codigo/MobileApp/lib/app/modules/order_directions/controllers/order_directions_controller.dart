@@ -1,12 +1,16 @@
+import 'dart:math';
+
 import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/enums/alert_type.dart';
+import 'package:delivery_manager/app/data/models/address.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/directions.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
 import 'package:delivery_manager/app/modules/order_directions/arguments/order_directions_args.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -27,6 +31,7 @@ class OrderDirectionsController extends GetxController {
 
   final _currentPosition = Rx<Position?>(null);
   final _directions = Rx<Directions?>(null);
+  final _markers = Rx<Set<Marker>>({});
 
   OrderDirectionsController({
     required DeliveriesRepository deliveriesRepository,
@@ -57,18 +62,22 @@ class OrderDirectionsController extends GetxController {
 
   Directions? get directions => _directions.value;
 
+  Set<Marker> get markers => _markers.value;
+
   void onMapCreated(GoogleMapController controller) {
     _mapsController = controller;
-    _locationRepository.getPositionStream(onPosition: (position) {
-      if (position != _currentPosition.value) {
-        _currentPosition.value = position;
-        _mapsController.animateCamera(CameraUpdate.newCameraPosition(
-          CameraPosition(
-            target: LatLng(position.latitude, position.longitude),
-            zoom: defaultZoom,
-          ),
-        ));
-      }
+
+    // Listen to location changes
+    _locationRepository.getPositionStream(onPosition: (position) async {
+      _currentPosition.value = position;
+      _mapsController.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(position.latitude, position.longitude),
+          zoom: defaultZoom,
+          bearing: position.heading,
+          tilt: 45,
+        ),
+      ));
     });
   }
 
@@ -83,12 +92,47 @@ class OrderDirectionsController extends GetxController {
           text: 'location_permission_error'.tr, type: AlertType.error);
     }
 
+    await setOriginMarker(
+      LatLng(
+          _currentPosition.value!.latitude, _currentPosition.value!.longitude),
+    );
+
     try {
       await getNextDirection();
     } catch (e) {
       _appController.showAlert(
           text: 'generic_error_msg'.tr, type: AlertType.error);
     }
+  }
+
+  Future<void> setOriginMarker(LatLng origin) async {
+    // TODO :test
+    _markers.value = {
+      Marker(
+        markerId: const MarkerId('origin_marker'),
+        position: origin,
+        icon: await BitmapDescriptor.fromAssetImage(
+          const ImageConfiguration(devicePixelRatio: 3.2),
+          "assets/images/outline_gps_not_fixed_black.png",
+        ),
+      ),
+    };
+  }
+
+  void setDestinationMarker(Address destination) {
+    // TODO: test
+    _markers.value.add(
+      Marker(
+        markerId: const MarkerId('destination_marker'),
+        position: LatLng(
+          destination.lat,
+          destination.lng,
+        ),
+        icon: BitmapDescriptor.defaultMarkerWithHue(
+          BitmapDescriptor.hueOrange,
+        ),
+      ),
+    );
   }
 
   Future<void> getNextDirection() async {
@@ -103,6 +147,8 @@ class OrderDirectionsController extends GetxController {
           ),
         )
         .firstWhere((element) => (!element.item1.delivered));
+
+    setDestinationMarker(nextDirection.item2.address);
 
     _directions.value = await _mapsRepository.getDirections(
         origin: LatLng(
@@ -125,6 +171,7 @@ class OrderDirectionsController extends GetxController {
           _currentPosition.value!.longitude,
         ),
         zoom: defaultZoom,
+        bearing: _currentPosition.value!.heading,
       ),
     ));
   }

@@ -39,7 +39,7 @@ class PositionRepository {
   StreamSubscription<Position> getPositionStream({
     required Function(Position position) onPosition,
     LocationAccuracy accuracy = LocationAccuracy.bestForNavigation,
-    int distanceFilter = 100,
+    int distanceFilter = 10,
   }) {
     return Geolocator.getPositionStream(
       locationSettings: LocationSettings(

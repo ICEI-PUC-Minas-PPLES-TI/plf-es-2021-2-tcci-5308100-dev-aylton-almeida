@@ -117,11 +117,13 @@ class DeliveryDetailsController extends GetxController
     try {
       _delivery.value = await _deliveriesRepository.getDelivery(_deliveryId);
 
-      if (_delivery.value!.status == DeliveryStatus.in_progress) {
-        await goToOrderDirections(_delivery.value!);
-      }
-      if (_delivery.value!.status == DeliveryStatus.finished) {
-        await _authController.signOut();
+      if (currentUser == User.deliverer) {
+        if (_delivery.value!.status == DeliveryStatus.in_progress) {
+          await goToOrderDirections(_delivery.value!);
+        }
+        if (_delivery.value!.status == DeliveryStatus.finished) {
+          await _authController.signOut();
+        }
       }
     } catch (e) {
       _appController.showAlert(

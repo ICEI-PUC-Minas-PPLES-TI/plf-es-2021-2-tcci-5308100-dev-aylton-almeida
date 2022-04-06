@@ -22,6 +22,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                   myLocationEnabled: true,
                   compassEnabled: true,
                   zoomControlsEnabled: false,
+                  tiltGesturesEnabled: true,
                   onMapCreated: controller.onMapCreated,
                   initialCameraPosition: CameraPosition(
                     target: controller.currentPosition!,
@@ -38,6 +39,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                             .toList(),
                       ),
                   },
+                  markers: controller.markers,
                 ),
                 floatingActionButton: FloatingActionButton(
                   onPressed: controller.centerCurrentLocation,
