@@ -42,6 +42,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                   markers: controller.markers,
                 ),
                 floatingActionButton: FloatingActionButton(
+                  // TODO: test
                   onPressed: controller.centerCurrentLocation,
                   child: const Icon(Icons.my_location),
                 ),

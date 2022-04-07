@@ -41,6 +41,8 @@ class PositionRepository {
     LocationAccuracy accuracy = LocationAccuracy.bestForNavigation,
     int distanceFilter = 10,
   }) {
+    // TODO: test
+
     return Geolocator.getPositionStream(
       locationSettings: LocationSettings(
         accuracy: accuracy,

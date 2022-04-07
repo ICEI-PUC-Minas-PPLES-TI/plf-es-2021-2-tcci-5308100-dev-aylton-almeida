@@ -12,8 +12,6 @@ class Directions with _$Directions {
   }) = _Directions;
 
   factory Directions.fromMap(Map<String, dynamic> map) {
-    // TODO: test
-
     // Get route information
     final data = Map<String, dynamic>.from(map['routes'][0]);
 

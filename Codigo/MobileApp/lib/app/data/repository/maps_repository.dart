@@ -19,8 +19,6 @@ class MapsRepository {
     required LatLng origin,
     required LatLng destination,
   }) async {
-    // TODO: Test
-
     final uri = Uri.https(_basePath, '/maps/api/directions/json', {
       'origin': '${origin.latitude},${origin.longitude}',
       'destination': '${destination.latitude},${destination.longitude}',
