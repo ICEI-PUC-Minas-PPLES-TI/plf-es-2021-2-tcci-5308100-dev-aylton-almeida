@@ -4,8 +4,6 @@ import 'package:geolocator/geolocator.dart';
 
 class PositionRepository {
   Future<Position> getCurrentPosition() async {
-    // TODO: test
-
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -41,8 +39,6 @@ class PositionRepository {
     LocationAccuracy accuracy = LocationAccuracy.bestForNavigation,
     int distanceFilter = 10,
   }) {
-    // TODO: test
-
     return Geolocator.getPositionStream(
       locationSettings: LocationSettings(
         accuracy: accuracy,

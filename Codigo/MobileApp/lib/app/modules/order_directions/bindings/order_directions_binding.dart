@@ -20,7 +20,7 @@ class OrderDirectionsBinding extends Bindings {
             storageRepository: Get.find<StorageRepository>(),
           ),
         ),
-        locationRepository: Get.find<PositionRepository>(),
+        positionRepository: Get.find<PositionRepository>(),
         mapsRepository: Get.find<MapsRepository>(),
         authController: Get.find<AuthController>(),
         appController: Get.find<AppController>(),

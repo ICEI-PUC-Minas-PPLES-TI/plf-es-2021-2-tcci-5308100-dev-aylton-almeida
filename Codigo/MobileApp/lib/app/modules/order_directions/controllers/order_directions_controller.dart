@@ -17,11 +17,9 @@ import 'package:tuple/tuple.dart';
 class OrderDirectionsController extends GetxController {
   final defaultZoom = 18.0;
 
-  final DeliveriesRepository _deliveriesRepository;
-  final PositionRepository _locationRepository;
+  final PositionRepository _positionRepository;
   final MapsRepository _mapsRepository;
   final AppController _appController;
-  final AuthController _authController;
 
   late GoogleMapController _mapsController;
 
@@ -33,24 +31,29 @@ class OrderDirectionsController extends GetxController {
 
   OrderDirectionsController({
     required DeliveriesRepository deliveriesRepository,
-    required PositionRepository locationRepository,
+    required PositionRepository positionRepository,
     required MapsRepository mapsRepository,
     required AppController appController,
     required AuthController authController,
     Delivery? delivery,
   })  : _delivery =
             (Get.arguments as OrderDirectionsArgs?)?.delivery ?? delivery!,
-        _deliveriesRepository = deliveriesRepository,
-        _locationRepository = locationRepository,
+        _positionRepository = positionRepository,
         _mapsRepository = mapsRepository,
-        _appController = appController,
-        _authController = authController;
+        _appController = appController;
 
   @override
   void onInit() {
     super.onInit();
 
     getInitialPosition();
+  }
+
+  @override
+  void onClose() {
+    _mapsController.dispose();
+
+    super.dispose();
   }
 
   LatLng? get currentPosition => _currentPosition.value != null
@@ -66,7 +69,7 @@ class OrderDirectionsController extends GetxController {
     _mapsController = controller;
 
     // Listen to location changes
-    _locationRepository.getPositionStream(onPosition: (position) async {
+    _positionRepository.getPositionStream(onPosition: (position) async {
       _currentPosition.value = position;
       _mapsController.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(
@@ -83,7 +86,7 @@ class OrderDirectionsController extends GetxController {
     // TODO: test
 
     try {
-      final position = await _locationRepository.getCurrentPosition();
+      final position = await _positionRepository.getCurrentPosition();
       _currentPosition.value = position;
     } catch (e) {
       _appController.showAlert(
@@ -160,8 +163,6 @@ class OrderDirectionsController extends GetxController {
   }
 
   void centerCurrentLocation() {
-    // TODO: test
-
     _mapsController.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
         target: LatLng(
