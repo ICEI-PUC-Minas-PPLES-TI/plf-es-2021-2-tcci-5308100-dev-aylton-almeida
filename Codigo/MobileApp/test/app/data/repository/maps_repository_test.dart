@@ -42,7 +42,7 @@ void main() {
           'key': mapsKey,
         },
       );
-      final expected_response = Response(
+      final expectedResponse = Response(
         json.encode({
           'routes': [
             {
@@ -60,7 +60,7 @@ void main() {
       );
 
       // mock
-      when(mockClient.get(uri)).thenAnswer((_) async => expected_response);
+      when(mockClient.get(uri)).thenAnswer((_) async => expectedResponse);
 
       // then
       final response = await repository.getDirections(
