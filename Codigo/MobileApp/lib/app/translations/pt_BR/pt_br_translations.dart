@@ -20,7 +20,8 @@ final _subHeaders = {
   'phone_form_sub_header':
       'Digite seu WhatsApp para entrar. Seus dados estão seguros e você não precisa de senha.',
   'confirmation_code_form_sub_header':
-      'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone'
+      'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone',
+  'next_delivery': 'Próxima Entrega:'
 };
 
 final _listTitles = {
@@ -68,7 +69,8 @@ final _buttonLabels = {
   'start_delivery': 'Iniciar entrega',
   'cancel_delivery': 'Cancelar entrega',
   'cancel': 'Cancelar',
-  'confirm': 'Confirmar'
+  'confirm': 'Confirmar',
+  'view_details': 'Ver detalhes',
 };
 
 final _alerts = {
@@ -103,6 +105,11 @@ final _dialogTitles = {
       'Você tem certeza que deseja cancelar essa entrega?',
 };
 
+final _dataLabels = {
+  'address': 'Endereço:',
+  'delivery_time': 'Hora de Entrega:',
+};
+
 final Map<String, String> ptBR = {
   ..._appBarTitles,
   ..._headers,
@@ -116,5 +123,6 @@ final Map<String, String> ptBR = {
   ..._alerts,
   ..._tabs,
   ..._shareMessages,
-  ..._dialogTitles
+  ..._dialogTitles,
+  ..._dataLabels
 };

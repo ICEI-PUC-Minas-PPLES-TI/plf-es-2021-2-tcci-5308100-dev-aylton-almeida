@@ -62,7 +62,8 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                 floatingActionButton: Obx(
                   () => AnimatedScale(
                     scale: controller.showFab ? 1 : 0,
-                    duration: const Duration(milliseconds: 150),
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
                     child: FloatingActionButton(
                       // TODO: test
                       onPressed: controller.centerCurrentLocation,
