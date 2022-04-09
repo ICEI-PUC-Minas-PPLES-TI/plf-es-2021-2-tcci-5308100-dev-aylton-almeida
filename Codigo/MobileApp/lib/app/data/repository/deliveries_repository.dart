@@ -2,7 +2,7 @@ import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 
 class DeliveriesRepository {
-  final _basePath = '/deliveries';
+  static const _basePath = '/deliveries';
   final ApiClient _apiClient;
 
   DeliveriesRepository({required ApiClient apiClient}) : _apiClient = apiClient;

@@ -2,6 +2,8 @@ import 'package:delivery_manager/app/controllers/app_controller.dart';
 import 'package:delivery_manager/app/controllers/auth_controller.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/auth_repository.dart';
+import 'package:delivery_manager/app/data/repository/maps_repository.dart';
+import 'package:delivery_manager/app/data/repository/position_repository.dart';
 import 'package:delivery_manager/app/data/repository/storage_repository.dart';
 import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:delivery_manager/app/theme/app_theme.dart';
@@ -34,15 +36,19 @@ class MyApp extends StatelessWidget {
       storageClient: const FlutterSecureStorage(),
     );
 
+    final apiClient = ApiClient(
+      httpClient: Client(),
+      storageRepository: storageRepository,
+    );
+
     Get.put(storageRepository);
+    Get.put(PositionRepository());
+    Get.put(MapsRepository());
     Get.put(AppController());
     Get.put(
       AuthController(
         authRepository: AuthRepository(
-          apiClient: ApiClient(
-            httpClient: Client(),
-            storageRepository: storageRepository,
-          ),
+          apiClient: apiClient,
         ),
         storageRepository: storageRepository,
       ),

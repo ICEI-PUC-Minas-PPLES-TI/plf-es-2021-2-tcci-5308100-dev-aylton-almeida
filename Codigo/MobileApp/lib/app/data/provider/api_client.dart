@@ -10,10 +10,10 @@ class ApiClient {
   final Client _httpClient;
   final StorageRepository _storageRepository;
 
-  ApiClient(
-      {required Client httpClient,
-      required StorageRepository storageRepository})
-      : _httpClient = httpClient,
+  ApiClient({
+    required Client httpClient,
+    required StorageRepository storageRepository,
+  })  : _httpClient = httpClient,
         _storageRepository = storageRepository;
 
   getHeaders() async {

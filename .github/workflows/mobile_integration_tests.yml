@@ -14,6 +14,7 @@ jobs:
 
     env:
       API_URL: ${{secrets.API_URL}}
+      MAPS_API_KEY: ${{secrets.MAPS_API_KEY}}
 
     runs-on: macos-latest
 
