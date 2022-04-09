@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: "3.9"
 
-      - uses: syphar/restore-virtualenv@v1
+      - uses: syphar/restore-virtualenv@v1.2
         id: cache-virtualenv
 
       - uses: syphar/restore-pip-download-cache@v1
