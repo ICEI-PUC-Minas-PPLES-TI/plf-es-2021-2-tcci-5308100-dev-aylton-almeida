@@ -83,6 +83,7 @@ final _alerts = {
       'Código de autenticação reenviado com sucesso.',
   'location_permission_error':
       'Para realizar a entrega precisamos de sua localização. Por favor habilite a localização.',
+  'refresh_directions': 'Recalculando rota...',
 };
 
 final _tabs = {
