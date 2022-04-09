@@ -28,6 +28,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                       zoomControlsEnabled: false,
                       tiltGesturesEnabled: true,
                       onMapCreated: controller.onMapCreated,
+                      mapToolbarEnabled: false,
                       initialCameraPosition: CameraPosition(
                         target: controller.currentPosition!,
                         zoom: controller.defaultZoom,
@@ -44,7 +45,9 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                           ),
                       },
                       markers: controller.markers,
-                      onTap: (_) => controller.onOrderDetailsOpen(),
+                      onTap: controller.areOrderDetailsOpen
+                          ? (_) => controller.onOrderDetailsOpen()
+                          : null,
                     ),
                     Positioned(
                       bottom: height * 0.02,

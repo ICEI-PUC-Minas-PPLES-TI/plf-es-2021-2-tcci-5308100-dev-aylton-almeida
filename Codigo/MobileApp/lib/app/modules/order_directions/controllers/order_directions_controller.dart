@@ -79,8 +79,24 @@ class OrderDirectionsController extends GetxController {
 
   bool get areOrderDetailsOpen => _areOrderDetailsOpen.value;
 
-  void onOrderDetailsOpen() {
-    _areOrderDetailsOpen.value = !_areOrderDetailsOpen.value;
+  void onOrderDetailsOpen() =>
+      _areOrderDetailsOpen.value = !_areOrderDetailsOpen.value;
+
+  bool shouldRefreshDirections(Position currentPosition) {
+    if (_directions.value == null) {
+      return true;
+    }
+
+    // Get distance between current position and all polyline points
+    final distances = _directions.value!.polylinePoints
+        .map((point) => Geolocator.distanceBetween(currentPosition.latitude,
+            currentPosition.longitude, point.latitude, point.longitude))
+        .toList();
+
+    // Get the smallest distance and return true if it's greater than 50 meters
+    distances.sort();
+    final smallestDistance = distances.first;
+    return smallestDistance > 60;
   }
 
   void onMapCreated(GoogleMapController controller) {
@@ -89,6 +105,7 @@ class OrderDirectionsController extends GetxController {
     // Listen to location changes
     _positionRepository.getPositionStream(onPosition: (position) async {
       _currentPosition.value = position;
+
       _mapsController.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(
           target: LatLng(position.latitude, position.longitude),
@@ -97,6 +114,12 @@ class OrderDirectionsController extends GetxController {
           tilt: 45,
         ),
       ));
+
+      if (shouldRefreshDirections(position)) {
+        _appController.showAlert(
+            text: 'refresh_directions'.tr, type: AlertType.warning);
+        await getNextDirection();
+      }
     });
   }
 
@@ -108,11 +131,6 @@ class OrderDirectionsController extends GetxController {
       _appController.showAlert(
           text: 'location_permission_error'.tr, type: AlertType.error);
     }
-
-    await setOriginMarker(
-      LatLng(
-          _currentPosition.value!.latitude, _currentPosition.value!.longitude),
-    );
 
     try {
       await getNextDirection();
@@ -151,6 +169,11 @@ class OrderDirectionsController extends GetxController {
   }
 
   Future<void> getNextDirection() async {
+    await setOriginMarker(
+      LatLng(
+          _currentPosition.value!.latitude, _currentPosition.value!.longitude),
+    );
+
     final nextDirection = _delivery.route!.addresses
         .map(
           (address) => Tuple2(
