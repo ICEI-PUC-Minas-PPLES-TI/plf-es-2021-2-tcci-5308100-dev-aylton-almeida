@@ -24,12 +24,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
 
       - uses: syphar/restore-virtualenv@v1
-        id: cache-venv
+        id: cache-virtualenv
 
       - uses: syphar/restore-pip-download-cache@v1
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
