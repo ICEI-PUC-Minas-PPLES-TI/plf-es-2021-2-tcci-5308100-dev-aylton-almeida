@@ -4,6 +4,7 @@ import 'package:delivery_manager/app/data/enums/alert_type.dart';
 import 'package:delivery_manager/app/data/models/address.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/directions.dart';
+import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
@@ -26,8 +27,10 @@ class OrderDirectionsController extends GetxController {
   final Delivery _delivery;
 
   final _currentPosition = Rx<Position?>(null);
+  final _currentOrder = Rx<Order?>(null);
   final _directions = Rx<Directions?>(null);
   final _markers = Rx<Set<Marker>>({});
+  final _areOrderDetailsOpen = false.obs;
 
   OrderDirectionsController({
     required DeliveriesRepository deliveriesRepository,
@@ -56,14 +59,29 @@ class OrderDirectionsController extends GetxController {
     super.dispose();
   }
 
+  bool get isLoading =>
+      _currentPosition.value == null ||
+      _currentOrder.value == null ||
+      _directions.value == null;
+
   LatLng? get currentPosition => _currentPosition.value != null
       ? LatLng(
           _currentPosition.value!.latitude, _currentPosition.value!.longitude)
       : null;
 
+  Order? get currentOrder => _currentOrder.value;
+
   Directions? get directions => _directions.value;
 
   Set<Marker> get markers => _markers.value;
+
+  bool get showFab => !_areOrderDetailsOpen.value;
+
+  bool get areOrderDetailsOpen => _areOrderDetailsOpen.value;
+
+  void onOrderDetailsOpen() {
+    _areOrderDetailsOpen.value = !_areOrderDetailsOpen.value;
+  }
 
   void onMapCreated(GoogleMapController controller) {
     _mapsController = controller;
@@ -83,8 +101,6 @@ class OrderDirectionsController extends GetxController {
   }
 
   Future<void> getInitialPosition() async {
-    // TODO: test
-
     try {
       final position = await _positionRepository.getCurrentPosition();
       _currentPosition.value = position;
@@ -107,7 +123,6 @@ class OrderDirectionsController extends GetxController {
   }
 
   Future<void> setOriginMarker(LatLng origin) async {
-    // TODO :test
     _markers.value = {
       Marker(
         markerId: const MarkerId('origin_marker'),
@@ -121,7 +136,6 @@ class OrderDirectionsController extends GetxController {
   }
 
   void setDestinationMarker(Address destination) {
-    // TODO: test
     _markers.value.add(
       Marker(
         markerId: const MarkerId('destination_marker'),
@@ -137,8 +151,6 @@ class OrderDirectionsController extends GetxController {
   }
 
   Future<void> getNextDirection() async {
-    // TODO: test
-
     final nextDirection = _delivery.route!.addresses
         .map(
           (address) => Tuple2(
@@ -151,6 +163,7 @@ class OrderDirectionsController extends GetxController {
 
     setDestinationMarker(nextDirection.item2.address);
 
+    _currentOrder.value = nextDirection.item1;
     _directions.value = await _mapsRepository.getDirections(
         origin: LatLng(
           _currentPosition.value!.latitude,
