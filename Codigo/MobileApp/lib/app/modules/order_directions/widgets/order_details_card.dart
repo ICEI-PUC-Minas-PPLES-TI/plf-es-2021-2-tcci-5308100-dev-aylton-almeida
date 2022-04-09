@@ -118,7 +118,8 @@ class OrderDetailsCard extends StatelessWidget {
       height: isOpen ? height * 0.4 : 56,
       width: isOpen ? width * 0.9 : width * 0.7,
       child: InkWell(
-        onTap: isOpen ? () {} : onOpenTap,
+        key: const Key('order_details_card_ink_well'),
+        onTap: isOpen ? null : onOpenTap,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,

@@ -65,7 +65,6 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.easeInOut,
                     child: FloatingActionButton(
-                      // TODO: test
                       onPressed: controller.centerCurrentLocation,
                       child: const Icon(Icons.my_location),
                     ),
