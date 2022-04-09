@@ -27,13 +27,18 @@ jobs:
 
       - uses: syphar/restore-virtualenv@v1
         id: cache-venv
+        with:
+          requirement_files: requirements.txt
 
-      - name: Setup env
-        run: docker compose up -d db rabbit
+      - uses: syphar/restore-pip-download-cache@v1
+        if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
       - name: Install dependencies
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
         run: pip install -r requirements.txt
+
+      - name: Setup docker env
+        run: docker compose up -d db rabbit
 
       - name: Run integration tests
         run: coverage run -m unittest discover -s tests/integration -p 'test_*.py'
