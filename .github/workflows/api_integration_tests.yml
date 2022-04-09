@@ -3,7 +3,8 @@ name: Delivery API Integration Tests
 on:
   push:
     branches:
-      - master
+      - Codigo/DeliveryApi/**/*
+      - .github/workflows/api_integration_tests.yml
 
 jobs:
   integration_tests:

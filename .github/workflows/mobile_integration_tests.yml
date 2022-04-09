@@ -3,8 +3,8 @@ name: Mobile App Integration Tests
 on:
   push:
     branches:
-      - master
-      - aylton-almeida/issue50
+      - Codigo/MobileApp/**/*
+      - .github/workflows/mobile_integration_tests.yml
 
 jobs:
   integration_tests:
