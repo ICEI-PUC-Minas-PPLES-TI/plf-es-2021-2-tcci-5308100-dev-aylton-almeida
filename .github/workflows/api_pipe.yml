@@ -2,6 +2,8 @@ name: Delivery API Pipeline
 
 on:
   push:
+    branches:
+      - master
     paths:
       - Codigo/DeliveryApi/**/*
       - .github/workflows/api_pipe.yml

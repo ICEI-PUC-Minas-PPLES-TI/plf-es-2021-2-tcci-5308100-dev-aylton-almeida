@@ -2,6 +2,8 @@ name: Mobile App Pipeline
 
 on:
   push:
+    branches:
+      - master
     paths:
       - Codigo/MobileApp/**/*
       - .github/workflows/mobile_pipe.yml
