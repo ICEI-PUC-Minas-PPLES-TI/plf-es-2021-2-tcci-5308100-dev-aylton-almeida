@@ -9,6 +9,7 @@ from src.controllers.AuthController import (AuthorizeResource,
                                             SupplierAuthCodeResource,
                                             SupplierAuthResource)
 from src.controllers.DeliveryController import (DeliveryListResource,
+                                                DeliveryOrderResource,
                                                 DeliveryResource,
                                                 VerifyDeliveryResource)
 from src.events.listen import *
@@ -52,6 +53,8 @@ def create_app(env_name):
     api.add_resource(VerifyDeliveryResource,
                      f'{PATH}/deliveries/verify/<string:code>')
     api.add_resource(DeliveryListResource,  f'{PATH}/deliveries')
+    api.add_resource(DeliveryOrderResource,
+                     f'{PATH}/deliveries/deliver-order')
     api.add_resource(DeliveryResource,
                      f'{PATH}/deliveries/<string:delivery_id>')
 
@@ -66,6 +69,7 @@ def create_app(env_name):
 
     docs.register(VerifyDeliveryResource)
     docs.register(DeliveryListResource)
+    docs.register(DeliveryOrderResource)
     docs.register(DeliveryResource)
 
     docs.register(AuthorizeResource)

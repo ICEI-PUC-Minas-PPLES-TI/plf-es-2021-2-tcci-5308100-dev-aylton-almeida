@@ -4,8 +4,12 @@ from uuid import UUID
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
 from src.classes.DeliveryStatus import DeliveryStatus
+from src.classes.ProblemType import ProblemType
+from src.models.BaseModel import BaseModel
 from src.models.DeliveryModel import DeliveryModel
 from src.services.DeliveryRouteService import DeliveryRouteService
+from src.services.OrderProblemService import OrderProblemService
+from src.services.OrderService import OrderService
 from src.utils.DateUtils import get_current_datetime
 
 
@@ -80,3 +84,58 @@ class DeliveryService(ABC):
             'status': DeliveryStatus.in_progress,
             'start_time': get_current_datetime()
         })
+
+    @staticmethod
+    def deliver_order_for_delivery(
+        delivery_id: UUID,
+        order_id: UUID,
+        problem: dict = None
+    ):
+        """Sets order as delivered with given data
+
+            Args:
+                delivery_id (UUID): id of the delivery containing order
+                order_id (UUID): id of the order to update
+                delivered (bool): whether the order was delivered or not
+                problem (dict): problem data to create a problem for the order. Defaults to None
+
+            Returns:
+                bool: whether the delivery has finished or not
+        """
+
+        # check if delivery is in progress and has given order
+        delivery = DeliveryService.get_one_by_id(delivery_id)
+
+        if not delivery:
+            raise NotFound('Delivery not found for given id')
+
+        if delivery.status != DeliveryStatus.in_progress:
+            raise BadRequest('Delivery is not in progress')
+
+        if not any(order.order_id == order_id for order in delivery.orders):
+            raise BadRequest('Delivery does not have given order')
+
+        # update order
+        OrderService.deliver_order(order_id, False)
+
+        # create problem if any
+        if problem:
+            OrderProblemService.create_problem(
+                order_id=order_id,
+                problem_type=ProblemType[problem.get('type')],
+                description=problem.get('description'),
+                commit=False
+            )
+
+        # update delivery if all orders are delivered
+        if not any(not order.delivered for order in delivery.orders):
+            delivery.update({
+                'status': DeliveryStatus.finished,
+                'end_time': get_current_datetime()
+            })
+
+            return True
+
+        BaseModel.commit()
+
+        return False

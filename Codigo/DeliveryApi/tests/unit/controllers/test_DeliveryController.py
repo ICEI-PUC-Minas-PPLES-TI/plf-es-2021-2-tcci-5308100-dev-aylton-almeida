@@ -1,8 +1,10 @@
+import json
 from http import HTTPStatus
 from unittest.mock import MagicMock, patch
 from uuid import uuid4
 
 from src.apis.gateway import gateway
+from src.classes.ProblemType import ProblemType
 from src.classes.Role import Role
 from src.models.DelivererModel import DelivererModel
 from src.models.DeliveryModel import DeliveryModel
@@ -382,4 +384,106 @@ class DeliveryControllerTests(BaseTest):
         mock_start_delivery.assert_called_once_with(
             delivery_id,
             deliverer_id,
+        )
+
+    @patch.object(gateway.service['auth'], 'authorize_request')
+    @patch.object(DeliveryService, 'deliver_order_for_delivery')
+    def test_DeliveryOrder_when_DeliveryHasFinished(
+        self,
+        mock_deliver_order_for_delivery: MagicMock,
+        mock_authorize_request: MagicMock,
+    ):
+        """Test deliver order when delivery has finished"""
+
+        # when
+        deliverer_id = 1
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {
+            'type': ProblemType.absent_receiver.name,
+            'description': 'The receiver is not here'
+        }
+
+        # mock
+        mock_authorize_request.return_value = {
+            'roles': [Role.deliverer], 'user_id': deliverer_id}
+        mock_deliver_order_for_delivery.return_value = True
+
+        # then
+        response = self.app.put(
+            f'{base_path}/deliveries/deliver-order',
+            follow_redirects=True,
+            data=json.dumps({
+                'deliveryId': str(delivery_id),
+                'orderId': str(order_id),
+                'problem': problem,
+            }),
+            headers={
+                'Authorization': 'token',
+                'Content-Type': 'application/json'
+            }
+        )
+
+        # assert
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response.json, 'finished')
+        mock_authorize_request.assert_called_once_with(
+            'token',
+            [Role.deliverer]
+        )
+        mock_deliver_order_for_delivery.assert_called_once_with(
+            delivery_id=delivery_id,
+            order_id=order_id,
+            problem=problem,
+        )
+
+    @patch.object(gateway.service['auth'], 'authorize_request')
+    @patch.object(DeliveryService, 'deliver_order_for_delivery')
+    def test_DeliveryOrder_when_DeliveryHasNotFinished(
+        self,
+        mock_deliver_order_for_delivery: MagicMock,
+        mock_authorize_request: MagicMock,
+    ):
+        """Test deliver order when delivery has not finished"""
+
+        # when
+        deliverer_id = 1
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {
+            'type': ProblemType.absent_receiver.name,
+            'description': 'The receiver is not here'
+        }
+
+        # mock
+        mock_authorize_request.return_value = {
+            'roles': [Role.deliverer], 'user_id': deliverer_id}
+        mock_deliver_order_for_delivery.return_value = False
+
+        # then
+        response = self.app.put(
+            f'{base_path}/deliveries/deliver-order',
+            follow_redirects=True,
+            data=json.dumps({
+                'deliveryId': str(delivery_id),
+                'orderId': str(order_id),
+                'problem': problem,
+            }),
+            headers={
+                'Authorization': 'token',
+                'Content-Type': 'application/json'
+            }
+        )
+
+        # assert
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response.json, 'in_progress')
+        mock_authorize_request.assert_called_once_with(
+            'token',
+            [Role.deliverer]
+        )
+        mock_deliver_order_for_delivery.assert_called_once_with(
+            delivery_id=delivery_id,
+            order_id=order_id,
+            problem=problem,
         )
