@@ -5,11 +5,16 @@ from uuid import uuid4
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
 from src.classes.DeliveryStatus import DeliveryStatus
+from src.classes.ProblemType import ProblemType
+from src.models.BaseModel import BaseModel
 from src.models.DelivererModel import DelivererModel
 from src.models.DeliveryModel import DeliveryModel
 from src.models.DeliveryRouteModel import DeliveryRouteModel
+from src.models.OrderModel import OrderModel
 from src.services.DeliveryRouteService import DeliveryRouteService
 from src.services.DeliveryService import DeliveryService
+from src.services.OrderProblemService import OrderProblemService
+from src.services.OrderService import OrderService
 from tests.utils.models.BaseTest import BaseTest
 
 
@@ -242,3 +247,249 @@ class DeliveryServiceTests(BaseTest):
             'status': DeliveryStatus.in_progress,
             'start_time': now
         })
+
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(OrderService, 'deliver_order')
+    @patch.object(OrderProblemService, 'create_problem')
+    @patch.object(DeliveryModel, 'update')
+    @patch.object(BaseModel, 'commit')
+    def test_DeliverOrderForDelivery_when_DeliveryNotFound(
+        self,
+        mock_commit: MagicMock,
+        mock_update: MagicMock,
+        mock_create_problem: MagicMock,
+        mock_deliver_order: MagicMock,
+        mock_get_one_by_id: MagicMock,
+        mock_get_current_datetime: MagicMock
+    ):
+        """Test deliver_order_for_delivery when delivery was not found"""
+
+        # when
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {}
+        delivery = None
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        with self.assertRaises(NotFound) as err:
+            DeliveryService.deliver_order_for_delivery(
+                delivery_id, order_id, problem)
+
+        # assert
+        self.assertIn('Delivery not found for given id', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_commit.assert_not_called()
+        mock_update.assert_not_called()
+        mock_create_problem.assert_not_called()
+        mock_deliver_order.assert_not_called()
+        mock_get_current_datetime.assert_not_called()
+
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(OrderService, 'deliver_order')
+    @patch.object(OrderProblemService, 'create_problem')
+    @patch.object(DeliveryModel, 'update')
+    @patch.object(BaseModel, 'commit')
+    def test_DeliverOrderForDelivery_when_DeliveryIsNotInProgress(
+        self,
+        mock_commit: MagicMock,
+        mock_update: MagicMock,
+        mock_create_problem: MagicMock,
+        mock_deliver_order: MagicMock,
+        mock_get_one_by_id: MagicMock,
+        mock_get_current_datetime: MagicMock
+    ):
+        """Test deliver_order_for_delivery when delivery is not in progress"""
+
+        # when
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {}
+        delivery = DeliveryModel({
+            'status': DeliveryStatus.created
+        })
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        with self.assertRaises(BadRequest) as err:
+            DeliveryService.deliver_order_for_delivery(
+                delivery_id, order_id, problem)
+
+        # assert
+        self.assertIn('Delivery is not in progress', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_commit.assert_not_called()
+        mock_update.assert_not_called()
+        mock_create_problem.assert_not_called()
+        mock_deliver_order.assert_not_called()
+        mock_get_current_datetime.assert_not_called()
+
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(OrderService, 'deliver_order')
+    @patch.object(OrderProblemService, 'create_problem')
+    @patch.object(DeliveryModel, 'update')
+    @patch.object(BaseModel, 'commit')
+    def test_DeliverOrderForDelivery_when_DeliveryDoesNotHavOrder(
+        self,
+        mock_commit: MagicMock,
+        mock_update: MagicMock,
+        mock_create_problem: MagicMock,
+        mock_deliver_order: MagicMock,
+        mock_get_one_by_id: MagicMock,
+        mock_get_current_datetime: MagicMock
+    ):
+        """Test deliver_order_for_delivery when delivery does not have given order"""
+
+        # when
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {}
+        delivery = DeliveryModel({
+            'status': DeliveryStatus.in_progress,
+        })
+        delivery.orders = []
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        with self.assertRaises(BadRequest) as err:
+            DeliveryService.deliver_order_for_delivery(
+                delivery_id, order_id, problem)
+
+        # assert
+        self.assertIn('Delivery does not have given order', str(err.exception))
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_commit.assert_not_called()
+        mock_update.assert_not_called()
+        mock_create_problem.assert_not_called()
+        mock_deliver_order.assert_not_called()
+        mock_get_current_datetime.assert_not_called()
+
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(OrderService, 'deliver_order')
+    @patch.object(OrderProblemService, 'create_problem')
+    @patch.object(DeliveryModel, 'update')
+    @patch.object(BaseModel, 'commit')
+    def test_DeliverOrderForDelivery_when_HasProblem(
+        self,
+        mock_commit: MagicMock,
+        mock_update: MagicMock,
+        mock_create_problem: MagicMock,
+        mock_deliver_order: MagicMock,
+        mock_get_one_by_id: MagicMock,
+        mock_get_current_datetime: MagicMock
+    ):
+        """Test deliver_order_for_delivery when delivery has problem"""
+
+        # when
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {
+            'type': ProblemType.absent_receiver.name,
+            'description': 'test'
+        }
+        delivery = DeliveryModel({
+            'status': DeliveryStatus.in_progress,
+        })
+        delivery.orders = [
+            OrderModel({'order_id': order_id, 'delivered': False}),
+            OrderModel({'order_id': uuid4(), 'delivered': False}),
+        ]
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+
+        # then
+        response = DeliveryService.deliver_order_for_delivery(
+            delivery_id,
+            order_id,
+            problem
+        )
+
+        # assert
+        self.assertFalse(response)
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_deliver_order.assert_called_once_with(order_id, False)
+        mock_create_problem.assert_called_once_with(
+            order_id=order_id,
+            problem_type=ProblemType.absent_receiver,
+            description=problem['description'],
+            commit=False
+        )
+        mock_update.assert_not_called()
+        mock_get_current_datetime.assert_not_called()
+        mock_commit.assert_called_once_with()
+
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(DeliveryService, 'get_one_by_id')
+    @patch.object(OrderService, 'deliver_order')
+    @patch.object(OrderProblemService, 'create_problem')
+    @patch.object(DeliveryModel, 'update')
+    @patch.object(BaseModel, 'commit')
+    def test_DeliverOrderForDelivery_when_LastOrder(
+        self,
+        mock_commit: MagicMock,
+        mock_update: MagicMock,
+        mock_create_problem: MagicMock,
+        mock_deliver_order: MagicMock,
+        mock_get_one_by_id: MagicMock,
+        mock_get_current_datetime: MagicMock
+    ):
+        """Test deliver_order_for_delivery when deliveryhas problem"""
+
+        # when
+        delivery_id = uuid4()
+        order_id = uuid4()
+        problem = {
+            'type': ProblemType.absent_receiver.name,
+            'description': 'test'
+        }
+        delivery = DeliveryModel({
+            'status': DeliveryStatus.in_progress,
+        })
+        delivery.orders = [
+            OrderModel({'order_id': order_id, 'delivered': False}),
+            OrderModel({'order_id': uuid4(), 'delivered': True}),
+        ]
+        now = datetime.now()
+
+        # mock
+        mock_get_one_by_id.return_value = delivery
+        mock_get_current_datetime.return_value = now
+
+        def mock_deliver(_order_id, _commit):
+            delivery.orders[0].delivered = True
+        mock_deliver_order.side_effect = mock_deliver
+
+        # then
+        response = DeliveryService.deliver_order_for_delivery(
+            delivery_id,
+            order_id,
+            problem
+        )
+
+        # assert
+        self.assertTrue(response)
+        mock_get_one_by_id.assert_called_once_with(delivery_id)
+        mock_deliver_order.assert_called_once_with(order_id, False)
+        mock_create_problem.assert_called_once_with(
+            order_id=order_id,
+            problem_type=ProblemType.absent_receiver,
+            description=problem['description'],
+            commit=False
+        )
+        mock_update.assert_called_once_with({
+            'status': DeliveryStatus.finished,
+            'end_time': now
+        })
+        mock_get_current_datetime.assert_called_once_with()
+        mock_commit.assert_not_called()

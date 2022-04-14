@@ -1,14 +1,14 @@
 from http import HTTPStatus
 from uuid import UUID
 
-from flask_apispec import MethodResource, doc
+from flask_apispec import MethodResource, doc, use_kwargs
 from flask_restful import Resource
 from werkzeug.exceptions import Forbidden, NotFound
 
 from src.classes.Role import Role
 from src.controllers.schemas.DeliveryControllerSchemas import (
-    GetDeliveryResponseSchema, GetSupplierDeliveriesResponseSchema,
-    VerifyDeliveryResponseSchema)
+    DeliverOrderFromDeliverySchema, GetDeliveryResponseSchema,
+    GetSupplierDeliveriesResponseSchema, VerifyDeliveryResponseSchema)
 from src.guards.AuthGuard import auth_guard
 from src.guards.ExceptionGuard import exception_guard
 from src.guards.MarshalResponse import marshal_response
@@ -78,3 +78,17 @@ class DeliveryResource(MethodResource, Resource):
         DeliveryService.start_delivery(UUID(delivery_id), auth_user_id)
 
         return 'ok', HTTPStatus.OK
+
+
+class DeliveryOrderResource(MethodResource, Resource):
+
+    @doc(description="Sets order to delivered for given delivery", tags=['Delivery'])
+    @exception_guard
+    @auth_guard([Role.deliverer])
+    @use_kwargs(DeliverOrderFromDeliverySchema, location='json')
+    def put(self, **data):
+        """Sets order to delivered for given delivery"""
+
+        finished_delivery = DeliveryService.deliver_order_for_delivery(**data)
+
+        return 'finished' if finished_delivery else 'in_progress', HTTPStatus.OK

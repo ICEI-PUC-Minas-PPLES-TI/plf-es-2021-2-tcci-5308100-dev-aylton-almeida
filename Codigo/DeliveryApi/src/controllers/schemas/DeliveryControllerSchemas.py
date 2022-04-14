@@ -1,7 +1,6 @@
+from marshmallow import fields, validate
 
-
-from marshmallow import fields
-
+from src.classes.ProblemType import ProblemType
 from src.schemas.CamelCaseSchema import CamelCaseSchema
 from src.schemas.delivery_route.DeliveryRouteBaseSchema import \
     DeliveryRouteBaseSchema
@@ -27,3 +26,19 @@ class GetSupplierDeliveriesResponseSchema(CamelCaseSchema):
 class GetDeliveryResponseSchema(CamelCaseSchema):
     delivery = fields.Nested(DeliveryBaseSchema)
     route = fields.Nested(DeliveryRouteBaseSchema)
+
+
+class CreateOrderProblemSchema(CamelCaseSchema):
+    type = fields.Str(
+        required=True,
+        validate=validate.OneOf([
+            problem.name for problem in ProblemType
+        ])
+    )
+    description = fields.Str()
+
+
+class DeliverOrderFromDeliverySchema(CamelCaseSchema):
+    delivery_id = fields.UUID()
+    order_id = fields.UUID()
+    problem = fields.Nested(CreateOrderProblemSchema)
