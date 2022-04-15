@@ -54,4 +54,20 @@ class ApiClient {
 
     return handleApiResponse(response);
   }
+
+  Future<dynamic> put<T>(
+    String path, {
+    Map<String, dynamic>? body,
+  }) async {
+    // TODO: test
+
+    final uri = Uri.parse('$baseUrl$path');
+    final response = await _httpClient.put(
+      uri,
+      body: jsonEncode(body),
+      headers: await getHeaders(),
+    );
+
+    return handleApiResponse(response);
+  }
 }

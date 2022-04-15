@@ -43,9 +43,12 @@ class OrderDetailsView extends GetView<OrderDetailsController> {
             const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
-              child: LoadingButton(
-                onPressed: controller.onConfirmTap,
-                child: Text('confirm_delivery'.tr),
+              child: Obx(
+                () => LoadingButton(
+                  isLoading: controller.isLoading,
+                  onPressed: controller.onConfirmTap,
+                  child: Text('confirm_delivery'.tr),
+                ),
               ),
             ),
             const SizedBox(height: 16),

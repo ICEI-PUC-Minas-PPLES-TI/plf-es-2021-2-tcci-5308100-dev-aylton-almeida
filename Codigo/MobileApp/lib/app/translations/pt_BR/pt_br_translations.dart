@@ -90,6 +90,7 @@ final _alerts = {
   'location_permission_error':
       'Para realizar a entrega precisamos de sua localização. Por favor habilite a localização.',
   'refresh_directions': 'Recalculando rota...',
+  'delivery_confirmed': 'Entrega confirmada'
 };
 
 final _tabs = {
