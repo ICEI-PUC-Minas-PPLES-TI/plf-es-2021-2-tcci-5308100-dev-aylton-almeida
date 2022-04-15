@@ -9,7 +9,7 @@ import 'package:delivery_manager/app/modules/delivery_details/controllers/delive
 import 'package:delivery_manager/app/modules/delivery_details/views/delivery_details_view.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/delivery_details_header.dart';
 import 'package:delivery_manager/app/modules/delivery_details/widgets/order_list_tile.dart';
-import 'package:delivery_manager/app/modules/delivery_details/widgets/product_list_tile.dart';
+import 'package:delivery_manager/app/widgets/product_list_tile.dart';
 import 'package:delivery_manager/app/widgets/authenticated_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';

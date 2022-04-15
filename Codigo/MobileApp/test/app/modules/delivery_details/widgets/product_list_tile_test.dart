@@ -1,5 +1,5 @@
 import 'package:delivery_manager/app/data/models/order_product.dart';
-import 'package:delivery_manager/app/modules/delivery_details/widgets/product_list_tile.dart';
+import 'package:delivery_manager/app/widgets/product_list_tile.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../utils/create_test_material_widget.dart';

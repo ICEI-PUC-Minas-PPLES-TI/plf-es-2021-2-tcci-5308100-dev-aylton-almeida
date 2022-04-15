@@ -8,7 +8,9 @@ import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
+import 'package:delivery_manager/app/modules/order_details/arguments/order_details_args.dart';
 import 'package:delivery_manager/app/modules/order_directions/arguments/order_directions_args.dart';
+import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -79,8 +81,15 @@ class OrderDirectionsController extends GetxController {
 
   bool get areOrderDetailsOpen => _areOrderDetailsOpen.value;
 
-  void onOrderDetailsOpen() =>
+  void onOrderCardTap() =>
       _areOrderDetailsOpen.value = !_areOrderDetailsOpen.value;
+
+  void onOrderDetailsTap() {
+    Get.toNamed(
+      Routes.ORDER_DETAILS,
+      arguments: OrderDetailsArgs(order: _currentOrder.value!),
+    );
+  }
 
   bool shouldRefreshDirections(Position currentPosition) {
     if (_directions.value == null) {
