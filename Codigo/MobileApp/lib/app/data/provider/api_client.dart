@@ -59,8 +59,6 @@ class ApiClient {
     String path, {
     Map<String, dynamic>? body,
   }) async {
-    // TODO: test
-
     final uri = Uri.parse('$baseUrl$path');
     final response = await _httpClient.put(
       uri,

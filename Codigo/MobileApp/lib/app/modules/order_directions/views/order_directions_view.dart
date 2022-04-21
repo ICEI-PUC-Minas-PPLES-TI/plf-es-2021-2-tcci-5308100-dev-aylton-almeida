@@ -17,7 +17,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
       width: width,
       child: Obx(
         () => controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Scaffold(body: Center(child: CircularProgressIndicator()))
             : Scaffold(
                 body: Stack(
                   alignment: AlignmentDirectional.center,
