@@ -2,7 +2,8 @@ final _appBarTitles = {
   'supplier_account_title': 'Sua Conta',
   'delivery_list_title': 'Lista de Ofertas',
   'delivery_details': 'Detalhes da Oferta',
-  'order_details': 'Detalhes do Pedido'
+  'order_details': 'Detalhes do Pedido',
+  'order_problems': 'Problemas na Entrega',
 };
 
 final _headers = {
@@ -13,7 +14,8 @@ final _headers = {
   'phone_form_supplier_header':
       'Parceiro, acesse sua conta com seu número de WhatsApp',
   'confirmation_code_form_header': 'Digite o código de confirmação',
-  'recipient_name': 'Destinatário: :name'
+  'recipient_name': 'Destinatário: :name',
+  'order_problem_header': 'Qual o problema ocorrido durante a entrega?'
 };
 
 final _subHeaders = {
@@ -23,7 +25,9 @@ final _subHeaders = {
       'Digite seu WhatsApp para entrar. Seus dados estão seguros e você não precisa de senha.',
   'confirmation_code_form_sub_header':
       'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone',
-  'next_delivery': 'Próxima Entrega:'
+  'next_delivery': 'Próxima Entrega:',
+  'order_problem_subheader':
+      'Nos diga qual o tipo de problema ocorrido e de detalhes do acontecido.'
 };
 
 final _listTitles = {
@@ -50,6 +54,13 @@ final _inputLabels = {
 final _inputHints = {
   'code_input_hint': 'Código',
   'phone_input_hint': 'Telefone completo',
+  'order_problem_select_hint': 'Selecione um problema...',
+  'order_problem_input_hint': 'Descreva um pouco do ocorrido...'
+};
+
+final _dropdownOptions = {
+  'missing_product': 'Produto não disponível',
+  'absent_receiver': 'Destinatário ausente'
 };
 
 final _formValidation = {
@@ -76,7 +87,8 @@ final _buttonLabels = {
   'confirm': 'Confirmar',
   'view_details': 'Ver detalhes',
   'confirm_delivery': 'Confirmar entrega',
-  'register_problem': 'Registrar problema'
+  'register_problem': 'Registrar problema',
+  'send_problem': 'Enviar problema',
 };
 
 final _alerts = {
@@ -90,7 +102,8 @@ final _alerts = {
   'location_permission_error':
       'Para realizar a entrega precisamos de sua localização. Por favor habilite a localização.',
   'refresh_directions': 'Recalculando rota...',
-  'delivery_confirmed': 'Entrega confirmada'
+  'delivery_confirmed': 'Entrega confirmada',
+  'problem_registered': 'Problema registrado',
 };
 
 final _tabs = {
@@ -126,6 +139,7 @@ final Map<String, String> ptBR = {
   ..._listContent,
   ..._inputLabels,
   ..._inputHints,
+  ..._dropdownOptions,
   ..._formValidation,
   ..._buttonLabels,
   ..._alerts,

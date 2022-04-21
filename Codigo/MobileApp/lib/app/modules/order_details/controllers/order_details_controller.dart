@@ -4,6 +4,8 @@ import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/order_details/arguments/order_details_args.dart';
 import 'package:delivery_manager/app/modules/order_directions/controllers/order_directions_controller.dart';
+import 'package:delivery_manager/app/modules/order_problems/arguments/order_problems_args.dart';
+import 'package:delivery_manager/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class OrderDetailsController extends GetxController {
@@ -32,8 +34,8 @@ class OrderDetailsController extends GetxController {
       _isLoading.value = true;
 
       await _deliveriesRepository.deliverOrder(
-        _order.deliveryId,
-        _order.orderId,
+        deliveryId: _order.deliveryId,
+        orderId: _order.orderId,
       );
 
       await Get.find<OrderDirectionsController>().refreshDirections();
@@ -51,7 +53,10 @@ class OrderDetailsController extends GetxController {
   }
 
   void onRegisterProblemTap() {
-    // TODO: go to register problem screen
+    Get.toNamed(
+      Routes.ORDER_PROBLEMS,
+      arguments: OrderProblemsArgs(order: _order),
+    );
   }
 
   void goBack() => Get.back();

@@ -101,7 +101,7 @@ void main() {
       })).thenAnswer((_) async => {});
 
       // then
-      await repository.deliverOrder(deliveryId, orderId);
+      await repository.deliverOrder(deliveryId: deliveryId, orderId: orderId);
 
       // assert
       verify(mockApiClient.put('/deliveries/deliver-order', body: {
