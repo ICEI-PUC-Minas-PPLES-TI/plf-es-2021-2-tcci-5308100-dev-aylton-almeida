@@ -87,5 +87,27 @@ void main() {
           response, equals(Delivery.fromJson(expectedResponse['delivery']!)));
       verify(mockApiClient.get('/deliveries/$deliveryId')).called(1);
     });
+
+    test('Deliver Order', () async {
+      // when
+      final repository = DeliveriesRepository(apiClient: mockApiClient);
+      const deliveryId = '123';
+      const orderId = '456';
+
+      // mock
+      when(mockApiClient.put('/deliveries/deliver-order', body: {
+        'deliveryId': deliveryId,
+        'orderId': orderId,
+      })).thenAnswer((_) async => {});
+
+      // then
+      await repository.deliverOrder(deliveryId, orderId);
+
+      // assert
+      verify(mockApiClient.put('/deliveries/deliver-order', body: {
+        'deliveryId': deliveryId,
+        'orderId': orderId,
+      })).called(1);
+    });
   });
 }

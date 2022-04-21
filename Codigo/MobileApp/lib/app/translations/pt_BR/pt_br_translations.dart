@@ -2,6 +2,7 @@ final _appBarTitles = {
   'supplier_account_title': 'Sua Conta',
   'delivery_list_title': 'Lista de Ofertas',
   'delivery_details': 'Detalhes da Oferta',
+  'order_details': 'Detalhes do Pedido'
 };
 
 final _headers = {
@@ -11,7 +12,8 @@ final _headers = {
       'Antes de acessar a rota de entrega, insira seu número de WhatsApp',
   'phone_form_supplier_header':
       'Parceiro, acesse sua conta com seu número de WhatsApp',
-  'confirmation_code_form_header': 'Digite o código de confirmação'
+  'confirmation_code_form_header': 'Digite o código de confirmação',
+  'recipient_name': 'Destinatário: :name'
 };
 
 final _subHeaders = {
@@ -26,6 +28,7 @@ final _subHeaders = {
 
 final _listTitles = {
   'supplier_data': 'Dados da empresa',
+  'products_list': 'Produtos'
 };
 
 final _listContent = {
@@ -34,6 +37,7 @@ final _listContent = {
   'delivery_in_progress_subtitle': 'Entrega prevista: dia :day às :hour horas',
   'delivery_finished_subtitle': 'Entregue: dia :day às :hour horas',
   'delivery_initial_address': 'Endereço inicial: :address',
+  'delivery_address': 'Endereço: :address',
   'delivery_estimate_time': 'Tempo estimado: :hour horas e :minute minutos',
 };
 
@@ -71,6 +75,8 @@ final _buttonLabels = {
   'cancel': 'Cancelar',
   'confirm': 'Confirmar',
   'view_details': 'Ver detalhes',
+  'confirm_delivery': 'Confirmar entrega',
+  'register_problem': 'Registrar problema'
 };
 
 final _alerts = {
@@ -84,6 +90,7 @@ final _alerts = {
   'location_permission_error':
       'Para realizar a entrega precisamos de sua localização. Por favor habilite a localização.',
   'refresh_directions': 'Recalculando rota...',
+  'delivery_confirmed': 'Entrega confirmada'
 };
 
 final _tabs = {

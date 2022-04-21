@@ -17,7 +17,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
       width: width,
       child: Obx(
         () => controller.isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Scaffold(body: Center(child: CircularProgressIndicator()))
             : Scaffold(
                 body: Stack(
                   alignment: AlignmentDirectional.center,
@@ -46,7 +46,7 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                       },
                       markers: controller.markers,
                       onTap: controller.areOrderDetailsOpen
-                          ? (_) => controller.onOrderDetailsOpen()
+                          ? (_) => controller.onOrderCardTap()
                           : null,
                     ),
                     Positioned(
@@ -56,8 +56,8 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                         isOpen: controller.areOrderDetailsOpen,
                         order: controller.currentOrder!,
                         estimateTime: controller.directions!.totalDuration,
-                        onOpenTap: controller.onOrderDetailsOpen,
-                        onDetailsTap: () {},
+                        onOpenTap: controller.onOrderCardTap,
+                        onDetailsTap: controller.onOrderDetailsTap,
                       ),
                     )
                   ],

@@ -34,4 +34,13 @@ class DeliveriesRepository {
   Future<void> startDelivery(String deliveryId) async {
     await _apiClient.post('$_basePath/$deliveryId');
   }
+
+  Future<void> deliverOrder(String deliveryId, String orderId) async {
+    // TODO: test
+
+    await _apiClient.put('$_basePath/deliver-order', body: {
+      'deliveryId': deliveryId,
+      'orderId': orderId,
+    });
+  }
 }

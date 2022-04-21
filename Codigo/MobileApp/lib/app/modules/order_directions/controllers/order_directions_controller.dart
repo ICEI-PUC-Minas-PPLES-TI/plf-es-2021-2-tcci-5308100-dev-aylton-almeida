@@ -8,23 +8,29 @@ import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
+import 'package:delivery_manager/app/modules/order_details/arguments/order_details_args.dart';
 import 'package:delivery_manager/app/modules/order_directions/arguments/order_directions_args.dart';
+import 'package:delivery_manager/app/routes/app_pages.dart';
+import 'package:delivery_manager/app/utils/lifecycle_event_handler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tuple/tuple.dart';
 
+import 'package:flutter/material.dart';
+
 class OrderDirectionsController extends GetxController {
   final defaultZoom = 18.0;
 
+  final DeliveriesRepository _deliveriesRepository;
   final PositionRepository _positionRepository;
   final MapsRepository _mapsRepository;
   final AppController _appController;
 
   late GoogleMapController _mapsController;
 
-  final Delivery _delivery;
+  Delivery _delivery;
 
   final _currentPosition = Rx<Position?>(null);
   final _currentOrder = Rx<Order?>(null);
@@ -41,6 +47,7 @@ class OrderDirectionsController extends GetxController {
     Delivery? delivery,
   })  : _delivery =
             (Get.arguments as OrderDirectionsArgs?)?.delivery ?? delivery!,
+        _deliveriesRepository = deliveriesRepository,
         _positionRepository = positionRepository,
         _mapsRepository = mapsRepository,
         _appController = appController;
@@ -50,6 +57,13 @@ class OrderDirectionsController extends GetxController {
     super.onInit();
 
     getInitialPosition();
+
+    ///To listen onResume method
+    WidgetsBinding.instance?.addObserver(
+      LifecycleEventHandler(
+        resumeCallBack: refreshDirections,
+      ),
+    );
   }
 
   @override
@@ -57,6 +71,12 @@ class OrderDirectionsController extends GetxController {
     _mapsController.dispose();
 
     super.dispose();
+  }
+
+  Future<void> refreshDirections() async {
+    _delivery = await _deliveriesRepository.getDelivery(_delivery.deliveryId!);
+
+    getInitialPosition();
   }
 
   bool get isLoading =>
@@ -79,8 +99,17 @@ class OrderDirectionsController extends GetxController {
 
   bool get areOrderDetailsOpen => _areOrderDetailsOpen.value;
 
-  void onOrderDetailsOpen() =>
+  void onOrderCardTap() =>
       _areOrderDetailsOpen.value = !_areOrderDetailsOpen.value;
+
+  void onOrderDetailsTap() {
+    _areOrderDetailsOpen.value = false;
+
+    Get.toNamed(
+      Routes.ORDER_DETAILS,
+      arguments: OrderDetailsArgs(order: _currentOrder.value!),
+    );
+  }
 
   bool shouldRefreshDirections(Position currentPosition) {
     if (_directions.value == null) {
