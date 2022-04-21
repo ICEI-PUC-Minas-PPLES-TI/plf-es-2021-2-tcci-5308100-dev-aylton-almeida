@@ -55,12 +55,10 @@ void main() {
       expect(find.text('confirm_delivery'.tr), findsOneWidget);
       expect(find.text('register_problem'.tr), findsOneWidget);
       expect(find.text('products_list'.tr), findsOneWidget);
-      for (var product in mockOrder.orderProducts) {
-        expect(
-          find.byType(ProductListTile),
-          findsNWidgets(mockOrder.orderProducts.length),
-        );
-      }
+      expect(
+        find.byType(ProductListTile),
+        findsNWidgets(mockOrder.orderProducts.length),
+      );
     });
   });
 }
