@@ -24,7 +24,8 @@ class OrderDirectionsView extends GetView<OrderDirectionsController> {
                   children: [
                     GoogleMap(
                       myLocationEnabled: true,
-                      compassEnabled: true,
+                      myLocationButtonEnabled: false,
+                      compassEnabled: false,
                       zoomControlsEnabled: false,
                       tiltGesturesEnabled: true,
                       onMapCreated: controller.onMapCreated,

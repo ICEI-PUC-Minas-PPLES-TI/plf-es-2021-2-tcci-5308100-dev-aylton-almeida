@@ -125,7 +125,7 @@ class OrderDirectionsController extends GetxController {
     // Get the smallest distance and return true if it's greater than 50 meters
     distances.sort();
     final smallestDistance = distances.first;
-    return smallestDistance > 60;
+    return smallestDistance > 80;
   }
 
   void onMapCreated(GoogleMapController controller) {

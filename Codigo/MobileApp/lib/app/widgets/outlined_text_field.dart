@@ -12,17 +12,22 @@ class OutlinedTextField extends TextFormField {
     String? hintText,
     String? errorText,
     int? maxLength,
+    int? minLines = 1,
+    int? maxLines = 1,
     List<TextInputFormatter>? inputFormatters,
+    double borderRadius = 100,
   }) : super(
           key: key,
           controller: controller,
           maxLength: maxLength,
+          minLines: minLines,
+          maxLines: maxLines,
           decoration: InputDecoration(
             hintText: hintText,
             errorText: errorText,
             counterText: '',
-            border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(100)),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
             ),
           ),
           keyboardType: keyboardType,

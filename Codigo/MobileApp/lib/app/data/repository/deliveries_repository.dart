@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/data/enums/problem_type.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 
@@ -35,12 +36,20 @@ class DeliveriesRepository {
     await _apiClient.post('$_basePath/$deliveryId');
   }
 
-  Future<void> deliverOrder(String deliveryId, String orderId) async {
-    // TODO: test
-
+  Future<void> deliverOrder({
+    required String deliveryId,
+    required String orderId,
+    ProblemType? problemType,
+    String? problemDescription,
+  }) async {
     await _apiClient.put('$_basePath/deliver-order', body: {
       'deliveryId': deliveryId,
       'orderId': orderId,
+      if (problemType != null)
+        'problem': {
+          'type': problemType.value,
+          if (problemDescription != null) 'description': problemDescription,
+        }
     });
   }
 }

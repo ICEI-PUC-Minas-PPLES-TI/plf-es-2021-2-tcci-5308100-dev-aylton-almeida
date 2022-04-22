@@ -12,6 +12,8 @@ import '../modules/order_details/bindings/order_details_binding.dart';
 import '../modules/order_details/views/order_details_view.dart';
 import '../modules/order_directions/bindings/order_directions_binding.dart';
 import '../modules/order_directions/views/order_directions_view.dart';
+import '../modules/order_problems/bindings/order_problems_binding.dart';
+import '../modules/order_problems/views/order_problems_view.dart';
 import '../modules/phone_form/bindings/phone_form_binding.dart';
 import '../modules/phone_form/views/phone_form_view.dart';
 import '../modules/supplier_account/bindings/supplier_account_binding.dart';
@@ -62,6 +64,11 @@ class AppPages {
       name: _Paths.ORDER_DETAILS,
       page: () => OrderDetailsView(),
       binding: OrderDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ORDER_PROBLEMS,
+      page: () => OrderProblemsView(),
+      binding: OrderProblemsBinding(),
     ),
   ];
 }
