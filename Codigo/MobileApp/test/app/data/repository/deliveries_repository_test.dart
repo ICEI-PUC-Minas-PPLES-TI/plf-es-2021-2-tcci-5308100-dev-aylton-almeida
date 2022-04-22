@@ -1,3 +1,4 @@
+import 'package:delivery_manager/app/data/enums/problem_type.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/provider/api_client.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
@@ -88,7 +89,7 @@ void main() {
       verify(mockApiClient.get('/deliveries/$deliveryId')).called(1);
     });
 
-    test('Deliver Order', () async {
+    test('Deliver Order when no problem', () async {
       // when
       final repository = DeliveriesRepository(apiClient: mockApiClient);
       const deliveryId = '123';
@@ -107,6 +108,43 @@ void main() {
       verify(mockApiClient.put('/deliveries/deliver-order', body: {
         'deliveryId': deliveryId,
         'orderId': orderId,
+      })).called(1);
+    });
+
+    test('Deliver Order when problem passed', () async {
+      // when
+      final repository = DeliveriesRepository(apiClient: mockApiClient);
+      const deliveryId = '123';
+      const orderId = '456';
+      const problemType = ProblemType.absent_receiver;
+      const problemDescription = 'There was a problem';
+
+      // mock
+      when(mockApiClient.put('/deliveries/deliver-order', body: {
+        'deliveryId': deliveryId,
+        'orderId': orderId,
+        'problem': {
+          'type': problemType.value,
+          'description': problemDescription
+        }
+      })).thenAnswer((_) async => {});
+
+      // then
+      await repository.deliverOrder(
+        deliveryId: deliveryId,
+        orderId: orderId,
+        problemType: problemType,
+        problemDescription: problemDescription,
+      );
+
+      // assert
+      verify(mockApiClient.put('/deliveries/deliver-order', body: {
+        'deliveryId': deliveryId,
+        'orderId': orderId,
+        'problem': {
+          'type': problemType.value,
+          'description': problemDescription
+        }
       })).called(1);
     });
   });

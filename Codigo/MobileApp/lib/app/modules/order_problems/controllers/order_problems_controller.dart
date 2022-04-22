@@ -63,6 +63,8 @@ class OrderProblemsController extends GetxController {
 
   bool get isValid => !isLoading && _problemType.value != null;
 
+  ProblemType? get problemType => _problemType.value;
+
   Future<void> submitProblem() async {
     try {
       _isLoading.value = true;

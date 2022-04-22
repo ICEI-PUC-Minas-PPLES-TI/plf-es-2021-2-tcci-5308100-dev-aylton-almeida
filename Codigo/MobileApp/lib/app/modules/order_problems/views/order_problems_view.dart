@@ -72,7 +72,7 @@ class OrderProblemsView extends GetView<OrderProblemsController> {
               children: [
                 Obx(
                   () => LoadingButton(
-                    key: const Key('phone_submit_button'),
+                    key: const Key('problem_submit_button'),
                     onPressed: controller.submitProblem,
                     child: Text('send_problem'.tr),
                     isLoading: controller.isLoading,

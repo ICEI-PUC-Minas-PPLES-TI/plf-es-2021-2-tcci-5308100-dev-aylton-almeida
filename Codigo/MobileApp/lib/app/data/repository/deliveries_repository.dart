@@ -42,8 +42,6 @@ class DeliveriesRepository {
     ProblemType? problemType,
     String? problemDescription,
   }) async {
-    // TODO: test
-
     await _apiClient.put('$_basePath/deliver-order', body: {
       'deliveryId': deliveryId,
       'orderId': orderId,
