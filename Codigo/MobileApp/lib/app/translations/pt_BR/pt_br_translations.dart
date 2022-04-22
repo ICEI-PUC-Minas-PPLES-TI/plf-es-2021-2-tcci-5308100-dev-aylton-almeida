@@ -15,19 +15,21 @@ final _headers = {
       'Parceiro, acesse sua conta com seu número de WhatsApp',
   'confirmation_code_form_header': 'Digite o código de confirmação',
   'recipient_name': 'Destinatário: :name',
-  'order_problem_header': 'Qual o problema ocorrido durante a entrega?'
+  'order_problem_header': 'Qual o problema ocorrido durante a entrega?',
+  'delivery_complete_header': 'Obrigado!'
 };
 
 final _subHeaders = {
-  'delivery_code_form_sub_header':
+  'delivery_code_form_subheader':
       'Caso não, mas deseje ver suas entregas pendentes, acesse sua conta de parceiro Trela',
-  'phone_form_sub_header':
+  'phone_form_subheader':
       'Digite seu WhatsApp para entrar. Seus dados estão seguros e você não precisa de senha.',
-  'confirmation_code_form_sub_header':
+  'confirmation_code_form_subheader':
       'Insira o código de 6 dígitos que enviamos para o seu WhatsApp :phone',
   'next_delivery': 'Próxima Entrega:',
   'order_problem_subheader':
-      'Nos diga qual o tipo de problema ocorrido e de detalhes do acontecido.'
+      'Nos diga qual o tipo de problema ocorrido e de detalhes do acontecido.',
+  'delivery_complete_subheader': 'Você finalizou todos os pedidos da entrega.'
 };
 
 final _listTitles = {
@@ -89,6 +91,7 @@ final _buttonLabels = {
   'confirm_delivery': 'Confirmar entrega',
   'register_problem': 'Registrar problema',
   'send_problem': 'Enviar problema',
+  'go_back_to_start': 'Voltar para página inicial'
 };
 
 final _alerts = {

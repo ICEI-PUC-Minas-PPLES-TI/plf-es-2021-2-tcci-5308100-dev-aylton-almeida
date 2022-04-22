@@ -15,7 +15,7 @@ Future<void> testSignInSupplier(WidgetTester tester) async {
   await tester.pumpAndSettle();
 
   // Check if user was redirected to the phone form page
-  expect(find.text('phone_form_sub_header'.tr), findsOneWidget);
+  expect(find.text('phone_form_subheader'.tr), findsOneWidget);
   expect(find.text('phone_input_label'.tr), findsOneWidget);
   expect(find.byKey(const Key('phone_submit_button')), findsOneWidget);
 

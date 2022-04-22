@@ -12,7 +12,7 @@ class ScrollableForm extends Form {
             slivers: [
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Container(
+                child: Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
                   child: Column(

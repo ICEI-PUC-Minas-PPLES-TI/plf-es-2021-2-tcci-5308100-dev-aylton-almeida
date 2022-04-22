@@ -4,6 +4,8 @@ import '../modules/confirmation_code_form/bindings/confirmation_code_form_bindin
 import '../modules/confirmation_code_form/views/confirmation_code_form_view.dart';
 import '../modules/delivery_code_form/bindings/delivery_code_form_binding.dart';
 import '../modules/delivery_code_form/views/delivery_code_form_view.dart';
+import '../modules/delivery_complete/bindings/delivery_complete_binding.dart';
+import '../modules/delivery_complete/views/delivery_complete_view.dart';
 import '../modules/delivery_details/bindings/delivery_details_binding.dart';
 import '../modules/delivery_details/views/delivery_details_view.dart';
 import '../modules/delivery_list/bindings/delivery_list_binding.dart';
@@ -69,6 +71,11 @@ class AppPages {
       name: _Paths.ORDER_PROBLEMS,
       page: () => OrderProblemsView(),
       binding: OrderProblemsBinding(),
+    ),
+    GetPage(
+      name: _Paths.DELIVERY_COMPLETE,
+      page: () => DeliveryCompleteView(),
+      binding: DeliveryCompleteBinding(),
     ),
   ];
 }

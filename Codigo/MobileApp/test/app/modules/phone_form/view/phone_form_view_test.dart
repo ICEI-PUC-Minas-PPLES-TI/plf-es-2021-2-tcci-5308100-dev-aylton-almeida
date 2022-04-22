@@ -59,7 +59,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.text('phone_form_sub_header'.tr),
+        find.text('phone_form_subheader'.tr),
         findsOneWidget,
       );
       expect(find.text('phone_input_label'.tr), findsOneWidget);
@@ -96,7 +96,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.text('phone_form_sub_header'.tr),
+        find.text('phone_form_subheader'.tr),
         findsOneWidget,
       );
       expect(find.text('phone_input_label'.tr), findsOneWidget);
