@@ -32,7 +32,7 @@ class DeliveryCodeFormView extends GetView<DeliveryCodeFormController> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'delivery_code_form_sub_header'.tr,
+                  'delivery_code_form_subheader'.tr,
                   style: Get.textTheme.subtitle2,
                 ),
                 const SizedBox(height: 24),

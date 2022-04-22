@@ -34,7 +34,7 @@ class ConfirmationCodeFormView extends GetView<ConfirmationCodeFormController> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'confirmation_code_form_sub_header'
+                  'confirmation_code_form_subheader'
                       .tr
                       .replaceAll(':phone', controller.currentPhone ?? ''),
                   style: Get.textTheme.subtitle2,

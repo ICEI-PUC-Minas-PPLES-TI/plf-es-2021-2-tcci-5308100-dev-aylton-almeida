@@ -45,7 +45,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.text('delivery_code_form_sub_header'.tr),
+        find.text('delivery_code_form_subheader'.tr),
         findsOneWidget,
       );
       expect(find.text('delivery_code_input_label'.tr), findsOneWidget);

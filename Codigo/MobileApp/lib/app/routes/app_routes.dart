@@ -13,6 +13,7 @@ abstract class Routes {
   static const ORDER_DIRECTIONS = _Paths.ORDER_DIRECTIONS;
   static const ORDER_DETAILS = _Paths.ORDER_DETAILS;
   static const ORDER_PROBLEMS = _Paths.ORDER_PROBLEMS;
+  static const DELIVERY_COMPLETE = _Paths.DELIVERY_COMPLETE;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const ORDER_DIRECTIONS = '/order-directions';
   static const ORDER_DETAILS = '/order-details';
   static const ORDER_PROBLEMS = '/order-problems';
+  static const DELIVERY_COMPLETE = '/delivery-complete';
 }

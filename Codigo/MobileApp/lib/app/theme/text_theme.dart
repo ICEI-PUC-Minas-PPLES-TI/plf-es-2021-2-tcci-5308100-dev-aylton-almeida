@@ -15,7 +15,7 @@ const textThemeData = TextTheme(
   ),
   headline4: TextStyle(
     fontSize: 34.0,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
   ),
   headline5: TextStyle(
     fontSize: 24.0,

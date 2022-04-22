@@ -61,7 +61,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.text('confirmation_code_form_sub_header'
+        find.text('confirmation_code_form_subheader'
             .tr
             .replaceAll(':phone', currentPhone)),
         findsOneWidget,

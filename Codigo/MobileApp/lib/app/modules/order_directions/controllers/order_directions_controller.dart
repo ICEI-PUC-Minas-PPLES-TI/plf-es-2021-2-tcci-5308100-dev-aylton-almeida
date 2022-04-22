@@ -5,6 +5,7 @@ import 'package:delivery_manager/app/data/models/address.dart';
 import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/data/models/directions.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
+import 'package:delivery_manager/app/data/models/route_address.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/data/repository/maps_repository.dart';
 import 'package:delivery_manager/app/data/repository/position_repository.dart';
@@ -204,27 +205,34 @@ class OrderDirectionsController extends GetxController {
     );
 
     final nextDirection = _delivery.route!.addresses
-        .map(
+        .map<Tuple2<Order, RouteAddress>?>(
           (address) => Tuple2(
             _delivery.orders!.firstWhere(
                 (order) => order.shippingAddressId == address.addressId),
             address,
           ),
         )
-        .firstWhere((element) => (!element.item1.delivered));
+        .firstWhere(
+          (element) => (element?.item1 != null && !element!.item1.delivered),
+          orElse: () => null,
+        );
 
-    setDestinationMarker(nextDirection.item2.address);
+    if (nextDirection != null) {
+      setDestinationMarker(nextDirection.item2.address);
 
-    _currentOrder.value = nextDirection.item1;
-    _directions.value = await _mapsRepository.getDirections(
-        origin: LatLng(
-          _currentPosition.value!.latitude,
-          _currentPosition.value!.longitude,
-        ),
-        destination: LatLng(
-          nextDirection.item2.address.lat,
-          nextDirection.item2.address.lng,
-        ));
+      _currentOrder.value = nextDirection.item1;
+      _directions.value = await _mapsRepository.getDirections(
+          origin: LatLng(
+            _currentPosition.value!.latitude,
+            _currentPosition.value!.longitude,
+          ),
+          destination: LatLng(
+            nextDirection.item2.address.lat,
+            nextDirection.item2.address.lng,
+          ));
+    } else {
+      Get.offAllNamed(Routes.DELIVERY_COMPLETE);
+    }
   }
 
   void centerCurrentLocation() {
