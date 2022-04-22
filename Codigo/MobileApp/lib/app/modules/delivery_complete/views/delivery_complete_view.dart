@@ -36,6 +36,7 @@ class DeliveryCompleteView extends GetView<DeliveryCompleteController> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
+                      key: const Key('go_back_button'),
                       onPressed: controller.onGoToStartTap,
                       child: Text('go_back_to_start'.tr),
                     ),
