@@ -1,5 +1,4 @@
 import 'package:delivery_manager/app/controllers/app_controller.dart';
-import 'package:delivery_manager/app/data/enums/problem_type.dart';
 import 'package:delivery_manager/app/data/models/order.dart';
 import 'package:delivery_manager/app/data/repository/deliveries_repository.dart';
 import 'package:delivery_manager/app/modules/order_problems/controllers/order_problems_controller.dart';
