@@ -9,7 +9,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart';
 import 'package:integration_test/integration_test.dart';
 import 'utils/sign_in_deliverer.dart';
-import 'utils/sign_in_supplier.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -32,7 +31,8 @@ Future<void> main() async {
         throw Exception('Failed request with error ${response.statusCode}');
       }
 
-      delivery = jsonDecode(response.body);
+      final parsed_delivery = jsonDecode(response.body);
+      delivery = Delivery.fromJson(parsed_delivery);
     });
 
     // testWidgets(
