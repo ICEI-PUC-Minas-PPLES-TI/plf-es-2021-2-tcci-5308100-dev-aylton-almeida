@@ -32,8 +32,8 @@ Future<void> main() async {
         throw Exception('Failed request with error ${response.statusCode}');
       }
 
-      final parsed_delivery = jsonDecode(response.body);
-      delivery = Delivery.fromJson(parsed_delivery);
+      final parsedDelivery = jsonDecode(response.body);
+      delivery = Delivery.fromJson(parsedDelivery);
     });
 
     testWidgets(
