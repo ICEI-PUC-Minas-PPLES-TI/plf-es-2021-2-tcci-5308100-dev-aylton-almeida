@@ -33,6 +33,12 @@ jobs:
       - name: Start Simulator
         run: open -a Simulator.app
 
+      - name: Set location permissions
+        run: |
+          brew tap wix/brew
+          brew install applesimutils
+          applesimutils  --setPermissions location=always
+
       - name: Install dependencies
         run: |
           flutter pub get
