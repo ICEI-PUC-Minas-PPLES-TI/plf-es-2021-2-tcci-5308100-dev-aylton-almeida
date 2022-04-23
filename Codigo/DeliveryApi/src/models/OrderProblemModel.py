@@ -14,8 +14,11 @@ class OrderProblemModel(BaseModel, db.Model):
     type = db.Column(db.String(30), nullable=False)
     description = db.Column(db.String(1000), default='', nullable=False)
 
-    order_id = db.Column(UUID(as_uuid=True), db.ForeignKey(
-        'delivery_orders.order_id'), nullable=False)
+    order_id = db.Column(
+        UUID(as_uuid=True),
+        db.ForeignKey('delivery_orders.order_id', ondelete='CASCADE'),
+        nullable=False,
+    )
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)
