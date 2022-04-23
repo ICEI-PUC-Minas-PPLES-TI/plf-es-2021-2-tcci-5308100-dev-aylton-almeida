@@ -47,7 +47,7 @@ class DeliveryService(ABC):
         ])
 
     @staticmethod
-    def create_optimized_delivery(delivery_data: dict):
+    def create_optimized_delivery(delivery_data: dict) -> DeliveryModel:
         """Creates a new delivery and also an optimized route for its orders"""
 
         # Create delivery
@@ -59,6 +59,8 @@ class DeliveryService(ABC):
 
         # Commit transaction
         delivery.save()
+
+        return delivery
 
     @staticmethod
     def start_delivery(delivery_id: UUID, deliverer_id: int):

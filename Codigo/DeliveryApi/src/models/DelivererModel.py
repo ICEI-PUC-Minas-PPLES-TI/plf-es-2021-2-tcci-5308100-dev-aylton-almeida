@@ -13,8 +13,10 @@ class DelivererModel(BaseModel, db.Model):
     deliverer_id = db.Column(db.Integer, primary_key=True)
     phone = db.Column(db.String(20))
 
-    delivery_id = db.Column(UUID(as_uuid=True), db.ForeignKey(
-        'delivery_deliveries.delivery_id'))
+    delivery_id = db.Column(
+        UUID(as_uuid=True),
+        db.ForeignKey('delivery_deliveries.delivery_id', ondelete="CASCADE"),
+    )
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)

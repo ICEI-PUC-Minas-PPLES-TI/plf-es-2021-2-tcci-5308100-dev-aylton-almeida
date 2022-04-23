@@ -16,8 +16,11 @@ class OrderProductModel(BaseModel, db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     variant = db.Column(db.String(500), nullable=False)
 
-    order_id = db.Column(UUID(as_uuid=True), db.ForeignKey(
-        'delivery_orders.order_id'), nullable=False)
+    order_id = db.Column(
+        UUID(as_uuid=True),
+        db.ForeignKey('delivery_orders.order_id', ondelete="CASCADE"),
+        nullable=False,
+    )
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)

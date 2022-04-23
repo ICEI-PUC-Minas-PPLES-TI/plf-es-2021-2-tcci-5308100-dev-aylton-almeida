@@ -10,10 +10,22 @@ class DeliveryRouteAddressModel(BaseModel, db.Model):
 
     __tablename__ = 'delivery_delivery_route_addresses'
 
-    delivery_route_id = db.Column(db.Integer, db.ForeignKey(
-        'delivery_delivery_routes.delivery_route_id'), primary_key=True)
-    address_id = db.Column(db.Integer, db.ForeignKey(
-        'delivery_addresses.address_id'), primary_key=True)
+    delivery_route_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            'delivery_delivery_routes.delivery_route_id',
+            ondelete="CASCADE"
+        ),
+        primary_key=True,
+    )
+    address_id = db.Column(
+        db.Integer,
+        db.ForeignKey(
+            'delivery_addresses.address_id',
+            ondelete="CASCADE"
+        ),
+        primary_key=True,
+    )
     position = db.Column(db.Integer, nullable=False)
 
     address: AddressModel = db.relationship('AddressModel')

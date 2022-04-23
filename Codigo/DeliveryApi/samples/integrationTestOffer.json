@@ -1,0 +1,118 @@
+{
+    "name": "Compra do Teste de Integra\u00e7\u00e3o",
+    "offer_id": "986b801a-1bee-45e5-b52b-3e4aa544bf88",
+    "delivery_date": "2022-04-15T10:00:00",
+    "orders": [
+        {
+            "buyer": {
+                "name": "Teri Mcfall"
+            },
+            "order_id": "fc0b34ce-43a9-4db0-874a-70d0e51db686",
+            "order_products": [
+                {
+                    "product_name": "Alla Salsiccia",
+                    "quantity": 2,
+                    "sku": 1629,
+                    "order_id": "fc0b34ce-43a9-4db0-874a-70d0e51db686"
+                },
+                {
+                    "product_name": "Calabresa",
+                    "quantity": 1,
+                    "sku": 1630,
+                    "order_id": "fc0b34ce-43a9-4db0-874a-70d0e51db686"
+                },
+                {
+                    "product_name": "Frango com Catupiry",
+                    "quantity": 1,
+                    "sku": 1677,
+                    "order_id": "fc0b34ce-43a9-4db0-874a-70d0e51db686"
+                }
+            ],
+            "shipping_address": {
+                "address_id": 12719,
+                "city_name": "Nova Lima",
+                "country_state": "MG",
+                "neighborhood_name": "Alphaville - Lagoa dos Ingleses",
+                "postal_code": "34018088",
+                "street_name": "Rua das Arauc\u00e1rias",
+                "street_number": "960",
+                "unit_number": "Residencial \u00c1rvores "
+            },
+            "transaction": {
+                "status": "paid"
+            }
+        },
+        {
+            "buyer": {
+                "name": "Claudia Covell"
+            },
+            "order_id": "4def2ad1-5d77-4737-b5cd-3debe2c5f570",
+            "order_products": [
+                {
+                    "product_name": "Marguerita Verace",
+                    "quantity": 2,
+                    "sku": 1633,
+                    "order_id": "4def2ad1-5d77-4737-b5cd-3debe2c5f570"
+                }
+            ],
+            "shipping_address": {
+                "address_id": 12977,
+                "city_name": "Nova Lima",
+                "country_state": "MG",
+                "neighborhood_name": "Alphaville - Lagoa dos Ingleses",
+                "postal_code": "34018158",
+                "street_name": "Rua Paranapanema",
+                "street_number": "273",
+                "unit_number": "Costa Laguna "
+            },
+            "transaction": {
+                "status": "paid"
+            }
+        },
+        {
+            "buyer": {
+                "name": "Martin Pree"
+            },
+            "order_id": "40fe0cfb-239d-4aa5-80a4-5936edf5e494",
+            "order_products": [
+                {
+                    "product_name": "Calabresa",
+                    "quantity": 1,
+                    "sku": 1630,
+                    "order_id": "40fe0cfb-239d-4aa5-80a4-5936edf5e494"
+                },
+                {
+                    "product_name": "Caprese",
+                    "quantity": 1,
+                    "sku": 1631,
+                    "order_id": "40fe0cfb-239d-4aa5-80a4-5936edf5e494"
+                },
+                {
+                    "product_name": "Marguerita",
+                    "quantity": 1,
+                    "sku": 1632,
+                    "order_id": "40fe0cfb-239d-4aa5-80a4-5936edf5e494"
+                }
+            ],
+            "shipping_address": {
+                "address_id": 12985,
+                "city_name": "Nova Lima",
+                "country_state": "MG",
+                "neighborhood_name": "Alphaville - Lagoa dos Ingleses",
+                "postal_code": "34018162",
+                "street_name": "Rua S\u00e3o Mateus",
+                "street_number": "85",
+                "unit_number": null
+            },
+            "transaction": {
+                "status": "paid"
+            }
+        }
+    ],
+    "supplier": {
+        "legal_id": "24326736000112",
+        "name": "Leonard Stewart",
+        "phone": "+5511943264578",
+        "supplier_id": 1023
+    }
+}

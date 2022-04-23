@@ -54,10 +54,13 @@ class DeliveryModel(BaseModel, db.Model):
 
     route: DeliveryRouteModel = db.relationship(
         'DeliveryRouteModel',
-        uselist=False
+        uselist=False,
+        passive_deletes=True
     )
-    orders: list[OrderModel] = db.relationship('OrderModel')
-    deliverers: list[DelivererModel] = db.relationship('DelivererModel')
+    orders: list[OrderModel] = db.relationship(
+        'OrderModel', passive_deletes=True)
+    deliverers: list[DelivererModel] = db.relationship(
+        'DelivererModel', passive_deletes=True)
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)

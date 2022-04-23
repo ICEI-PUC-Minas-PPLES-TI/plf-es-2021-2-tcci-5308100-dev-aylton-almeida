@@ -12,6 +12,7 @@ from src.controllers.DeliveryController import (DeliveryListResource,
                                                 DeliveryOrderResource,
                                                 DeliveryResource,
                                                 VerifyDeliveryResource)
+from src.controllers.TestsController import IntegrationTestResource
 from src.events.listen import *
 from src.models import *
 
@@ -63,6 +64,8 @@ def create_app(env_name):
     api.add_resource(SupplierAuthResource, f'{PATH}/auth/suppliers')
     api.add_resource(SupplierAuthCodeResource,
                      f'{PATH}/auth/suppliers/verify-code')
+
+    api.add_resource(IntegrationTestResource, f'{PATH}/integration-setup')
 
     # init docs
     docs.init_app(app)
