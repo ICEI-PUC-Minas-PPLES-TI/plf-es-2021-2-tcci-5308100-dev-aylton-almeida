@@ -37,7 +37,7 @@ jobs:
         run: |
           brew tap wix/brew
           brew install applesimutils
-          applesimutils  --setPermissions location=always
+          applesimutils --bundle com.example.deliveryManager --setPermissions location=always
 
       - name: Install dependencies
         run: |
