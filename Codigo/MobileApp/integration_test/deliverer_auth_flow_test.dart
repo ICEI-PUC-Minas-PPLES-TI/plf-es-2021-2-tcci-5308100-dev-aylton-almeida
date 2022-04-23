@@ -1,10 +1,9 @@
-import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
 import 'package:integration_test/integration_test.dart';
+
+import 'utils/sign_in_deliverer.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -20,31 +19,8 @@ Future<void> main() async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
-      // when
-      const validCode = '5IMIVP';
-      const validPhone = '5531999385992';
-
-      // Find the text field and enter the code
-      expect(find.byKey(const Key('code_submit_button')), findsOneWidget);
-      await tester.enterText(find.byType(OutlinedTextField), validCode);
-      await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const Key('code_submit_button')));
-
-      await tester.pumpAndSettle();
-
-      // Check if user was redirected to the phone form page
-      expect(find.text('phone_form_subheader'.tr), findsOneWidget);
-      expect(find.text('phone_input_label'.tr), findsOneWidget);
-      expect(find.byKey(const Key('phone_submit_button')), findsOneWidget);
-
-      // Enter a valid phone and check if the next page appears
-      await tester.enterText(find.byType(OutlinedTextField), validPhone);
-      await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const Key('phone_submit_button')));
-      await tester.pumpAndSettle();
-
-      // Find the delivery details page
-      expect(find.text('delivery_details'.tr), findsOneWidget);
+      // Test sign in deliverer
+      await testSignInDeliverer(tester: tester);
     });
   });
 }
