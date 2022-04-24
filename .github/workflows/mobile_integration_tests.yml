@@ -44,8 +44,8 @@ jobs:
         run: |
           brew tap wix/brew
           brew install applesimutils
-          flutter install
-          applesimutils --bundle com.example.deliveryManager --setPermissions location=always
+          flutter install -v
+          applesimutils --bundle "com.example.deliveryManager" --setPermissions location=always
 
       - name: Run tests
         run: |
