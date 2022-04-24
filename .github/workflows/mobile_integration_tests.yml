@@ -33,18 +33,19 @@ jobs:
       - name: Start Simulator
         run: open -a Simulator.app
 
-      - name: Set location permissions
-        run: |
-          brew tap wix/brew
-          brew install applesimutils
-          applesimutils --bundle com.example.deliveryManager --setPermissions location=always
-
       - name: Install dependencies
         run: |
           flutter pub get
           touch .env
           echo "API_URL=$API_URL" > .env
           flutter pub run build_runner build
+
+      - name: Set location permissions
+        run: |
+          brew tap wix/brew
+          brew install applesimutils
+          flutter install
+          applesimutils --bundle com.example.deliveryManager --setPermissions location=always
 
       - name: Run tests
         run: |
