@@ -27,10 +27,12 @@ class ApiClient {
   }
 
   handleApiResponse(Response response) {
+    final parsed = jsonDecode(response.body);
+
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      return parsed;
     } else {
-      throw Exception('Failed request with error ${response.statusCode}');
+      throw Exception(parsed['error']);
     }
   }
 

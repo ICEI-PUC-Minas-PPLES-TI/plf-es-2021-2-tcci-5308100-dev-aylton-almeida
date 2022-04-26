@@ -29,6 +29,15 @@ class OrderDetailsController extends GetxController {
 
   bool get isLoading => _isLoading.value;
 
+  Future<void> _handleOrderDelivered() async {
+    await Get.find<OrderDirectionsController>().refreshDirections();
+
+    _appController.showAlert(
+        text: 'delivery_confirmed'.tr, type: AlertType.success);
+
+    goBack();
+  }
+
   Future<void> onConfirmTap() async {
     try {
       _isLoading.value = true;
@@ -38,15 +47,14 @@ class OrderDetailsController extends GetxController {
         orderId: _order.orderId,
       );
 
-      await Get.find<OrderDirectionsController>().refreshDirections();
-
-      _appController.showAlert(
-          text: 'delivery_confirmed'.tr, type: AlertType.success);
-
-      goBack();
-    } on Exception {
-      _appController.showAlert(
-          text: 'generic_error_msg'.tr, type: AlertType.error);
+      await _handleOrderDelivered();
+    } on Exception catch (e) {
+      if (e.toString().contains('Order was already delivered')) {
+        await _handleOrderDelivered();
+      } else {
+        _appController.showAlert(
+            text: 'generic_error_msg'.tr, type: AlertType.error);
+      }
     } finally {
       _isLoading.value = false;
     }
