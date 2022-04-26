@@ -50,4 +50,4 @@ jobs:
       - name: Run tests
         run: |
           cat .env
-          flutter drive --driver=integration_test/utils/driver.dart --target=integration_test/*
+          flutter drive --driver=integration_test/utils/driver.dart --target=integration_test/deliverer_delivery_flow_test.dart
