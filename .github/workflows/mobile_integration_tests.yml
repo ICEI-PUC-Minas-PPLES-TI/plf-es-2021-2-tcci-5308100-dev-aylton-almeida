@@ -31,7 +31,9 @@ jobs:
         run: xcrun simctl list
 
       - name: Start Simulator
-        run: open -a Simulator.app
+        run: |
+          open -a Simulator.app
+          xcrun simctl list 'devices' 'booted'
 
       - name: Install dependencies
         run: |
