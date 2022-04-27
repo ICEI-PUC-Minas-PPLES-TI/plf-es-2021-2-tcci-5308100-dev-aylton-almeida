@@ -31,7 +31,11 @@ jobs:
         run: xcrun simctl list
 
       - name: Start Simulator
-        run: open -a Simulator.app
+        run: |
+          UDID=$(xcrun instruments -s | awk -F '*[][]' -v 'device=iPhone 11 Pro Max' '$1 == device {print $2}')
+          echo "Starting simulator: $UDID"
+          xcrun simctl boot "$UDID"
+          xcrun simctl privacy "$UDID" grant location-always com.example.deliveryManager
 
       - name: Install dependencies
         run: |
@@ -40,12 +44,7 @@ jobs:
           echo "API_URL=$API_URL" > .env
           flutter pub run build_runner build
 
-      - name: Set location permissions
-        run: |
-          brew tap wix/brew
-          brew install applesimutils
-
       - name: Run tests
         run: |
           cat .env
-          flutter drive --driver=integration_test/utils/driver.dart --target=integration_test/deliverer_delivery_flow_test.dart
+          flutter test integration_test
