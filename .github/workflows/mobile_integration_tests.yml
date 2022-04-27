@@ -31,11 +31,7 @@ jobs:
         run: xcrun simctl list
 
       - name: Start Simulator
-        run: |
-          UDID=$(xcrun instruments -s | awk -F '*[][]' -v 'device=iPhone 11 Pro Max' '$1 == device {print $2}')
-          echo "Starting simulator: $UDID"
-          xcrun simctl boot "$UDID"
-          xcrun simctl privacy "$UDID" grant location-always com.example.deliveryManager
+        run: open -a Simulator.app
 
       - name: Install dependencies
         run: |
@@ -43,6 +39,10 @@ jobs:
           touch .env
           echo "API_URL=$API_URL" > .env
           flutter pub run build_runner build
+
+      - name: Set location permissions
+        run: |
+          xcrun simctl list 'devices' 'booted'
 
       - name: Run tests
         run: |
