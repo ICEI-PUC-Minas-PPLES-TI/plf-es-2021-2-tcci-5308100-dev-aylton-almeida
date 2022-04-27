@@ -31,7 +31,12 @@ jobs:
         run: xcrun simctl list
 
       - name: Start Simulator
-        run: open -a Simulator.app
+        run: |
+          xcrun simctl list
+          deviceId=$(xcrun simctl list | grep 'iPhone 13 Pro' | awk -F '[()]' '{print $2}' | head -n 1)
+          echo $deviceId
+          xcrun simctl boot $deviceId
+          xcrun simtcl privacy $deviceId grant location-always com.example.deliveryManager
 
       - name: Install dependencies
         run: |
@@ -39,12 +44,6 @@ jobs:
           touch .env
           echo "API_URL=$API_URL" > .env
           flutter pub run build_runner build
-
-      - name: Set location permissions
-        run: |
-          xcrun simctl list
-          deviceId=$(xcrun simctl list | grep 'iPhone 13' | awk -F '[()]' '{print $2}')
-          xcrun simtcl privacy $deviceId grant location-always com.example.deliveryManager
 
       - name: Run tests
         run: |
