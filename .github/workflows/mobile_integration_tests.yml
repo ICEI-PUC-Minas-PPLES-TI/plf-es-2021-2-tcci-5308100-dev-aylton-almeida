@@ -42,7 +42,8 @@ jobs:
 
       - name: Set location permissions
         run: |
-          deviceId=$(cat text | grep 'iPhone 13' | awk -F '[()]' '{print $2}')
+          xcrun simctl list
+          deviceId=$(xcrun simctl list | grep 'iPhone 13' | awk -F '[()]' '{print $2}')
           xcrun simtcl privacy $deviceId grant location-always com.example.deliveryManager
 
       - name: Run tests
