@@ -31,9 +31,7 @@ jobs:
         run: xcrun simctl list
 
       - name: Start Simulator
-        run: |
-          open -a Simulator.app
-          xcrun simctl list 'devices' 'booted'
+        run: open -a Simulator.app
 
       - name: Install dependencies
         run: |
@@ -44,7 +42,8 @@ jobs:
 
       - name: Set location permissions
         run: |
-          xcrun simctl list 'devices' 'booted'
+          deviceId=$(cat text | grep 'iPhone 13' | awk -F '[()]' '{print $2}')
+          xcrun simtcl privacy $deviceId grant location-always com.example.deliveryManager
 
       - name: Run tests
         run: |
