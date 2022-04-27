@@ -40,12 +40,10 @@ jobs:
           echo "API_URL=$API_URL" > .env
           flutter pub run build_runner build
 
-      # - name: Set location permissions
-      #   run: |
-      #     brew tap wix/brew
-      #     brew install applesimutils
-      #     flutter run &
-      #     applesimutils --bundle "com.example.deliveryManager" --setPermissions location=always
+      - name: Set location permissions
+        run: |
+          brew tap wix/brew
+          brew install applesimutils
 
       - name: Run tests
         run: |
