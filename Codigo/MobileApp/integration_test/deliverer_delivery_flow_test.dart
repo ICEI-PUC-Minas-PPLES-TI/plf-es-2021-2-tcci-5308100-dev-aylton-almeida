@@ -37,7 +37,7 @@ Future<void> main() async {
     });
 
     testWidgets(
-        'See delivery details and start it. Deliver 2 orders and register a problema for the third one, finishing the delivery',
+        'See delivery details and start it. Deliver 2 orders and register a problem for the third one, finishing the delivery',
         (WidgetTester tester) async {
       // when
       const orderDetailsCardKey = Key('order_details_card_ink_well');
