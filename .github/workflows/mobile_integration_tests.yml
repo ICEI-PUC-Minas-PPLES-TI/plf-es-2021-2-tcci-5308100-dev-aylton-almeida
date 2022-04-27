@@ -33,7 +33,7 @@ jobs:
       - name: Start Simulator
         run: |
           xcrun simctl list
-          deviceId=$(xcrun simctl list | grep 'iPhone 13 Pro' | awk -F '[()]' '{print $2}' | head -n 1)
+          deviceId=$(xcrun simctl list | grep 'iPhone 13 Pro' | awk -F '[()]' '{print $2}' | head -n 3 | tail -1)
           echo $deviceId
           xcrun simctl boot $deviceId
           xcrun simtcl privacy $deviceId grant location-always com.example.deliveryManager
