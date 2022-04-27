@@ -27,16 +27,13 @@ jobs:
           cache-key: flutter
           cache-path: ${{ runner.tool_cache }}/flutter
 
-      - name: List all simulators
-        run: xcrun simctl list
-
       - name: Start Simulator
         run: |
-          xcrun simctl list
+          run: xcrun simctl list
           deviceId=$(xcrun simctl list | grep 'iPhone 13 Pro' | awk -F '[()]' '{print $2}' | head -n 3 | tail -1)
-          echo $deviceId
+          echo "Starting simulator: $deviceId"
           xcrun simctl boot $deviceId
-          xcrun simtcl privacy $deviceId grant location-always com.example.deliveryManager
+          xcrun simctl privacy $deviceId grant location-always com.example.deliveryManager
 
       - name: Install dependencies
         run: |
