@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from unittest.mock import MagicMock, call, patch
 from uuid import uuid4
 
+from rabbitmq_pika_flask import RabbitMQ
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
 from src.classes.DeliveryStatus import DeliveryStatus
@@ -430,6 +431,7 @@ class DeliveryServiceTests(BaseTest):
         mock_commit.assert_called_once_with()
 
     @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(RabbitMQ, 'send')
     @patch.object(DeliveryService, 'get_one_by_id')
     @patch.object(OrderService, 'deliver_order')
     @patch.object(OrderProblemService, 'create_problem')
@@ -442,6 +444,7 @@ class DeliveryServiceTests(BaseTest):
         mock_create_problem: MagicMock,
         mock_deliver_order: MagicMock,
         mock_get_one_by_id: MagicMock,
+        mock_send: MagicMock,
         mock_get_current_datetime: MagicMock
     ):
         """Test deliver_order_for_delivery when deliveryhas problem"""
@@ -493,3 +496,7 @@ class DeliveryServiceTests(BaseTest):
         })
         mock_get_current_datetime.assert_called_once_with()
         mock_commit.assert_not_called()
+        mock_send.assert_called_once_with(
+            delivery,
+            'delivery.delivery.finished'
+        )
