@@ -5,6 +5,7 @@ from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.classes.ProblemType import ProblemType
+from src.libs.rabbitmq import rabbit
 from src.models.BaseModel import BaseModel
 from src.models.DeliveryModel import DeliveryModel
 from src.services.DeliveryRouteService import DeliveryRouteService
@@ -135,6 +136,8 @@ class DeliveryService(ABC):
                 'status': DeliveryStatus.finished,
                 'end_time': get_current_datetime()
             })
+
+            rabbit.send(delivery, 'delivery.delivery.finished')
 
             return True
 
