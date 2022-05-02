@@ -1,4 +1,3 @@
-import 'package:delivery_manager/app/data/models/delivery.dart';
 import 'package:delivery_manager/app/widgets/outlined_text_field.dart';
 import 'package:delivery_manager/main.dart';
 import 'package:flutter/material.dart';
