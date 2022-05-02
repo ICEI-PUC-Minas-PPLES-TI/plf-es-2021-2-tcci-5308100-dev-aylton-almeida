@@ -12,15 +12,18 @@ Future<void> main() async {
       as IntegrationTestWidgetsFlutterBinding;
   binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
-  group('E2E Test the deliverer auth flow', () {
-    testWidgets('Sign in successfully as a deliverer',
-        (WidgetTester tester) async {
-      // Initialize app
-      await tester.pumpWidget(const MyApp());
-      await tester.pumpAndSettle();
+  group(
+    'E2E Test the deliverer auth flow',
+    () {
+      testWidgets('Sign in successfully as a deliverer',
+          (WidgetTester tester) async {
+        // Initialize app
+        await tester.pumpWidget(const MyApp());
+        await tester.pumpAndSettle();
 
-      // Test sign in deliverer
-      await testSignInDeliverer(tester: tester);
-    });
-  });
+        // Test sign in deliverer
+        await testSignInDeliverer(tester: tester);
+      });
+    },
+  );
 }
