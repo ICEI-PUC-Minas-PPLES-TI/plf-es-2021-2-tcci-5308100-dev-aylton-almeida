@@ -1,8 +1,10 @@
 from abc import ABC
 from uuid import UUID
 
+import requests
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
+from src.classes.dataclasses.ReportItem import ReportItem
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.classes.ProblemType import ProblemType
 from src.libs.rabbitmq import rabbit
@@ -12,6 +14,7 @@ from src.services.DeliveryRouteService import DeliveryRouteService
 from src.services.OrderProblemService import OrderProblemService
 from src.services.OrderService import OrderService
 from src.utils.DateUtils import get_current_datetime
+from src.utils.XLSXBuilder import build_xlsx
 
 
 class DeliveryService(ABC):
@@ -45,6 +48,17 @@ class DeliveryService(ABC):
 
         return DeliveryModel.get_all_filtered([
             DeliveryModel.supplier_id == supplier_id
+        ])
+
+    @staticmethod
+    def get_finished_not_sent_deliveries() -> list[DeliveryModel]:
+        """Gets all deliveries that have finished but not sent with report"""
+
+        # TODO: test
+
+        return DeliveryModel.get_all_filtered([
+            DeliveryModel.status == DeliveryStatus.finished,
+            DeliveryModel.report_sent.is_(False)
         ])
 
     @staticmethod
@@ -144,3 +158,49 @@ class DeliveryService(ABC):
         BaseModel.commit()
 
         return False
+
+    @staticmethod
+    def send_report():
+        """Sends a report containing all deliveries not yet sent"""
+
+        # TODO: test
+
+        deliveries = DeliveryService.get_finished_not_sent_deliveries()
+
+        if deliveries:
+            report = DeliveryService.build_report(deliveries)
+
+            # send report
+            requests.post(
+                'https://hooks.slack.com/services/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',
+                data=json
+            )
+
+    @staticmethod
+    def build_report(deliveries: list[DeliveryModel]):
+        """Builds a report containing given deliveries"""
+
+        # TODO: test
+
+        headers = ReportItem.xlsx_headers()
+
+        rows: list[ReportItem] = []
+        for delivery in deliveries:
+            for order in delivery.orders:
+                for order_product in order.order_products:
+                    rows.append(
+                        ReportItem(
+                            delivery.deliverers[0].phone,
+                            delivery.offer_id,
+                            order_product.product_sku,
+                            order.shipping_address.to_address(),
+                            order.updated_at.time(),
+                            order.order_problem.type if order.order_problem else '',
+                            order.order_problem.description if order.order_problem else ''
+                        )
+                    )
+
+        return build_xlsx(
+            headers,
+            [row.to_xlsx_row() for row in rows]
+        )

@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from sqlalchemy.sql.elements import BinaryExpression
 
+from src.utils.DateUtils import get_current_datetime
+
 from . import db
 
 
@@ -9,6 +11,18 @@ class BaseModel:
 
     session = db.session
     query: any  # ? Added here only for pylint
+
+    created_at = db.Column(
+        db.DateTime,
+        default=get_current_datetime,
+        nullable=False
+    )
+    updated_at = db.Column(
+        db.DateTime,
+        default=get_current_datetime,
+        onupdate=get_current_datetime,
+        nullable=False
+    )
 
     def __init__(self, _session=None) -> None:
         self.session = _session or db.session
