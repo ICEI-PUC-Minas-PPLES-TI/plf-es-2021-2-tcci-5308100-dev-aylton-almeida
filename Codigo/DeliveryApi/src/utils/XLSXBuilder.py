@@ -4,7 +4,7 @@ from io import BytesIO
 import xlsxwriter
 
 
-def build_xlsx(headers: list[str], columns: dict[str, list[str]]) -> str:
+def build_xlsx(headers: list[str], columns: dict[str, list[str]]) -> BytesIO:
     """Builds xlsx out of given header and columns
 
         Returns
@@ -19,13 +19,10 @@ def build_xlsx(headers: list[str], columns: dict[str, list[str]]) -> str:
     # Iterate over the data and write it out row by row.
     for index, header in enumerate(headers):
         worksheet.write(0, index, header)
-        worksheet.write_column(1, index, [item[header] for item in columns])
+        worksheet.write_column(
+            1, index, [str(item[header]) for item in columns])
 
     # Close the workbook and output the Excel file.
     workbook.close()
 
-    b64_output = b64encode(output.getvalue()).decode('utf-8')
-
-    encoded_xlsx = f'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64_output}'
-
-    return encoded_xlsx
+    return output

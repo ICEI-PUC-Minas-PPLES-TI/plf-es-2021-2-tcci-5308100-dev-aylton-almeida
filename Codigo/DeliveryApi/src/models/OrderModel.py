@@ -35,7 +35,7 @@ class OrderModel(BaseModel, db.Model):
         passive_deletes=True
     )
     order_problem: OrderProblemModel = db.relationship(
-        'OrderProblem', passive_deletes=True, uselist=False)
+        'OrderProblemModel', passive_deletes=True, uselist=False)
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)

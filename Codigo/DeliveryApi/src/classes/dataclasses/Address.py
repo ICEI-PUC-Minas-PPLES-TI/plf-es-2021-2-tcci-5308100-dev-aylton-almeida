@@ -12,3 +12,8 @@ class Address:
     postal_code: str
     neighborhood_name: str
     unit_number: Optional[str] = None
+
+    def __str__(self) -> str:
+        return f'''{
+            self.street_name
+            } {self.street_number} {self.neighborhood_name} {self.city_name} {self.country_state} {self.postal_code}'''

@@ -1,12 +1,13 @@
 from abc import ABC
 from uuid import UUID
 
-import requests
+from flask import current_app
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
 from src.classes.dataclasses.ReportItem import ReportItem
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.classes.ProblemType import ProblemType
+from src.libs import slack
 from src.libs.rabbitmq import rabbit
 from src.models.BaseModel import BaseModel
 from src.models.DeliveryModel import DeliveryModel
@@ -167,14 +168,30 @@ class DeliveryService(ABC):
 
         deliveries = DeliveryService.get_finished_not_sent_deliveries()
 
+        current_app.logger.info(
+            f'Deliveries report job found {len(deliveries)}')
+
         if deliveries:
+            current_app.logger.info('Building report...')
+
             report = DeliveryService.build_report(deliveries)
 
+            current_app.logger.info('Sending report...')
+
             # send report
-            requests.post(
-                'https://hooks.slack.com/services/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',
-                data=json
+            slack.send_file(
+                report,
+                f'deliveries-report-{get_current_datetime().strftime("%Y-%m-%d")}.xlsx',
+                'xlsx',
             )
+
+            current_app.logger.info('Updating deliveries...')
+
+            # update deliveries
+            for delivery in deliveries:
+                delivery.update({'report_sent': True}, False)
+
+            BaseModel.commit()
 
     @staticmethod
     def build_report(deliveries: list[DeliveryModel]):
@@ -190,7 +207,7 @@ class DeliveryService(ABC):
                 for order_product in order.order_products:
                     rows.append(
                         ReportItem(
-                            delivery.deliverers[0].phone,
+                            delivery.deliverers[0].phone if delivery.deliverers else 'unknown',
                             delivery.offer_id,
                             order_product.product_sku,
                             order.shipping_address.to_address(),
