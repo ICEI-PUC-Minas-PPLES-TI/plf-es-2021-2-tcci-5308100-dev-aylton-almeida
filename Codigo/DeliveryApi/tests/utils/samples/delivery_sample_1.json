@@ -1,0 +1,133 @@
+{
+  "accessCode": "E1QKVF",
+  "deliveryDate": "2022-04-15T10:00:00+00:00",
+  "deliveryId": "0b685639-d358-45f0-89af-8607f2ef6ab3",
+  "endTime": "2022-05-06T02:34:44.522511+00:00",
+  "name": "Compra do Teste de Integração",
+  "offerId": "986b801a-1bee-45e5-b52b-3e4aa544bf88",
+  "orders": [
+    {
+      "buyerName": "Martin Pree",
+      "delivered": true,
+      "deliveryId": "0b685639-d358-45f0-89af-8607f2ef6ab3",
+      "orderId": "40fe0cfb-239d-4aa5-80a4-5936edf5e494",
+      "orderProducts": [
+        {
+          "name": "Calabresa",
+          "orderId": "40fe0cfb-239d-4aa5-80a4-5936edf5e494",
+          "orderProductId": 2078,
+          "productSku": 1630,
+          "quantity": 1,
+          "variant": ""
+        },
+        {
+          "name": "Caprese",
+          "orderId": "40fe0cfb-239d-4aa5-80a4-5936edf5e494",
+          "orderProductId": 2079,
+          "productSku": 1631,
+          "quantity": 1,
+          "variant": ""
+        },
+        {
+          "name": "Marguerita",
+          "orderId": "40fe0cfb-239d-4aa5-80a4-5936edf5e494",
+          "orderProductId": 2080,
+          "productSku": 1632,
+          "quantity": 1,
+          "variant": ""
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 799,
+        "cityName": "Nova Lima",
+        "countryState": "MG",
+        "lat": -20.1618405,
+        "lng": -43.9556038,
+        "neighborhoodName": "Alphaville - Lagoa dos Ingleses",
+        "postalCode": "34018162",
+        "streetName": "Rua São Mateus",
+        "streetNumber": "85",
+        "unitNumber": null
+      },
+      "shippingAddressId": 799
+    },
+    {
+      "buyerName": "Claudia Covell",
+      "delivered": true,
+      "deliveryId": "0b685639-d358-45f0-89af-8607f2ef6ab3",
+      "orderId": "4def2ad1-5d77-4737-b5cd-3debe2c5f570",
+      "orderProducts": [
+        {
+          "name": "Marguerita Verace",
+          "orderId": "4def2ad1-5d77-4737-b5cd-3debe2c5f570",
+          "orderProductId": 2077,
+          "productSku": 1633,
+          "quantity": 2,
+          "variant": ""
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 798,
+        "cityName": "Nova Lima",
+        "countryState": "MG",
+        "lat": -20.1618405,
+        "lng": -43.9556038,
+        "neighborhoodName": "Alphaville - Lagoa dos Ingleses",
+        "postalCode": "34018158",
+        "streetName": "Rua Paranapanema",
+        "streetNumber": "273",
+        "unitNumber": "Costa Laguna "
+      },
+      "shippingAddressId": 798
+    },
+    {
+      "buyerName": "Teri Mcfall",
+      "delivered": true,
+      "deliveryId": "0b685639-d358-45f0-89af-8607f2ef6ab3",
+      "orderId": "fc0b34ce-43a9-4db0-874a-70d0e51db686",
+      "orderProducts": [
+        {
+          "name": "Alla Salsiccia",
+          "orderId": "fc0b34ce-43a9-4db0-874a-70d0e51db686",
+          "orderProductId": 2074,
+          "productSku": 1629,
+          "quantity": 2,
+          "variant": ""
+        },
+        {
+          "name": "Calabresa",
+          "orderId": "fc0b34ce-43a9-4db0-874a-70d0e51db686",
+          "orderProductId": 2075,
+          "productSku": 1630,
+          "quantity": 1,
+          "variant": ""
+        },
+        {
+          "name": "Frango com Catupiry",
+          "orderId": "fc0b34ce-43a9-4db0-874a-70d0e51db686",
+          "orderProductId": 2076,
+          "productSku": 1677,
+          "quantity": 1,
+          "variant": ""
+        }
+      ],
+      "shippingAddress": {
+        "addressId": 797,
+        "cityName": "Nova Lima",
+        "countryState": "MG",
+        "lat": -20.1735668,
+        "lng": -43.9387595,
+        "neighborhoodName": "Alphaville - Lagoa dos Ingleses",
+        "postalCode": "34018088",
+        "streetName": "Rua das Araucárias",
+        "streetNumber": "960",
+        "unitNumber": "Residencial Árvores "
+      },
+      "shippingAddressId": 797
+    }
+  ],
+  "reportSent": false,
+  "startTime": "2022-05-06T02:34:26.254982+00:00",
+  "status": "finished",
+  "supplierId": 1023
+}
