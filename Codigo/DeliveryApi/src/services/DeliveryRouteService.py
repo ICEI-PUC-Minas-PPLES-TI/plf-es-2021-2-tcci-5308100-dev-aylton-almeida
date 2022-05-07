@@ -1,7 +1,7 @@
 from abc import ABC
 from datetime import time
 
-from src.libs.gcloud.maps import get_directions
+from src.libs.maps import get_directions
 from src.models.DeliveryModel import DeliveryModel
 from src.models.DeliveryRouteAddressModel import DeliveryRouteAddressModel
 from src.models.DeliveryRouteModel import DeliveryRouteModel

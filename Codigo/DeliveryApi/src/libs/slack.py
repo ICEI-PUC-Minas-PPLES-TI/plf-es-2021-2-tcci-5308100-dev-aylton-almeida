@@ -1,4 +1,3 @@
-import base64
 import os
 from io import BytesIO
 
@@ -10,8 +9,6 @@ DELIVERIES_CHANNEL = os.getenv('DELIVERIES_CHANNEL')
 
 def send_file(file: BytesIO, filename: str, filetype: str):
     """Sends file to slack"""
-
-    # TODO: test
 
     web_client = WebClient(token=SLACK_TOKEN)
 

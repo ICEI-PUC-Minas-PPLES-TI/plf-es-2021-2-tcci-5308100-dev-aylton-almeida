@@ -79,3 +79,31 @@ class AddressModelTests(BaseTest):
         # assert
         self.assertEqual(lat, address.lat)
         self.assertEqual(lng, address.lng)
+
+    def test_ToAddress_when_Default(self):
+        """Test to_address when default behavior"""
+
+        # when
+        data = {
+            'city_name': 'City X',
+            'street_name': 'Street X',
+            'street_number': '1',
+            'unit_number': '123',
+            'neighborhood_name': 'Neighborhood X',
+            'country_state': 'State',
+            'postal_code': '12345-678',
+
+        }
+        address = AddressModel(
+            data | {
+                'lat': 1.0,
+                'lng': 2.0
+            }
+        )
+
+        # then
+        response = address.to_address()
+
+        # assert
+        for key, value in data.items():
+            self.assertEqual(getattr(response, key), value)

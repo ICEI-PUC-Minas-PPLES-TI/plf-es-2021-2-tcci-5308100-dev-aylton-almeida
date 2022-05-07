@@ -13,7 +13,6 @@ from src.services.DeliveryService import DeliveryService
 def run_send_reports():
     """Runs the send_report job everyday at 20 PM"""
 
-    # TODO: test
     with scheduler.app.app_context():
         current_app.logger.info('Starting deliveries report job...')
 

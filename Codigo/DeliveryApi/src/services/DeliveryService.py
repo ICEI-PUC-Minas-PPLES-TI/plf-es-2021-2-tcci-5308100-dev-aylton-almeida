@@ -14,8 +14,8 @@ from src.models.DeliveryModel import DeliveryModel
 from src.services.DeliveryRouteService import DeliveryRouteService
 from src.services.OrderProblemService import OrderProblemService
 from src.services.OrderService import OrderService
+from src.utils import XLSXBuilder
 from src.utils.DateUtils import get_current_datetime
-from src.utils.XLSXBuilder import build_xlsx
 
 
 class DeliveryService(ABC):
@@ -54,8 +54,6 @@ class DeliveryService(ABC):
     @staticmethod
     def get_finished_not_sent_deliveries() -> list[DeliveryModel]:
         """Gets all deliveries that have finished but not sent with report"""
-
-        # TODO: test
 
         return DeliveryModel.get_all_filtered([
             DeliveryModel.status == DeliveryStatus.finished,
@@ -164,17 +162,15 @@ class DeliveryService(ABC):
     def send_report():
         """Sends a report containing all deliveries not yet sent"""
 
-        # TODO: test
-
         deliveries = DeliveryService.get_finished_not_sent_deliveries()
 
         current_app.logger.info(
-            f'Deliveries report job found {len(deliveries)}')
+            f'Deliveries report job found {len(deliveries) if deliveries else 0}')
 
         if deliveries:
             current_app.logger.info('Building report...')
 
-            report = DeliveryService.build_report(deliveries)
+            report = DeliveryService._build_report(deliveries)
 
             current_app.logger.info('Sending report...')
 
@@ -194,12 +190,10 @@ class DeliveryService(ABC):
             BaseModel.commit()
 
     @staticmethod
-    def build_report(deliveries: list[DeliveryModel]):
+    def _build_report(deliveries: list[DeliveryModel]):
         """Builds a report containing given deliveries"""
 
-        # TODO: test
-
-        headers = ReportItem.xlsx_headers()
+        headers = ReportItem.get_xlsx_headers()
 
         rows: list[ReportItem] = []
         for delivery in deliveries:
@@ -217,7 +211,7 @@ class DeliveryService(ABC):
                         )
                     )
 
-        return build_xlsx(
+        return XLSXBuilder.build_xlsx(
             headers,
             [row.to_xlsx_row() for row in rows]
         )

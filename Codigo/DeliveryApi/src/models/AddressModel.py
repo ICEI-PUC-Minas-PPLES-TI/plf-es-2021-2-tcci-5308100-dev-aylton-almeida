@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from src.classes.dataclasses.Address import Address
-from src.libs.gcloud.maps import get_lat_lng_from_address
+from src.libs.maps import get_lat_lng_from_address
 
 from . import db
 from .BaseModel import BaseModel
@@ -46,8 +46,6 @@ class AddressModel(BaseModel, db.Model):
 
     def to_address(self):
         """Converts to dataclass"""
-
-        # TODO: test
 
         return Address(
             city_name=self.city_name,

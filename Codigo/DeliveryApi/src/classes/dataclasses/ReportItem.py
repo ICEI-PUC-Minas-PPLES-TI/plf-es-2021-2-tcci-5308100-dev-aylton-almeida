@@ -20,8 +20,6 @@ class ReportItem:
     def to_xlsx_row(self):
         """Converts to xlsx row"""
 
-        # TODO: test
-
         return {
             'Entregador': self.deliverer_phone,
             'Oferta': self.offer_id,
@@ -33,7 +31,7 @@ class ReportItem:
         }
 
     @staticmethod
-    def xlsx_headers():
+    def get_xlsx_headers():
         """Returns xlsx headers"""
 
         return [

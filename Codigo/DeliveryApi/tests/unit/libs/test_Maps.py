@@ -2,13 +2,13 @@ from unittest.mock import MagicMock, patch
 
 from werkzeug.exceptions import NotFound
 
-from src.libs.gcloud.maps import get_directions, get_lat_lng_from_address
+from src.libs.maps import get_directions, get_lat_lng_from_address
 from tests.utils.models.BaseTest import BaseTest
 
 
 class MapsTests(BaseTest):
 
-    @patch('src.libs.gcloud.maps.Client')
+    @patch('src.libs.maps.Client')
     def test_GetLatLngFromAddress_when_LocationFound(self, mock_client: MagicMock):
         """Test get_lat_lng_from_address when location was found"""
 
@@ -32,7 +32,7 @@ class MapsTests(BaseTest):
         self.assertEqual(response.get('lng'), 2)
         mock_client.return_value.geocode.assert_called_once_with(address)
 
-    @patch('src.libs.gcloud.maps.Client')
+    @patch('src.libs.maps.Client')
     def test_GetLatLngFromAddress_when_LocationNotFound(self, mock_client: MagicMock):
         """Test get_lat_lng_from_address when location was not found"""
 
@@ -52,7 +52,7 @@ class MapsTests(BaseTest):
                          f'404 Not Found: Address not found: {address}')
         mock_client.return_value.geocode.assert_called_once_with(address)
 
-    @patch('src.libs.gcloud.maps.Client')
+    @patch('src.libs.maps.Client')
     def test_GetDirections_when_Default(self, mock_client: MagicMock):
         """Test get_directions when default behavior"""
 
