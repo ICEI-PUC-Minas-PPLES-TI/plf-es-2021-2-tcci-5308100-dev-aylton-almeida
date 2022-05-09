@@ -17,6 +17,8 @@ jobs:
       MQ_EXCHANGE: ${{secrets.MQ_EXCHANGE}}
       MQ_URL: ${{secrets.MQ_URL}}
       SECRET_KEY: ${{secrets.SECRET_KEY}}
+      SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+      DELIVERIES_CHANNEL: ${{secrets.DELIVERIES_CHANNEL}}
       FLASK_ENV: production
       FLASK_APP: main.py
 

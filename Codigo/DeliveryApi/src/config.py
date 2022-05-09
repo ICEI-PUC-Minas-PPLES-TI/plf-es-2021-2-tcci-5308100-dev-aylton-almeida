@@ -11,6 +11,8 @@ class Development():
     MQ_EXCHANGE = os.getenv('MQ_EXCHANGE')
     MQ_URL = os.getenv('MQ_URL')
     SECRET_KEY = os.getenv('SECRET_KEY')
+    SLACK_TOKEN = os.getenv('SLACK_TOKEN')
+    DELIVERIES_CHANNEL = os.getenv('DELIVERIES_CHANNEL')
 
 
 class Testing(Development):

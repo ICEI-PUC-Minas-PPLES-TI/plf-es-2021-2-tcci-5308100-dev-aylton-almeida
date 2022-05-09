@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from src.libs.gcloud.maps import get_lat_lng_from_address
+from src.classes.dataclasses.Address import Address
+from src.libs.maps import get_lat_lng_from_address
 
 from . import db
 from .BaseModel import BaseModel
@@ -42,6 +43,19 @@ class AddressModel(BaseModel, db.Model):
         return f'''{
             self.street_name
             } {self.street_number} {self.neighborhood_name} {self.city_name} {self.country_state} {self.postal_code}'''
+
+    def to_address(self):
+        """Converts to dataclass"""
+
+        return Address(
+            city_name=self.city_name,
+            country_state=self.country_state,
+            street_name=self.street_name,
+            street_number=self.street_number,
+            unit_number=self.unit_number,
+            postal_code=self.postal_code,
+            neighborhood_name=self.neighborhood_name,
+        )
 
     def set_lat_lng(self):
         """Based on address sets latitude and longitude values"""

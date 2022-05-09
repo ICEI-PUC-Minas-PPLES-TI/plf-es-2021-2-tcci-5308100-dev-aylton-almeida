@@ -16,6 +16,7 @@ jobs:
       MQ_URL: amqps://mqadmin:mqadmin@localhost:5672
       FLASK_ENV: testing
       FLASK_APP: main.py
+      DELIVERIES_CHANNEL: "#test_channel"
 
     runs-on: ubuntu-latest
 

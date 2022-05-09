@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from io import BytesIO
 from unittest.mock import MagicMock, call, patch
 from uuid import uuid4
 
@@ -500,3 +501,106 @@ class DeliveryServiceTests(BaseTest):
             delivery,
             'delivery.delivery.finished'
         )
+
+    @patch.object(DeliveryModel, 'get_all_filtered')
+    def test_GetFinishedNotSentDeliveries_when_Default(self, mock_get_all_filtered: MagicMock):
+        """Test get_finished_not_sent_deliveries when default behavior"""
+
+        # when
+        deliveries = [DeliveryModel({'delivery_id': uuid4()})
+                      for _ in range(3)]
+
+        # mock
+        mock_get_all_filtered.return_value = deliveries
+
+        # then
+        response = DeliveryService.get_finished_not_sent_deliveries()
+
+        # assert
+        self.assertEqual(response, deliveries)
+        self.assertTrue(
+            mock_get_all_filtered.call_args_list[0][0][0][0].compare(
+                DeliveryModel.status == DeliveryStatus.finished
+            ),
+            'Assert status == finished filter'
+        )
+        self.assertTrue(
+            mock_get_all_filtered.call_args_list[0][0][0][1].compare(
+                DeliveryModel.report_sent.is_(False)
+            ),
+            'Assert report sent is false filter'
+        )
+
+    @patch.object(DeliveryService, 'get_finished_not_sent_deliveries')
+    @patch.object(DeliveryService, '_build_report')
+    @patch('src.services.DeliveryService.slack.send_file')
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(BaseModel, 'commit')
+    def test_SendReport_when_DeliveriesFound(
+        self,
+        mock_commit: MagicMock,
+        mock_get_current_datetime: MagicMock,
+        mock_send_file: MagicMock,
+        mock_build_report: MagicMock,
+        mock_get_finished_not_sent_deliveries: MagicMock,
+    ):
+        """Test send_report when deliveries found"""
+
+        # when
+        report = BytesIO()
+        now = datetime.now()
+
+        # mock
+        deliveries = [MagicMock() for _ in range(3)]
+        mock_get_finished_not_sent_deliveries.return_value = deliveries
+        mock_build_report.return_value = report
+        mock_get_current_datetime.return_value = now
+
+        # then
+        DeliveryService.send_report()
+
+        # assert
+        mock_get_finished_not_sent_deliveries.assert_called_once_with()
+        mock_build_report.assert_called_once_with(deliveries)
+        mock_send_file.assert_called_once_with(
+            report,
+            f'deliveries-report-{now.strftime("%Y-%m-%d")}.xlsx',
+            'xlsx',
+        )
+        for delivery in deliveries:
+            delivery.update.assert_called_once_with(
+                {'report_sent': True}, False)
+        mock_commit.assert_called_once_with()
+
+    @patch.object(DeliveryService, 'get_finished_not_sent_deliveries')
+    @patch.object(DeliveryService, '_build_report')
+    @patch('src.services.DeliveryService.slack.send_file')
+    @patch('src.services.DeliveryService.get_current_datetime')
+    @patch.object(BaseModel, 'commit')
+    def test_SendReport_when_DeliveriesNotFound(
+        self,
+        mock_commit: MagicMock,
+        mock_get_current_datetime: MagicMock,
+        mock_send_file: MagicMock,
+        mock_build_report: MagicMock,
+        mock_get_finished_not_sent_deliveries: MagicMock,
+    ):
+        """Test send_report when deliveries not found"""
+
+        # when
+        report = BytesIO()
+        now = datetime.now()
+
+        # mock
+        mock_get_finished_not_sent_deliveries.return_value = None
+        mock_build_report.return_value = report
+        mock_get_current_datetime.return_value = now
+
+        # then
+        DeliveryService.send_report()
+
+        # assert
+        mock_get_finished_not_sent_deliveries.assert_called_once_with()
+        mock_build_report.assert_not_called()
+        mock_send_file.assert_not_called()
+        mock_commit.assert_not_called()

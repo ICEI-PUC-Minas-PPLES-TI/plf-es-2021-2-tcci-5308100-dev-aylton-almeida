@@ -3,6 +3,7 @@ from __future__ import annotations
 from sqlalchemy.dialects.postgresql import UUID
 
 from src.models.AddressModel import AddressModel
+from src.models.OrderProblemModel import OrderProblemModel
 from src.models.OrderProductModel import OrderProductModel
 
 from . import db
@@ -33,6 +34,8 @@ class OrderModel(BaseModel, db.Model):
         'OrderProductModel',
         passive_deletes=True
     )
+    order_problem: OrderProblemModel = db.relationship(
+        'OrderProblemModel', passive_deletes=True, uselist=False)
 
     def __init__(self, data: dict, _session=None) -> None:
         super().__init__(_session=_session)

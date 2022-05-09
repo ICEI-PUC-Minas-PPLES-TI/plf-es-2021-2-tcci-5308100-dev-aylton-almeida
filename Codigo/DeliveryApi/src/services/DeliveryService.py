@@ -1,16 +1,20 @@
 from abc import ABC
 from uuid import UUID
 
+from flask import current_app
 from werkzeug.exceptions import BadRequest, NotFound, Unauthorized
 
+from src.classes.dataclasses.ReportItem import ReportItem
 from src.classes.DeliveryStatus import DeliveryStatus
 from src.classes.ProblemType import ProblemType
+from src.libs import slack
 from src.libs.rabbitmq import rabbit
 from src.models.BaseModel import BaseModel
 from src.models.DeliveryModel import DeliveryModel
 from src.services.DeliveryRouteService import DeliveryRouteService
 from src.services.OrderProblemService import OrderProblemService
 from src.services.OrderService import OrderService
+from src.utils import XLSXBuilder
 from src.utils.DateUtils import get_current_datetime
 
 
@@ -45,6 +49,15 @@ class DeliveryService(ABC):
 
         return DeliveryModel.get_all_filtered([
             DeliveryModel.supplier_id == supplier_id
+        ])
+
+    @staticmethod
+    def get_finished_not_sent_deliveries() -> list[DeliveryModel]:
+        """Gets all deliveries that have finished but not sent with report"""
+
+        return DeliveryModel.get_all_filtered([
+            DeliveryModel.status == DeliveryStatus.finished,
+            DeliveryModel.report_sent.is_(False)
         ])
 
     @staticmethod
@@ -144,3 +157,61 @@ class DeliveryService(ABC):
         BaseModel.commit()
 
         return False
+
+    @staticmethod
+    def send_report():
+        """Sends a report containing all deliveries not yet sent"""
+
+        deliveries = DeliveryService.get_finished_not_sent_deliveries()
+
+        current_app.logger.info(
+            f'Deliveries report job found {len(deliveries) if deliveries else 0}')
+
+        if deliveries:
+            current_app.logger.info('Building report...')
+
+            report = DeliveryService._build_report(deliveries)
+
+            current_app.logger.info('Sending report...')
+
+            # send report
+            slack.send_file(
+                report,
+                f'deliveries-report-{get_current_datetime().strftime("%Y-%m-%d")}.xlsx',
+                'xlsx',
+            )
+
+            current_app.logger.info('Updating deliveries...')
+
+            # update deliveries
+            for delivery in deliveries:
+                delivery.update({'report_sent': True}, False)
+
+            BaseModel.commit()
+
+    @staticmethod
+    def _build_report(deliveries: list[DeliveryModel]):
+        """Builds a report containing given deliveries"""
+
+        headers = ReportItem.get_xlsx_headers()
+
+        rows: list[ReportItem] = []
+        for delivery in deliveries:
+            for order in delivery.orders:
+                for order_product in order.order_products:
+                    rows.append(
+                        ReportItem(
+                            delivery.deliverers[0].phone if delivery.deliverers else 'unknown',
+                            delivery.offer_id,
+                            order_product.product_sku,
+                            order.shipping_address.to_address(),
+                            order.updated_at.time(),
+                            order.order_problem.type if order.order_problem else '',
+                            order.order_problem.description if order.order_problem else ''
+                        )
+                    )
+
+        return XLSXBuilder.build_xlsx(
+            headers,
+            [row.to_xlsx_row() for row in rows]
+        )

@@ -14,6 +14,8 @@ from src.controllers.DeliveryController import (DeliveryListResource,
                                                 VerifyDeliveryResource)
 from src.controllers.TestsController import IntegrationTestResource
 from src.events.listen import *
+from src.jobs import *
+from src.jobs.Scheduler import scheduler
 from src.models import *
 
 from .config import app_config
@@ -91,6 +93,10 @@ def create_app(env_name):
         msg_parser=msg_parser,
         development=app.config.get('ENV') != 'production'
     )
+
+    # scheduler initialization
+    scheduler.init_app(app)
+    scheduler.start()
 
     @app.route(PATH+'/ping', methods=['GET'])
     def _():
