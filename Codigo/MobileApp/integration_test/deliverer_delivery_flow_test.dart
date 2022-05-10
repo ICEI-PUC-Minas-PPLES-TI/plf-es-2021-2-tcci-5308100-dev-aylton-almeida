@@ -148,6 +148,7 @@ Future<void> main() async {
         expect(find.text('delivery_code_form_header'.tr), findsOneWidget);
       });
     },
-    skip: true,
+    skip:
+        true, // ? Skipped because it needs the user to allow location permission
   );
 }
