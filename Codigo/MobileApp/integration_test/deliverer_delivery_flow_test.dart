@@ -68,32 +68,6 @@ Future<void> main() async {
             find.text('invalid_delivery_code_input_error'.tr), findsOneWidget);
       });
 
-      testWidgets('Delivers two deliveries at once',
-          (WidgetTester tester) async {
-        // when
-        var delivery = await setupDelivery();
-
-        // Initialize app
-        await tester.pumpWidget(const MyApp());
-        await tester.pumpAndSettle();
-
-        // Delivering first one
-        await testSignInDeliverer(
-            tester: tester, deliveryCode: delivery.accessCode!);
-        await tester.pumpAndSettle();
-        await deliverDelivery(tester: tester, delivery: delivery);
-        await tester.pumpAndSettle();
-
-        // Generate a new delivery
-        delivery = await setupDelivery();
-
-        // Delivering second one
-        await testSignInDeliverer(
-            tester: tester, deliveryCode: delivery.accessCode!);
-        await tester.pumpAndSettle();
-        await deliverDelivery(tester: tester, delivery: delivery);
-      });
-
       testWidgets('See delivery details and cancel it.',
           (WidgetTester tester) async {
         // when
