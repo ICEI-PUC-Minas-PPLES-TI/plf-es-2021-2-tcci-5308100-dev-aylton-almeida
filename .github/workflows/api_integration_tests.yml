@@ -43,6 +43,5 @@ jobs:
 
       - name: Run integration tests
         run: |
-          docker ps
           coverage run -m unittest tests/integration/test_GenerateOptmizedRoute.py
           coverage run -m unittest tests/integration/test_SendDailyReport.py
