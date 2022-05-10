@@ -4,7 +4,7 @@ Api used to manage deliveries for the mobile app
 
 ## Structure
 
-- _apis:_ Communication with other zapt apis should go here
+- _apis:_ Communication with other internal apis should go here
 - _classes:_ Generic classes such as enums go here
 - _controllers:_ All route controllers go here
 - _events:_ Divided between listen and send, for using with RabbitMQ
@@ -28,7 +28,7 @@ Api used to manage deliveries for the mobile app
   pip install -r requirements.txt && python run.py
 ```
 
-- On VScode you can simply press `F5`
+- On VScode you can simply press `F5` after installing the python extension
 
 ## Migrations
 
@@ -48,7 +48,3 @@ Api used to manage deliveries for the mobile app
   # Run tests
   python -m unittest discover -s tests -p 'test_*.py'
 ```
-
-## Authors
-
-- Aylton Almeida

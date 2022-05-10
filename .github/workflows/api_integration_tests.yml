@@ -41,4 +41,6 @@ jobs:
         run: docker compose up -d db rabbit
 
       - name: Run integration tests
-        run: coverage run -m unittest discover -s tests/integration -p 'test_*.py'
+        run: |
+          python -m unittest .\tests\integration\test_GenerateOptmizedRoute.py
+          python -m unittest .\tests\integration\test_SendDailyReport.py

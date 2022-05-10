@@ -1,3 +1,6 @@
 # Código do Projeto
 
-Mantenha neste diretório todo o código do projeto. Se necessário, descreva neste arquivo aspectos relevantes da estrutura de diretórios criada para organização do código.
+Este diretório mantém o código do sistema desenvolvido. Ele está organizado nas seguintes pastas:
+
+- `/DeliveryApi:` Pasta em que está armazenado o código da API, escrita em python, desenvolvida para o sistema.
+- `/MobileApp`: Pasta em que está armazenado o código da aplicação mobile, desenvolvida com flutter, desenvolvida para o sistema.
