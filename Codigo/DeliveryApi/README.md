@@ -18,11 +18,7 @@ Api used to manage deliveries for the mobile app
 
 ## Running
 
-```bash
-  docker-compose --env-file .env up
-```
-
-- Alternatively you can install `Python` and `pip` and run the following commands
+- Install `Python` and `pip` and run the following commands
 
 ```bash
   pip install -r requirements.txt && python run.py

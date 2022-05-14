@@ -8,7 +8,7 @@ doc_spec = {
         version='1.0.0',
         openapi_version="3.0.2",
         info=dict(
-            description="Zapt API responsible for deliveries management"),
+            description="API responsible for deliveries management"),
         plugins=[MarshmallowPlugin()],
         components={
             'securitySchemes': {
